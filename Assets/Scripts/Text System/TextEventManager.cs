@@ -25,6 +25,10 @@ public class TextEventManager : MonoBehaviour
 
     void Update()
     {
+        foreach(TransformEvent trans in currentTextObject.transformList)
+        {
+            if(!trans.reached) trans.transformProcess();
+        }
     }
 
     IEnumerator typewriterFunc()
@@ -32,7 +36,12 @@ public class TextEventManager : MonoBehaviour
         numberOfChar = textBox.text.Length;
         textBox.maxVisibleCharacters = 0;
 
-        foreach(FuncEvent func in currentTextObject.funcList)
+        foreach (TransformEvent trans in currentTextObject.transformList)
+        {
+            trans.getVars();
+        }
+
+        foreach (FuncEvent func in currentTextObject.funcList)
         {
             func.callFunc();
         }
