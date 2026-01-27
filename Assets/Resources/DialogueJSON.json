@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "dialogue": "AAAAAAAAA",
+      "speaker_name": "Tester",
+      "next_id": 1,
+      "choices": {
+        "strings": [ "Choice A", "Choice B" ],
+        "ids": [ 1, -1 ]
+      },
+      "functions": [
+        {
+          "obj_name": "Cube",
+          "script_name": "test",
+          "func_name": "hi",
+          "args": [ "1","2" ]
+        }
+      ],
+      "transforms": [
+        {
+          "obj_name": "Cube",
+          "move_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "move_speed": 1,
+          "move_interp_type": 2,
+          "move_target_type": 1,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "dialogue": "AAAAAAAAAB",
+      "speaker_name": "Tester",
+      "next_id": -1,
+      "functions": [
+        {
+          "obj_name": "Cube",
+          "script_name": "test",
+          "func_name": "hi2",
+          "args": ""
+        }
+      ]
+    }
+  ]
+}
