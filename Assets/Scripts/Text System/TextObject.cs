@@ -247,6 +247,9 @@ public class TransformEvent
 
     public class choiceEvent
     {
+        public List<string> labels;
+        public List<int> ids;
+
 
     }
 }
