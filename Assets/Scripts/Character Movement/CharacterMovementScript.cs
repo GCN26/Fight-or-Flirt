@@ -6,6 +6,8 @@ public class CharacterMovementScript : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveInput;
 
+    public bool allowMove;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -14,9 +16,17 @@ public class CharacterMovementScript : MonoBehaviour
 
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.z = Input.GetAxisRaw("Vertical");
+        if (allowMove)
+        {
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.z = Input.GetAxisRaw("Vertical");
 
+        }
+        else
+        {
+            moveInput.x = 0;
+            moveInput.z = 0;
+        }
         moveInput.Normalize();
     }
 

@@ -14,7 +14,7 @@
           "obj_name": "Cube",
           "script_name": "test",
           "func_name": "hi",
-          "args": [ "1","2" ]
+          "args": [ "1", "2" ]
         }
       ],
       "transforms": [
@@ -41,9 +41,9 @@
     },
     {
       "id": 1,
-      "dialogue": "AAAAAAAAAB",
+      "dialogue": "This is a <color=red>test menu</color>! Press space to advance! (Or to speed up if the text isn't complete yet!)",
       "speaker_name": "Tester",
-      "next_id": -1,
+      "next_id": 2,
       "functions": [
         {
           "obj_name": "Cube",
@@ -52,6 +52,18 @@
           "args": ""
         }
       ]
+    },
+    {
+      "id": 2,
+      "dialogue": "Neat, huh?",
+      "speaker_name": "Tester",
+      "next_id": 3
+    },
+    {
+      "id": 3,
+      "dialogue": "By next playtest, choices and character portraits should be added!",
+      "speaker_name": "Tester",
+      "next_id": -1
     }
   ]
 }

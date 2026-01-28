@@ -1,13 +1,14 @@
 using System.Collections;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
 public class TextEventManager : MonoBehaviour
 {
-    public int textSpeed;
+    public float textSpeed = 3;
 
-    int normalTextSpeed = 16;
-    int fastTextSpeed = 48;
+    int normalTextSpeed = 3;
+    int fastTextSpeed = 9;
 
     public int nextIndex;
     public TextObject currentTextObject;
@@ -18,13 +19,12 @@ public class TextEventManager : MonoBehaviour
 
     public TextAsset jsonFile;
     public string jsonStr;
-
-    //Written Variables
+    
     int numberOfChar = 0;
-
     public bool textOpen;
-
     Coroutine textCo;
+
+    public CharacterMovementScript charMove;
 
     void Start()
     {
@@ -33,15 +33,17 @@ public class TextEventManager : MonoBehaviour
 
     void Update()
     {
+        charMove.allowMove = !textOpen;
         if (Input.GetKeyDown(KeyCode.T) && !textOpen)
         {
             textOpen = true;
-            nextIndex = 0;
+            nextIndex = 1;
             textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)
         {
-            advanceText();
+            if(textBox.maxVisibleCharacters == numberOfChar) advanceText();
+            else textSpeed = fastTextSpeed;
         }
         foreach(TransformEvent trans in currentTextObject.transforms)
         {
@@ -56,11 +58,10 @@ public class TextEventManager : MonoBehaviour
 
         textBox.text = currentTextObject.dialogue;
         textboxPanel.SetActive(true);
-
-
-        numberOfChar = textBox.text.Length;
         textBox.maxVisibleCharacters = 0;
-        foreach(TransformEvent trans in currentTextObject.transforms)
+        numberOfChar = textBox.text.Length;
+
+        foreach (TransformEvent trans in currentTextObject.transforms)
         {
             trans.clearReaches();
         }
@@ -72,7 +73,9 @@ public class TextEventManager : MonoBehaviour
         while (textBox.maxVisibleCharacters < numberOfChar)
         {
             textBox.maxVisibleCharacters++;
-            yield return new WaitForSeconds(.1125f);
+            char curChar = textBox.text[textBox.maxVisibleCharacters-1];
+            if (curChar == '.' || curChar == '!' || curChar == '?' || curChar == ',' || curChar == ':' || curChar == ';') yield return new WaitForSeconds(.25f * (1 / textSpeed));
+            else yield return new WaitForSeconds(.1125f*(1/textSpeed));
         }
         nextIndex = currentTextObject.next_id;
     }
@@ -85,6 +88,7 @@ public class TextEventManager : MonoBehaviour
     {
         //account for text skipping
         if (textCo != null) StopCoroutine(textCo);
+        textSpeed = normalTextSpeed;
 
         nextIndex = currentTextObject.next_id;
         if (nextIndex != -1) textCo = StartCoroutine(typewriterFunc());
