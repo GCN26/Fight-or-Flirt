@@ -2,13 +2,14 @@ using System.Collections;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextEventManager : MonoBehaviour
 {
     public float textSpeed = 3;
 
-    int normalTextSpeed = 3;
-    int fastTextSpeed = 9;
+    int normalTextSpeed = 5;
+    int fastTextSpeed = 15;
 
     public int nextIndex;
     public TextObject currentTextObject;
@@ -22,7 +23,8 @@ public class TextEventManager : MonoBehaviour
     
     int numberOfChar = 0;
     public bool textOpen;
-    Coroutine textCo;
+    Coroutine textCo, buttonCo;
+    [SerializeField] Button[] buttonArr;
 
     public CharacterMovementScript charMove;
 
@@ -114,5 +116,28 @@ public class TextEventManager : MonoBehaviour
             textboxPanel.SetActive(false);
             if(textCo != null) StopCoroutine(textCo);
         }
+    }
+
+    public void choiceButtonPress(int buttonIndex)
+    {
+        if(buttonCo != null) StopCoroutine(buttonCo);
+
+        for (int i = 0; i < buttonArr.Length; i++)
+        {
+            buttonArr[i].interactable = false;
+            if (i == buttonIndex) { 
+                //highlight
+            }
+            else buttonArr[i].gameObject.SetActive(false);
+        }
+        buttonCo = StartCoroutine(buttonPressCoroutine(buttonIndex));
+    }
+
+    IEnumerator buttonPressCoroutine(int buttonIndex)
+    {
+        yield return new WaitForSeconds(.45f);
+        Debug.Log(buttonIndex * 10);
+        buttonArr[buttonIndex].gameObject.SetActive(false);
+        StopCoroutine(buttonCo);
     }
 }
