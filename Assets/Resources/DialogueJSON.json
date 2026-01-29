@@ -4,7 +4,6 @@
       "id": 0,
       "dialogue": "AAAAAAAAA",
       "speaker_name": "Tester",
-      "next_id": 1,
       "choices": {
         "strings": [ "Choice A", "Choice B" ],
         "ids": [ 1, -1 ]

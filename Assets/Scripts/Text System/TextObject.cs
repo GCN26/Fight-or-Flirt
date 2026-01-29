@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using System.Threading;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using System.Linq;
+using Unity.VisualScripting;
 
 [Serializable]
 public class TextObject
@@ -12,9 +14,9 @@ public class TextObject
     public string speaker_name;
     public int next_id;
 
-    //choices
     public List<FuncEvent> functions;
     public List<TransformEvent> transforms;
+    public ChoiceEvent choices;
 
     public void setVars()
     {
@@ -26,7 +28,7 @@ public class TextObject
 
         int loopF = 0;
         int loopT = 0;
-        foreach(var fn in DialogueArrayManager.objArr.data[id].functions)
+        foreach (var fn in DialogueArrayManager.objArr.data[id].functions)
         {
             functions.Add(fn.setVars(id, loopF));
             loopF++;
@@ -36,6 +38,19 @@ public class TextObject
             transforms.Add(tr.setVars(id, loopT));
             loopT++;
         }
+        if (DialogueArrayManager.objArr.data[id].choices.strings != null)
+        {
+            choices.setVars(id);
+        }
+    }
+
+    public bool checkReaches()
+    {
+        foreach(TransformEvent tr in transforms)
+        {
+            if(!tr.reached) return false;
+        }
+        return true;
     }
 }
 
@@ -81,6 +96,13 @@ public class FuncEvent
         }
 
         funcMethod.Invoke(funcObj, argsA);
+    }
+    public void resetVars()
+    {
+        obj_name = null;
+        script_name = null;
+        func_name = null;
+        args = null;
     }
 }
 
@@ -244,12 +266,25 @@ public class TransformEvent
             reached = true;
         }
     }
+}
+[Serializable]
+public class ChoiceEvent
+{
+    public List<string> strings;
+    public List<int> ids;
 
-    public class choiceEvent
+    public ChoiceEvent setVars(int id)
     {
-        public List<string> labels;
-        public List<int> ids;
+        var prefix = DialogueArrayManager.objArr.data[id].choices;
 
+        strings = prefix.strings;
+        ids = prefix.ids;
 
+        return this;
+    }
+    public void resetVars()
+    {
+        strings = null;
+        ids = null;
     }
 }

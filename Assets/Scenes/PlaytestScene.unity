@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &52493893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1364,7 +1364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &196998320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5185,7 +5185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727878790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7864,7 +7864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1217214075
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9954,7 +9954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d83adb8b79dcc446b8263b69cd7504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextEventManager
-  textSpeed: 3
+  textSpeed: 5
   nextIndex: 1
   currentTextObject:
     id: 1
@@ -9964,6 +9964,9 @@ MonoBehaviour:
     next_id: 1
     functions: []
     transforms: []
+    choices:
+      strings: []
+      ids: 
   textboxPanel: {fileID: 539079676}
   textBox: {fileID: 529141219}
   bar: 0
@@ -9975,6 +9978,11 @@ MonoBehaviour:
   - {fileID: 1791472378}
   - {fileID: 196998321}
   - {fileID: 52493894}
+  buttonTextArr:
+  - {fileID: 1335759191}
+  - {fileID: 1855038386}
+  - {fileID: 1244523049}
+  - {fileID: 1425418233}
   charMove: {fileID: 727330567}
 --- !u!4 &1497915631
 Transform:
@@ -12013,7 +12021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1791472377
 RectTransform:
   m_ObjectHideFlags: 0
