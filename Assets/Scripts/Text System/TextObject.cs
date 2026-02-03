@@ -38,10 +38,7 @@ public class TextObject
             transforms.Add(tr.setVars(id, loopT));
             loopT++;
         }
-        if (DialogueArrayManager.objArr.data[id].choices.strings != null)
-        {
-            choices.setVars(id);
-        }
+        choices.setVars(id);
     }
 
     public bool checkReaches()
@@ -284,7 +281,7 @@ public class ChoiceEvent
     }
     public void resetVars()
     {
-        strings = null;
-        ids = null;
+        //strings = null;
+        //ids = null;
     }
 }

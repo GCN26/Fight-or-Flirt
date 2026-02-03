@@ -43,6 +43,10 @@
       "dialogue": "This is a <color=red>test menu</color>! Press space to advance! (Or to speed up if the text isn't complete yet!)",
       "speaker_name": "Tester",
       "next_id": 2,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
       "functions": [
         {
           "obj_name": "Cube",
@@ -56,13 +60,81 @@
       "id": 2,
       "dialogue": "Neat, huh?",
       "speaker_name": "Tester",
-      "next_id": 3
+      "next_id": 3,
+      "choices": {
+        "strings": [],
+        "ids": []
+      }
     },
     {
       "id": 3,
       "dialogue": "By next playtest, choices and character portraits should be added!",
       "speaker_name": "Tester",
-      "next_id": -1
+      "next_id": 4,
+      "choices": {
+        "strings": [],
+        "ids": []
+      }
+    },
+    {
+      "id": 4,
+      "dialogue": "oh hey its been added",
+      "speaker_name": "Tester",
+      "choices": {
+        "strings": [ "cool", "sick" ],
+        "ids": [ 5, 5 ]
+      },
+      "transforms": [
+        {
+          "obj_name": "CharPortrait1",
+          "move_vec": {
+            "x": -2000,
+            "y": 0,
+            "z": 0
+          },
+          "move_speed": 1,
+          "move_interp_type": 2,
+          "move_target_type": 0,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "dialogue": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "transforms": [
+        {
+          "obj_name": "CharPortrait1",
+          "move_vec": {
+            "x": 2000,
+            "y": 0,
+            "z": 0
+          },
+          "move_speed": 2,
+          "move_interp_type": 2,
+          "move_target_type": 0,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        }
+      ]
     }
   ]
 }
