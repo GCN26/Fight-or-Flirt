@@ -2154,29 +2154,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
   party:
-  - charName: PartyA
-    hp: 100
+  - hp: 100
     infatuation: 0
     attack: 10
-    defense: 5
+    defense: 8
     speed: 8
     looks: 10
-    intelligence: 7
-    charisma: 4
+    intelligence: 8
+    charisma: 3
     movePower: 15
     level: 1
     attackList: []
   enemies:
-  - charName: EnemyA
-    hp: 100
+  - hp: 100
     infatuation: 200
-    attack: 4
+    attack: 6
     defense: 4
     speed: 4
-    looks: 4
+    looks: 6
     intelligence: 4
-    charisma: 4
-    movePower: 4
+    charisma: 0
+    movePower: 15
     level: 1
     attackList: []
   battleList: []
