@@ -24,7 +24,14 @@ public class Combatant
 
     public int level = 1;
 
+    public int attackTargetIndex;
+    public int attackListIndex;
+
+    public Combatant target;
+    public List<int> attackListIndexes;
     public List<Attack> attackList;
+
+    Attack selectedAttack;
 
     public enum status
     {
@@ -34,19 +41,35 @@ public class Combatant
         Dead
     }
 
-    public void attackEnemy(Combatant enemy)
+    public void getAttacksInList()
     {
+        for(int i = 0; i < attackListIndexes.Count; i++)
+        {
+            attackList.Add(Attacks.attackList[attackListIndexes[i]]);
+        }
+    }
+
+    public void attackEnemy()
+    {
+        selectedAttack = attackList[attackListIndex];
+
+        movePower = selectedAttack.power;
+
         float crit = 1;
         int random = UnityEngine.Random.Range(0, 16);
         if (random == 0) crit = 1.75f;
-        int damage = (int)((movePower*attack*level)*(intelligence/3)*crit / (enemy.defense*enemy.level));
-        enemy.hp -= damage;
-        Debug.Log(charName + " hits " + enemy.charName + " for " + damage.ToString());
+        int damage = (int)((movePower*attack*level)*crit / (target.defense*target.level));
+        target.hp -= damage;
+        Debug.Log(charName + " hits " + target.charName + " for " + damage.ToString() + " with " + selectedAttack.name);
     }
-    public void rizzEnemy(Combatant enemy)
+    public void rizzEnemy()
     {
-        int rizz = (int)((movePower * charisma) * looks * (looks / enemy.intelligence));
-        enemy.infatuation -= rizz;
+        selectedAttack = attackList[attackListIndex];
+
+        movePower = selectedAttack.power;
+
+        int rizz = (int)((movePower * charisma) * looks * (looks / target.intelligence));
+        target.infatuation -= rizz;
         Debug.Log(rizz);
     }
 }
@@ -56,7 +79,7 @@ public static class Attacks
     public static Attack[] attackList =
     {
         new Attack("Slash","Basic Sword Slash",15,0),
-        new Attack("Fire Slash","Firey Sword Slash",15,0),
+        new Attack("Fire Slash","Firey Sword Slash",115,0),
     };
 }
 
@@ -82,4 +105,5 @@ public class Attack
         this.power = power;
         this.type = (AttackType)type;
     }
+    //Add additional effects as a switch statement
 }

@@ -22,11 +22,26 @@ public class BattleManager : MonoBehaviour
     public void testFight()
     {
         //party[0].attackEnemy(enemies[0]);
-        battleCo = StartCoroutine(battleProcess());
     }
     public void testFlirt()
     {
         //party[0].rizzEnemy(enemies[0]);
+    }
+
+    public void startBattle()
+    {
+        foreach (Combatant partyMember in party)
+        {
+            partyMember.attackList.Clear();
+            partyMember.getAttacksInList();
+        }
+        foreach (Combatant enemy in enemies)
+        {
+            enemy.attackList.Clear();
+            enemy.getAttacksInList();
+        }
+
+        battleCo = StartCoroutine(battleProcess());
     }
 
     IEnumerator battleProcess()
@@ -74,6 +89,7 @@ public class BattleManager : MonoBehaviour
         {
             if (party[currentPartyIndex].hp > 0)
             {
+                party[currentPartyIndex].target = enemies[UnityEngine.Random.Range(0, enemies.Length)];
                 battleList.Add(party[currentPartyIndex]);
                 currentPartyIndex++;
             }
@@ -83,6 +99,7 @@ public class BattleManager : MonoBehaviour
         {
             if (enemies[enemyIndex].hp > 0)
             {
+                enemies[enemyIndex].target = party[checkSlots(UnityEngine.Random.Range(0, party.Length))];
                 battleList.Add(enemies[enemyIndex]);
                 enemyIndex++;
             }
@@ -91,7 +108,7 @@ public class BattleManager : MonoBehaviour
         //Get Enemy Turn order
         foreach (Combatant comb in battleList)
         {
-            comb.attackEnemy(enemies[0]);
+            if(comb.hp>0) comb.attackEnemy();
         }
 
         currentPartyIndex = 0;
