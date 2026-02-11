@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 using static UnityEngine.GraphicsBuffer;
 
 public class BattleManager : MonoBehaviour
@@ -36,6 +37,8 @@ public class BattleManager : MonoBehaviour
     //Change type of array to buttons?
     public GameObject[] attackTargetButtons;
     public GameObject[] rizzTargetButtons;
+    public TextMeshProUGUI[] attackTargetLabels, rizzTargetLabels;
+    //get these into a class
 
     public GameObject attackMovePanel;
     public GameObject rizzMovePanel;
@@ -48,6 +51,14 @@ public class BattleManager : MonoBehaviour
     {
         
         //battleCo = StartCoroutine(battleProcess());
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && !battleOpen)
+        {
+            startBattle();
+            party[0].hp = party[0].maxHp;
+        }
     }
 
     public void fightButton(int index)
@@ -66,9 +77,7 @@ public class BattleManager : MonoBehaviour
         if (!battleOpen)
         {
             enemies.Add(new(enemyList.enemyTable[0]));
-            enemies.Add(new(enemyList.enemyTable[2]));
-            enemies.Add(new(enemyList.enemyTable[4]));
-            enemies.Add(new(enemyList.enemyTable[3]));
+            enemies.Add(new(enemyList.enemyTable[1]));
 
             battleOpen = true;
             //Add way to customize encounters
@@ -243,13 +252,23 @@ public class BattleManager : MonoBehaviour
         for(int i = 0; i < party.Length; i++)
         {
             partyHPSliders[i].gameObject.SetActive(true);
+            for(int j = 0; j < party[i].attackList.Count; j++)
+            {
+                attackMoveButtons[j].button.gameObject.SetActive(true);
+            }
+            for (int j = 0; j < party[i].rizzAttackList.Count; j++)
+            {
+                rizzMoveButtons[j].button.gameObject.SetActive(true);
+            }
         }
         for (int i = 0; i < enemies.Count; i++)
         {
             enemyHPSliders[i].gameObject.SetActive(true);
             enemyInfatuationSliders[i].gameObject.SetActive(true);
             attackTargetButtons[i].SetActive(true);
+            attackTargetLabels[i].text = enemies[i].charName;
             rizzTargetButtons[i].SetActive(true);
+            rizzTargetLabels[i].text = enemies[i].charName;
         }
     }
     public void disableHealthBars()
@@ -260,6 +279,11 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             partyHPSliders[i].gameObject.SetActive(false);
+            for (int j = 0; j < 4; j++)
+            {
+                attackMoveButtons[j].button.gameObject.SetActive(false);
+                rizzMoveButtons[j].button.gameObject.SetActive(false);
+            }
         }
         for (int i = 0; i < 4; i++)
         {
