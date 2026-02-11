@@ -33,7 +33,14 @@ public class Combatant
     public List<Attack> attackList = new();
     public List<Attack> rizzAttackList = new();
 
-    Attack selectedAttack;
+    public Attack selectedAttack;
+    public enum type_of_attack
+    {
+        fight,
+        flirt,
+        status
+    }
+    public type_of_attack attackType;
 
     public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int looks, int intel, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1)
     {
@@ -106,7 +113,7 @@ public class Combatant
         }
     }
 
-    public void attackEnemy()
+    public int attackEnemy()
     {
         selectedAttack = attackList[attackListIndex];
 
@@ -118,16 +125,18 @@ public class Combatant
         int damage = (int)((movePower*attack*level)*crit / (target.defense*target.level));
         target.hp -= damage;
         Debug.Log(charName + " hits " + target.charName + " for " + damage.ToString() + " with " + selectedAttack.name);
+        return damage;
     }
-    public void rizzEnemy()
+    public int rizzEnemy()
     {
-        selectedAttack = attackList[attackListIndex];
+        selectedAttack = rizzAttackList[attackListIndex];
 
         movePower = selectedAttack.power;
 
-        int rizz = (int)((movePower * charisma) * looks * (looks / target.intelligence));
+        int rizz = (int)((movePower * charisma) * (looks / target.intelligence));
         target.infatuation -= rizz;
-        Debug.Log(rizz);
+        Debug.Log(charName + " hits on " + target.charName + " for " + rizz.ToString() + " with " + selectedAttack.name);
+        return rizz;
     }
 }
 
@@ -179,6 +188,9 @@ public static class enemyList
     public static Combatant[] enemyTable =
     {
         new Combatant("Test Enemy 1", 100, 200, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
-        new Combatant("Test Enemy 2", 100, 200, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3)
+        new Combatant("Test Enemy 2", 100, 200, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
+        new Combatant("Speed 1", 100, 200, 4, 4, 1, 4, 4, 4, 1, 0, 1, 2, 3),
+        new Combatant("Speed 3", 100, 200, 4, 4, 3, 4, 4, 4, 1, 0, 1, 2, 3),
+        new Combatant("Speed 100", 100, 200, 4, 4, 100, 4, 4, 4, 1, 0, 1, 2, 3),
     };
 }

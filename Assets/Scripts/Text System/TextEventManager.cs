@@ -31,7 +31,7 @@ public class TextEventManager : MonoBehaviour
     
     //Text Values
     int numberOfChar = 0;
-    bool progressable = false;
+    public bool progressable = false;
     public bool textOpen;
     Coroutine textCo, buttonCo;
     [SerializeField] Button[] buttonArr;
@@ -43,6 +43,8 @@ public class TextEventManager : MonoBehaviour
     Vector3 textBoxPos;
     Vector3 textBoxDisablePos;
 
+    public bool battleText = false;
+    public string battleTextString = "";
     void Start()
     {
         //Get JSON data
@@ -84,38 +86,62 @@ public class TextEventManager : MonoBehaviour
             if (!trans.reached) trans.transformProcess();
         }
     }
+    public void startBattleText()
+    {
+        textOpen = true;
+        battleText = true;
+        if (textCo != null) StopCoroutine(textCo);
+        enableTextbox();
+        textCo = StartCoroutine(typewriterFunc());
+    }
+    public void endBattleText()
+    {
+        textOpen = false;
+        battleText = false;
+        StopCoroutine(textCo);
+        disableTextbox();
+    }
 
     IEnumerator typewriterFunc()
     {
-        //Clear vars for next object to come in
-        currentTextObject.transforms.Clear();
-        currentTextObject.functions.Clear();
-        if (currentTextObject.choices.strings.Count > 0)
+        if (!battleText)
         {
-            currentTextObject.choices.strings.Clear();
-            currentTextObject.choices.ids.Clear();
-        }
-        //Check if text has ended
-        endText();
-        //Get object
-        readID(nextIndex);
+            //Clear vars for next object to come in
+            currentTextObject.transforms.Clear();
+            currentTextObject.functions.Clear();
+            if (currentTextObject.choices.strings.Count > 0)
+            {
+                currentTextObject.choices.strings.Clear();
+                currentTextObject.choices.ids.Clear();
+            }
+            //Check if text has ended
+            endText();
+            //Get object
+            readID(nextIndex);
 
-        //Set variables for text
-        textBox.text = currentTextObject.dialogue;
-        if (currentTextObject.dialogue != "") enableTextbox();
-        else disableTextbox();
-            textBox.maxVisibleCharacters = 0;
+            //Set variables for text
+            textBox.text = currentTextObject.dialogue;
+            if (currentTextObject.dialogue != "") enableTextbox();
+            else disableTextbox();
+
+            //Reset events and start calling them
+            foreach (TransformEvent trans in currentTextObject.transforms)
+            {
+                trans.clearReaches();
+            }
+            foreach (FuncEvent func in currentTextObject.functions)
+            {
+                func.callFunc();
+            }
+        }
+        else
+        {
+            textBox.text = battleTextString;
+            enableTextbox();
+        }
+        textBox.maxVisibleCharacters = 0;
         numberOfChar = textBox.text.Length;
-
-        //Reset events and start calling them
-        foreach (TransformEvent trans in currentTextObject.transforms)
-        {
-            trans.clearReaches();
-        }
-        foreach (FuncEvent func in currentTextObject.functions)
-        {
-            func.callFunc();
-        }
+        Debug.Log(numberOfChar);
 
         //While text is not entirely revealed
         while (textBox.maxVisibleCharacters < numberOfChar)
@@ -136,31 +162,38 @@ public class TextEventManager : MonoBehaviour
 
         //Check for all requirements and resert fastText
         fastText = false;
-        while (!currentTextObject.checkReaches())
+        if (!battleText)
         {
-            yield return null;
-        }
-        //Check for choices
-        if (currentTextObject.choices.strings.Count > 0)
-        {
-            for (int i = 0; i < currentTextObject.choices.strings.Count; i++)
+            while (!currentTextObject.checkReaches())
             {
-                buttonTextArr[i].text = currentTextObject.choices.strings[i];
-                buttonArr[i].enabled = true;
-                buttonArr[i].interactable = true;
-                buttonArr[i].gameObject.SetActive(true);
+                yield return null;
+            }
+            //Check for choices
+            if (currentTextObject.choices.strings.Count > 0)
+            {
+                for (int i = 0; i < currentTextObject.choices.strings.Count; i++)
+                {
+                    buttonTextArr[i].text = currentTextObject.choices.strings[i];
+                    buttonArr[i].enabled = true;
+                    buttonArr[i].interactable = true;
+                    buttonArr[i].gameObject.SetActive(true);
+                }
+            }
+            //Get next object index
+            else
+            {
+                nextIndex = currentTextObject.next_id;
+                progressable = true;
+            }
+
+            if (currentTextObject.dialogue == "")
+            {
+                advanceText();
             }
         }
-        //Get next object index
         else
         {
-            nextIndex = currentTextObject.next_id;
             progressable = true;
-        }
-
-        if(currentTextObject.dialogue == "")
-        {
-            advanceText();
         }
     }
 
