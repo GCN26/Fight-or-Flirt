@@ -187,8 +187,8 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Test Enemy 1", 100, 200, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
-        new Combatant("Test Enemy 2", 100, 200, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
+        new Combatant("Test Enemy 1", 100, 100, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
+        new Combatant("Test Enemy 2", 100, 100, 4, 4, 4, 4, 4, 4, 1, 0, 1, 2, 3),
         new Combatant("Speed 1", 100, 200, 4, 4, 1, 4, 4, 4, 1, 0, 1, 2, 3),
         new Combatant("Speed 3", 100, 200, 4, 4, 3, 4, 4, 4, 1, 0, 1, 2, 3),
         new Combatant("Speed 100", 100, 200, 4, 4, 100, 4, 4, 4, 1, 0, 1, 2, 3),

@@ -46,15 +46,7 @@
       "choices": {
         "strings": [],
         "ids": []
-      },
-      "functions": [
-        {
-          "obj_name": "Cube",
-          "script_name": "test",
-          "func_name": "hi2",
-          "args": ""
-        }
-      ]
+      }
     },
     {
       "id": 2,
@@ -78,7 +70,7 @@
     },
     {
       "id": 4,
-      "dialogue": "oh hey its been added",
+      "dialogue": "oh hey theyve been added",
       "speaker_name": "Tester",
       "choices": {
         "strings": [ "cool", "sick" ],
@@ -89,6 +81,25 @@
           "obj_name": "CharPortrait1",
           "move_vec": {
             "x": -2000,
+            "y": 0,
+            "z": 0
+          },
+          "move_speed": 1,
+          "move_interp_type": 2,
+          "move_target_type": 0,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        },
+        {
+          "obj_name": "CharPortrait0",
+          "move_vec": {
+            "x": 2500,
             "y": 0,
             "z": 0
           },
@@ -119,6 +130,25 @@
           "obj_name": "CharPortrait1",
           "move_vec": {
             "x": 2000,
+            "y": 0,
+            "z": 0
+          },
+          "move_speed": 2,
+          "move_interp_type": 2,
+          "move_target_type": 0,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        },
+        {
+          "obj_name": "CharPortrait0",
+          "move_vec": {
+            "x": -2500,
             "y": 0,
             "z": 0
           },

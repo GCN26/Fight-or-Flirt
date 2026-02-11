@@ -27,9 +27,8 @@ public class BattleManager : MonoBehaviour
 
     public GameObject partyHPBox;
     public GameObject enemyHPBox;
-    public Slider[] partyHPSliders;
-    public Slider[] enemyHPSliders;
-    public Slider[] enemyInfatuationSliders;
+    public HPBars[] partyHPSliders;
+    public HPBars[] enemyHPSliders;
 
     public GameObject attackTargetPanel;
     public GameObject rizzTargetPanel;
@@ -54,6 +53,7 @@ public class BattleManager : MonoBehaviour
     }
     void Update()
     {
+        textMan.charMove.battleAllowMove = !battleOpen;
         if (Input.GetKeyDown(KeyCode.F) && !battleOpen)
         {
             startBattle();
@@ -85,12 +85,19 @@ public class BattleManager : MonoBehaviour
             foreach (Combatant partyMember in party)
             {
                 partyMember.attackList.Clear();
+                partyMember.rizzAttackList.Clear();
                 partyMember.getAttacksInList();
             }
             foreach (Combatant enemy in enemies)
             {
                 enemy.attackList.Clear();
+                enemy.rizzAttackList.Clear();
                 enemy.getAttacksInList();
+            }
+            for(int i = 0; i < 4; i++)
+            {
+                attackTargetButtons[i].GetComponent<Button>().interactable = true;
+                rizzTargetButtons[i].GetComponent<Button>().interactable = true;
             }
 
             battleCo = StartCoroutine(battleProcess());
@@ -235,12 +242,17 @@ public class BattleManager : MonoBehaviour
     public void updateHealthBars() {
         for (int i = 0; i < party.Length; i++)
         {
-            partyHPSliders[i].value = (float)party[i].hp / (float)party[i].maxHp;
+            partyHPSliders[i].hpSlider.value = (float)party[i].hp / (float)party[i].maxHp;
         }
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemyHPSliders[i].value = (float)enemies[i].hp / (float)enemies[i].maxHp;
-            enemyInfatuationSliders[i].value = (float)enemies[i].infatuation / (float)enemies[i].maxInfatuation;
+            enemyHPSliders[i].hpSlider.value = (float)enemies[i].hp / (float)enemies[i].maxHp;
+            enemyHPSliders[i].infatSlider.value = (float)enemies[i].infatuation / (float)enemies[i].maxInfatuation;
+            if (enemies[i].hp <= 0 || enemies[i].infatuation <= 0)
+            {
+                attackTargetButtons[i].GetComponent<Button>().interactable = false;
+                rizzTargetButtons[i].GetComponent<Button>().interactable = false;
+            }
         }
 
     }
@@ -264,7 +276,6 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             enemyHPSliders[i].gameObject.SetActive(true);
-            enemyInfatuationSliders[i].gameObject.SetActive(true);
             attackTargetButtons[i].SetActive(true);
             attackTargetLabels[i].text = enemies[i].charName;
             rizzTargetButtons[i].SetActive(true);
@@ -288,7 +299,6 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             enemyHPSliders[i].gameObject.SetActive(false);
-            enemyInfatuationSliders[i].gameObject.SetActive(false);
             attackTargetButtons[i].SetActive(false);
             rizzTargetButtons[i].SetActive(false);
         }

@@ -9,7 +9,7 @@ public class CharacterMovementScript : MonoBehaviour
     public GameObject quadToFlip;
     private bool isFacingRight = true;
 
-    public bool allowMove;
+    public bool textAllowMove,battleAllowMove;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class CharacterMovementScript : MonoBehaviour
 
     void Update()
     {
-        if (allowMove)
+        if (textAllowMove && battleAllowMove)
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.z = Input.GetAxisRaw("Vertical");

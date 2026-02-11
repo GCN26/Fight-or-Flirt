@@ -56,7 +56,7 @@ public class TextEventManager : MonoBehaviour
     void Update()
     {
         //Set allowMove to the opposite of textOpen
-        charMove.allowMove = !textOpen;
+        charMove.textAllowMove = !textOpen;
         if (Input.GetKeyDown(KeyCode.T) && !textOpen)
         {
             //Stop Coroutine if there is one
@@ -71,7 +71,7 @@ public class TextEventManager : MonoBehaviour
             //Code to run depending on state
 
             //If no choices are present and the entire string is revealed, advance text.
-            if(progressable && currentTextObject.choices.strings.Count <= 0) advanceText();
+            if(progressable && currentTextObject.choices.strings.Count <= 0 && !battleText) advanceText();
             //If text is not entirely revealed and space is pressed, speed up text.
             else if(textBox.maxVisibleCharacters != numberOfChar && fastText == false) fastText = true;
             //If text is not entirely revealed and text is already sped up, skip to end.
