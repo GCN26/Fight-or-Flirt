@@ -18,6 +18,7 @@ public class Combatant
     //Charisma: Player only, modifier for infatuation
     public string charName;
     public int hp, infatuation, attack, defense, speed, looks, intelligence, charisma;
+    public int baseAttack, baseDefense, baseSpeed, baseLooks, baseIntelligence, baseCharisma;
     public int maxHp, maxInfatuation;
 
     public int movePower;
@@ -32,6 +33,9 @@ public class Combatant
     public int[] rizzAttackListIndexes = { -1, -1, -1, -1 };
     public List<Attack> attackList = new();
     public List<Attack> rizzAttackList = new();
+
+    public armor armor;
+    public weapon weapon;
 
     public Attack selectedAttack;
     public enum type_of_attack
@@ -56,6 +60,13 @@ public class Combatant
         this.intelligence = intel;
         this.charisma = charis;
 
+        baseAttack = attack;
+        baseDefense = defense;
+        baseSpeed = speed;
+        baseLooks = looks;
+        baseIntelligence = intelligence;
+        baseCharisma = charisma;
+
         if(atkIndex0 != -1) attackListIndexes[0] = atkIndex0;
         if (atkIndex1 != -1) attackListIndexes[1] = atkIndex1;
         if (atkIndex2 != -1) attackListIndexes[2] = atkIndex2;
@@ -65,6 +76,8 @@ public class Combatant
         if (rizzIndex1 != -1) rizzAttackListIndexes[1] = rizzIndex1;
         if (rizzIndex2 != -1) rizzAttackListIndexes[2] = rizzIndex2;
         if (rizzIndex3 != -1) rizzAttackListIndexes[3] = rizzIndex3;
+
+        equipStatChange();
     }
 
     public Combatant(Combatant combB)
@@ -90,6 +103,8 @@ public class Combatant
         rizzAttackListIndexes[1] = combB.rizzAttackListIndexes[1];
         rizzAttackListIndexes[2] = combB.rizzAttackListIndexes[2];
         rizzAttackListIndexes[3] = combB.rizzAttackListIndexes[3];
+
+        equipStatChange();
     }
 
 
@@ -137,6 +152,15 @@ public class Combatant
         target.infatuation -= rizz;
         Debug.Log(charName + " hits on " + target.charName + " for " + rizz.ToString() + " with " + selectedAttack.name);
         return rizz;
+    }
+    public void equipStatChange()
+    {
+        attack = baseAttack + weapon.attack;
+        defense = baseDefense + armor.defense;
+        speed = baseSpeed + weapon.speed + armor.speed;
+        looks = baseLooks + weapon.looks + armor.looks;
+        intelligence = baseIntelligence + weapon.intelligence + armor.intelligence;
+        charisma = baseCharisma + weapon.charisma + armor.charisma;
     }
 }
 

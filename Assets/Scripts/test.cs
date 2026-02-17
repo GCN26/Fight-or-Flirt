@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public string foo = "bar";
+    public int foo = 1;
+    public int bar = 1;
 
     public void hi(int i, int j)
     {

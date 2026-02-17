@@ -17,6 +17,7 @@ public class TextObject
     public List<FuncEvent> functions;
     public List<TransformEvent> transforms;
     public ChoiceEvent choices;
+    public Conditions conditional;
 
     public void setVars()
     {
@@ -39,6 +40,13 @@ public class TextObject
             loopT++;
         }
         choices.setVars(id);
+        int condIndex = conditional.setVars(id);
+        if (condIndex == -2) { }
+        else
+        {
+            next_id = condIndex;
+            prefix.next_id = condIndex;
+        }
     }
 
     public bool checkReaches()
@@ -283,5 +291,50 @@ public class ChoiceEvent
     {
         //strings = null;
         //ids = null;
+    }
+}
+[Serializable]
+public class Conditions
+{
+    public string obj_name_a, obj_name_b;
+    public string script_name_a, script_name_b;
+    public string var_name_a, var_name_b;
+    public string compare;
+    public int true_id, false_id;
+    public int setVars(int id)
+    {
+        var prefix = DialogueArrayManager.objArr.data[id].conditional;
+
+        obj_name_a = prefix.obj_name_a;
+        if (obj_name_a != null && obj_name_a.Length > 1)
+        {
+            obj_name_b = prefix.obj_name_b;
+            script_name_a = prefix.script_name_a;
+            script_name_b = prefix.script_name_b;
+            var_name_a = prefix.var_name_a;
+            var_name_b = prefix.var_name_b;
+            compare = prefix.compare;
+            true_id = prefix.true_id;
+            false_id = prefix.false_id;
+
+            if (checkCond()) return true_id;
+            else return false_id;
+        }
+        return -2;
+    }
+    public bool checkCond()
+    {
+        int obj_a = (int)GameObject.Find(obj_name_a).GetComponent(script_name_a).GetType().GetField(var_name_a).GetValue(GameObject.Find(obj_name_a).GetComponent(script_name_a));
+        int obj_b = (int)GameObject.Find(obj_name_b).GetComponent(script_name_b).GetType().GetField(var_name_b).GetValue(GameObject.Find(obj_name_b).GetComponent(script_name_b));
+
+        switch (compare)
+        {
+            case "equal": Debug.Log("AAA"); return obj_a == obj_b;
+            case "less": return obj_a < obj_b;
+            case "lessEqual": return obj_a <= obj_b;
+            case "greater": return obj_a > obj_b;
+            case "greaterEqual": return obj_a >= obj_b;
+            default: return obj_a == obj_b;
+        }
     }
 }

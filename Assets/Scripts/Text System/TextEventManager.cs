@@ -124,6 +124,13 @@ public class TextEventManager : MonoBehaviour
             if (currentTextObject.dialogue != "") enableTextbox();
             else disableTextbox();
 
+            int condIndex = currentTextObject.conditional.setVars(currentTextObject.id);
+            if (condIndex == -2) { }
+            else
+            {
+                currentTextObject.next_id = condIndex;
+            }
+
             //Reset events and start calling them
             foreach (TransformEvent trans in currentTextObject.transforms)
             {
@@ -133,6 +140,7 @@ public class TextEventManager : MonoBehaviour
             {
                 func.callFunc();
             }
+
         }
         else
         {
@@ -141,7 +149,6 @@ public class TextEventManager : MonoBehaviour
         }
         textBox.maxVisibleCharacters = 0;
         numberOfChar = textBox.text.Length;
-        Debug.Log(numberOfChar);
 
         //While text is not entirely revealed
         while (textBox.maxVisibleCharacters < numberOfChar)

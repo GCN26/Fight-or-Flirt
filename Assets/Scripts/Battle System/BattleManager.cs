@@ -48,7 +48,7 @@ public class BattleManager : MonoBehaviour
     public TextEventManager textMan;
     void Start()
     {
-        
+        party[0].armor = itemTables.armorTable[2];
         //battleCo = StartCoroutine(battleProcess());
     }
     void Update()
