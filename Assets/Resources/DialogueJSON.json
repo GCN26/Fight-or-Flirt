@@ -180,10 +180,10 @@
           "rot_target_type": 0
         }
       ],
-        "conditional": {
-          "obj_to_check_a": ""
-        }
-      },
+      "conditional": {
+        "obj_to_check_a": ""
+      }
+    },
     {
       "id": 6,
       "dialogue": "",
@@ -223,6 +223,116 @@
         "true_id": -1,
         "false_id": -1
       }
+    },
+    {
+      "id": 8,
+      "dialogue": "My class is...",
+      "next_id": 9,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 9,
+      "dialogue": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classW",
+        "compare_type": "equal",
+        "true_id": 10,
+        "false_id": 11
+      }
+    },
+    {
+      "id": 10,
+      "dialogue": "Warrior!",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 11,
+      "dialogue": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classB",
+        "compare_type": "equal",
+        "true_id": 12,
+        "false_id": 13
+      }
+    },
+    {
+      "id": 12,
+      "dialogue": "Bard!",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 13,
+      "dialogue": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classR",
+        "compare_type": "equal",
+        "true_id": 14,
+        "false_id": 15
+      }
+    },
+    {
+      "id": 14,
+      "dialogue": "Rogue!",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 15,
+      "dialogue": "Mage!",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
   ]
 }

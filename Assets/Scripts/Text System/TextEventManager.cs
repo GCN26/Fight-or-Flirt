@@ -63,7 +63,7 @@ public class TextEventManager : MonoBehaviour
             if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
             textOpen = true;
-            nextIndex = 1;
+            nextIndex = 8;
             textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)

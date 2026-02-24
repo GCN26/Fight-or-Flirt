@@ -34,6 +34,7 @@ public class BattleManager : MonoBehaviour
     public GameObject[] rizzTargetButtons;
     public TextMeshProUGUI[] attackTargetLabels, rizzTargetLabels;
     //get these into a class
+    public GameObject battleBG;
 
     public GameObject attackMovePanel;
     public GameObject rizzMovePanel;
@@ -86,6 +87,7 @@ public class BattleManager : MonoBehaviour
         {
             musicSource.enabled = true;
             musicSource.Play();
+            battleBG.SetActive(true);
             enemies.Add(new(enemyList.enemyTable[0]));
             enemies.Add(new(enemyList.enemyTable[1]));
 
@@ -161,6 +163,7 @@ public class BattleManager : MonoBehaviour
         battleOpen = false;
         battleUI.SetActive(false);
         musicSource.enabled = false;
+        battleBG.SetActive(false);
     }
     
     IEnumerator battleProcess()
