@@ -135,6 +135,7 @@
     {
       "id": 5,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": 6,
       "choices": {
         "strings": [],
@@ -187,6 +188,7 @@
     {
       "id": 6,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -207,6 +209,7 @@
     {
       "id": 7,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -226,7 +229,8 @@
     },
     {
       "id": 8,
-      "dialogue": "My class is...",
+      "dialogue": "I am {N}. My class is...",
+      "speaker_name": "",
       "next_id": 9,
       "choices": {
         "strings": [],
@@ -237,6 +241,7 @@
     {
       "id": 9,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -257,6 +262,7 @@
     {
       "id": 10,
       "dialogue": "Warrior!",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -267,6 +273,7 @@
     {
       "id": 11,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -287,6 +294,7 @@
     {
       "id": 12,
       "dialogue": "Bard!",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -297,6 +305,7 @@
     {
       "id": 13,
       "dialogue": "",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -317,6 +326,7 @@
     {
       "id": 14,
       "dialogue": "Rogue!",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
@@ -327,6 +337,7 @@
     {
       "id": 15,
       "dialogue": "Mage!",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],

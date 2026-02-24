@@ -23,6 +23,8 @@ public class TextObject
     {
         var prefix = DialogueArrayManager.objArr.data[id];
 
+        speaker_name = "";
+
         dialogue = prefix.dialogue;
         speaker_name = prefix.speaker_name;
         next_id = prefix.next_id;

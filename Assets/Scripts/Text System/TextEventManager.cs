@@ -21,6 +21,7 @@ public class TextEventManager : MonoBehaviour
     public GameObject textboxPanel;
     public TextMeshProUGUI textBox;
     public Image[] portraits;
+    public TextMeshProUGUI speakerName;
 
     //Test Value
     public int bar;
@@ -45,6 +46,7 @@ public class TextEventManager : MonoBehaviour
 
     public bool battleText = false;
     public string battleTextString = "";
+    public string characterName;
     void Start()
     {
         //Get JSON data
@@ -120,7 +122,8 @@ public class TextEventManager : MonoBehaviour
             readID(nextIndex);
 
             //Set variables for text
-            textBox.text = currentTextObject.dialogue;
+            textBox.text = currentTextObject.dialogue.Replace("{N}", characterName);
+            speakerName.text = currentTextObject.speaker_name.Replace("{N}",characterName);
             if (currentTextObject.dialogue != "") enableTextbox();
             else disableTextbox();
 
