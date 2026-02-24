@@ -30,7 +30,7 @@ public class TextEventManager : MonoBehaviour
     public string jsonStr;
     
     //Text Values
-    int numberOfChar = 0;
+    public int numberOfChar = 0;
     public bool progressable = false;
     public bool textOpen;
     Coroutine textCo, buttonCo;

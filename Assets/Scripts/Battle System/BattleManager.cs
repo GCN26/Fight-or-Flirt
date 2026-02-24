@@ -4,12 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
-using static UnityEngine.GraphicsBuffer;
 
 public class BattleManager : MonoBehaviour
 {
@@ -46,6 +42,18 @@ public class BattleManager : MonoBehaviour
     public MoveButton[] rizzMoveButtons;
 
     public TextEventManager textMan;
+    public AudioSource musicSource, sfxSource;
+    public AudioClip[] hurtSounds;
+
+    public string battleOrder;
+    public TextMeshProUGUI battleOrderDisplay;
+
+    public Sprite[] spriteTable;
+
+    public Image[] BattleSpritesParty, BattleSpritesEnemy;
+    public bool test;
+
+    string additionalString;
     void Start()
     {
         party[0].armor = itemTables.armorTable[2];
@@ -76,29 +84,46 @@ public class BattleManager : MonoBehaviour
     {
         if (!battleOpen)
         {
+            musicSource.enabled = true;
+            musicSource.Play();
             enemies.Add(new(enemyList.enemyTable[0]));
             enemies.Add(new(enemyList.enemyTable[1]));
 
             battleOpen = true;
             //Add way to customize encounters
             //Add encounter table for enemies
+            int pL = 0;
             foreach (Combatant partyMember in party)
             {
                 partyMember.attackList.Clear();
                 partyMember.rizzAttackList.Clear();
                 partyMember.getAttacksInList();
                 partyMember.party = true;
-                partyMember.partyIndex = Array.IndexOf(party, partyMember);
+                partyMember.partyIndex = pL;
+                partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
+
+                BattleSpritesParty[pL].gameObject.SetActive(true);
+                BattleSpritesParty[pL].sprite = partyMember.battleSprite;
+                BattleSpritesParty[pL].SetNativeSize();
 
                 battleList.Add(partyMember);
+                pL++;
             }
+            int eL = 0;
             foreach (Combatant enemy in enemies)
             {
                 enemy.attackList.Clear();
                 enemy.rizzAttackList.Clear();
                 enemy.getAttacksInList();
+                enemy.battleSprite = spriteTable[enemy.battleSpriteIndex];
+                enemy.partyIndex = eL;
+
+                BattleSpritesEnemy[eL].gameObject.SetActive(true);
+                BattleSpritesEnemy[eL].sprite = enemy.battleSprite;
+                BattleSpritesEnemy[eL].SetNativeSize();
 
                 battleList.Add(enemy);
+                eL++;
             }
             for(int i = 0; i < 4; i++)
             {
@@ -109,16 +134,33 @@ public class BattleManager : MonoBehaviour
             battleList = battleList.OrderBy(x => x.speed).ToList();
             battleList.Reverse();
 
+            //testImg.sprite = party[1].battleSprite;
+
+            battleOrder = "<b>Turn Order</b>\n> ";
+            foreach (Combatant comb in battleList)
+            {
+                battleOrder += comb.charName + "\n";
+            }
+            battleOrderDisplay.text = battleOrder;
+
             battleCo = StartCoroutine(battleProcess());
         }
     }
     public void endBattle()
     {
+        for(int i = 0; i < 4; i++)
+        {
+            BattleSpritesParty[i].gameObject.SetActive(false);
+            BattleSpritesEnemy[i].gameObject.SetActive(false);
+        }
+        battleOrder = "";
+        battleOrderDisplay.text = battleOrder;
         disableHealthBars();
         battleList.Clear();
         enemies.Clear();
         battleOpen = false;
         battleUI.SetActive(false);
+        musicSource.enabled = false;
     }
     
     IEnumerator battleProcess()
@@ -141,7 +183,15 @@ public class BattleManager : MonoBehaviour
         }
         if (party.Length == partyDeadInt)
         {
-            Debug.Log("You lose!");
+            textMan.battleText = true;
+            if (party.Length > 1) textMan.battleTextString = "Your team lost the battle!";
+            else textMan.battleTextString = "You lost the battle!";
+            textMan.startBattleText();
+            yield return new WaitForSeconds(.5f);
+            while (!textMan.progressable) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            textMan.progressable = false;
+            textMan.endBattleText();
             endBattle();
             //End in Loss
             //StopCoroutine(battleCo);
@@ -162,8 +212,15 @@ public class BattleManager : MonoBehaviour
         }
         if (enemies.Count == enemyDeadInt)
         {
-
-            Debug.Log("You win!");
+            textMan.battleText = true;
+            if(party.Length > 1) textMan.battleTextString = "Your team won the battle!";
+            else textMan.battleTextString = "You won the battle!";
+            textMan.startBattleText();
+            yield return new WaitForSeconds(.5f);
+            while (!textMan.progressable) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            textMan.progressable = false;
+            textMan.endBattleText();
             endBattle();
             //End in win
             //StopCoroutine(battleCo);
@@ -205,27 +262,56 @@ public class BattleManager : MonoBehaviour
             {
                 case Combatant.type_of_attack.fight:
                     int damage = battleList[0].attackEnemy();
-                    textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name;
+                    sfxSource.PlayOneShot(hurtSounds[UnityEngine.Random.Range(0,hurtSounds.Length)]);
+                    textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name +"." + additionalString;
                     break;
                 case Combatant.type_of_attack.flirt:
                     int rizz = battleList[0].rizzEnemy();
-                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " for " + rizz.ToString() + " with " + battleList[0].selectedAttack.name;
+                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " for " + rizz.ToString() + " with " + battleList[0].selectedAttack.name + "." + additionalString;
                     break;
             }
         }
         else textMan.battleTextString = battleList[0].charName + " is unable to fight!";
+        additionalString = "";
         updateHealthBars();
         textMan.startBattleText();
         yield return new WaitForSeconds(.5f);
         while (!textMan.progressable) yield return null;
+        while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
         textMan.progressable = false;
-        yield return new WaitForSeconds(.5f);
+
+        textMan.endBattleText();
+        if (battleList[0].currentStatus == Combatant.status.Burned && battleList[0].hp > 0 && battleList[0].infatuation > 0)
+        {
+            battleList[0].hp -= (int)((float)battleList[0].maxHp / 16);
+            sfxSource.PlayOneShot(hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)]);
+            updateHealthBars();
+
+            textMan.battleText = true;
+            textMan.battleTextString = battleList[0].charName + " took "+ (int)((float)battleList[0].maxHp / 16) + " damage due to their burn.";
+            textMan.startBattleText();
+            yield return new WaitForSeconds(.5f);
+            while (!textMan.progressable) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            textMan.progressable = false;
+            textMan.endBattleText();
+        }
 
         Combatant temp = battleList[0];
         battleList.RemoveAt(0);
-        battleList.Add(temp);
+        if(temp.hp >0 && temp.infatuation > 0) battleList.Add(temp);
 
-        textMan.endBattleText();
+        battleList.RemoveAll(x => x.hp == 0);
+        battleList.RemoveAll(x => x.infatuation == 0);
+
+        battleOrder = "<b>Turn Order</b>\n> ";
+        foreach (Combatant comb in battleList)
+        {
+            battleOrder += comb.charName + "\n";
+        }
+        battleOrderDisplay.text = battleOrder;
+
+ 
         battleCo = StartCoroutine(battleProcess());
         yield break;
     }
@@ -496,5 +582,14 @@ public class BattleManager : MonoBehaviour
             button.attack = null;
             button.label.text = "";
         }
+    }
+
+    public void setEnemyStatus(Combatant target,int index)
+    {
+        int random = UnityEngine.Random.Range(0, 2);
+        if (random == 0) return;
+
+        target.currentStatus = Combatant.status.Burned;
+        additionalString = " " + target.charName + " was burned!";
     }
 }
