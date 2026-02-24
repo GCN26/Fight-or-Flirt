@@ -38,6 +38,9 @@ public class Combatant
     public weapon weapon;
 
     public Attack selectedAttack;
+
+    public bool party;
+    public int partyIndex = -1;
     public enum type_of_attack
     {
         fight,
@@ -155,12 +158,15 @@ public class Combatant
     }
     public void equipStatChange()
     {
-        attack = baseAttack + weapon.attack;
-        defense = baseDefense + armor.defense;
-        speed = baseSpeed + weapon.speed + armor.speed;
-        looks = baseLooks + weapon.looks + armor.looks;
-        intelligence = baseIntelligence + weapon.intelligence + armor.intelligence;
-        charisma = baseCharisma + weapon.charisma + armor.charisma;
+        if (armor != null && weapon != null)
+        {
+            attack = baseAttack + weapon.attack;
+            defense = baseDefense + armor.defense;
+            speed = baseSpeed + weapon.speed + armor.speed;
+            looks = baseLooks + weapon.looks + armor.looks;
+            intelligence = baseIntelligence + weapon.intelligence + armor.intelligence;
+            charisma = baseCharisma + weapon.charisma + armor.charisma;
+        }
     }
 }
 

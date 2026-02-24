@@ -87,18 +87,27 @@ public class BattleManager : MonoBehaviour
                 partyMember.attackList.Clear();
                 partyMember.rizzAttackList.Clear();
                 partyMember.getAttacksInList();
+                partyMember.party = true;
+                partyMember.partyIndex = Array.IndexOf(party, partyMember);
+
+                battleList.Add(partyMember);
             }
             foreach (Combatant enemy in enemies)
             {
                 enemy.attackList.Clear();
                 enemy.rizzAttackList.Clear();
                 enemy.getAttacksInList();
+
+                battleList.Add(enemy);
             }
             for(int i = 0; i < 4; i++)
             {
                 attackTargetButtons[i].GetComponent<Button>().interactable = true;
                 rizzTargetButtons[i].GetComponent<Button>().interactable = true;
             }
+
+            battleList = battleList.OrderBy(x => x.speed).ToList();
+            battleList.Reverse();
 
             battleCo = StartCoroutine(battleProcess());
         }
@@ -111,8 +120,117 @@ public class BattleManager : MonoBehaviour
         battleOpen = false;
         battleUI.SetActive(false);
     }
-
+    
     IEnumerator battleProcess()
+    {
+        disableHealthBars();
+        enableHealthBars();
+        updateHealthBars();
+
+        int partyDeadInt = 0;
+        foreach (Combatant comb in party)
+        {
+            if (comb.hp > 0)
+            {
+
+            }
+            else
+            {
+                partyDeadInt++;
+            }
+        }
+        if (party.Length == partyDeadInt)
+        {
+            Debug.Log("You lose!");
+            endBattle();
+            //End in Loss
+            //StopCoroutine(battleCo);
+            yield break;
+        }
+
+        int enemyDeadInt = 0;
+        foreach (Combatant comb in enemies)
+        {
+            if (comb.hp > 0 && comb.infatuation > 0)
+            {
+
+            }
+            else
+            {
+                enemyDeadInt++;
+            }
+        }
+        if (enemies.Count == enemyDeadInt)
+        {
+
+            Debug.Log("You win!");
+            endBattle();
+            //End in win
+            //StopCoroutine(battleCo);
+            yield break;
+        }
+
+        if (battleList[0].party == true)
+        {
+            if (battleList[0].hp > 0)
+            {
+                battleUI.SetActive(true);
+                currentPartyIndex = battleList[0].partyIndex;
+                pausedForInput = true;
+                battleList[0].target = null;
+                battleUI.SetActive(true);
+                setMoveList(Array.IndexOf(party, battleList[0]));
+                while (pausedForInput) yield return null;
+
+                closeAttackTargetPanel();
+                closeRizzTargetPanel();
+                closeAttackMovePanel();
+                closeRizzMovePanel();
+                pausedForInput = true;
+            }
+        }
+        else
+        {
+            if (battleList[0].hp > 0 && battleList[0].infatuation > 0)
+            {
+                battleList[0].target = party[checkSlots(UnityEngine.Random.Range(0, party.Length))];
+            }
+        }
+        battleUI.SetActive(false);
+
+        textMan.battleText = true;
+        if (battleList[0].hp > 0 && battleList[0].infatuation > 0)
+        {
+            switch (battleList[0].attackType)
+            {
+                case Combatant.type_of_attack.fight:
+                    int damage = battleList[0].attackEnemy();
+                    textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name;
+                    break;
+                case Combatant.type_of_attack.flirt:
+                    int rizz = battleList[0].rizzEnemy();
+                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " for " + rizz.ToString() + " with " + battleList[0].selectedAttack.name;
+                    break;
+            }
+        }
+        else textMan.battleTextString = battleList[0].charName + " is unable to fight!";
+        updateHealthBars();
+        textMan.startBattleText();
+        yield return new WaitForSeconds(.5f);
+        while (!textMan.progressable) yield return null;
+        textMan.progressable = false;
+        yield return new WaitForSeconds(.5f);
+
+        Combatant temp = battleList[0];
+        battleList.RemoveAt(0);
+        battleList.Add(temp);
+
+        textMan.endBattleText();
+        battleCo = StartCoroutine(battleProcess());
+        yield break;
+    }
+
+    IEnumerator battleProcessOld()
     {
         enableHealthBars();
         pausedForInput = true;

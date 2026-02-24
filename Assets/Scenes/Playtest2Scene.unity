@@ -10814,24 +10814,79 @@ MonoBehaviour:
     attackList: []
     rizzAttackList: []
     armor:
-      name: 
+      name: A
       description: 
       buyPrice: 0
       sellPrice: 0
       myType: 0
-      defense: 0
+      defense: 5
       speed: 0
       looks: 0
       intelligence: 0
       charisma: 0
       health: 0
     weapon:
-      name: 
+      name: A
       description: 
       buyPrice: 0
       sellPrice: 0
       myType: 0
-      attack: 0
+      attack: 5
+      speed: 0
+      looks: 0
+      intelligence: 0
+      charisma: 0
+      health: 0
+    selectedAttack:
+      name: 
+      desc: 
+      power: 0
+      type: 0
+    attackType: 0
+  - charName: PartyA
+    hp: 100
+    infatuation: 1
+    attack: 10
+    defense: 5
+    speed: 8
+    looks: 10
+    intelligence: 7
+    charisma: 4
+    baseAttack: 10
+    baseDefense: 5
+    baseSpeed: 8
+    baseLooks: 10
+    baseIntelligence: 7
+    baseCharisma: 4
+    maxHp: 100
+    maxInfatuation: 0
+    movePower: 15
+    level: 1
+    attackTargetIndex: 0
+    attackListIndex: 0
+    attackListIndexes: 000000000100000000000000
+    rizzAttackListIndexes: 03000000
+    attackList: []
+    rizzAttackList: []
+    armor:
+      name: A
+      description: 
+      buyPrice: 0
+      sellPrice: 0
+      myType: 0
+      defense: 5
+      speed: 0
+      looks: 0
+      intelligence: 0
+      charisma: 0
+      health: 0
+    weapon:
+      name: A
+      description: 
+      buyPrice: 0
+      sellPrice: 0
+      myType: 0
+      attack: 5
       speed: 0
       looks: 0
       intelligence: 0

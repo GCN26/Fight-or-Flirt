@@ -203,6 +203,26 @@
         "true_id": 0,
         "false_id": -1
       }
+    },
+    {
+      "id": 7,
+      "dialogue": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "Cube",
+        "script_name_a": "test",
+        "var_name_a": "foo",
+        "obj_name_b": "Cube2",
+        "script_name_b": "test",
+        "var_name_b": "bar",
+        "compare_type": "equal",
+        "true_id": -1,
+        "false_id": -1
+      }
     }
   ]
 }
