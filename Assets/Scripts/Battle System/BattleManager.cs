@@ -239,6 +239,7 @@ public class BattleManager : MonoBehaviour
                 pausedForInput = true;
                 battleList[0].target = null;
                 battleUI.SetActive(true);
+                clearMoveList();
                 setMoveList(Array.IndexOf(party, battleList[0]));
                 while (pausedForInput) yield return null;
 
@@ -566,10 +567,12 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < party[partyIndex].attackList.Count; i++)
         {
+            attackMoveButtons[i].gameObject.SetActive(true);
             attackMoveButtons[i].setMoves(this, partyIndex, i, false);
         }
         for (int i = 0; i < party[partyIndex].rizzAttackList.Count; i++)
         {
+            rizzMoveButtons[i].gameObject.SetActive(true);
             rizzMoveButtons[i].setMoves(this, partyIndex, i, true);
         }
     }
@@ -577,11 +580,13 @@ public class BattleManager : MonoBehaviour
     {
         foreach(MoveButton button in attackMoveButtons)
         {
+            button.gameObject.SetActive(false);
             button.attack = null;
             button.label.text = "";
         }
         foreach (MoveButton button in rizzMoveButtons)
         {
+            button.gameObject.SetActive(false);
             button.attack = null;
             button.label.text = "";
         }
