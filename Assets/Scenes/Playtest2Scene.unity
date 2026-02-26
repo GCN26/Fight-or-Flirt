@@ -11480,8 +11480,8 @@ MonoBehaviour:
     level: 1
     attackTargetIndex: 0
     attackListIndex: 0
-    attackListIndexes: 000000000100000000000000
-    rizzAttackListIndexes: 03000000
+    attackListIndexes: 00000000010000000200000003000000
+    rizzAttackListIndexes: 00000000
     attackList: []
     rizzAttackList: []
     armor:
@@ -11540,7 +11540,7 @@ MonoBehaviour:
     attackTargetIndex: 0
     attackListIndex: 0
     attackListIndexes: 000000000100000000000000
-    rizzAttackListIndexes: 03000000
+    rizzAttackListIndexes: 00000000
     attackList: []
     rizzAttackList: []
     armor:
