@@ -61,6 +61,7 @@ public class TextEventManager : MonoBehaviour
         charMove.textAllowMove = !textOpen;
         if (Input.GetKeyDown(KeyCode.T) && !textOpen)
         {
+            readJSON();
             //Stop Coroutine if there is one
             if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
@@ -124,7 +125,8 @@ public class TextEventManager : MonoBehaviour
             //Set variables for text
             textBox.text = currentTextObject.dialogue.Replace("{N}", characterName);
             speakerName.text = currentTextObject.speaker_name.Replace("{N}",characterName);
-            if (currentTextObject.dialogue != "") enableTextbox();
+
+            if (currentTextObject != null && currentTextObject.dialogue != "") enableTextbox();
             else disableTextbox();
 
             int condIndex = currentTextObject.conditional.setVars(currentTextObject.id);
