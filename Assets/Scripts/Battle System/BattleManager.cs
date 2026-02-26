@@ -55,6 +55,7 @@ public class BattleManager : MonoBehaviour
     public bool test;
 
     string additionalString;
+    public int enemyTableIndex;
     void Start()
     {
         party[0].armor = itemTables.armorTable[2];
@@ -88,8 +89,11 @@ public class BattleManager : MonoBehaviour
             musicSource.enabled = true;
             musicSource.Play();
             battleBG.SetActive(true);
-            enemies.Add(new(enemyList.enemyTable[0]));
-            enemies.Add(new(enemyList.enemyTable[1]));
+
+            foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
+            {
+                enemies.Add(new(enemyList.enemyTable[index]));
+            }
 
             battleOpen = true;
             //Add way to customize encounters
@@ -206,7 +210,7 @@ public class BattleManager : MonoBehaviour
         {
             if (comb.hp > 0 && comb.infatuation > 0)
             {
-
+                
             }
             else
             {
@@ -299,6 +303,14 @@ public class BattleManager : MonoBehaviour
             while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
             textMan.progressable = false;
             textMan.endBattleText();
+        }
+        foreach (Combatant comb in battleList)
+        {
+            if (comb.hp <= 0 || comb.infatuation <= 0)
+            {
+                if (comb.party) BattleSpritesParty[comb.partyIndex].gameObject.SetActive(false);
+                else BattleSpritesEnemy[comb.partyIndex].gameObject.SetActive(false);
+            }
         }
 
         Combatant temp = battleList[0];

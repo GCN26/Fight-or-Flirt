@@ -229,8 +229,17 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Test Enemy 1", 100, 100, 4, 4, 5, 4, 1, 0, spriteIndex: 4),
-        new Combatant("Test Enemy 2", 100, 100, 4, 4, 4, 4, 1, 0, spriteIndex: 5),
-        new Combatant("Test Enemy 3", 100, 100, 4, 4, 7, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rock Golem 1", 100, 100, 4, 4, 5, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rock Golem 2", 100, 100, 4, 4, 4, 4, 1, 0, spriteIndex: 5),
+        new Combatant("Rock Golem", 200, 100, 5, 5, 5, 4, 1, 0, spriteIndex: 4),
+    };
+}
+
+public static class encounterTables
+{
+    public static int[][] combatantIndexes = new int[][]
+    {
+        new int[] { 0, 1},
+        new int[] {2}
     };
 }
