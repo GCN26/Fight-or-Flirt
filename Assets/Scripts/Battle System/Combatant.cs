@@ -181,7 +181,8 @@ public static class Attacks
         new Attack("Slash","Using a weapon, the user slashes at the enemy.",15,0),
         new Attack("Fire Slash","Using magic, the user enhances their physical slash with fire.",20,0,"SecondEffectTest"),
         new Attack("Tackle","The user tackles the enemy with their whole body.",10,0),
-        new Attack("Punch","The user throws their equipment aside and just throws hands.",5,0)
+        new Attack("Punch","The user throws their equipment aside and just throws hands.",5,0),
+        new Attack("Test","hi",10,0)
     };
     public static Attack[] rizzList =
     {

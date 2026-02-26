@@ -170,7 +170,7 @@ public class TransformEvent
         rot_target_type = prefix.rot_target_type;
 
         obj = GameObject.Find(obj_name);
-        originPos = obj.transform.position;
+        originPos = obj.transform.localPosition;
         originRot = obj.transform.eulerAngles;
 
         switch (move_target_type)
@@ -231,15 +231,15 @@ public class TransformEvent
 
             if (move_interp_type == interpType.linear)
             {
-                obj.transform.position = Vector3.Lerp(originPos, targetPos, timerMove);
+                obj.transform.localPosition = Vector3.Lerp(originPos, targetPos, timerMove);
             }
             else if (move_interp_type == interpType.smooth)
             {
-                obj.transform.position = Vector3.Lerp(originPos, targetPos, Mathf.SmoothStep(0.0f, 1.0f, timerMove));
+                obj.transform.localPosition = Vector3.Lerp(originPos, targetPos, Mathf.SmoothStep(0.0f, 1.0f, timerMove));
             }
             else if (move_interp_type == interpType.snap)
             {
-                obj.transform.position = targetPos;
+                obj.transform.localPosition = targetPos;
             }
 
             if(rot_interp_type == interpType.linear)
@@ -259,7 +259,7 @@ public class TransformEvent
         {
             mReach = true;
             timerMove= 1;
-            obj.transform.position = targetPos;
+            obj.transform.localPosition = targetPos;
         }
         if(timerRot >= 1)
         {

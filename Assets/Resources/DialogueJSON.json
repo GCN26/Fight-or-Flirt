@@ -229,7 +229,7 @@
     },
     {
       "id": 8,
-      "dialogue": "My class is...",
+      "dialogue": "My name is {N}. My class is...",
       "speaker_name": "",
       "next_id": 9,
       "choices": {
@@ -272,8 +272,8 @@
         {
           "obj_name": "CharPortrait1",
           "move_vec": {
-            "x": 1920,
-            "y": 666,
+            "x": 0,
+            "y": 0,
             "z": 0
           },
           "move_speed": 2,
@@ -325,8 +325,8 @@
         {
           "obj_name": "CharPortrait0",
           "move_vec": {
-            "x": 1920,
-            "y": 666,
+            "x": 0,
+            "y": 0,
             "z": 0
           },
           "move_speed": 2,
@@ -378,8 +378,8 @@
         {
           "obj_name": "CharPortrait2",
           "move_vec": {
-            "x": 1920,
-            "y": 666,
+            "x": 0,
+            "y": 0,
             "z": 0
           },
           "move_speed": 2,
@@ -410,8 +410,8 @@
         {
           "obj_name": "CharPortrait3",
           "move_vec": {
-            "x": 1920,
-            "y": 666,
+            "x": 0,
+            "y": 0,
             "z": 0
           },
           "move_speed": 2,
@@ -442,8 +442,8 @@
         {
           "obj_name": "CharPortrait0",
           "move_vec": {
-            "x": -1290,
-            "y": 666,
+            "x": -3000,
+            "y": 0,
             "z": 0
           },
           "move_speed": 1,
@@ -461,8 +461,8 @@
         {
           "obj_name": "CharPortrait1",
           "move_vec": {
-            "x": 4864,
-            "y": 666,
+            "x": 3000,
+            "y": 0,
             "z": 0
           },
           "move_speed": 1,
@@ -480,8 +480,8 @@
         {
           "obj_name": "CharPortrait2",
           "move_vec": {
-            "x": -1290,
-            "y": 666,
+            "x": -3000,
+            "y": 0,
             "z": 0
           },
           "move_speed": 1,
@@ -499,8 +499,8 @@
         {
           "obj_name": "CharPortrait3",
           "move_vec": {
-            "x": 4684,
-            "y": 666,
+            "x": 3000,
+            "y": 0,
             "z": 0
           },
           "move_speed": 1,
