@@ -55,6 +55,16 @@ public class TextEventManager : MonoBehaviour
         textBoxDisablePos = textBoxPos - new Vector3(0, 1100, 0);
     }
 
+    public void callText(int index)
+    {
+        readJSON();
+        if (textCo != null) StopCoroutine(textCo);
+        textOpen = true;
+        nextIndex = index;
+        textCo = StartCoroutine(typewriterFunc());
+
+    }
+
     void Update()
     {
         //Set allowMove to the opposite of textOpen
@@ -66,7 +76,7 @@ public class TextEventManager : MonoBehaviour
             if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
             textOpen = true;
-            nextIndex = 8;
+            nextIndex = 17;
             textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)

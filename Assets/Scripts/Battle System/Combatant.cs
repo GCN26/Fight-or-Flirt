@@ -20,6 +20,8 @@ public class Combatant
     public int baseAttack, baseDefense, baseSpeed, baseCharisma, basePerception;
     public int maxHp, maxInfatuation;
 
+    public int relationshipPoints;
+
     public int movePower;
 
     public int level = 1;
@@ -59,6 +61,16 @@ public class Combatant
         Dead
     }
     public status currentStatus;
+    public enum bossTypeChar
+    {
+        none,
+        rocky,
+        b2,
+        b3,
+        b4,
+        b5
+    }
+    public bossTypeChar characterType;
 
     public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0)
     {
@@ -232,7 +244,7 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 100, 100, 4, 4, 5, 4, 1, 0, spriteIndex: 4),
         new Combatant("Rock Golem 2", 100, 100, 4, 4, 4, 4, 1, 0, spriteIndex: 5),
-        new Combatant("Rock Golem", 200, 100, 5, 5, 5, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rocky", 200, 100, 5, 5, 5, 4, 1, 0, spriteIndex: 4),
     };
 }
 

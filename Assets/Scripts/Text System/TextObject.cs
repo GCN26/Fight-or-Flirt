@@ -301,7 +301,7 @@ public class Conditions
     public string obj_name_a, obj_name_b;
     public string script_name_a, script_name_b;
     public string var_name_a, var_name_b;
-    public string compare;
+    public string compare_type;
     public int true_id, false_id;
     public int setVars(int id)
     {
@@ -315,7 +315,7 @@ public class Conditions
             script_name_b = prefix.script_name_b;
             var_name_a = prefix.var_name_a;
             var_name_b = prefix.var_name_b;
-            compare = prefix.compare;
+            compare_type = prefix.compare_type;
             true_id = prefix.true_id;
             false_id = prefix.false_id;
 
@@ -329,7 +329,7 @@ public class Conditions
         int obj_a = (int)GameObject.Find(obj_name_a).GetComponent(script_name_a).GetType().GetField(var_name_a).GetValue(GameObject.Find(obj_name_a).GetComponent(script_name_a));
         int obj_b = (int)GameObject.Find(obj_name_b).GetComponent(script_name_b).GetType().GetField(var_name_b).GetValue(GameObject.Find(obj_name_b).GetComponent(script_name_b));
 
-        switch (compare)
+        switch (compare_type)
         {
             case "equal": Debug.Log("AAA"); return obj_a == obj_b;
             case "less": return obj_a < obj_b;

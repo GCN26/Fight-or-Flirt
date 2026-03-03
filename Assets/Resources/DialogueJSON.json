@@ -517,7 +517,111 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 17,
+      "dialogue": "Test Relationship Dialogue!",
+      "speaker_name": "Rocky",
+      "next_id": 18,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 18,
+      "dialogue": "Test Relationship Dialogue 2!",
+      "speaker_name": "Rocky",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Option A", "Option B" ],
+        "ids": [ 19, 20 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 19,
+      "dialogue": "Good Ending! :steamhappy:",
+      "speaker_name": "Rocky",
+      "next_id": 21,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "addPoints",
+          "args": [ 1 ]
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 20,
+      "dialogue": "bad ending... :steamsad:",
+      "speaker_name": "Rocky",
+      "next_id": 21,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "removePoints",
+          "args": [ 1 ]
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 21,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "rockyRP",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "Zero",
+        "compare_type": "greater",
+        "true_id": 22,
+        "false_id": 23
+      }
+    },
+    {
+      "id": 22,
+      "dialogue": "I like you!",
+      "speaker_name": "Rocky",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 23,
+      "dialogue": "I hate your guts!",
+      "speaker_name": "Rocky",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
+
 
   ]
 }
