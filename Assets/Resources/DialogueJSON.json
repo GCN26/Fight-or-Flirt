@@ -620,6 +620,36 @@
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 24,
+      "dialogue": "test battle words blah blah blah",
+      "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 25,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "BattleManager",
+          "script_name": "BattleManager",
+          "func_name": "showBattleUI",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
 
 

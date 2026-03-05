@@ -76,7 +76,7 @@ public class TextEventManager : MonoBehaviour
             if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
             textOpen = true;
-            nextIndex = 17;
+            nextIndex = 8;
             textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)
@@ -232,7 +232,7 @@ public class TextEventManager : MonoBehaviour
         //Get next index and check if text is ending
         progressable = false;
         nextIndex = currentTextObject.next_id;
-        if (nextIndex != -1) textCo = StartCoroutine(typewriterFunc());
+        if (currentTextObject.next_id != -1) textCo = StartCoroutine(typewriterFunc());
         else endText();
     }
 

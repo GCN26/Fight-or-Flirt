@@ -161,6 +161,7 @@ public class Combatant
         objArr[0] = target;
         objArr[1] = target.partyIndex;
         if(selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
+        if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         return damage;
     }
     public int rizzEnemy()
@@ -172,6 +173,11 @@ public class Combatant
         int rizz = (int)(movePower * charisma);
         target.infatuation -= rizz;
         Debug.Log(charName + " hits on " + target.charName + " for " + rizz.ToString() + " with " + selectedAttack.name);
+        object[] objArr = new object[2];
+        objArr[0] = target;
+        objArr[1] = target.partyIndex;
+        if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
+        if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         return rizz;
     }
     public void equipStatChange()
@@ -194,11 +200,13 @@ public static class Attacks
         new Attack("Fire Slash","Using magic, the user enhances their physical slash with fire.",20,0,"SecondEffectTest"),
         new Attack("Tackle","The user tackles the enemy with their whole body.",10,0),
         new Attack("Punch","The user throws their equipment aside and just throws hands.",5,0),
-        new Attack("Test","hi",10,0)
+        new Attack("Test","hi",10,0),
+        new Attack("Text Test","",10,0,"callTextTest")
     };
     public static Attack[] rizzList =
     {
-        new Attack("Smooch","The user gives the enemy a kiss.",15,0)
+        new Attack("Smooch","The user gives the enemy a kiss.",15,0),
+        new Attack("Text Test","",10,0,"callTextFlirt")
     };
 }
 
@@ -216,15 +224,16 @@ public class Attack
     }
     public AttackType type;
     public string secondaryEffect;
-    //Bonus Effects
+    public string secondaryEffect2;// Used mainly for text purposes
 
-    public Attack(string name, string desc, int power, int type, string secondaryEffect="")
+    public Attack(string name, string desc, int power, int type, string secondaryEffect="", string secondaryEffect2 = "")
     {
         this.name = name;
         this.desc = desc;
         this.power = power;
         this.type = (AttackType)type;
         this.secondaryEffect = secondaryEffect;
+        this.secondaryEffect2 = secondaryEffect2;
     }
     //Add additional effects as a switch statement
 
@@ -233,8 +242,21 @@ public class Attack
         Debug.Log("Test Secondary Effect");
         BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         Debug.Log(index);
-        battleMan.test = true;
         battleMan.setEnemyStatus(target, index);
+    }
+    public void callTextTest(Combatant target, int index)
+    {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.attackType = true;
+        battleMan.test = true;
+        //battleMan.textMan.callText(8);
+    }
+    public void callTextFlirt(Combatant target, int index)
+    {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.attackType = false;
+        battleMan.test = true;
+        //battleMan.textMan.callText(8);
     }
 }
 

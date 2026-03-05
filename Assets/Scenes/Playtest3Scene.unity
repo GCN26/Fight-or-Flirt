@@ -3436,6 +3436,7 @@ MonoBehaviour:
     power: 0
     type: 0
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!114 &164660015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4247,7 +4248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2764, y: 0}
+  m_AnchoredPosition: {x: 2885, y: 0}
   m_SizeDelta: {x: 1229.3467, y: 1501.9388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233932262
@@ -5867,6 +5868,7 @@ MonoBehaviour:
     power: 0
     type: 0
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!114 &304217140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11573,6 +11575,7 @@ MonoBehaviour:
     power: 0
     type: 0
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!114 &597893920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15014,7 +15017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.81494, y: -150}
+  m_AnchoredPosition: {x: 495.81445, y: -150}
   m_SizeDelta: {x: 991.6299, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765069539
@@ -18953,6 +18956,7 @@ MonoBehaviour:
     power: 0
     type: 1
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!1 &945114694
 GameObject:
   m_ObjectHideFlags: 0
@@ -19605,6 +19609,7 @@ MonoBehaviour:
     power: 0
     type: 0
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!114 &966359461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32334,6 +32339,7 @@ RectTransform:
   - {fileID: 233932261}
   - {fileID: 389562227}
   - {fileID: 2059737749}
+  - {fileID: 1747427746}
   - {fileID: 1074619176}
   - {fileID: 637453638}
   - {fileID: 1347075056}
@@ -33215,8 +33221,8 @@ MonoBehaviour:
     level: 1
     attackTargetIndex: 0
     attackListIndex: 0
-    attackListIndexes: 00000000010000000200000003000000
-    rizzAttackListIndexes: 00000000
+    attackListIndexes: 00000000010000000200000005000000
+    rizzAttackListIndexes: 0000000001000000
     attackList: []
     rizzAttackList: []
     armor:
@@ -33249,6 +33255,7 @@ MonoBehaviour:
       power: 0
       type: 0
       secondaryEffect: 
+      secondaryEffect2: 
     battleSpriteIndex: 0
     battleSprite: {fileID: 0}
     party: 0
@@ -33310,6 +33317,7 @@ MonoBehaviour:
       power: 0
       type: 0
       secondaryEffect: 
+      secondaryEffect2: 
     battleSpriteIndex: 4
     battleSprite: {fileID: 0}
     party: 0
@@ -33395,6 +33403,7 @@ MonoBehaviour:
   - {fileID: 1470785781}
   - {fileID: 1332037501}
   test: 0
+  attackType: 0
   enemyTableIndex: 0
 --- !u!4 &1579313519
 Transform:
@@ -36739,6 +36748,82 @@ MonoBehaviour:
     power: 0
     type: 1
     secondaryEffect: 
+    secondaryEffect2: 
+--- !u!1 &1747427745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747427746}
+  - component: {fileID: 1747427748}
+  - component: {fileID: 1747427747}
+  m_Layer: 6
+  m_Name: RockyPortrait
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1747427746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747427745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.403, y: 1.403, z: 1.403}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1534942454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2875, y: 0}
+  m_SizeDelta: {x: 1229.3467, y: 1501.9388}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1747427747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747427745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b5af9f7c91b841a42aff185cd16ec982, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1747427748
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747427745}
+  m_CullTransparentMesh: 1
 --- !u!1 &1752508843
 GameObject:
   m_ObjectHideFlags: 0
@@ -36969,7 +37054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.81494, y: -450}
+  m_AnchoredPosition: {x: 495.81445, y: -450}
   m_SizeDelta: {x: 991.6299, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773388069
@@ -39254,6 +39339,7 @@ MonoBehaviour:
     power: 0
     type: 1
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!1 &1880664256
 GameObject:
   m_ObjectHideFlags: 0
@@ -43209,6 +43295,7 @@ MonoBehaviour:
     power: 0
     type: 1
     secondaryEffect: 
+    secondaryEffect2: 
 --- !u!1 &2026283252
 GameObject:
   m_ObjectHideFlags: 0
@@ -43895,7 +43982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2764, y: 0}
+  m_AnchoredPosition: {x: 2868, y: 0}
   m_SizeDelta: {x: 1229.3467, y: 1501.9388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059737750

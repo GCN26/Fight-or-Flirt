@@ -53,9 +53,15 @@ public class BattleManager : MonoBehaviour
 
     public Image[] BattleSpritesParty, BattleSpritesEnemy;
     public bool test;
+    public bool attackType;
 
     string additionalString;
     public int enemyTableIndex;
+
+    public characterBattleText[] characterBattleTexts =
+    {
+        new characterBattleText("Rocky",new int[] {8},new int[] {24}, new int[] {9 }, new int[]{23},new int[]{8 })
+    };
     void Start()
     {
         party[0].armor = itemTables.armorTable[2];
@@ -175,6 +181,13 @@ public class BattleManager : MonoBehaviour
         disableHealthBars();
         enableHealthBars();
         updateHealthBars();
+
+        if (test)
+        {
+            battleUI.SetActive(false);
+            textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
+        }
+        while (test) yield return null;
 
         int partyDeadInt = 0;
         foreach (Combatant comb in party)
@@ -304,6 +317,7 @@ public class BattleManager : MonoBehaviour
             textMan.progressable = false;
             textMan.endBattleText();
         }
+
         foreach (Combatant comb in battleList)
         {
             if (comb.hp <= 0 || comb.infatuation <= 0)
@@ -611,5 +625,66 @@ public class BattleManager : MonoBehaviour
 
         target.currentStatus = Combatant.status.Burned;
         additionalString = " " + target.charName + " was burned!";
+    }
+    public void showBattleUI()
+    {
+        battleUI.SetActive(true);
+        test = false;
+    }
+}
+
+public class characterBattleText
+{
+    public string charName; // Just for sorting
+    public List<bool> attackHistory = new(); //True for Attack, False for Flirt/Talk
+    public int[] indexAttack;
+    public int[] indexFlirt;
+    public int[] indexAttackAfterFlirt;
+    public int[] indexFlirtAfterAttack;
+    public int[] progressDialogue;
+    public int progressIndex = 0;
+
+    public int textIndex;
+
+    public characterBattleText(string charName, int[] iA, int[] iF, int[] iAF, int[] iFA, int[] progessIndexes)
+    {
+        this.charName = charName;
+        this.indexAttack = iA;
+        this.indexFlirt = iF;
+        this.indexAttackAfterFlirt = iAF;
+        this.indexFlirtAfterAttack = iFA;
+        this.progressDialogue = progessIndexes;
+    }
+    public int addAttackHistory(bool attackType)
+    {
+        attackHistory.Add(attackType);
+
+        //If attack
+        if (attackHistory[attackHistory.Count - 1] == true)
+        {
+            textIndex = indexAttack[UnityEngine.Random.Range(0, indexAttack.Count())];
+        }
+        //If flirt
+        if (attackHistory[attackHistory.Count - 1] == false)
+        {
+            textIndex = indexFlirt[UnityEngine.Random.Range(0, indexFlirt.Count())];
+        }
+        if (attackHistory.Count > 1)
+        {
+            Debug.Log("More than 1 attack");
+            //If attack after flirt
+            if (attackHistory[attackHistory.Count-1] == true && attackHistory[attackHistory.Count-2] == false)
+            {
+                Debug.Log("Attack after Flirt");
+                textIndex = indexAttackAfterFlirt[UnityEngine.Random.Range(0, indexAttackAfterFlirt.Count())];
+            }
+            //If flirt after attack
+            if (attackHistory[attackHistory.Count-1] == false && attackHistory[attackHistory.Count - 2] == true)
+            {
+                Debug.Log("Flirt after Attack");
+                textIndex = indexFlirtAfterAttack[UnityEngine.Random.Range(0, indexFlirtAfterAttack.Count())];
+            }
+        }
+        return textIndex;
     }
 }
