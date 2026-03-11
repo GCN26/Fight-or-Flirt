@@ -35,7 +35,7 @@ public class PartyListObj : MonoBehaviour
 
     public void pressUp()
     {
-        if (Array.IndexOf(menu.childArray,this) > 0)
+        if (Array.IndexOf(menu.childArray,this) > 1)
         {
             int index = Array.IndexOf(menu.childArray, this);
             PartyListObj temp = menu.childArray[index - 1];

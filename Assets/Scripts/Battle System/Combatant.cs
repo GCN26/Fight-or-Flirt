@@ -264,9 +264,9 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 100, 100, 4, 4, 5, 4, 1, 0, spriteIndex: 4),
-        new Combatant("Rock Golem 2", 100, 100, 4, 4, 4, 4, 1, 0, spriteIndex: 5),
-        new Combatant("Rocky", 200, 100, 5, 5, 5, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rock Golem 1", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rock Golem 2", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 5),
+        new Combatant("Rocky", 100, 100, 5, 5, 4, 4, 1, 0, spriteIndex: 4),
     };
 }
 
