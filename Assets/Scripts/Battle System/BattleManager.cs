@@ -287,8 +287,8 @@ public class BattleManager : MonoBehaviour
                     textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name +"." + additionalString;
                     break;
                 case Combatant.type_of_attack.flirt:
-                    int rizz = battleList[0].rizzEnemy();
-                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " for " + rizz.ToString() + " with " + battleList[0].selectedAttack.name + "." + additionalString;
+                    additionalString = battleList[0].rizzEnemy();
+                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " with " + battleList[0].selectedAttack.name + ". " + additionalString;
                     break;
             }
         }
@@ -441,8 +441,8 @@ public class BattleManager : MonoBehaviour
                         textMan.battleTextString = comb.charName + " hits " + comb.target.charName + " for " + damage.ToString() + " with " + comb.selectedAttack.name;
                         break;
                     case Combatant.type_of_attack.flirt:
-                        int rizz = comb.rizzEnemy();
-                        textMan.battleTextString = comb.charName + " hits on " + comb.target.charName + " for " + rizz.ToString() + " with " + comb.selectedAttack.name;
+                        //int rizz = comb.rizzEnemy();
+                        //textMan.battleTextString = comb.charName + " hits on " + comb.target.charName + " for " + rizz.ToString() + " with " + comb.selectedAttack.name;
                         break;
                 }
             }

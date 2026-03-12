@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
     public BattleManager battleManager;
     public TextEventManager textEventManager;
 
+    private void Start()
+    {
+        changePlayerName("Stink");
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -68,5 +72,12 @@ public class GameManager : MonoBehaviour
             default: break;
         }
         Debug.Log("Party Member " + index.ToString() + ": " + battleManager.party[index].relationshipPoints.ToString());
+    }
+
+    public string changePlayerName(string playerName)
+    {
+        textEventManager.characterName = playerName;
+        battleManager.party[0].charName = playerName;
+        return playerName;
     }
 }

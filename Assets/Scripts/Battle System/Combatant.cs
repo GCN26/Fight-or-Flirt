@@ -35,6 +35,16 @@ public class Combatant
     public List<Attack> attackList = new();
     public List<Attack> rizzAttackList = new();
 
+    public enum flirtType
+    {
+        none,
+        Kind,
+        Shy,
+        Asshole,
+        Flirty,
+        Masochist
+    }
+    public flirtType type;
 
     public armor armor;
     public weapon weapon;
@@ -57,6 +67,7 @@ public class Combatant
     {
         Healthy,
         Burned,
+        Poisoned,
         Confused,
         Dead
     }
@@ -72,7 +83,7 @@ public class Combatant
     }
     public bossTypeChar characterType;
 
-    public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0)
+    public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, int flirtTypeA = 0)
     {
         this.charName = charName;
         this.hp = hp;
@@ -85,6 +96,7 @@ public class Combatant
         this.charisma = charis;
         this.perception = charis;
         this.battleSpriteIndex = spriteIndex;
+        this.type = (flirtType)flirtTypeA;
 
         baseAttack = attack;
         baseDefense = defense;
@@ -155,6 +167,7 @@ public class Combatant
         if (random == 0) crit = 1.75f;
         int damage = (int)((movePower * attack * level) * crit / (target.defense * target.level));
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
+        if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
         target.hp -= damage;
         Debug.Log(charName + " hits " + target.charName + " for " + damage.ToString() + " with " + selectedAttack.name);
         object[] objArr = new object[2];
@@ -164,21 +177,28 @@ public class Combatant
         if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         return damage;
     }
-    public int rizzEnemy()
+    public string rizzEnemy()
     {
         selectedAttack = rizzAttackList[attackListIndex];
 
         movePower = selectedAttack.power;
 
-        int rizz = (int)(movePower * charisma);
+        int bonus = 3;
+        bool matchType = ((int)target.type == (int)selectedAttack.type);
+        if (matchType) bonus = 8;
+        int rizz = (int)((float)(movePower * charisma * bonus)/(float)target.perception);
         target.infatuation -= rizz;
-        Debug.Log(charName + " hits on " + target.charName + " for " + rizz.ToString() + " with " + selectedAttack.name);
+        Debug.Log(charName + " hits on " + target.charName + " with " + selectedAttack.name);
+        Debug.Log(rizz);
+        Debug.Log(bonus);
         object[] objArr = new object[2];
         objArr[0] = target;
         objArr[1] = target.partyIndex;
         if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
         if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
-        return rizz;
+        string response = "They seem flattered.";
+        if (matchType) response = "They seem really flustered!";
+        return response;
     }
     public void equipStatChange()
     {
@@ -205,8 +225,8 @@ public static class Attacks
     };
     public static Attack[] rizzList =
     {
-        new Attack("Smooch","The user gives the enemy a kiss.",15,0),
-        new Attack("Text Test","",10,0,"callTextFlirt")
+        new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1),
+        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1)
     };
 }
 
@@ -223,10 +243,19 @@ public class Attack
         Status
     }
     public AttackType type;
+    public enum FlirtType
+    {
+        none,
+        Kind,
+        Shy,
+        Asshole,
+        Flirty,
+        Masochist
+    }
     public string secondaryEffect;
     public string secondaryEffect2;// Used mainly for text purposes
 
-    public Attack(string name, string desc, int power, int type, string secondaryEffect="", string secondaryEffect2 = "")
+    public Attack(string name, string desc, int power, int type, string secondaryEffect="", string secondaryEffect2 = "", int flirtType = 0)
     {
         this.name = name;
         this.desc = desc;
@@ -264,9 +293,9 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 4),
-        new Combatant("Rock Golem 2", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 5),
-        new Combatant("Rocky", 100, 100, 5, 5, 4, 4, 1, 0, spriteIndex: 4),
+        new Combatant("Rock Golem 1", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 4,flirtTypeA:1),
+        new Combatant("Rock Golem 2", 75, 100, 2, 3, 4, 4, 1, 0, spriteIndex: 5,flirtTypeA:1),
+        new Combatant("Rocky", 100, 100, 5, 5, 4, 4, 1, 0, spriteIndex: 4,flirtTypeA:1),
     };
 }
 
