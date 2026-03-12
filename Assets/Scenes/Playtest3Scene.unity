@@ -9720,6 +9720,7 @@ MonoBehaviour:
     rizzAttackListIndexes: 00000000
     attackList: []
     rizzAttackList: []
+    type: 0
     armor:
       name: A
       description: 
@@ -9782,6 +9783,7 @@ MonoBehaviour:
     rizzAttackListIndexes: 00000000
     attackList: []
     rizzAttackList: []
+    type: 0
     armor:
       name: A
       description: 
@@ -28566,7 +28568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
   indexes: 0000000001000000
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 451153028}
 --- !u!65 &1333280476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29574,7 +29576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1358340413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30742,7 +30744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
   indexes: 0000000001000000
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 451153028}
 --- !u!65 &1416458259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32265,7 +32267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1479244958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34195,7 +34197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1557679454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40782,7 +40784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
   indexes: 0000000001000000
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 451153028}
 --- !u!65 &1885254139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42831,12 +42833,12 @@ GameObject:
   - component: {fileID: 1963738833}
   - component: {fileID: 1963738832}
   m_Layer: 5
-  m_Name: Button
+  m_Name: DateMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1963738831
 RectTransform:
   m_ObjectHideFlags: 0
