@@ -12,8 +12,17 @@ public class CharacterMovementScript : MonoBehaviour
 
     private SpriteRenderer spriteRenderer = null;
 
+    private GameManager gameManager = null;
+
+    public RuntimeAnimatorController wController = null;
+    public RuntimeAnimatorController bController = null;
+    public RuntimeAnimatorController mController = null;
+    public RuntimeAnimatorController rController = null;
+
     void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
+
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody>();
@@ -22,6 +31,24 @@ public class CharacterMovementScript : MonoBehaviour
 
     void Update()
     {
+
+        if (gameManager.pcClass == GameManager.playerClass.Warrior)
+        {
+            animator.runtimeAnimatorController = wController;
+        }
+        if (gameManager.pcClass == GameManager.playerClass.Mage)
+        {
+            animator.runtimeAnimatorController = mController;
+        }
+        if (gameManager.pcClass == GameManager.playerClass.Bard)
+        {
+            animator.runtimeAnimatorController = bController;
+        }
+        if (gameManager.pcClass == GameManager.playerClass.Rogue)
+        {
+            animator.runtimeAnimatorController = rController;
+        }
+
         if (textAllowMove && battleAllowMove)
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
