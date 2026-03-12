@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public BattleManager battleManager;
     public TextEventManager textEventManager;
 
+    public int money;
+
     private void Start()
     {
         changePlayerName("Stink");
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void changeClass(int index)
     {
         pcClass = (playerClass)index;
+        battleManager.party[0].battleSpriteIndex = index;
     }
 
     public void addPoints(int index)
