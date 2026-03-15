@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public GameManager gameMan;
-    public PlayerInventory inventory;
+    public PlayerInventoryG inventory;
 
     public shopItem[] stock;
 

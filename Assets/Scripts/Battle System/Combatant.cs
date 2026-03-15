@@ -46,8 +46,7 @@ public class Combatant
     }
     public flirtType type;
 
-    public armor armor;
-    public weapon weapon;
+    public ItemInstance armor,weapon;
 
     public Attack selectedAttack;
 
@@ -204,10 +203,10 @@ public class Combatant
     {
         if (armor != null && weapon != null)
         {
-            attack = baseAttack + weapon.attack;
-            defense = baseDefense + armor.defense;
-            speed = baseSpeed + weapon.speed + armor.speed;
-            charisma = baseCharisma + weapon.charisma + armor.charisma;
+            attack = baseAttack + weapon.itemType.attack;
+            defense = baseDefense + armor.itemType.defense;
+            speed = baseSpeed + weapon.itemType.speed + armor.itemType.speed;
+            charisma = baseCharisma + weapon.itemType.charisma + armor.itemType.charisma;
         }
     }
 }

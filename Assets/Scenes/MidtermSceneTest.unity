@@ -3033,7 +3033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.81445, y: -450}
+  m_AnchoredPosition: {x: 495.81494, y: -450}
   m_SizeDelta: {x: 991.6299, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128526053
@@ -6663,7 +6663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &309341804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8691,6 +8691,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2016850008}
   - {fileID: 272695566}
   m_Father: {fileID: 432009814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9956,7 +9957,6 @@ RectTransform:
   - {fileID: 1743269109}
   - {fileID: 1301730212}
   - {fileID: 1479244958}
-  - {fileID: 2016850008}
   - {fileID: 588622299}
   - {fileID: 1963738831}
   - {fileID: 1543651511}
@@ -10807,9 +10807,9 @@ MonoBehaviour:
     rizzAttackList: []
     type: 0
     armor:
-      itemType: {fileID: 0}
+      itemType: {fileID: 11400000, guid: 56ed710b41de5074cba815c84366d474, type: 2}
     weapon:
-      itemType: {fileID: 0}
+      itemType: {fileID: 11400000, guid: 1020c6b2374283f44bba4f19be9e0aee, type: 2}
     selectedAttack:
       name: 
       desc: 
@@ -22988,7 +22988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.81445, y: -150}
+  m_AnchoredPosition: {x: 495.81494, y: -150}
   m_SizeDelta: {x: 991.6299, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &965177580
@@ -44248,6 +44248,23 @@ MonoBehaviour:
   - itemType: {fileID: 0}
   - itemType: {fileID: 0}
   - itemType: {fileID: 0}
+  inventoryLabels:
+  - {fileID: 496514502}
+  - {fileID: 1647186155}
+  - {fileID: 1157134575}
+  - {fileID: 1283992475}
+  - {fileID: 315465866}
+  - {fileID: 11851933}
+  - {fileID: 1546295881}
+  - {fileID: 873284316}
+  - {fileID: 259236632}
+  - {fileID: 471337796}
+  - {fileID: 1392998671}
+  - {fileID: 1470991641}
+  - {fileID: 811889542}
+  - {fileID: 1876164761}
+  - {fileID: 1567307953}
+  menuObj: {fileID: 393817336}
 --- !u!1 &1902146381
 GameObject:
   m_ObjectHideFlags: 0
@@ -47323,7 +47340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2016850008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47331,19 +47348,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016850007}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 962872500}
   - {fileID: 128526052}
-  m_Father: {fileID: 432009814}
+  m_Father: {fileID: 393817337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 696, y: 43}
-  m_SizeDelta: {x: -2848.37, y: -885.8281}
+  m_AnchoredPosition: {x: 2658.9858, y: 43}
+  m_SizeDelta: {x: -172.39844, y: -885.8281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016850009
 MonoBehaviour:
@@ -49003,8 +49020,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 451153030}
-        m_TargetAssemblyTypeName: PlayerInventoryG, Assembly-CSharp
+      - m_Target: {fileID: 1897380222}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
         m_MethodName: menuButton
         m_Mode: 1
         m_Arguments:

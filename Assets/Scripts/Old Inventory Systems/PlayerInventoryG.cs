@@ -4,13 +4,25 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventoryG : MonoBehaviour
 {
+    //This will be switched over to be the other inventory system after the midterm
     public BattleManager BattleManager;
     public item[] inventory = new item[15];
     public TextMeshProUGUI[] inventoryLabels = new TextMeshProUGUI[15];
     public GameObject menuObj;
 
+    public void menuButton()
+    {
+        if (menuObj.activeSelf)
+        {
+            closeMenu();
+        }
+        else
+        {
+            openMenu();
+        }
+    }
     public void openMenu()
     {
         updateLabels();
@@ -33,47 +45,6 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log(((armor)inventory[0]).defense);
         inventory[1] = itemTables.weaponTable[0];
         Debug.Log(((weapon)inventory[1]).attack);
-    }
-
-    public void equipArmor(int partyIndex, int inventoryIndex)
-    {
-        if (inventory[inventoryIndex] is armor && inventory[inventoryIndex].myType == item.itemType.armor && inventory[inventoryIndex] != null)
-        {
-            armor tempArmor = BattleManager.party[partyIndex].armor;
-            BattleManager.party[partyIndex].armor = (armor)inventory[inventoryIndex];
-            if(tempArmor != null) inventory[inventoryIndex] = tempArmor;
-            else inventory[inventoryIndex] = null;
-            BattleManager.party[partyIndex].equipStatChange();
-            Debug.Log("Item Equipped!");
-        }
-        else
-        {
-            Debug.LogError("Item is not an armor!");
-        }
-    }
-    public void equipWeapon(int partyIndex, int inventoryIndex)
-    {
-        if (inventory[inventoryIndex] is weapon && inventory[inventoryIndex].myType == item.itemType.weapon && inventory[inventoryIndex] != null)
-        {
-            armor tempWeapon = BattleManager.party[partyIndex].armor;
-            BattleManager.party[partyIndex].weapon = (weapon)inventory[inventoryIndex];
-            if (tempWeapon != null) inventory[inventoryIndex] = tempWeapon;
-            else inventory[inventoryIndex] = null;
-            BattleManager.party[partyIndex].equipStatChange();
-            Debug.Log("Item Equipped!");
-        }
-        else
-        {
-            Debug.LogError("Item is not a weapon!");
-        }
-    }
-    public void testEquip()
-    {
-        equipArmor(0, 0);
-    }
-    public void testEquip2()
-    {
-        equipWeapon(0, 1);
     }
 }
 

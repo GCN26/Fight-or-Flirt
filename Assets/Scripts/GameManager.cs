@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        changePlayerName("Stink");
+        changePlayerName("Hero");
     }
     private void Update()
     {

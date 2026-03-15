@@ -65,7 +65,7 @@ public class BattleManager : MonoBehaviour
     };
     void Start()
     {
-        party[0].armor = itemTables.armorTable[2];
+        //party[0].armor = itemTables.armorTable[2];
         //battleCo = StartCoroutine(battleProcess());
     }
     void Update()

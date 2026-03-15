@@ -6,6 +6,16 @@ public class ItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public GameObject model;
+    public enum itemType
+    {
+        none,
+        armor,
+        weapon,
+        heal,
+        item
+    }
+    public itemType myType;
     [TextArea]
     public string description;
+    public int attack, defense, speed, charisma;
 }
