@@ -43,6 +43,7 @@ public class BattleManager : MonoBehaviour
     public MoveButton[] rizzMoveButtons;
 
     public TextEventManager textMan;
+    public GameManager gameMan;
     public AudioSource musicSource, sfxSource;
     public AudioClip[] hurtSounds;
 

@@ -1,13 +1,32 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
     public BattleManager BattleManager;
     public item[] inventory = new item[15];
+    public TextMeshProUGUI[] inventoryLabels = new TextMeshProUGUI[15];
+    public GameObject menuObj;
 
+    public void openMenu()
+    {
+        updateLabels();
+        menuObj.SetActive(true);
+    }
+    public void closeMenu()
+    {
+        menuObj.SetActive(false);
+    }
+    public void updateLabels()
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            inventoryLabels[i].text = inventory[i].name;
+        }
+    }
     public void testInventory()
     {
         inventory[0] = itemTables.armorTable[0];
