@@ -1,32 +1,66 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
     public GameManager gameMan;
-    public PlayerInventoryG inventory;
+    public Inventory inventory;
 
     public shopItem[] stock;
+    public ShopitemObj itemObjectPrefab;
+    public GameObject panel;
+    public List<ShopitemObj> items;
+
+    public TextMeshProUGUI moneycount;
+    public GameObject window;
 
     void Start()
     {
+        populateShop();
+    }
+    public void populateShop()
+    {
+        moneycount.text = gameMan.money.ToString();
+        int loop = 0;
         foreach (shopItem item in stock)
         {
+            int a = loop;
             item.shopMan = this;
             item.getVars();
+
+            ShopitemObj itemObj = Instantiate(itemObjectPrefab);
+            itemObj.shopMan = this;
+            itemObj.nameTMP.text = item.name;
+            itemObj.costTMP.text = item.cost.ToString();
+
+            itemObj.buyButton.onClick.AddListener(() => buyItem(a));
+            itemObj.transform.SetParent(panel.transform);
+            items.Add(itemObj);
+            loop++;
         }
+    }
+    public void openShop()
+    {
+        window.SetActive(true);
+    }
+    public void closeShop()
+    {
+        window.SetActive(false);
     }
     public void buyItem(int index)
     {
         if (stock[index].buyable)
         {
             int loopIndex = -1;
-            for (int i = 0; i < inventory.inventory.Length; i++)
+            for (int i = 0; i < inventory.items.Count; i++)
             {
-                if (inventory.inventory[i].name == "")
+                if (inventory.items[i].itemType == null)
                 {
                     loopIndex = i;
-                    i = inventory.inventory.Length;
+                    i = inventory.items.Count;
                 }
             }
             if (loopIndex == -1)
@@ -41,8 +75,9 @@ public class ShopManager : MonoBehaviour
                     //Purchase successful
                     Debug.Log("Purchase Successful");
                     gameMan.money -= stock[index].cost;
-                    inventory.inventory[loopIndex] = stock[index].itemSelf;
+                    inventory.items[loopIndex].itemType = stock[index].itemInstance.itemType;
                     stock[index] = null;
+                    Destroy(items[index].gameObject);
                 }
                 else
                 {
@@ -51,6 +86,8 @@ public class ShopManager : MonoBehaviour
                 }
             }
         }
+        moneycount.text = gameMan.money.ToString();
+        gameMan.inventoryman.updateLabels();
     }
 }
 
@@ -58,10 +95,7 @@ public class ShopManager : MonoBehaviour
 public class shopItem
 {
     public ShopManager shopMan;
-    public item.itemType type;
-    public int itemID;
-
-    public item itemSelf;
+    public ItemInstance itemInstance;
     public int cost;
     public string name;
     public string description;
@@ -69,18 +103,8 @@ public class shopItem
 
     public void getVars()
     {
-        item theItem = null;
-        switch (type)
-        {
-            case item.itemType.none: break;
-            case item.itemType.armor: theItem = itemTables.armorTable[itemID]; break;
-            case item.itemType.weapon: theItem = itemTables.weaponTable[itemID]; break;
-            case item.itemType.heal: theItem = itemTables.healTable[itemID]; break;
-            case item.itemType.item: theItem = itemTables.itemTable[itemID];break;
-        }
         buyable = true;
-        itemSelf = theItem;
-        description = theItem.description;
-        name = theItem.name;
+        description = itemInstance.itemType.description;
+        name = itemInstance.itemType.name;
     }
 }

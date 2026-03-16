@@ -469,7 +469,7 @@ public class BattleManager : MonoBehaviour
 
     int checkSlots(int num)
     {
-        if (num < 0) return -1;
+        if (num < 0) return checkSlots(party.Count()-1);
         if (party[num].hp > 0) return num;
         else
         {

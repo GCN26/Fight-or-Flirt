@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     public GameObject menuObj;
     BattleManager battleMan;
     public PartyMenuTest partyMenu;
+    public ShopManager shopMan;
 
     public int selectedPartyMember;
 
@@ -60,6 +61,8 @@ public class Inventory : MonoBehaviour
 
     public void equipArmor(int partyIndex, int inventoryIndex)
     {
+        Debug.Log(inventoryIndex);
+        Debug.Log(partyIndex);
         if (items[inventoryIndex].itemType.myType == ItemData.itemType.armor)
         {
             ItemInstance tempArmor = battleMan.party[partyIndex].armor;
@@ -108,6 +111,7 @@ public class Inventory : MonoBehaviour
     {
         updateLabels();
         menuObj.SetActive(true);
+        shopMan.closeShop();
     }
     public void closeMenu()
     {
@@ -134,33 +138,33 @@ public class Inventory : MonoBehaviour
         if (armor)
         {
             //Set buttons for armor list items to be visible
-            foreach(ItemInMenuObj item in itemsInMenu)
+            for (int i = 0; i < items.Count; i++)
             {
-                int loop = 0;
+                ItemInMenuObj item = itemsInMenu[i];
                 if (item.myType == ItemInMenuObj.itemType.armor)
                 {
-                    int a = loop;
+                    int a = i;
+                    Debug.Log(item.itemName + " is an armor");
                     item.equipButton.gameObject.SetActive(true);
                     item.equipButton.onClick.AddListener(() => equipArmor(selectedPartyMember, a));
                     item.equipButton.onClick.AddListener(() => hideAllButtons());
                 }
-                loop++;
             }
         }
         else
         {
             //Set buttons for weapon list items to be visible
-            foreach (ItemInMenuObj item in itemsInMenu)
+            for(int i = 0; i < items.Count; i++)
             {
-                int loop = 0;
+                ItemInMenuObj item = itemsInMenu[i];
                 if (item.myType == ItemInMenuObj.itemType.weapon)
                 {
-                    int a = loop;
+                    int a = i;
+                    Debug.Log(item.itemName + " is a weapon");
                     item.equipButton.gameObject.SetActive(true);
                     item.equipButton.onClick.AddListener(() => equipWeapon(selectedPartyMember, a));
                     item.equipButton.onClick.AddListener(() => hideAllButtons());
                 }
-                loop++;
             }
 
         }

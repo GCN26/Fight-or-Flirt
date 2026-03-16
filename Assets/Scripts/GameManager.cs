@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public BattleManager battleManager;
     public TextEventManager textEventManager;
+    public Inventory inventoryman;
 
     public int money;
 
