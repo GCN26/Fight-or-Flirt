@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-        inventory.displayAllItemNames();
+//inventory.displayAllItemNames();
     }
     private void OnTriggerEnter(Collider other)
     {

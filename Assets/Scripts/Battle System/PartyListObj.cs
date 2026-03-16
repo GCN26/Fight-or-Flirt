@@ -15,6 +15,8 @@ public class PartyListObj : MonoBehaviour
     public Slider hpBar;
     public Button changeEquipButton;
 
+    public int indexInList;
+
     private void Start()
     {
         updateInfo();

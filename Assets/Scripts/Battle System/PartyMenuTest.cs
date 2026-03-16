@@ -11,6 +11,7 @@ public class PartyMenuTest : MonoBehaviour
         for (int i = 0; i < childArray.Length; i++)
         {
             childArray[i].transform.SetSiblingIndex(i);
+            childArray[i].indexInList = i;
         }
     }
 }

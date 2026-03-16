@@ -202,7 +202,7 @@ public class Combatant
     }
     public void equipStatChange()
     {
-        if (armor != null && weapon != null)
+        if (party)
         {
             attack = baseAttack + weapon.itemType.attack;
             defense = baseDefense + armor.itemType.defense;
