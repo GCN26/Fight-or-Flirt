@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        changePlayerName("Hero");
+        changePlayerName(SceneIndependentClass.charName);
+        changeClass(SceneIndependentClass.classInt);
     }
     private void Update()
     {
@@ -51,6 +52,33 @@ public class GameManager : MonoBehaviour
     {
         pcClass = (playerClass)index;
         battleManager.party[0].battleSpriteIndex = index;
+
+        int power = 1, defense = 1, speed = 1, charisma = 1;
+
+        switch (index)
+        {
+            case 0: //Warrior
+                power = 3; speed = 2; charisma = 1; defense = 2;
+                break;
+            case 1: //Bard
+                power = 1; speed = 1; charisma = 4; defense = 2;
+                break;
+            case 2: //Rogue
+                power = 2; speed = 4; charisma = 1; defense = 1;
+                break;
+            case 3: //Mage
+                power = 4; speed = 1; charisma = 2; defense = 1;
+                break;
+        }
+
+        battleManager.party[0].attack = power;
+        battleManager.party[0].baseAttack = power;
+        battleManager.party[0].defense = defense;
+        battleManager.party[0].baseDefense = defense;
+        battleManager.party[0].charisma = charisma;
+        battleManager.party[0].baseCharisma = charisma;
+        battleManager.party[0].speed = speed;
+        battleManager.party[0].baseSpeed = speed;
     }
 
     public void addPoints(int index)

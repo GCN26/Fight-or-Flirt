@@ -17,6 +17,10 @@ public class Inventory : MonoBehaviour
     {
         battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
     }
+    private void Update()
+    {
+        if (battleMan.battleOpen && menuObj.activeSelf) closeMenu();
+    }
     public void displayAllItemNames()
     {
         foreach (var item in items)

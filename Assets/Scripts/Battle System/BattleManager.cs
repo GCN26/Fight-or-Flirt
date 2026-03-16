@@ -234,8 +234,12 @@ public class BattleManager : MonoBehaviour
         if (enemies.Count == enemyDeadInt)
         {
             textMan.battleText = true;
-            if(party.Length > 1) textMan.battleTextString = "Your team won the battle!";
-            else textMan.battleTextString = "You won the battle!";
+            if(party.Length > 1) textMan.battleTextString = "Your team won the battle! Your team gained experience!";
+            else textMan.battleTextString = "You won the battle! You gained experience!";
+            foreach (Combatant p in party)
+            {
+                p.experience += (int)((float)20 / (float)party.Length);
+            }
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
             while (!textMan.progressable) yield return null;

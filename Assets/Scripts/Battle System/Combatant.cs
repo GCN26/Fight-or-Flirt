@@ -25,6 +25,7 @@ public class Combatant
     public int movePower;
 
     public int level = 1;
+    public int experience = 0;
 
     public int attackTargetIndex;
     public int attackListIndex;
