@@ -17,7 +17,7 @@ MonoBehaviour:
   model: {fileID: 0}
   myType: 2
   description: 
-  attack: 5
+  attack: 4
   defense: 0
   speed: 0
   charisma: 0

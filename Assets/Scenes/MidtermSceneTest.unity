@@ -4929,7 +4929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &188724171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12921,7 +12921,7 @@ MonoBehaviour:
     perception: 0
     baseAttack: 2
     baseDefense: 4
-    baseSpeed: 5
+    baseSpeed: 2
     baseCharisma: 1
     basePerception: 0
     maxHp: 200
@@ -45825,7 +45825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1743269109
 RectTransform:
   m_ObjectHideFlags: 0
