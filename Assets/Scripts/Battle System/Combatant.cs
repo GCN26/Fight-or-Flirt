@@ -56,6 +56,8 @@ public class Combatant
 
     public bool party;
     public int partyIndex = -1;
+
+    public bool isBoss;
     public enum type_of_attack
     {
         fight,
@@ -83,7 +85,7 @@ public class Combatant
     }
     public bossTypeChar characterType;
 
-    public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, int flirtTypeA = 0)
+    public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, int flirtTypeA = 0, bool isBoss = false)
     {
         this.charName = charName;
         this.hp = hp;
@@ -97,6 +99,8 @@ public class Combatant
         this.perception = charis;
         this.battleSpriteIndex = spriteIndex;
         this.type = (flirtType)flirtTypeA;
+
+        this.isBoss = isBoss;
 
         baseAttack = attack;
         baseDefense = defense;
@@ -174,7 +178,7 @@ public class Combatant
         objArr[0] = target;
         objArr[1] = target.partyIndex;
         if(selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
-        if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
+        if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         return damage;
     }
     public string rizzEnemy()
@@ -195,7 +199,7 @@ public class Combatant
         objArr[0] = target;
         objArr[1] = target.partyIndex;
         if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
-        if (selectedAttack.secondaryEffect2 != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
+        if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         string response = "They seem flattered.";
         if (matchType) response = "They seem really flustered!";
         return response;
@@ -273,19 +277,18 @@ public class Attack
         Debug.Log(index);
         battleMan.setEnemyStatus(target, index);
     }
-    public void callTextTest(Combatant target, int index)
+
+    public void bossRockyAttackText(Combatant target, int index)
     {
         BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         battleMan.attackType = true;
-        battleMan.test = true;
-        //battleMan.textMan.callText(8);
+        battleMan.holdForText = true;
     }
-    public void callTextFlirt(Combatant target, int index)
+    public void bossRockyFlirtText(Combatant target, int index)
     {
         BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         battleMan.attackType = false;
-        battleMan.test = true;
-        //battleMan.textMan.callText(8);
+        battleMan.holdForText = true;
     }
 }
 
@@ -295,7 +298,7 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1),
         new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 5,flirtTypeA:1),
-        new Combatant("Rock Golem", 75, 100, 1, 2, 4, 2, 1, 0, spriteIndex: 4,flirtTypeA:1),
+        new Combatant("Rocky", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 6,flirtTypeA:1),
     };
 }
@@ -306,5 +309,9 @@ public static class encounterTables
     {
         new int[] { 0, 1},
         new int[] {2}
+    };
+    public static string[] battleStartMessages = new string[] {
+        "A pair of rock golems block your path!",
+        "Rocky blocks your path!"
     };
 }

@@ -47,6 +47,10 @@ public class TextEventManager : MonoBehaviour
     public bool battleText = false;
     public string battleTextString = "";
     public string characterName;
+
+    public AudioSource audioSource;
+    public AudioClip textBlip;
+
     void Start()
     {
         //Get JSON data
@@ -76,7 +80,7 @@ public class TextEventManager : MonoBehaviour
             if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
             textOpen = true;
-            nextIndex = 8;
+            nextIndex = 1;
             textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)
@@ -163,7 +167,9 @@ public class TextEventManager : MonoBehaviour
             enableTextbox();
         }
         textBox.maxVisibleCharacters = 0;
-        numberOfChar = textBox.text.Length;
+        textBox.ForceMeshUpdate();
+        numberOfChar = textBox.GetParsedText().Length;
+        yield return new WaitForEndOfFrame();
 
         //While text is not entirely revealed
         while (textBox.maxVisibleCharacters < numberOfChar)
@@ -177,7 +183,11 @@ public class TextEventManager : MonoBehaviour
                 if (textBox.maxVisibleCharacters < numberOfChar) textBox.maxVisibleCharacters += 1;
             }
             //Get current character and check if it is punctuation. If it is, stop for an extended period of time.
-            char curChar = textBox.text[textBox.maxVisibleCharacters-1];
+            char curChar = textBox.GetParsedText()[textBox.maxVisibleCharacters-1];
+            if (currentTextObject.dialogue != "" || battleText)
+            {
+                if (curChar != ' ') audioSource.PlayOneShot(textBlip);
+            }
             if (!fastText && (curChar == '.' || curChar == '!' || curChar == '?' || curChar == ',' || curChar == ':' || curChar == ';')) yield return new WaitForSeconds(.25f / textSpeed);
             else yield return new WaitForSeconds(.1125f/textSpeed);
         }

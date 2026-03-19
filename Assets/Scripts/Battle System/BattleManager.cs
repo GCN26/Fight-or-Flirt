@@ -49,24 +49,36 @@ public class BattleManager : MonoBehaviour
 
     public string battleOrder;
     public TextMeshProUGUI battleOrderDisplay;
-
     public Sprite[] spriteTable;
 
     public Image[] BattleSpritesParty, BattleSpritesEnemy;
-    public bool test;
+    public bool holdForText;
     public bool attackType;
 
     string additionalString;
     public int enemyTableIndex;
 
+    public GameObject bossRecruitPanel;
+    public bool waitForPlayerToRecruit = false;
     public characterBattleText[] characterBattleTexts =
     {
-        new characterBattleText("Rocky",new int[] {8},new int[] {24}, new int[] {9 }, new int[]{23},new int[]{8 })
+        //REPLACE THE INDEXES WITH RESPECTIVE ONES
+        new characterBattleText("Rocky",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0}),
+        new characterBattleText("Mandi",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0}),
+        new characterBattleText("Slimon",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0}),
+        new characterBattleText("Dot",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0})
     };
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
         //battleCo = StartCoroutine(battleProcess());
+
+        //May need to remove this at some point in the future
+        foreach(Combatant comb in party)
+        {
+            comb.party = true;
+            comb.equipStatChange();
+        }
     }
     void Update()
     {
@@ -161,7 +173,15 @@ public class BattleManager : MonoBehaviour
     }
     public void endBattle()
     {
-        for(int i = 0; i < 4; i++)
+        foreach (Attack atk in Attacks.attackList)
+        {
+            atk.secondaryEffect2 = "";
+        }
+        foreach (Attack flrt in Attacks.rizzList)
+        {
+            flrt.secondaryEffect2 = "";
+        }
+        for (int i = 0; i < 4; i++)
         {
             BattleSpritesParty[i].gameObject.SetActive(false);
             BattleSpritesEnemy[i].gameObject.SetActive(false);
@@ -183,12 +203,12 @@ public class BattleManager : MonoBehaviour
         enableHealthBars();
         updateHealthBars();
 
-        if (test)
+        if (holdForText)
         {
             battleUI.SetActive(false);
             textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
         }
-        while (test) yield return null;
+        while (holdForText) yield return null;
 
         int partyDeadInt = 0;
         foreach (Combatant comb in party)
@@ -204,6 +224,7 @@ public class BattleManager : MonoBehaviour
         }
         if (party.Length == partyDeadInt)
         {
+            battleUI.SetActive(false);
             textMan.battleText = true;
             if (party.Length > 1) textMan.battleTextString = "Your team lost the battle!";
             else textMan.battleTextString = "You lost the battle!";
@@ -226,6 +247,15 @@ public class BattleManager : MonoBehaviour
             {
                 
             }
+            else if(comb.infatuation < 0 && comb.isBoss)
+            {
+                //Check stat requirements
+                //Prompt Recruit
+                while (waitForPlayerToRecruit)
+                {
+                    yield return null;
+                }
+            }
             else
             {
                 enemyDeadInt++;
@@ -233,6 +263,7 @@ public class BattleManager : MonoBehaviour
         }
         if (enemies.Count == enemyDeadInt)
         {
+            battleUI.SetActive(false);
             textMan.battleText = true;
             if(party.Length > 1) textMan.battleTextString = "Your team won the battle! Your team gained experience!";
             else textMan.battleTextString = "You won the battle! You gained experience!";
@@ -347,122 +378,6 @@ public class BattleManager : MonoBehaviour
         battleOrderDisplay.text = battleOrder;
 
  
-        battleCo = StartCoroutine(battleProcess());
-        yield break;
-    }
-
-    IEnumerator battleProcessOld()
-    {
-        enableHealthBars();
-        pausedForInput = true;
-        updateHealthBars();
-        int partyDeadInt = 0;
-        foreach (Combatant comb in party) {
-            if(comb.hp > 0)
-            {
-                
-            }
-            else
-            {
-                partyDeadInt++;
-            }
-        }
-        if(party.Length == partyDeadInt)
-        {
-            Debug.Log("You lose!");
-            endBattle();
-            //End in Loss
-            //StopCoroutine(battleCo);
-            yield break;
-        }
-
-        int enemyDeadInt = 0;
-        foreach (Combatant comb in enemies)
-        {
-            if (comb.hp > 0 && comb.infatuation > 0)
-            {
-
-            }
-            else
-            {
-                enemyDeadInt++;
-            }
-        }
-        if (enemies.Count == enemyDeadInt)
-        {
-
-            Debug.Log("You win!");
-            endBattle();
-            //End in win
-            //StopCoroutine(battleCo);
-            yield break;
-        }
-
-        //Get Player Input
-        while (currentPartyIndex < party.Length)
-        {
-            if (party[currentPartyIndex].hp > 0)
-            {
-                party[currentPartyIndex].target = null;
-                battleUI.SetActive(true);
-                setMoveList(currentPartyIndex);
-
-                while (pausedForInput) yield return null;
-
-                closeAttackTargetPanel();
-                closeRizzTargetPanel();
-                closeAttackMovePanel();
-                closeRizzMovePanel();
-                battleList.Add(party[currentPartyIndex]);
-                currentPartyIndex++;
-                pausedForInput = true;
-            }
-            battleUI.SetActive(false);
-            clearMoveList();
-        }
-        int enemyIndex = 0;
-        while(enemyIndex < enemies.Count)
-        {
-            if (enemies[enemyIndex].hp > 0 && enemies[enemyIndex].infatuation > 0)
-            {
-                enemies[enemyIndex].target = party[checkSlots(UnityEngine.Random.Range(0, party.Length))];
-                battleList.Add(enemies[enemyIndex]);
-            }
-            enemyIndex++;
-        }
-
-        //Get Speed for turn order
-        battleList = battleList.OrderBy(x => x.speed).ToList();
-        battleList.Reverse();
-        foreach (Combatant comb in battleList)
-        {
-            textMan.battleText = true;
-            if (comb.hp > 0 && comb.infatuation > 0)
-            {
-                switch (comb.attackType)
-                {
-                    case Combatant.type_of_attack.fight:
-                        int damage = comb.attackEnemy();
-                        textMan.battleTextString = comb.charName + " hits " + comb.target.charName + " for " + damage.ToString() + " with " + comb.selectedAttack.name;
-                        break;
-                    case Combatant.type_of_attack.flirt:
-                        //int rizz = comb.rizzEnemy();
-                        //textMan.battleTextString = comb.charName + " hits on " + comb.target.charName + " for " + rizz.ToString() + " with " + comb.selectedAttack.name;
-                        break;
-                }
-            }
-            else textMan.battleTextString = comb.charName + " is unable to fight!";
-            updateHealthBars();
-            textMan.startBattleText();
-            yield return new WaitForSeconds(.5f);
-            while (!textMan.progressable) yield return null;
-            textMan.progressable = false;
-            yield return new WaitForSeconds(.5f);
-        }
-
-        textMan.endBattleText();
-        currentPartyIndex = 0;
-        battleList.Clear();
         battleCo = StartCoroutine(battleProcess());
         yield break;
     }
@@ -634,7 +549,30 @@ public class BattleManager : MonoBehaviour
     public void showBattleUI()
     {
         battleUI.SetActive(true);
-        test = false;
+        holdForText = false;
+    }
+
+    public void startBattleBoss(string name)
+    {
+        waitForPlayerToRecruit = true;
+        //Get name and index of boss
+        //Add their index for recruiting and for in-battle text
+        switch (name)
+        {
+            case "Rocky":
+                foreach(Combatant comb in party)
+                {
+                    foreach(Attack atk in comb.attackList)
+                    {
+                        atk.secondaryEffect2 = "bossRockyAttackText";
+                    }
+                    foreach(Attack flrt in comb.rizzAttackList)
+                    {
+                        flrt.secondaryEffect2 = "bossRockyFlirtText";
+                    }
+                }
+                break;
+        }
     }
 }
 

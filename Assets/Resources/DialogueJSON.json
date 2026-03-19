@@ -194,17 +194,7 @@
         "strings": [],
         "ids": []
       },
-      "conditional": {
-        "obj_name_a": "Cube",
-        "script_name_a": "test",
-        "var_name_a": "foo",
-        "obj_name_b": "Cube2",
-        "script_name_b": "test",
-        "var_name_b": "bar",
-        "compare_type": "equal",
-        "true_id": 0,
-        "false_id": -1
-      }
+      "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 7,
@@ -650,8 +640,62 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 26,
+      "dialogue": "rockyDialogueAttacked",
+      "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 27,
+      "dialogue": "rockyDialogueFlirted",
+      "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 28,
+      "dialogue": "rockyDialogueAttackedAfterFlirt",
+      "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 29,
+      "dialogue": "rockyDialogueFlirtedAfterAttack",
+      "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 30,
+      "dialogue": "t<color=red>test</color><color=red></color>",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
-
 
   ]
 }

@@ -1,16 +1,26 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public int foo = 1;
-    public int bar = 1;
+    public AudioSource AudioSource;
+    public AudioClip[] footstepSounds;
 
-    public void hi(int i, int j)
+    Coroutine footstepSFXCo;
+
+    private void Start()
     {
-        Debug.Log(i+ j);
+
+        footstepSFXCo = StartCoroutine(FootStepSoundPlay());
     }
-    public void hi2()
+    IEnumerator FootStepSoundPlay()
     {
-        Debug.Log(foo);
+        AudioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
+        while (AudioSource.isPlaying)
+        {
+            yield return null;
+        }
+        footstepSFXCo = StartCoroutine(FootStepSoundPlay());
     }
 }

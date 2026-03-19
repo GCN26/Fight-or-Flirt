@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CharacterMovementScript : MonoBehaviour
@@ -18,6 +19,12 @@ public class CharacterMovementScript : MonoBehaviour
     public RuntimeAnimatorController bController = null;
     public RuntimeAnimatorController mController = null;
     public RuntimeAnimatorController rController = null;
+    public bool moving;
+
+    public AudioSource AudioSource;
+    public AudioClip[] footstepSounds;
+
+    Coroutine footstepSFXCo;
 
     void Start()
     {
@@ -63,30 +70,44 @@ public class CharacterMovementScript : MonoBehaviour
         if (moveInput.x > 0)
         {
             animator.SetBool("Moving", true);
+            moving = true;
             spriteRenderer.flipX = false;
         }
         else if (moveInput.x < 0)
         {
             animator.SetBool("Moving", true);
+            moving = true;
             spriteRenderer.flipX = true;
         }
         if (moveInput.z > 0)
         {
             animator.SetBool("Moving", true);
+            moving = true;
         }
         else if (moveInput.z < 0)
         {
             animator.SetBool("Moving", true);
+            moving = true;
         }
         else if (moveInput.x == 0 &&  moveInput.z == 0)
         {
             animator.SetBool("Moving", false);
+            moving = false;
         }
         moveInput.Normalize();
+        if (moving && !AudioSource.isPlaying) AudioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
     }
 
     void FixedUpdate()
     {
         rb.linearVelocity = moveInput * moveSpeed;
+    }
+    IEnumerator FootStepSoundPlay()
+    {
+        AudioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
+        while (AudioSource.isPlaying)
+        {
+            yield return null;
+        }
     }
 }

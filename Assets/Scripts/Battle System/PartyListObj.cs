@@ -34,8 +34,7 @@ public class PartyListObj : MonoBehaviour
         else weaponName.text = "";
         if (menu.battleManager.party[index].armor.itemType != null) armorName.text = menu.battleManager.party[index].armor.itemType.itemName;
         else armorName.text = "";
-        menu.battleManager.party[index].equipStatChange();
-        stats.text = menu.battleManager.party[index].attack.ToString() + "\n" + menu.battleManager.party[index].defense.ToString() + "\n" + menu.battleManager.party[index].speed.ToString() + "\n" + menu.battleManager.party[index].charisma.ToString();
+        stats.text = (menu.battleManager.party[index].attack).ToString() + "\n" + (menu.battleManager.party[index].defense).ToString() + "\n" + menu.battleManager.party[index].speed.ToString() + "\n" + menu.battleManager.party[index].charisma.ToString();
         hpBar.value = (float)menu.battleManager.party[index].hp / (float)menu.battleManager.party[index].maxHp;
     }
 
