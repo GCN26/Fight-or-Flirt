@@ -59,16 +59,16 @@ public class GameManager : MonoBehaviour
         switch (index)
         {
             case 0: //Warrior
-                power = 3; speed = 2; charisma = 1; defense = 2;
+                power = 3; speed = 6; charisma = 1; defense = 2;
                 break;
             case 1: //Bard
-                power = 1; speed = 1; charisma = 4; defense = 2;
+                power = 1; speed = 3; charisma = 4; defense = 2;
                 break;
             case 2: //Rogue
-                power = 2; speed = 4; charisma = 1; defense = 1;
+                power = 2; speed = 12; charisma = 1; defense = 1;
                 break;
             case 3: //Mage
-                power = 4; speed = 1; charisma = 2; defense = 1;
+                power = 4; speed = 3; charisma = 2; defense = 1;
                 break;
         }
 

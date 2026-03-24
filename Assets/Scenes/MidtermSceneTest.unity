@@ -12883,12 +12883,12 @@ MonoBehaviour:
     maxInfatuation: 1
     relationshipPoints: 0
     movePower: 15
-    level: 1
-    experience: 0
+    level: 5
+    experience: 700
     attackTargetIndex: 0
     attackListIndex: 0
-    attackListIndexes: 00000000010000000200000003000000
-    rizzAttackListIndexes: 00000000
+    attackListIndexes: 00000000000000000000000000000000
+    rizzAttackListIndexes: 00000000000000000000000000000000
     attackList: []
     rizzAttackList: []
     type: 0
@@ -12921,7 +12921,7 @@ MonoBehaviour:
     perception: 0
     baseAttack: 2
     baseDefense: 4
-    baseSpeed: 2
+    baseSpeed: 5
     baseCharisma: 1
     basePerception: 0
     maxHp: 200
@@ -12932,8 +12932,8 @@ MonoBehaviour:
     experience: 0
     attackTargetIndex: 0
     attackListIndex: 0
-    attackListIndexes: 000000000100000003000000
-    rizzAttackListIndexes: 00000000
+    attackListIndexes: 00000000000000000000000000000000
+    rizzAttackListIndexes: 00000000000000000000000000000000
     attackList: []
     rizzAttackList: []
     type: 0
@@ -13008,7 +13008,7 @@ MonoBehaviour:
   - {fileID: 444697237}
   - {fileID: 2084898465}
   textMan: {fileID: 902413389}
-  gameMan: {fileID: 0}
+  gameMan: {fileID: 532123606}
   musicSource: {fileID: 1204414788}
   sfxSource: {fileID: 1161160254}
   hurtSounds:
@@ -25206,7 +25206,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.278
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -35380,7 +35380,7 @@ Transform:
   m_GameObject: {fileID: 1333280474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.79, y: 0, z: -17.26}
+  m_LocalPosition: {x: 22.79, y: 0, z: -12.490001}
   m_LocalScale: {x: 2.142, y: 2.142, z: 8.530515}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41796,7 +41796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1557679454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50473,7 +50473,7 @@ Transform:
   m_GameObject: {fileID: 1885254137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.67, y: 0, z: -16.91}
+  m_LocalPosition: {x: 2.67, y: 0, z: -12.14}
   m_LocalScale: {x: 2.142, y: 2.142, z: 10.6558075}
   m_ConstrainProportionsScale: 0
   m_Children: []

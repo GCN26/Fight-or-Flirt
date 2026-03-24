@@ -105,6 +105,7 @@ public class BattleManager : MonoBehaviour
     {
         if (!battleOpen)
         {
+            textMan.callText(31);
             musicSource.enabled = true;
             musicSource.Play();
             battleBG.SetActive(true);
@@ -122,6 +123,7 @@ public class BattleManager : MonoBehaviour
             {
                 partyMember.attackList.Clear();
                 partyMember.rizzAttackList.Clear();
+                getPartyAttackIndexes(partyMember);
                 partyMember.getAttacksInList();
                 partyMember.party = true;
                 partyMember.partyIndex = pL;
@@ -270,6 +272,7 @@ public class BattleManager : MonoBehaviour
             foreach (Combatant p in party)
             {
                 p.experience += (int)((float)20 / (float)party.Length);
+                p.getLevel();
             }
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
@@ -281,6 +284,11 @@ public class BattleManager : MonoBehaviour
             //End in win
             //StopCoroutine(battleCo);
             yield break;
+        }
+
+        while (textMan.textOpen)
+        {
+            yield return null;
         }
 
         if (battleList[0].party == true)
@@ -572,6 +580,99 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 break;
+        }
+    }
+
+    public void getPartyAttackIndexes(Combatant comb)
+    {
+        //Move 0 and 2 Based on Class
+        int newAtk0 = 0;
+        int newAtk1 = 0;
+        int newAtk2 = 0;
+        int newAtk3 = 0;
+
+        //Flirt 0, 1, and 2 based on class
+        int newFlrt0 = 0;
+        int newFlrt1 = 0;
+        int newFlrt2 = 0;
+        int newFlrt3 = 0;
+
+
+        if (comb.partyIndex == 0)
+        {
+            switch (gameMan.pcClass)
+            {
+                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 1; newAtk3 = 2; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 7; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 10; newAtk3 = 11; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 4; newAtk3 = 5; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+            }
+        }
+        else
+        {
+            switch (comb.characterType)
+            {
+                case Combatant.bossTypeChar.rocky: newAtk0 = 12; newAtk2 = 13; newAtk3 = 14; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case Combatant.bossTypeChar.mandi: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case Combatant.bossTypeChar.slimon: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case Combatant.bossTypeChar.dot: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+            }
+        }
+
+        //Atk 0 = 8
+        //Atk 2 = 8
+        //Atk 3 = 4
+        //Flrt 0 = 4
+        //Flrt 1 = 4 (Different distro)
+        //Flrt 2 = 4 (Different distro)
+        //32 different attacks (not counting weapons or relationships)
+
+        //Move 1 Based on Weapon
+        newAtk0 = comb.weapon.itemType.moveIndex;
+
+        //Move 3 Based on Relationship or Best Stat
+        //Flirt 3 Based on Relationship
+        switch (comb.relationshipPoints)
+        {
+            case -2: newFlrt3 = -1; break;
+            case -1: newFlrt3 = -1; break;
+            case 0: newFlrt3 = -1; break;
+            case 1: newAtk3 = 0; newFlrt3 = 0; break;
+            case 2: newAtk3 = 0; newFlrt3 = 0; break;
+        }
+
+
+        comb.attackListIndexes[0] = newAtk0;
+        comb.rizzAttackListIndexes[0] = newFlrt0;
+        comb.attackListIndexes[1] = newAtk1;
+        comb.rizzAttackListIndexes[3] = newFlrt3;
+        if (comb.level >= 5)
+        {
+            comb.attackListIndexes[2] = newAtk2;
+            comb.attackListIndexes[3] = newAtk3;
+            comb.rizzAttackListIndexes[1] = newFlrt1;
+            comb.rizzAttackListIndexes[2] = newFlrt2;
+        }
+        else if (comb.level >= 3)
+        {
+            comb.attackListIndexes[2] = newAtk2;
+            comb.attackListIndexes[3] = -1;
+            comb.rizzAttackListIndexes[1] = newFlrt1;
+            comb.rizzAttackListIndexes[2] = -1;
+        }
+        else if (comb.level >= 2)
+        {
+            comb.attackListIndexes[2] = -1;
+            comb.attackListIndexes[3] = -1;
+            comb.rizzAttackListIndexes[1] = newFlrt1;
+            comb.rizzAttackListIndexes[2] = -1;
+        }
+        else
+        {
+            comb.attackListIndexes[2] = -1;
+            comb.attackListIndexes[3] = -1;
+            comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
         }
     }
 }

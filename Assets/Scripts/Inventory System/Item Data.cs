@@ -18,4 +18,6 @@ public class ItemData : ScriptableObject
     [TextArea]
     public string description;
     public int attack, defense, speed, charisma;
+    //Optional move index for weapons
+    public int moveIndex;
 }

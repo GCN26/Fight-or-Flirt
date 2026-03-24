@@ -78,10 +78,9 @@ public class Combatant
     {
         none,
         rocky,
-        b2,
-        b3,
-        b4,
-        b5
+        mandi,
+        slimon,
+        dot
     }
     public bossTypeChar characterType;
 
@@ -169,7 +168,7 @@ public class Combatant
         float crit = 1;
         int random = UnityEngine.Random.Range(0, 16);
         if (random == 0) crit = 1.75f;
-        int damage = (int)((movePower * attack * level) * crit / (target.defense * target.level));
+        int damage = (int)((movePower * attack) * crit / (target.defense));
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
         if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
         target.hp -= damage;
@@ -214,18 +213,38 @@ public class Combatant
             charisma = baseCharisma + weapon.itemType.charisma + armor.itemType.charisma;
         }
     }
+
+    public void getLevel()
+    {
+        if (experience < 50) level = 1;
+        else if (experience >= 50 && experience < 150) level = 2;
+        else if (experience >= 150 && experience < 350) level = 3;
+        else if (experience >= 350 && experience < 700) level = 4;
+        else if(experience >= 700) level = 5;
+    }
 }
 
 public static class Attacks
 {
     public static Attack[] attackList =
     {
-        new Attack("Slash","Using a weapon, the user slashes at the enemy.",15,0),
+        new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0),
         new Attack("Fire Slash","Using magic, the user enhances their physical slash with fire.",20,0,"SecondEffectTest"),
-        new Attack("Tackle","The user tackles the enemy with their whole body.",10,0),
-        new Attack("Punch","The user throws their equipment aside and just throws hands.",5,0),
-        new Attack("Test","hi",10,0),
-        new Attack("Text Test","",10,0,"callTextTest")
+        new Attack("Expert Stance","",12,0),
+        new Attack("Spellcast","",10,0),
+        new Attack("Super Spell","",15,0),
+        new Attack("Arcane Art","",35,0),
+        new Attack("Instrument Smack","",5,0),
+        new Attack("Electric Lyre","",25,0),
+        new Attack("Romantic Tune","",10,0),
+        new Attack("Cut","",5,0),
+        new Attack("Thief","",10,0),
+        new Attack("Fleetfoot","",0,0),
+        new Attack("Rock Slide","",15,0),
+        new Attack("Earthquake","",25,0),
+        new Attack("Sedimentary Slam","",25,0),
+        new Attack("Spin Attack","",15,0),
+        new Attack("Bludgeon","",10,0),
     };
     public static Attack[] rizzList =
     {
@@ -298,7 +317,7 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1),
         new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 5,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
+        new Combatant("Rocky", 75, 100, 3, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 6,flirtTypeA:1),
     };
 }

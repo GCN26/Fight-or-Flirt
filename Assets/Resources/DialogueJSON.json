@@ -645,7 +645,7 @@
       "id": 26,
       "dialogue": "rockyDialogueAttacked",
       "speaker_name": "",
-      "next_id": 25,
+      "next_id": 32,
       "choices": {
         "strings": [],
         "ids": []
@@ -689,13 +689,34 @@
       "id": 30,
       "dialogue": "t<color=red>test</color><color=red></color>",
       "speaker_name": "",
+      "next_id": 25,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 31,
+      "dialogue": "Battle Start!",
+      "speaker_name": "",
       "next_id": -1,
       "choices": {
         "strings": [],
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 32,
+      "dialogue": "gwah",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "EEE", "AAA" ],
+        "ids": [ 30, 25 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
-
   ]
 }

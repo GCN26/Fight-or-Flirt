@@ -21,3 +21,4 @@ MonoBehaviour:
   defense: 0
   speed: 0
   charisma: 0
+  moveIndex: 15
