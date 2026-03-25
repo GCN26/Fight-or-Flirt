@@ -645,7 +645,7 @@
       "id": 26,
       "dialogue": "rockyDialogueAttacked",
       "speaker_name": "",
-      "next_id": 32,
+      "next_id": 25,
       "choices": {
         "strings": [],
         "ids": []

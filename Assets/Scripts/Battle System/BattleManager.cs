@@ -602,20 +602,20 @@ public class BattleManager : MonoBehaviour
         {
             switch (gameMan.pcClass)
             {
-                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 1; newAtk3 = 2; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 7; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 10; newAtk3 = 11; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 4; newAtk3 = 5; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 1; newAtk3 = 2; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 7; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 10; newAtk3 = 11; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 4; newAtk3 = 5; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
             }
         }
         else
         {
             switch (comb.characterType)
             {
-                case Combatant.bossTypeChar.rocky: newAtk0 = 12; newAtk2 = 13; newAtk3 = 14; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case Combatant.bossTypeChar.mandi: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case Combatant.bossTypeChar.slimon: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
-                case Combatant.bossTypeChar.dot: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 0; newFlrt2 = 0; break;
+                case Combatant.bossTypeChar.rocky: newAtk0 = 12; newAtk2 = 13; newAtk3 = 14; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case Combatant.bossTypeChar.mandi: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case Combatant.bossTypeChar.slimon: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case Combatant.bossTypeChar.dot: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
             }
         }
 

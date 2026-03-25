@@ -1547,8 +1547,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6341,8 +6341,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8293,8 +8293,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8761,7 +8761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9664,7 +9664,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9674,9 +9674,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -9714,14 +9714,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9838,7 +9838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1428257627}
   buttonNoHover: {fileID: 0}
@@ -9932,7 +9932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11026,7 +11026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1326064853}
   buttonNoHover: {fileID: 0}
@@ -11050,7 +11050,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11060,9 +11060,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -11100,14 +11100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12626,7 +12626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 667815918}
   buttonNoHover: {fileID: 0}
@@ -12650,7 +12650,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -12660,9 +12660,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -12700,14 +12700,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12888,7 +12888,7 @@ MonoBehaviour:
     attackTargetIndex: 0
     attackListIndex: 0
     attackListIndexes: 00000000000000000000000000000000
-    rizzAttackListIndexes: 00000000000000000000000000000000
+    rizzAttackListIndexes: 00000000010000000200000000000000
     attackList: []
     rizzAttackList: []
     type: 0
@@ -12933,7 +12933,7 @@ MonoBehaviour:
     attackTargetIndex: 0
     attackListIndex: 0
     attackListIndexes: 00000000000000000000000000000000
-    rizzAttackListIndexes: 00000000000000000000000000000000
+    rizzAttackListIndexes: 00000000010000000200000000000000
     attackList: []
     rizzAttackList: []
     type: 0
@@ -13024,6 +13024,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b1d783e7287c7a746b9782edfab3e16b, type: 3}
   - {fileID: 21300000, guid: 94afdab9cf2be904e90be7240e47c49d, type: 3}
   - {fileID: 21300000, guid: 94afdab9cf2be904e90be7240e47c49d, type: 3}
+  - {fileID: 21300000, guid: 94afdab9cf2be904e90be7240e47c49d, type: 3}
+  - {fileID: 21300000, guid: 94afdab9cf2be904e90be7240e47c49d, type: 3}
+  - {fileID: 21300000, guid: 58b6f03b624637f4ab97c7ecd6db0dc1, type: 3}
+  - {fileID: 21300000, guid: e8f3a7ec15572a64b9cace014cc6374c, type: 3}
+  - {fileID: 21300000, guid: 7aa9496c8e8f3f54b953fa4affa3111c, type: 3}
+  - {fileID: 21300000, guid: 216a968fac7a8144e80cd656d0b4ba20, type: 3}
+  - {fileID: 21300000, guid: 6e2460486a41c1c419b4c1b38f616a2f, type: 3}
+  - {fileID: 21300000, guid: a7bf4aa7ca77c8f40bb89adf58b58428, type: 3}
+  - {fileID: 21300000, guid: 386086be46f11b341aa253f951748941, type: 3}
+  - {fileID: 21300000, guid: 18c17f073a68f57429fc15abb3abfc46, type: 3}
+  - {fileID: 21300000, guid: 4cce91b1e81bd0140bdc9e1f7462cb4c, type: 3}
+  - {fileID: 21300000, guid: ea2e9d1e5f472564f927df7a9e59c1ef, type: 3}
+  - {fileID: 21300000, guid: 46765454be774fa43b317d73063d9267, type: 3}
   BattleSpritesParty:
   - {fileID: 431192483}
   - {fileID: 1270110576}
@@ -14202,8 +14215,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14885,7 +14898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1242494601}
   buttonNoHover: {fileID: 0}
@@ -14909,7 +14922,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -14919,9 +14932,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -14959,14 +14972,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18563,8 +18576,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19174,7 +19187,7 @@ RectTransform:
   m_GameObject: {fileID: 688078603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.47515002, y: 0.47515002, z: 0.47515002}
+  m_LocalScale: {x: -0.47515, y: 0.47515002, z: 0.47515002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 463536641}
@@ -21364,8 +21377,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21733,7 +21746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1632962239}
   buttonNoHover: {fileID: 0}
@@ -21757,7 +21770,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -21767,9 +21780,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -21807,14 +21820,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22198,8 +22211,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24274,7 +24287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 43094407}
   buttonNoHover: {fileID: 0}
@@ -24298,7 +24311,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -24308,9 +24321,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -24348,14 +24361,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28226,7 +28239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1907923430}
   buttonNoHover: {fileID: 0}
@@ -28250,7 +28263,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -28260,9 +28273,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -28312,14 +28325,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28944,8 +28957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0522aebbb8e27344c8a850ab4825a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
-  indexes: 0000000001000000
+  indexes: 000000000200000002000000
   battleManager: {fileID: 451153028}
+  bossEncounter: 1
 --- !u!65 &1061575409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29033,8 +29047,8 @@ Transform:
   m_GameObject: {fileID: 1061575407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.9, y: 0, z: -10}
-  m_LocalScale: {x: 2.142, y: 2.142, z: 10.6558075}
+  m_LocalPosition: {x: 37.2, y: 0, z: -6.64}
+  m_LocalScale: {x: 2.142, y: 2.142, z: 4.2677574}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -29569,7 +29583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 2138309028}
   buttonNoHover: {fileID: 0}
@@ -29593,7 +29607,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -29603,9 +29617,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -29643,14 +29657,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31800,7 +31814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1871326279}
   buttonNoHover: {fileID: 0}
@@ -31824,7 +31838,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -31834,9 +31848,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -31874,14 +31888,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32970,8 +32984,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -34821,8 +34835,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -34958,8 +34972,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35291,8 +35305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0522aebbb8e27344c8a850ab4825a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
-  indexes: 0000000001000000
+  indexes: 0000000002000000
   battleManager: {fileID: 451153028}
+  bossEncounter: 0
 --- !u!65 &1333280476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36282,7 +36297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 248954965}
   buttonNoHover: {fileID: 0}
@@ -36306,7 +36321,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -36316,9 +36331,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -36356,14 +36371,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38497,8 +38512,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -39732,7 +39747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 768571605}
   buttonNoHover: {fileID: 0}
@@ -39756,7 +39771,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -39766,9 +39781,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -39818,14 +39833,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40870,7 +40885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -41044,7 +41059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 486900291}
   buttonNoHover: {fileID: 0}
@@ -41068,7 +41083,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -41078,9 +41093,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -41118,14 +41133,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -41815,7 +41830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1590, y: 661}
+  m_AnchoredPosition: {x: 1478, y: 661}
   m_SizeDelta: {x: 497.46387, y: 639.15015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1560339707
@@ -43319,8 +43334,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -44216,7 +44231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -44307,8 +44322,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -49541,7 +49556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 328834796}
   buttonNoHover: {fileID: 0}
@@ -49565,7 +49580,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -49575,9 +49590,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -49627,14 +49642,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49853,8 +49868,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -50384,8 +50399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0522aebbb8e27344c8a850ab4825a419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEncounter
-  indexes: 0000000001000000
+  indexes: 000000000100000002000000
   battleManager: {fileID: 451153028}
+  bossEncounter: 0
 --- !u!65 &1885254139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51141,8 +51157,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -51379,7 +51395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 782169981}
   buttonNoHover: {fileID: 0}
@@ -51403,7 +51419,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -51413,9 +51429,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -51465,14 +51481,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.37735844, b: 0.37735844, a: 1}
+  m_Color: {r: 1, g: 0.5660378, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -51892,7 +51908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1687527202}
   buttonNoHover: {fileID: 0}
@@ -51916,7 +51932,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -51926,9 +51942,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -51966,14 +51982,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -56005,7 +56021,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -56015,9 +56031,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 10c443e8831b0a84f853ca8f06d60433, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 6f9e8a74c2a631d4db7296d0519a400d, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8ac45207628ffbc40bdf6de230f15663, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f349bf38eafe79b48b438a3bf709efca, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -56055,14 +56071,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.41509438, b: 0.8228609, a: 1}
+  m_Color: {r: 1, g: 0.7773584, b: 0.9327593, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 01879b175f946294499e9dd732a6a310, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -56179,7 +56195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScroll
   source: {fileID: 0}
   clip: {fileID: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
+  startColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 1321205136}
   buttonNoHover: {fileID: 0}
@@ -58056,8 +58072,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278321666
-  m_fontColor: {r: 0.0075471997, g: 0.0075471997, b: 0.0075471997, a: 1}
+    rgba: 4284966759
+  m_fontColor: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

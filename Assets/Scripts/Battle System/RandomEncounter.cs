@@ -1,17 +1,30 @@
+using System;
 using UnityEngine;
 
 public class RandomEncounter : MonoBehaviour
 {
     public int[] indexes;
     public BattleManager battleManager;
+    public bool bossEncounter;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.LogWarning("COllision");
         if (other.gameObject.GetComponent<CharacterMovementScript>() != null)
         {
-            battleManager.enemyTableIndex = indexes[UnityEngine.Random.Range(0, indexes.Length)];
-            battleManager.startBattle();
-            Destroy(this.gameObject);
+            if (!bossEncounter)
+            {
+                battleManager.enemyTableIndex = indexes[UnityEngine.Random.Range(0, indexes.Length)];
+                battleManager.startBattle();
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                battleManager.enemyTableIndex = 1;
+                battleManager.startBattle();
+                battleManager.startBattleBoss("Rocky");
+                Destroy(this.gameObject);
+            }
         }
     }
 }

@@ -249,6 +249,8 @@ public static class Attacks
     public static Attack[] rizzList =
     {
         new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1),
+        new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3),
+        new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1),
         new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1)
     };
 }
@@ -315,10 +317,12 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1),
-        new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 5,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 3, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
+        new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rocky", 75, 100, 7, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 6,flirtTypeA:1),
+        new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 0, spriteIndex: 11,flirtTypeA:1),
+        new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 0, spriteIndex: 12,flirtTypeA:1),
     };
 }
 
@@ -327,10 +331,12 @@ public static class encounterTables
     public static int[][] combatantIndexes = new int[][]
     {
         new int[] { 0, 1},
-        new int[] {2}
+        new int[] {2},
+        new int[] {4,5,5}
     };
     public static string[] battleStartMessages = new string[] {
         "A pair of rock golems block your path!",
-        "Rocky blocks your path!"
+        "Rocky blocks your path!",
+        "A group of slimes blocks your path!"
     };
 }
