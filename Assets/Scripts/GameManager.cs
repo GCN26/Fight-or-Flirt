@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public Inventory inventoryman;
 
     public int money;
+    public bool BossRecruit;
 
     private void Start()
     {

@@ -58,6 +58,7 @@ public class BattleManager : MonoBehaviour
     string additionalString;
     public int enemyTableIndex;
 
+    public int currentBossIndex;
     public GameObject bossRecruitPanel;
     public bool waitForPlayerToRecruit = false;
     public characterBattleText[] characterBattleTexts =
@@ -68,6 +69,8 @@ public class BattleManager : MonoBehaviour
         new characterBattleText("Slimon",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0}),
         new characterBattleText("Dot",new int[] {26},new int[] {27}, new int[] {28}, new int[]{29},new int[]{0})
     };
+    public ItemInstance[] BossWeapons;
+    public ItemInstance[] BossArmor;
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
@@ -121,11 +124,11 @@ public class BattleManager : MonoBehaviour
             int pL = 0;
             foreach (Combatant partyMember in party)
             {
+                partyMember.party = true;
                 partyMember.attackList.Clear();
                 partyMember.rizzAttackList.Clear();
                 getPartyAttackIndexes(partyMember);
                 partyMember.getAttacksInList();
-                partyMember.party = true;
                 partyMember.partyIndex = pL;
                 partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
 
@@ -251,14 +254,16 @@ public class BattleManager : MonoBehaviour
             {
                 
             }
-            else if(comb.infatuation < 0 && comb.isBoss)
+            else if(comb.infatuation <= 0 && waitForPlayerToRecruit)
             {
                 //Check stat requirements
                 //Prompt Recruit
+                bossRecruitPanel.SetActive(true);
                 while (waitForPlayerToRecruit)
                 {
                     yield return null;
                 }
+                enemyDeadInt = enemies.Count;
             }
             else
             {
@@ -560,6 +565,11 @@ public class BattleManager : MonoBehaviour
         battleUI.SetActive(true);
         holdForText = false;
     }
+    public void endBattleText()
+    {
+        holdForText = false;
+        textMan.textOpen = false;
+    }
 
     public void startBattleBoss(string name)
     {
@@ -569,6 +579,7 @@ public class BattleManager : MonoBehaviour
         switch (name)
         {
             case "Rocky":
+                currentBossIndex = 0;
                 foreach(Combatant comb in party)
                 {
                     foreach(Attack atk in comb.attackList)
@@ -582,6 +593,29 @@ public class BattleManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void recruitBoss()
+    {
+        gameMan.BossRecruit = true;
+        waitForPlayerToRecruit = false;
+        bossRecruitPanel.SetActive(false);
+        if(party.Length < 4)
+        {
+            int index = currentBossIndex;
+            List<Combatant> newParty = party.ToList();
+            newParty.Add(enemyList.bossRecruitedTable[index]);
+            newParty[newParty.Count - 1].weapon = BossWeapons[index];
+            newParty[newParty.Count - 1].armor = BossArmor[index];
+            newParty[newParty.Count - 1].characterType = (Combatant.bossTypeChar)(index + 1);
+            party = newParty.ToArray();
+        }
+    }
+    public void dontRecruitBoss()
+    {
+        gameMan.BossRecruit = false;
+        waitForPlayerToRecruit =false;
+        bossRecruitPanel.SetActive(false);
     }
 
     public void getPartyAttackIndexes(Combatant comb)

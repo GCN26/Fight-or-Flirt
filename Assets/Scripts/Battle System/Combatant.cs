@@ -324,6 +324,10 @@ public static class enemyList
         new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 0, spriteIndex: 11,flirtTypeA:1),
         new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 0, spriteIndex: 12,flirtTypeA:1),
     };
+    public static Combatant[] bossRecruitedTable =
+    {
+        new Combatant("Rocky", 100, 1, 5,10,3,3,1, spriteIndex:4,atkIndex0:0,atkIndex1:0,atkIndex2:0,atkIndex3:0,rizzIndex0:0,rizzIndex1:0,rizzIndex2:0,rizzIndex3:0),
+    };
 }
 
 public static class encounterTables

@@ -635,7 +635,7 @@
         {
           "obj_name": "BattleManager",
           "script_name": "BattleManager",
-          "func_name": "showBattleUI",
+          "func_name": "endBattleText",
           "args": []
         }
       ],
