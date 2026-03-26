@@ -10,7 +10,7 @@ public class MainMenuClass : MonoBehaviour
     {
         SceneIndependentClass.charName = input.text;
         SceneIndependentClass.classInt = inputInt;
-        SceneManager.LoadScene("MidtermSceneTest");
+        SceneManager.LoadScene("Playtest4Scene");
     }
 
     public void quitGame()

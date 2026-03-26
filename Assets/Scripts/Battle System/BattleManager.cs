@@ -129,6 +129,8 @@ public class BattleManager : MonoBehaviour
                 partyMember.partyIndex = pL;
                 partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
 
+                partyMember.hp = partyMember.maxHp;
+
                 BattleSpritesParty[pL].gameObject.SetActive(true);
                 BattleSpritesParty[pL].sprite = partyMember.battleSprite;
                 BattleSpritesParty[pL].SetNativeSize();
@@ -392,12 +394,11 @@ public class BattleManager : MonoBehaviour
 
     int checkSlots(int num)
     {
-        if (num < 0) return checkSlots(party.Count()-1);
         if (party[num].hp > 0) return num;
         else
         {
             if (num > 0) return checkSlots(num - 1);
-            else return -1;
+            else return checkSlots(party.Count() - 1);
         }
     }
 
