@@ -13,5 +13,9 @@ public class PartyMenuTest : MonoBehaviour
             childArray[i].transform.SetSiblingIndex(i);
             childArray[i].indexInList = i;
         }
+        for(int i = 0; i < battleManager.party.Length; i++)
+        {
+            childArray[i].gameObject.SetActive(true);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     public playerClass classB = playerClass.Bard;
     public playerClass classR = playerClass.Rogue;
     public playerClass classM = playerClass.Mage;
+
+    public Image playerCharImg;
+    public Sprite[] playerCharImgs = new Sprite[4];
 
     public int rockyRP = 0;
     public int b2RP,b3RP,b4RP,b5RP;
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     public int money;
     public bool BossRecruit;
+
 
     private void Start()
     {
@@ -81,6 +86,8 @@ public class GameManager : MonoBehaviour
         battleManager.party[0].baseCharisma = charisma;
         battleManager.party[0].speed = speed;
         battleManager.party[0].baseSpeed = speed;
+
+        playerCharImg.sprite = playerCharImgs[index];
     }
 
     public void addPoints(int index)

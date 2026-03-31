@@ -18,4 +18,30 @@ public class ItemInMenuObj : MonoBehaviour
     }
     public itemType myType;
     public Button equipButton;
+    public TextMeshProUGUI buttonLabel;
+    public Sprite iconNormal, iconSelect, iconClicked;
+
+    public Color normalColor, highlightColor;
+
+    public int index;
+
+    private void OnEnable()
+    {
+        if(myType == itemType.item)
+        {
+            equipButton.gameObject.SetActive(true);
+            buttonLabel.text = "Use";
+        }
+    }
+
+    public void hoverItem()
+    {
+        label.color = highlightColor;
+        iconImgObj.sprite = iconSelect;
+    }
+    public void unhoverItem()
+    {
+        label.color = normalColor;
+        iconImgObj.sprite = iconNormal;
+    }
 }

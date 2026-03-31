@@ -717,6 +717,313 @@
         "ids": [ 30, 25 ]
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 33,
+      "dialogue": "<i>What just happened? Where am I?</i>",
+      "speaker_name": "{N}",
+      "next_id": 34,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 34,
+      "dialogue": "<i>One second, I was with my party, preparing to fight, and the next, I'm...here.</i>",
+      "speaker_name": "{N}",
+      "next_id": 35,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 35,
+      "dialogue": "<i>I need to figure out where I am and get back to my party as soon as possible. Before something happens to them, or something happens to me.</i>",
+      "speaker_name": "{N}",
+      "next_id": 36,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 36,
+      "dialogue": "<i>Maybe, if I just start moving, I'll come across some sort of landmark to let me figure out where I am. Or even better, another adventurer who could point me in the right direction.</i>",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 37,
+      "dialogue": "<i>Is this some sort of castle town? I've never seen or heard of anything like this on the first floor of the dungeon. Things like this only appear at least 5 floors down, if not more.</i>",
+      "speaker_name": "{N}",
+      "next_id": 38,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 38,
+      "dialogue": "<i><b>(Rustling sound in the distance)</b></i>",
+      "speaker_name": "",
+      "next_id": 39,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 39,
+      "dialogue": "<i>Wh-what was that!?</i>",
+      "speaker_name": "{N}",
+      "next_id": 40,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 40,
+      "dialogue": "<i>Is it a person? They might be able to help.</i>",
+      "speaker_name": "{N}",
+      "next_id": 41,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "transforms": [
+        {
+          "obj_name": "Jerald",
+          "move_vec": {
+            "x": 16.82,
+            "y": 1.05,
+            "z": -17.25
+          },
+          "move_speed": 1,
+          "move_interp_type": 0,
+          "move_target_type": 1,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 41,
+      "dialogue": "<i>A Skeleton? I need to fight.</i>",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Raise Weapon" ],
+        "ids": [ 42 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 42,
+      "dialogue": "Hey, hey! Wait! What are you doing? Do you want money? I don't have much. Only what's in my bag.",
+      "speaker_name": "{J}",
+      "next_id": 43,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 43,
+      "dialogue": "Huh? Why aren't you attacking me?",
+      "speaker_name": "{N}",
+      "next_id": 44,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 44,
+      "dialogue": "W-why would I attack you? Oh Lord, you're human...",
+      "speaker_name": "{J}",
+      "next_id": 45,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 45,
+      "dialogue": "<size=50>Am I supposed to try to kill it? That's what they would tell me to do, but I don't have any...dead, so I don't...just run...this level is...attack...</size>",
+      "speaker_name": "{J}",
+      "next_id": 46,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "jeraldTurn",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 46,
+      "dialogue": "Um, skeleton?",
+      "speaker_name": "{N}",
+      "next_id": 47,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 47,
+      "dialogue": "Just-just take my stuff. I've gotta get back anyways.",
+      "speaker_name": "{J}",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Let it go", "Attack it" ],
+        "ids": [ 48, 50 ]
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "jeraldTurn",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 48,
+      "dialogue": "What the heck was that?",
+      "speaker_name": "{N}",
+      "next_id": 49,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "jeraldDropBagAndRunAway",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 49,
+      "dialogue": "I should probably look at what's in this bag.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 50,
+      "dialogue": "OW! What are you...? Why? I haven't done anything to you!",
+      "speaker_name": "{J}",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Apologize", "Attack Again" ],
+        "ids": [ -1, 51 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 51,
+      "dialogue": "Wh-why...",
+      "speaker_name": "{J}",
+      "next_id": 52,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 52,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "jeraldDie",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 53,
+      "dialogue": "Is that skeleton's name Jerald? And it has a wife and kids? But...it's a monster.",
+      "speaker_name": "{N}",
+      "next_id": 55,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 54,
+      "dialogue": "Was that skeleton's name Jerald? And it had a wife and kids? But...it was a monster.",
+      "speaker_name": "{N}",
+      "next_id": 55,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 55,
+      "dialogue": "I need to keep moving. I doubt that monster is the only one around, even if it didn't really give me any trouble.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
+
   ]
 }

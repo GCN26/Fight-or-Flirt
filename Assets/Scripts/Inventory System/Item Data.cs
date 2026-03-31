@@ -20,4 +20,8 @@ public class ItemData : ScriptableObject
     public int attack, defense, speed, charisma;
     //Optional move index for weapons
     public int moveIndex;
+    //For use with non-equip items
+    public string objName;
+    public string scriptName;
+    public string funcName;
 }

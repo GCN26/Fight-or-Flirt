@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using static UnityEngine.Rendering.GPUSort;
 
 public class Inventory : MonoBehaviour
 {
@@ -25,6 +26,18 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         if (battleMan.battleOpen && menuObj.activeSelf) closeMenu();
+    }
+    private void OnEnable()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            itemsInMenu[i].myType = (ItemInMenuObj.itemType)items[i].itemType.myType;
+            if (itemsInMenu[i].myType == ItemInMenuObj.itemType.item) {
+                itemsInMenu[i].equipButton.onClick.RemoveAllListeners();
+                itemsInMenu[i].index = i;
+                itemsInMenu[i].equipButton.onClick.AddListener(() => nonEquipUse(itemsInMenu[i]));
+            }
+        }
     }
     public void displayAllItemNames()
     {
@@ -177,9 +190,31 @@ public class Inventory : MonoBehaviour
     {
         foreach (ItemInMenuObj item in itemsInMenu)
         {
-            item.equipButton.gameObject.SetActive(false);
-            item.equipButton.onClick.RemoveAllListeners();
+
+            if (item.myType != ItemInMenuObj.itemType.item)
+            {
+                item.equipButton.gameObject.SetActive(false);
+                item.equipButton.onClick.RemoveAllListeners();
+            }
         }
         updateLabels();
+    }
+    public void nonEquipUse(ItemInMenuObj a)
+    {
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //i need to work on this later
+        int index = 1;
+        var funcObj = GameObject.Find(items[index].itemType.objName).GetComponent(items[index].itemType.scriptName);
+        var funcCompType = funcObj.GetType();
+        var funcMethod = funcCompType.GetMethod(items[index].itemType.funcName);
+        var argsA = new object[0];
+
+        funcMethod.Invoke(funcObj, argsA);
     }
 }

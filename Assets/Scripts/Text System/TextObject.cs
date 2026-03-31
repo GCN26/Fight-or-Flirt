@@ -119,9 +119,9 @@ public class TransformEvent
     public string obj_name;
     public enum interpType
     {
-        snap,
         linear,
-        smooth
+        smooth,
+        snap
     }
     public enum moveType
     {

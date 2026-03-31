@@ -51,6 +51,9 @@ public class TextEventManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip textBlip;
 
+    public GameManager gameMan;
+    public SpecialEventManager eventMan;
+
     void Start()
     {
         //Get JSON data
@@ -75,13 +78,13 @@ public class TextEventManager : MonoBehaviour
         charMove.textAllowMove = !textOpen;
         if (Input.GetKeyDown(KeyCode.T) && !textOpen)
         {
-            readJSON();
+            //readJSON();
             //Stop Coroutine if there is one
-            if(textCo != null) StopCoroutine(textCo);
+            //if(textCo != null) StopCoroutine(textCo);
             //Enable textOpen, set index to test, and start coroutine
-            textOpen = true;
-            nextIndex = 1;
-            textCo = StartCoroutine(typewriterFunc());
+            //textOpen = true;
+            //nextIndex = 33;
+            //textCo = StartCoroutine(typewriterFunc());
         }
         if (Input.GetKeyDown(KeyCode.Space) && textOpen)
         {
@@ -139,6 +142,15 @@ public class TextEventManager : MonoBehaviour
             //Set variables for text
             textBox.text = currentTextObject.dialogue.Replace("{N}", characterName);
             speakerName.text = currentTextObject.speaker_name.Replace("{N}",characterName);
+
+            if (eventMan.knowJeraldName)
+            {
+                speakerName.text = speakerName.text.Replace("{J}", "Jerald");
+            }
+            else
+            {
+                speakerName.text = speakerName.text.Replace("{J}", "Red Skeleton");
+            }
 
             if (currentTextObject != null && currentTextObject.dialogue != "") enableTextbox();
             else disableTextbox();
