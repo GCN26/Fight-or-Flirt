@@ -71,6 +71,11 @@ public class BattleManager : MonoBehaviour
     };
     public ItemInstance[] BossWeapons;
     public ItemInstance[] BossArmor;
+
+    public GameObject transitionPanel;
+    public bool progressTransition;
+
+    public BarkBubble[] barkBubbleParty, barkBubbleEnemy;
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
@@ -108,76 +113,83 @@ public class BattleManager : MonoBehaviour
     {
         if (!battleOpen)
         {
-            textMan.callText(31);
-            musicSource.enabled = true;
-            musicSource.Play();
-            battleBG.SetActive(true);
-
-            foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
-            {
-                enemies.Add(new(enemyList.enemyTable[index]));
-            }
-
-            battleOpen = true;
-            //Add way to customize encounters
-            //Add encounter table for enemies
-            int pL = 0;
-            foreach (Combatant partyMember in party)
-            {
-                partyMember.party = true;
-                partyMember.attackList.Clear();
-                partyMember.rizzAttackList.Clear();
-                getPartyAttackIndexes(partyMember);
-                partyMember.getAttacksInList();
-                partyMember.partyIndex = pL;
-                partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
-
-                partyMember.hp = partyMember.maxHp;
-
-                BattleSpritesParty[pL].gameObject.SetActive(true);
-                BattleSpritesParty[pL].sprite = partyMember.battleSprite;
-                BattleSpritesParty[pL].SetNativeSize();
-
-                battleList.Add(partyMember);
-                pL++;
-            }
-            int eL = 0;
-            foreach (Combatant enemy in enemies)
-            {
-                enemy.attackList.Clear();
-                enemy.rizzAttackList.Clear();
-                enemy.getAttacksInList();
-                enemy.battleSprite = spriteTable[enemy.battleSpriteIndex];
-                enemy.partyIndex = eL;
-
-                BattleSpritesEnemy[eL].gameObject.SetActive(true);
-                BattleSpritesEnemy[eL].sprite = enemy.battleSprite;
-                BattleSpritesEnemy[eL].SetNativeSize();
-
-                battleList.Add(enemy);
-                eL++;
-            }
-            for(int i = 0; i < 4; i++)
-            {
-                attackTargetButtons[i].GetComponent<Button>().interactable = true;
-                rizzTargetButtons[i].GetComponent<Button>().interactable = true;
-            }
-
-            battleList = battleList.OrderBy(x => x.speed).ToList();
-            battleList.Reverse();
-
-            //testImg.sprite = party[1].battleSprite;
-
-            battleOrder = "<b>Turn Order</b>\n> ";
-            foreach (Combatant comb in battleList)
-            {
-                battleOrder += comb.charName + "\n";
-            }
-            battleOrderDisplay.text = battleOrder;
-
-            battleCo = StartCoroutine(battleProcess());
+            progressTransition = false;
+            battleTransition();
         }
     }
+    public void startBattle2()
+    {
+        StartCoroutine(startBattleTransitionCoroutine2());
+        textMan.callText(31);
+        musicSource.enabled = true;
+        musicSource.Play();
+        battleBG.SetActive(true);
+
+        foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
+        {
+            enemies.Add(new(enemyList.enemyTable[index]));
+        }
+
+        battleOpen = true;
+        //Add way to customize encounters
+        //Add encounter table for enemies
+        int pL = 0;
+        foreach (Combatant partyMember in party)
+        {
+            partyMember.party = true;
+            partyMember.attackList.Clear();
+            partyMember.rizzAttackList.Clear();
+            getPartyAttackIndexes(partyMember);
+            partyMember.getAttacksInList();
+            partyMember.partyIndex = pL;
+            partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
+
+            partyMember.hp = partyMember.maxHp;
+
+            BattleSpritesParty[pL].gameObject.SetActive(true);
+            BattleSpritesParty[pL].sprite = partyMember.battleSprite;
+            BattleSpritesParty[pL].SetNativeSize();
+
+            battleList.Add(partyMember);
+            pL++;
+        }
+        int eL = 0;
+        foreach (Combatant enemy in enemies)
+        {
+            enemy.attackList.Clear();
+            enemy.rizzAttackList.Clear();
+            enemy.getAttacksInList();
+            enemy.battleSprite = spriteTable[enemy.battleSpriteIndex];
+            enemy.partyIndex = eL;
+
+            BattleSpritesEnemy[eL].gameObject.SetActive(true);
+            BattleSpritesEnemy[eL].sprite = enemy.battleSprite;
+            BattleSpritesEnemy[eL].SetNativeSize();
+
+            battleList.Add(enemy);
+            eL++;
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            attackTargetButtons[i].GetComponent<Button>().interactable = true;
+            rizzTargetButtons[i].GetComponent<Button>().interactable = true;
+        }
+
+        battleList = battleList.OrderBy(x => x.speed).ToList();
+        battleList.Reverse();
+
+        //testImg.sprite = party[1].battleSprite;
+
+        battleOrder = "<b>Turn Order</b>\n> ";
+        foreach (Combatant comb in battleList)
+        {
+            battleOrder += comb.charName + "\n";
+        }
+        battleOrderDisplay.text = battleOrder;
+
+        battleCo = StartCoroutine(battleProcess());
+    }
+
     public void endBattle()
     {
         foreach (Attack atk in Attacks.attackList)
@@ -334,9 +346,31 @@ public class BattleManager : MonoBehaviour
             {
                 case Combatant.type_of_attack.fight:
                     int damage = battleList[0].attackEnemy();
-                    sfxSource.PlayOneShot(hurtSounds[UnityEngine.Random.Range(0,hurtSounds.Length)]);
-                    textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name +"." + additionalString;
-                    break;
+                    if (battleList[0].selectedAttack.barkListIndexes != -1)
+                    {
+                        if (battleList[0].party)
+                        {
+                            barkBubbleParty[battleList[0].partyIndex].setStringAndAppearForABit(Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes][UnityEngine.Random.Range(0, Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes].Length - 1)]);
+                        }
+                        else
+                        {
+                            barkBubbleEnemy[battleList[0].partyIndex].setStringAndAppearForABit(Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes][UnityEngine.Random.Range(0, Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes].Length - 1)]);
+                        }
+                    }
+                        if (damage != -1 && damage != -2)
+                    {
+                        sfxSource.PlayOneShot(hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)]);
+                        textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name + "." + additionalString;
+                    }
+                    else if(damage == -2)
+                    {
+                        textMan.battleTextString = battleList[0].charName + "'s attack is blocked by " + battleList[0].target.charName + "!" + additionalString;
+                    }
+                    else if(damage == -1)
+                    {
+                        textMan.battleTextString = battleList[0].charName + " protects!" + additionalString;
+                    }
+                        break;
                 case Combatant.type_of_attack.flirt:
                     additionalString = battleList[0].rizzEnemy();
                     textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " with " + battleList[0].selectedAttack.name + ". " + additionalString;
@@ -392,7 +426,15 @@ public class BattleManager : MonoBehaviour
         }
         battleOrderDisplay.text = battleOrder;
 
- 
+        foreach(BarkBubble bub in barkBubbleParty)
+        {
+            bub.closeCoroutine();
+        }
+        foreach (BarkBubble bub in barkBubbleEnemy)
+        {
+            bub.closeCoroutine();
+        }
+
         battleCo = StartCoroutine(battleProcess());
         yield break;
     }
@@ -637,10 +679,10 @@ public class BattleManager : MonoBehaviour
         {
             switch (gameMan.pcClass)
             {
-                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 1; newAtk3 = 2; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 7; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 10; newAtk3 = 11; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 4; newAtk3 = 5; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 18; newAtk3 = 1; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 19; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 20; newAtk3 = 10; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 21; newAtk3 = 4; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
             }
         }
         else
@@ -663,44 +705,30 @@ public class BattleManager : MonoBehaviour
         //32 different attacks (not counting weapons or relationships)
 
         //Move 1 Based on Weapon
-        newAtk0 = comb.weapon.itemType.moveIndex;
+        newAtk1 = comb.weapon.itemType.moveIndex;
 
         //Move 3 Based on Relationship or Best Stat
         //Flirt 3 Based on Relationship
-        switch (comb.relationshipPoints)
-        {
-            case -2: newFlrt3 = -1; break;
-            case -1: newFlrt3 = -1; break;
-            case 0: newFlrt3 = -1; break;
-            case 1: newAtk3 = 0; newFlrt3 = 0; break;
-            case 2: newAtk3 = 0; newFlrt3 = 0; break;
-        }
+        //switch (comb.relationshipPoints)
+        //{
+        //    case -2: newFlrt3 = -1; break;
+        //    case -1: newFlrt3 = -1; break;
+        //    case 0: newFlrt3 = -1; break;
+        //    case 1: newAtk3 = 0; newFlrt3 = 0; break;
+        //    case 2: newAtk3 = 0; newFlrt3 = 0; break;
+        //}
 
 
         comb.attackListIndexes[0] = newAtk0;
         comb.rizzAttackListIndexes[0] = newFlrt0;
         comb.attackListIndexes[1] = newAtk1;
         comb.rizzAttackListIndexes[3] = newFlrt3;
-        if (comb.level >= 5)
+        if (comb.level >= 2)
         {
             comb.attackListIndexes[2] = newAtk2;
             comb.attackListIndexes[3] = newAtk3;
             comb.rizzAttackListIndexes[1] = newFlrt1;
-            comb.rizzAttackListIndexes[2] = newFlrt2;
-        }
-        else if (comb.level >= 3)
-        {
-            comb.attackListIndexes[2] = newAtk2;
-            comb.attackListIndexes[3] = -1;
-            comb.rizzAttackListIndexes[1] = newFlrt1;
-            comb.rizzAttackListIndexes[2] = -1;
-        }
-        else if (comb.level >= 2)
-        {
-            comb.attackListIndexes[2] = -1;
-            comb.attackListIndexes[3] = -1;
-            comb.rizzAttackListIndexes[1] = newFlrt1;
-            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = newFlrt3;
         }
         else
         {
@@ -709,6 +737,29 @@ public class BattleManager : MonoBehaviour
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;
         }
+    }
+
+    public void battleTransition()
+    {
+        StartCoroutine(startBattleTransitionCoroutine1());
+    }
+    IEnumerator startBattleTransitionCoroutine1()
+    {
+        while(transitionPanel.transform.position.x < 1700)
+        {
+            transitionPanel.transform.position += new Vector3(300, 0, 0);
+            yield return null;
+        }
+        startBattle2();
+    }
+    IEnumerator startBattleTransitionCoroutine2()
+    {
+        while (transitionPanel.transform.position.x < 7000)
+        {
+            transitionPanel.transform.position += new Vector3(300, 0, 0);
+            yield return null;
+        }
+        transitionPanel.transform.position = new Vector3(-5000, 0, 0);
     }
 }
 

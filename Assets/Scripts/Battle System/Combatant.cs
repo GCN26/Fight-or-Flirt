@@ -58,6 +58,7 @@ public class Combatant
     public int partyIndex = -1;
 
     public bool isBoss;
+    public bool isProtect;
     public enum type_of_attack
     {
         fight,
@@ -165,19 +166,43 @@ public class Combatant
 
         movePower = selectedAttack.power;
 
+        isProtect = false;
+        if(movePower == -1)
+        {
+            //Protect Move
+            isProtect = true;
+        }
+        if (selectedAttack.barkListIndexes != -1)
+        {
+            Debug.Log(Attacks.barkListList[selectedAttack.barkListIndexes][UnityEngine.Random.Range(0, Attacks.barkListList[selectedAttack.barkListIndexes].Length-1)]);
+        }
+
         float crit = 1;
         int random = UnityEngine.Random.Range(0, 16);
         if (random == 0) crit = 1.75f;
         int damage = (int)((movePower * attack) * crit / (target.defense));
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
         if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
-        target.hp -= damage;
-        Debug.Log(charName + " hits " + target.charName + " for " + damage.ToString() + " with " + selectedAttack.name);
-        object[] objArr = new object[2];
-        objArr[0] = target;
-        objArr[1] = target.partyIndex;
-        if(selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
-        if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
+
+        if (!target.isProtect)
+        {
+            if (isProtect) damage = -1;
+            else
+            {
+                target.hp -= damage;
+                Debug.Log(charName + " hits " + target.charName + " for " + damage.ToString() + " with " + selectedAttack.name);
+                object[] objArr = new object[2];
+                objArr[0] = target;
+                objArr[1] = target.partyIndex;
+                if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
+                if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
+            }
+        }
+        else
+        {
+            damage = -2;
+        }
+
         return damage;
     }
     public string rizzEnemy()
@@ -228,23 +253,28 @@ public static class Attacks
 {
     public static Attack[] attackList =
     {
-        new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0),
-        new Attack("Fire Slash","Using magic, the user enhances their physical slash with fire.",20,0,"SecondEffectTest"),
-        new Attack("Expert Stance","",12,0),
-        new Attack("Spellcast","",10,0),
-        new Attack("Super Spell","",15,0),
-        new Attack("Arcane Art","",35,0),
-        new Attack("Instrument Smack","",5,0),
-        new Attack("Electric Lyre","",25,0),
-        new Attack("Romantic Tune","",10,0),
-        new Attack("Cut","",5,0),
-        new Attack("Thief","",10,0),
-        new Attack("Fleetfoot","",0,0),
-        new Attack("Rock Slide","",15,0),
-        new Attack("Earthquake","",25,0),
-        new Attack("Sedimentary Slam","",25,0),
-        new Attack("Spin Attack","",15,0),
-        new Attack("Bludgeon","",10,0),
+        new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0, barkListIndexes: 0), //0
+        new Attack("Burning Cleave","Using magic, the user enhances their physical slash with fire.",20,0,"SecondEffectTest", barkListIndexes: 2), //1
+        new Attack("Expert Stance","",12,0), //2
+        new Attack("Cast","",10,0,barkListIndexes:9), //3
+        new Attack("Fireball","",15,0,"SecondEffectTest",barkListIndexes:11), //4
+        new Attack("Arcane Art","",35,0), //5
+        new Attack("Smack","",5,0, barkListIndexes: 3), //6
+        new Attack("Electric Lyre","",25,0), //7
+        new Attack("Chord Strike","",10,0, barkListIndexes: 5), //8
+        new Attack("Stab","",5,0,barkListIndexes:6), //9
+        new Attack("Phantom Thief","",10,0,barkListIndexes:8), //10
+        new Attack("Fleetfoot","",0,0), //11
+        new Attack("Rock Slide","",15,0), //12
+        new Attack("Earthquake","",25,0), //13
+        new Attack("Sedimentary Slam","",25,0), //14
+        new Attack("Spin Attack","",15,0), //15
+        new Attack("Bludgeon","",10,0), //16
+        new Attack("Slash","enemy variant of slash", 10,0), //17
+        new Attack("Shield Up","",-1,0,barkListIndexes: 1), //18
+        new Attack("Distract","",-1,0,barkListIndexes: 4), //19
+        new Attack("Evade","",-1,0,barkListIndexes: 7), //20
+        new Attack("Protection","",-1,0,barkListIndexes: 10), //21
     };
     public static Attack[] rizzList =
     {
@@ -252,6 +282,118 @@ public static class Attacks
         new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3),
         new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1),
         new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1)
+    };
+    public static string[] warriorBarks0 =
+    {
+        //Warrior - Slash
+        "Hah!",
+        "By my sword!",
+        "I've got this!",
+        "Hyah!",
+    };
+    public static string[] warriorBarks1 =
+    {
+        //Warrior - Shield Up
+        "I gotta be careful.",
+        "Still standing.",
+        "Time to defend.",
+        "I can take it.",
+    };
+    public static string[] warriorBarks2 =
+    {
+        //Warrior - Burning Cleave
+        "Burn!",
+        "Hyah!",
+        "Ignite!",
+        "I won't back down!"
+    };
+    public static string[] bardBarks0 =
+    {
+        //Bard - Smack
+        "Haha!",
+        "Let's do this!",
+        "Take this!",
+        "My turn."
+    };
+    public static string[] bardBarks1 =
+    {
+        //Bard - Distract
+        "Look over there!!",
+        "Listen to this!",
+        "You can't hit me!",
+        "Don't get distracted!"
+    };
+    public static string[] bardBarks2 =
+    {
+        //Bard - Chord Strike
+        "Too close?",
+        "How's this sound?",
+        "Listen closely...",
+        "Whoops!"
+    };
+    public static string[] rogueBarks0 =
+    {
+        //Rogue - Stab
+        "Hmph.",
+        "Too late.",
+        "Nowhere to run.",
+        "Target acquired."
+    };
+    public static string[] rogueBarks1 =
+    {
+        //Rogue - Evade
+        "Too slow.",
+        "Watch out.",
+        "Can you keep up?",
+        "Try to catch me."
+    };
+    public static string[] rogueBarks2 =
+    {
+        //Rogue - Phantom Thief
+        "I'll take this.",
+        "Can't catch me?",
+        "Don't look away.",
+        "My turn."
+    };
+    public static string[] mageBarks0 =
+    {
+        //Mage - Cast
+        "Oh?",
+        "You better run.",
+        "Got you!",
+        "Too easy."
+    };
+    public static string[] mageBarks1 =
+    {
+        //Mage - Protection
+        "Won't be that easy!",
+        "Come at me!",
+        "You're getting boring.",
+        "Don't get cocky."
+    };
+    public static string[] mageBarks2 =
+    {
+        //Mage - Fireball
+        "FIRE!",
+        "Can't handle the heat?",
+        "Too hot?",
+        "Incinerate!",
+        "Burn! Hahah! BURN!"
+    };
+    public static string[][] barkListList =
+    {
+        warriorBarks0,
+        warriorBarks1,
+        warriorBarks2,
+        bardBarks0,
+        bardBarks1,
+        bardBarks2,
+        rogueBarks0,
+        rogueBarks1,
+        rogueBarks2,
+        mageBarks0,
+        mageBarks1,
+        mageBarks2
     };
 }
 
@@ -280,7 +422,9 @@ public class Attack
     public string secondaryEffect;
     public string secondaryEffect2;// Used mainly for text purposes
 
-    public Attack(string name, string desc, int power, int type, string secondaryEffect="", string secondaryEffect2 = "", int flirtType = 0)
+    public int barkListIndexes = -1;
+
+    public Attack(string name, string desc, int power, int type, string secondaryEffect = "", string secondaryEffect2 = "", int flirtType = 0, int barkListIndexes = -1)
     {
         this.name = name;
         this.desc = desc;
@@ -288,6 +432,8 @@ public class Attack
         this.type = (AttackType)type;
         this.secondaryEffect = secondaryEffect;
         this.secondaryEffect2 = secondaryEffect2;
+
+        this.barkListIndexes = barkListIndexes;
     }
     //Add additional effects as a switch statement
 
@@ -317,12 +463,12 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 0, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 7, 2, 2, 2, 1, 0, spriteIndex: 4,flirtTypeA:1,isBoss: true),
-        new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 0, spriteIndex: 6,flirtTypeA:1),
-        new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 0, spriteIndex: 11,flirtTypeA:1),
-        new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 0, spriteIndex: 12,flirtTypeA:1),
+        new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rocky", 75, 100, 7, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
+        new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 6,flirtTypeA:1),
+        new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:1),
+        new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:1),
     };
     public static Combatant[] bossRecruitedTable =
     {
