@@ -273,7 +273,7 @@ public static class Attacks
         new Attack("Rock Slide","",15,0), //12
         new Attack("Earthquake","",25,0), //13
         new Attack("Sedimentary Slam","",25,0), //14
-        new Attack("Spin Attack","",15,0), //15
+        new Attack("Spin Attack","",12,0), //15
         new Attack("Bludgeon","",10,0), //16
         new Attack("Slash","enemy variant of slash", 10,0), //17
         new Attack("Shield Up","",-1,0,barkListIndexes: 1), //18
@@ -483,11 +483,11 @@ public static class enemyList
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 6,flirtTypeA:1),
         new Combatant("Big Slime", 50, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:2),
         new Combatant("Slime", 35, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:3),
-        new Combatant("Mr. Rat", 60, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
-        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
-        new Combatant("Swordeton", 51, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 21,flirtTypeA:4),
-        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 22,flirtTypeA:3),
-        new Combatant("Spider", 45, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 23,flirtTypeA:2),
+        new Combatant("Mr. Rat", 60, 120, 2, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
+        new Combatant("Skeleton", 20, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
+        new Combatant("Swordeton", 21, 100, 2, 1, 1, 1, 1, 17, spriteIndex: 21,flirtTypeA:4),
+        new Combatant("Skeleton", 20, 120, 1, 1, 1, 1, 1, 17, spriteIndex: 22,flirtTypeA:3),
+        new Combatant("Spider", 45, 120, 1, 1, 1, 1, 1, 17, spriteIndex: 23,flirtTypeA:2),
         new Combatant("Ugly Mushroom", 75, 100, 3, 1, 3, 1, 1, 17, spriteIndex: 24,flirtTypeA:3),
         new Combatant("Kal", 85, 150, 4, 2, 2, 2, 1, 17, spriteIndex: 25,flirtTypeA:4),
         new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),

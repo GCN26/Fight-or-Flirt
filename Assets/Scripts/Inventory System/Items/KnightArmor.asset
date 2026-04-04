@@ -18,6 +18,10 @@ MonoBehaviour:
   myType: 1
   description: 
   attack: 0
-  defense: 0
+  defense: 2
   speed: 0
   charisma: 0
+  moveIndex: 0
+  objName: 
+  scriptName: 
+  funcName: 
