@@ -194,6 +194,7 @@ public class Combatant
                 object[] objArr = new object[2];
                 objArr[0] = target;
                 objArr[1] = target.partyIndex;
+                Debug.Log(selectedAttack.secondaryEffect2);
                 if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
                 if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
             }
@@ -223,10 +224,13 @@ public class Combatant
         object[] objArr = new object[2];
         objArr[0] = target;
         objArr[1] = target.partyIndex;
+        Debug.Log(selectedAttack.secondaryEffect2);
         if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
         if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
         string response = "They seem flattered.";
         if (matchType) response = "They seem really flustered!";
+
+        if (rizz == 0) response = "a";
         return response;
     }
     public void equipStatChange()
@@ -282,7 +286,8 @@ public static class Attacks
         new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1),
         new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3),
         new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1),
-        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1)
+        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1),
+        new Attack("Talk","",0,0,"callMrRatText",flirtType:0)
     };
     public static string[] warriorBarks0 =
     {
@@ -458,19 +463,33 @@ public class Attack
         battleMan.attackType = false;
         battleMan.holdForText = true;
     }
+
+    public void callMrRatText(Combatant target, int index)
+    {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
+        battleMan.specialIndex = 86;
+    }
 }
 
 public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 5, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
+        new Combatant("Rock Golem 1", 45, 100, 1, 2, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rock Golem 2", 40, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
+        new Combatant("Rocky", 75, 100, 4, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 6,flirtTypeA:1),
-        new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:1),
-        new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:1),
-        new Combatant("Mr. Rat", 75, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
+        new Combatant("Big Slime", 50, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:2),
+        new Combatant("Slime", 35, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:3),
+        new Combatant("Mr. Rat", 60, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
+        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
+        new Combatant("Swordeton", 51, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 21,flirtTypeA:4),
+        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 22,flirtTypeA:3),
+        new Combatant("Spider", 45, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 23,flirtTypeA:2),
+        new Combatant("Ugly Mushroom", 75, 100, 3, 1, 3, 1, 1, 17, spriteIndex: 24,flirtTypeA:3),
+        new Combatant("Kal", 85, 150, 4, 2, 2, 2, 1, 17, spriteIndex: 25,flirtTypeA:4),
     };
     public static Combatant[] bossRecruitedTable =
     {
@@ -485,7 +504,13 @@ public static class encounterTables
         new int[] { 0, 1},
         new int[] {2},
         new int[] {4,5,5},
-        new int[] {6 }
+        new int[] {6 },
+        new int[] {7,9,7 },
+        new int[] {7,8,9 },
+        new int[] {10, 10},
+        new int[] {11},
+        new int[] {12},
+        new int[] {4},
     };
     public static string[] battleStartMessages = new string[] {
         "A pair of rock golems block your path!",

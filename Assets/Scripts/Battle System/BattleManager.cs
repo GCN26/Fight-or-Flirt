@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
@@ -76,6 +77,9 @@ public class BattleManager : MonoBehaviour
     public bool progressTransition;
 
     public BarkBubble[] barkBubbleParty, barkBubbleEnemy;
+    public int specialIndex;
+    public SpecialEventManager specialEventManager;
+
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
@@ -91,11 +95,6 @@ public class BattleManager : MonoBehaviour
     void Update()
     {
         textMan.charMove.battleAllowMove = !battleOpen;
-        if (Input.GetKeyDown(KeyCode.F) && !battleOpen)
-        {
-            startBattle();
-            party[0].hp = party[0].maxHp;
-        }
     }
 
     public void fightButton(int index)
@@ -113,6 +112,8 @@ public class BattleManager : MonoBehaviour
     {
         if (!battleOpen)
         {
+            party[0].hp = party[0].maxHp;
+            battleOpen = true;
             progressTransition = false;
             battleTransition();
         }
@@ -130,7 +131,6 @@ public class BattleManager : MonoBehaviour
             enemies.Add(new(enemyList.enemyTable[index]));
         }
 
-        battleOpen = true;
         //Add way to customize encounters
         //Add encounter table for enemies
         int pL = 0;
@@ -187,6 +187,11 @@ public class BattleManager : MonoBehaviour
         }
         battleOrderDisplay.text = battleOrder;
 
+        Debug.Log(enemyTableIndex);
+        if (enemyTableIndex == 1)
+        {
+            startBattleBoss("Rocky");
+        }
         battleCo = StartCoroutine(battleProcess());
     }
 
@@ -225,10 +230,15 @@ public class BattleManager : MonoBehaviour
         if (holdForText)
         {
             battleUI.SetActive(false);
-            textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
+            Debug.Log(enemies[0].isBoss);
+            if(enemies[0].isBoss) textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
+            else
+            {
+                textMan.callText(specialIndex);
+            }
         }
         while (holdForText) yield return null;
-
+        specialIndex = -1;
         int partyDeadInt = 0;
         foreach (Combatant comb in party)
         {
@@ -254,8 +264,10 @@ public class BattleManager : MonoBehaviour
             textMan.progressable = false;
             textMan.endBattleText();
             endBattle();
+            holdForText = false;
             //End in Loss
             //StopCoroutine(battleCo);
+            SceneManager.LoadScene("MainMenu");
             yield break;
         }
 
@@ -300,6 +312,12 @@ public class BattleManager : MonoBehaviour
             textMan.progressable = false;
             textMan.endBattleText();
             endBattle();
+            if(specialEventManager.afterBattleIndex != -1)
+            {
+                textMan.callText(specialEventManager.afterBattleIndex);
+                specialEventManager.afterBattleIndex = -1;
+            }
+            holdForText = false;
             //End in win
             //StopCoroutine(battleCo);
             yield break;
@@ -374,6 +392,7 @@ public class BattleManager : MonoBehaviour
                 case Combatant.type_of_attack.flirt:
                     additionalString = battleList[0].rizzEnemy();
                     textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " with " + battleList[0].selectedAttack.name + ". " + additionalString;
+                    if (additionalString == "a") textMan.battleTextString = battleList[0].charName + " tries talking to " + battleList[0].target.charName + ".";
                     break;
             }
         }
@@ -401,6 +420,7 @@ public class BattleManager : MonoBehaviour
             while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
             textMan.progressable = false;
             textMan.endBattleText();
+            
         }
 
         foreach (Combatant comb in battleList)
@@ -633,6 +653,7 @@ public class BattleManager : MonoBehaviour
                         flrt.secondaryEffect2 = "bossRockyFlirtText";
                     }
                 }
+                enemies[0].isBoss = true;
                 break;
         }
     }
@@ -672,7 +693,7 @@ public class BattleManager : MonoBehaviour
         int newFlrt0 = 0;
         int newFlrt1 = 0;
         int newFlrt2 = 0;
-        int newFlrt3 = 0;
+        int newFlrt3 = -1;
 
 
         if (comb.partyIndex == 0)
@@ -722,6 +743,7 @@ public class BattleManager : MonoBehaviour
         comb.attackListIndexes[0] = newAtk0;
         comb.rizzAttackListIndexes[0] = newFlrt0;
         comb.attackListIndexes[1] = newAtk1;
+        comb.rizzAttackListIndexes[2] = newFlrt2;
         comb.rizzAttackListIndexes[3] = newFlrt3;
         if (comb.level >= 2)
         {
@@ -736,6 +758,14 @@ public class BattleManager : MonoBehaviour
             comb.attackListIndexes[3] = -1;
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;
+        }
+
+        if (specialEventManager.mrRatFight)
+        {
+            comb.rizzAttackListIndexes[0] = 4;
+            comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = -1;
         }
     }
 

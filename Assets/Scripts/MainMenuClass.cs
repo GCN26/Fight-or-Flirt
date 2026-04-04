@@ -13,7 +13,7 @@ public class MainMenuClass : MonoBehaviour
     {
         SceneIndependentClass.charName = input.text;
         SceneIndependentClass.classInt = inputInt;
-        SceneManager.LoadScene("Playtest4Scene");
+        SceneManager.LoadScene("LTUXFINAL");
     }
 
     public void openNamePanel()

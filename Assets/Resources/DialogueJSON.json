@@ -808,13 +808,13 @@
         {
           "obj_name": "Jerald",
           "move_vec": {
-            "x": 16.82,
-            "y": 1.05,
-            "z": -17.25
+            "x": -10,
+            "y": 0,
+            "z": 0
           },
           "move_speed": 1,
           "move_interp_type": 0,
-          "move_target_type": 1,
+          "move_target_type": 0,
           "rotation_vec": {
             "x": 0,
             "y": 0,
@@ -1341,6 +1341,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "hideJerald",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -1383,7 +1391,394 @@
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 86,
+      "dialogue": "Wait! We don't need to fight.",
+      "speaker_name": "{N}",
+      "next_id": 87,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 87,
+      "dialogue": "We don't? The weapon you've had aimed at me since we started talkin' says otherwise.",
+      "speaker_name": "Mr. Rat",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Lower Weapon", "Keep Weapon Raised" ],
+        "ids": [ 88,99 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 88,
+      "dialogue": "I'm sorry. I was just...",
+      "speaker_name": "{N}",
+      "next_id": 89,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 89,
+      "dialogue": "I was expecting you to attack, so I was just being prepared.",
+      "speaker_name": "{N}",
+      "next_id": 90,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 90,
+      "dialogue": "Alright then, that's all I needed to hear.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 91,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 91,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "setMrRatInfatToZero",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 92,
+      "dialogue": "Anyways, human. I gotta get goin'. But a bit of friendly advice fer ya. Try not to raise yer weapon at just anyone.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 93,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "summonMrRat",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 93,
+      "dialogue": "I know some guys who'll pounce the moment they think they might be in danger.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 94,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 94,
+      "dialogue": "My buddy Tony's like that. Real jumpy guy. Super nice when ya get ta know him though.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 95,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 95,
+      "dialogue": "Uh, ok. Bye then, Mr. Rat.",
+      "speaker_name": "{N}",
+      "next_id": 96,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 96,
+      "dialogue": "Maybe we'll meet again, so don't forget it. Oh, and take this. It might help ya out. See ya.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 97,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 97,
+      "dialogue": "Well that was interesting. Am I really on one of the lowest levels of the dungeon? If that's true, how am I supposed to get back to the surface.",
+      "speaker_name": "{N}",
+      "next_id": 98,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "sendMrRatToTheVoid",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 98,
+      "dialogue": "I hope my party is doing ok without me. For now, I just need to keep moving. Nothing is going to happen if I just stand here.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 99,
+      "dialogue": "I'm not backing down.",
+      "speaker_name": "{N}",
+      "next_id": 100,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 100,
+      "dialogue": "So, we're really doing this?",
+      "speaker_name": "Mr. Rat",
+      "next_id": 101,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 101,
+      "dialogue": "It's kill or be killed in the dungeon.",
+      "speaker_name": "{N}",
+      "next_id": 102,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 102,
+      "dialogue": "It doesn't have to be.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 103,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "endBattleText",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 104,
+      "dialogue": "Woah, woah. Who's there? I just got comfortable.",
+      "speaker_name": "Rcoky",
+      "next_id": 105,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 105,
+      "dialogue": "<i>What the hell? Where did that voice come from?</i>",
+      "speaker_name": "{N}",
+      "next_id": 106,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 106,
+      "dialogue": "You just walked right into me and you haven't even apologized? Have you ever been taught manners?",
+      "speaker_name": "Rocky",
+      "next_id": 107,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 107,
+      "dialogue": "Walked into you?...wait.",
+      "speaker_name": "{N}",
+      "next_id": 108,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 108,
+      "dialogue": "Oh... Hi there.",
+      "speaker_name": "{N}",
+      "next_id": 109,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 109,
+      "dialogue": "That didn't sound like sorry to me, little one.",
+      "speaker_name": "Rocky",
+      "next_id": 110,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 110,
+      "dialogue": "Little one?",
+      "speaker_name": "{N}",
+      "next_id": 111,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 111,
+      "dialogue": "That's what you are, aren't you?",
+      "speaker_name": "Rocky",
+      "next_id": 112,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 112,
+      "dialogue": "That's not the nicest way to say it. It sounds like you're looking down on me.",
+      "speaker_name": "{N}",
+      "next_id": 113,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 113,
+      "dialogue": "But you're all the way down there, so I am looking down on you.",
+      "speaker_name": "Rocky",
+      "next_id": 114,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 114,
+      "dialogue": "That's not really what I...",
+      "speaker_name": "{N}",
+      "next_id": 115,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 115,
+      "dialogue": "It doesn't matter. I'm still waiting on that apology.",
+      "speaker_name": "Rocky",
+      "next_id": 116,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 116,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "startRocky",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
+
+
+
+
+
+
 
 
 

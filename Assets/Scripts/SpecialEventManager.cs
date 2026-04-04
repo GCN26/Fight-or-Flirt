@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class SpecialEventManager : MonoBehaviour
     public Sprite jeraldBag, jeraldNoBag;
 
     public GameObject mrRat;
+    public bool knowsAboutTony = false;
 
     public GameObject player;
     public CharacterMovementScript playerMove;
@@ -28,6 +30,8 @@ public class SpecialEventManager : MonoBehaviour
     public TextEventManager textEventManager;
 
     public GameObject jeraldLetter;
+    public int afterBattleIndex = -1;
+    public bool mrRatFight = false;
 
     private void Start()
     {
@@ -94,15 +98,41 @@ public class SpecialEventManager : MonoBehaviour
     {
         battleManager.enemyTableIndex = 3;
         battleManager.startBattle();
+        mrRatFight = true;
         Debug.Log("Mr Rat Fight");
+        sendMrRatToTheVoid();
     }
     public void summonMrRat()
     {
+        afterBattleIndex = -1;
         mrRat.transform.position = new Vector3(mrRat.transform.position.x, mrRat.transform.position.y, player.transform.position.z);
         mrRat.SetActive(true);
     }
     public void sendMrRatToTheVoid()
     {
         mrRat.SetActive(false);
+    }
+    public void setMrRatInfatToZero()
+    {
+        battleManager.enemies[0].infatuation = 0;
+        afterBattleIndex = 92;
+        battleManager.showBattleUI();
+        knowsAboutTony = true;
+        mrRatFight = false;
+        battleManager.holdForText = false;
+    }
+    public void endBattleText()
+    {
+        afterBattleIndex = -1;
+        battleManager.showBattleUI();
+    }
+    public void hideJerald()
+    {
+        jerald.SetActive(false);
+    }
+    public void startRocky()
+    {
+        battleManager.enemyTableIndex = 1;
+        battleManager.startBattle();
     }
 }
