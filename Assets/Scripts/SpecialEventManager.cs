@@ -111,7 +111,6 @@ public class SpecialEventManager : MonoBehaviour
     public void sendMrRatToTheVoid()
     {
         mrRat.SetActive(false);
-        mrRatFight = false;
     }
     public void setMrRatInfatToZero()
     {
@@ -135,5 +134,9 @@ public class SpecialEventManager : MonoBehaviour
     {
         battleManager.enemyTableIndex = 1;
         battleManager.startBattle();
+    }
+    public void endMrRat()
+    {
+        mrRatFight = false;
     }
 }

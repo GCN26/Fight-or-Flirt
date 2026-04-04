@@ -317,6 +317,7 @@ public class BattleManager : MonoBehaviour
                 textMan.callText(specialEventManager.afterBattleIndex);
                 specialEventManager.afterBattleIndex = -1;
             }
+            specialEventManager.mrRatFight = false;
             holdForText = false;
             //End in win
             //StopCoroutine(battleCo);

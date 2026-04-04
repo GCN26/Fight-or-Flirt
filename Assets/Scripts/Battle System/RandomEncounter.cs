@@ -14,7 +14,7 @@ public class RandomEncounter : MonoBehaviour
         {
             if (!bossEncounter)
             {
-                battleManager.enemyTableIndex = indexes[UnityEngine.Random.Range(0, indexes.Length)];
+                battleManager.enemyTableIndex = indexes[UnityEngine.Random.Range(0, indexes.Length-1)];
                 battleManager.startBattle();
                 Destroy(this.gameObject);
             }
