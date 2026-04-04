@@ -11,7 +11,7 @@ public class CharacterMovementScript : MonoBehaviour
 
     public bool textAllowMove,battleAllowMove;
 
-    private SpriteRenderer spriteRenderer = null;
+    public SpriteRenderer spriteRenderer = null;
 
     private GameManager gameManager = null;
 

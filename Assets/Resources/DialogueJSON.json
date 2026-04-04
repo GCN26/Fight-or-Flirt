@@ -1023,7 +1023,372 @@
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 56,
+      "dialogue": "Hey there. Are ya lost?",
+      "speaker_name": "???",
+      "next_id": 57,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 57,
+      "dialogue": "ACK!",
+      "speaker_name": "{N}",
+      "next_id": 58,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 58,
+      "dialogue": "<i>I didn't hear anyone approach.</i>",
+      "speaker_name": "{N}",
+      "next_id": 59,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "playerDoASpin",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 59,
+      "dialogue": "Hello?",
+      "speaker_name": "{N}",
+      "next_id": 60,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 60,
+      "dialogue": "Down here!",
+      "speaker_name": "???",
+      "next_id": 61,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "resetPlayerTransformAfterSpin",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "summonMrRat",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 61,
+      "dialogue": "<i>Woah, a creature this big might be able to pose a threat. I should prepare to attack.</i>",
+      "speaker_name": "{N}",
+      "next_id": 62,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 62,
+      "dialogue": "Hey, no need to get all defensive, I just wanna help ya out.",
+      "speaker_name": "???",
+      "next_id": 63,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 63,
+      "dialogue": "Oh wow! Are ya human? I haven't seen one of ya in... I can't even remember how long.",
+      "speaker_name": "???",
+      "next_id": 64,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 64,
+      "dialogue": "You can talk?",
+      "speaker_name": "{N}",
+      "next_id": 65,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 65,
+      "dialogue": "Well, duh. I'm talkin' to ya right now. The name's Mr. Rat.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 66,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 66,
+      "dialogue": "So, do ya need directions, or what? Cause I know this floor like the back of my paw.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 67,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 67,
+      "dialogue": "<i>Just like that skeleton, this monster doesn't see, particularly intent on attacking me, but I need to be careful.</i>",
+      "speaker_name": "{N}",
+      "next_id": 68,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 68,
+      "dialogue": "<i>But even from a giant rat, if I can get directions, then I can't pass that up.</i>",
+      "speaker_name": "{N}",
+      "next_id": 69,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 69,
+      "dialogue": "Did you say you know <i>this floor?</i>",
+      "speaker_name": "{N}",
+      "next_id": 70,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 70,
+      "dialogue": "Yup, like the back of my paw. Need me ta repeat everythin' else I said too?",
+      "speaker_name": "Mr. Rat",
+      "next_id": 71,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 71,
+      "dialogue": "No, no. I'm ok. I'm just wondering? What floor is this?",
+      "speaker_name": "{N}",
+      "next_id": 72,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 72,
+      "dialogue": "Oh man, that's a good question, ain’t it? I know what's on the floor, but I ain't ever left it, so I don't know what's around it.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 73,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 73,
+      "dialogue": "We're pretty low down, I think. That's somethin' I heard anyway. That we're so far down that we never see humans like ya.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 74,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 74,
+      "dialogue": "<i>I'm that far down? How is that even possible? I was just with my party on the 1st floor.</i>",
+      "speaker_name": "{N}",
+      "next_id": 75,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 75,
+      "dialogue": "<i>No, this rat must be lying to me. If I was that far down, that skeleton from before wouldn't have been scared of me. It would've been able to kill me easily.</i>",
+      "speaker_name": "{N}",
+      "next_id": 76,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 76,
+      "dialogue": "<i>Monsters in the depths of the dungeon are deadly to almost any adventurer, that's why they never make it this far down.</i>",
+      "speaker_name": "{N}",
+      "next_id": 77,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 77,
+      "dialogue": "Hey, what's got ya so stuck in yer own head? Especially while yer still standin' like yer gonna attack me.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 78,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 78,
+      "dialogue": "This is what everyone always tells me. I gotta stop bein' so nice ta people cause one day it's gonna get me killed.",
+      "speaker_name": "Mr. Rat",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "You're a monster.", "Why not kill me?" ],
+        "ids": [ 79, 84 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 79,
+      "dialogue": "You're a monster, of course I'm going to kill you.",
+      "speaker_name": "{N}",
+      "next_id": 80,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 80,
+      "dialogue": "That's a bit stereotypical towards monsters. don'tcha think? I mean, we ain't humans like ya, but we ain't just one species either. ",
+      "speaker_name": "Mr. Rat",
+      "next_id": 81,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 81,
+      "dialogue": "Lumpin' me in with dragons is a bit insultin' to the dragons, haha.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 82,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 82,
+      "dialogue": "But yer clearly raring for a fight, and I ain't gonna sit still and letcha kill me, so let's just get on with it.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 83,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 83,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "startMrRatFight",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 84,
+      "dialogue": "Why aren't you trying to kill me? You're a monster, aren't you?",
+      "speaker_name": "{N}",
+      "next_id": 80,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 85,
+      "dialogue": "Letter and Flowers added to inventory.",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
+
+
+
+
+
 
   ]
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpecialEventManager : MonoBehaviour
@@ -15,6 +16,18 @@ public class SpecialEventManager : MonoBehaviour
     public bool knowJeraldName = false;
 
     public Sprite jeraldBag, jeraldNoBag;
+
+    public GameObject mrRat;
+
+    public GameObject player;
+    public CharacterMovementScript playerMove;
+    Coroutine spinCo;
+
+    public BattleManager battleManager;
+    public Inventory inventory;
+    public TextEventManager textEventManager;
+
+    public GameObject jeraldLetter;
 
     private void Start()
     {
@@ -43,5 +56,53 @@ public class SpecialEventManager : MonoBehaviour
     public void openJeraldLetter()
     {
         Debug.Log("Jerald Letter Opened");
+        inventory.closeMenu();
+        jeraldLetter.SetActive(true);
+    }
+    public void closeJeraldLetter()
+    {
+        jeraldLetter.SetActive(false);
+        if (!knowJeraldName)
+        {
+            knowJeraldName = true;
+            if (jeraldAlive)
+            {
+                textEventManager.callText(53);
+            }
+            else
+            {
+                textEventManager.callText(54);
+            }
+        }
+    }
+    public void playerDoASpin()
+    {
+        spinCo = StartCoroutine(playerSpin());
+    }
+    IEnumerator playerSpin()
+    {
+        playerMove.spriteRenderer.flipX = !playerMove.spriteRenderer.flipX;
+        yield return new WaitForSeconds(.75f);
+        spinCo = StartCoroutine(playerSpin());
+    }
+    public void resetPlayerTransformAfterSpin()
+    {
+        StopCoroutine(spinCo);
+        playerMove.spriteRenderer.flipX = false;
+    }
+    public void startMrRatFight()
+    {
+        battleManager.enemyTableIndex = 3;
+        battleManager.startBattle();
+        Debug.Log("Mr Rat Fight");
+    }
+    public void summonMrRat()
+    {
+        mrRat.transform.position = new Vector3(mrRat.transform.position.x, mrRat.transform.position.y, player.transform.position.z);
+        mrRat.SetActive(true);
+    }
+    public void sendMrRatToTheVoid()
+    {
+        mrRat.SetActive(false);
     }
 }

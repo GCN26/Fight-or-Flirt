@@ -179,8 +179,8 @@ public class Combatant
 
         float crit = 1;
         int random = UnityEngine.Random.Range(0, 16);
-        if (random == 0) crit = 1.75f;
-        int damage = (int)((movePower * attack) * crit / (target.defense));
+        if (random == 0) crit = 1.5f;
+        int damage = (int)((movePower * attack) * crit / (target.defense))/2;
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
         if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
 
@@ -212,6 +212,7 @@ public class Combatant
         movePower = selectedAttack.power;
 
         int bonus = 3;
+        //Chnage match type to a chart of some sort
         bool matchType = ((int)target.type == (int)selectedAttack.type);
         if (matchType) bonus = 8;
         int rizz = (int)((float)(movePower * charisma * bonus)/(float)target.perception);
@@ -465,10 +466,11 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 75, 100, 1, 2, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
         new Combatant("Rock Golem 2", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 7, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
+        new Combatant("Rocky", 75, 100, 5, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
         new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 6,flirtTypeA:1),
         new Combatant("Big Slime", 75, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:1),
         new Combatant("Slime", 75, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:1),
+        new Combatant("Mr. Rat", 75, 100, 3, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
     };
     public static Combatant[] bossRecruitedTable =
     {
@@ -482,7 +484,8 @@ public static class encounterTables
     {
         new int[] { 0, 1},
         new int[] {2},
-        new int[] {4,5,5}
+        new int[] {4,5,5},
+        new int[] {6 }
     };
     public static string[] battleStartMessages = new string[] {
         "A pair of rock golems block your path!",

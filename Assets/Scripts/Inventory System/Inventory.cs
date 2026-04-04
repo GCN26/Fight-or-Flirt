@@ -32,10 +32,12 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             itemsInMenu[i].myType = (ItemInMenuObj.itemType)items[i].itemType.myType;
-            if (itemsInMenu[i].myType == ItemInMenuObj.itemType.item) {
+            if (itemsInMenu[i].myType == ItemInMenuObj.itemType.item)
+            {
                 itemsInMenu[i].equipButton.onClick.RemoveAllListeners();
                 itemsInMenu[i].index = i;
-                itemsInMenu[i].equipButton.onClick.AddListener(() => nonEquipUse(itemsInMenu[i]));
+                int loop = i;
+                itemsInMenu[i].equipButton.onClick.AddListener(() => nonEquipUse(itemsInMenu[loop]));
             }
         }
     }
@@ -118,6 +120,17 @@ public class Inventory : MonoBehaviour
         else
         {
             openMenu();
+            for (int i = 0; i < items.Count; i++)
+            {
+                itemsInMenu[i].myType = (ItemInMenuObj.itemType)items[i].itemType.myType;
+                if (itemsInMenu[i].myType == ItemInMenuObj.itemType.item)
+                {
+                    itemsInMenu[i].equipButton.onClick.RemoveAllListeners();
+                    itemsInMenu[i].index = i;
+                    int loop = i;
+                    itemsInMenu[i].equipButton.onClick.AddListener(() => nonEquipUse(itemsInMenu[loop]));
+                }
+            }
         }
     }
     public void openMenu()
@@ -201,18 +214,9 @@ public class Inventory : MonoBehaviour
     }
     public void nonEquipUse(ItemInMenuObj a)
     {
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        //i need to work on this later
-        int index = 1;
-        var funcObj = GameObject.Find(items[index].itemType.objName).GetComponent(items[index].itemType.scriptName);
+        var funcObj = GameObject.Find(items[a.index].itemType.objName).GetComponent(items[a.index].itemType.scriptName);
         var funcCompType = funcObj.GetType();
-        var funcMethod = funcCompType.GetMethod(items[index].itemType.funcName);
+        var funcMethod = funcCompType.GetMethod(items[a.index].itemType.funcName);
         var argsA = new object[0];
 
         funcMethod.Invoke(funcObj, argsA);
