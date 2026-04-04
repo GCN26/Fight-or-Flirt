@@ -490,6 +490,8 @@ public static class enemyList
         new Combatant("Spider", 45, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 23,flirtTypeA:2),
         new Combatant("Ugly Mushroom", 75, 100, 3, 1, 3, 1, 1, 17, spriteIndex: 24,flirtTypeA:3),
         new Combatant("Kal", 85, 150, 4, 2, 2, 2, 1, 17, spriteIndex: 25,flirtTypeA:4),
+        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
+        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
     };
     public static Combatant[] bossRecruitedTable =
     {
@@ -510,6 +512,8 @@ public static class encounterTables
         new int[] {10, 10},
         new int[] {11},
         new int[] {12},
+        new int[] {4},
+        new int[] {4},
         new int[] {4},
     };
     public static string[] battleStartMessages = new string[] {

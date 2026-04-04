@@ -111,6 +111,7 @@ public class SpecialEventManager : MonoBehaviour
     public void sendMrRatToTheVoid()
     {
         mrRat.SetActive(false);
+        mrRatFight = false;
     }
     public void setMrRatInfatToZero()
     {

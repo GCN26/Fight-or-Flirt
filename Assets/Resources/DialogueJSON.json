@@ -1294,7 +1294,7 @@
       "speaker_name": "Mr. Rat",
       "next_id": -1,
       "choices": {
-        "strings": [ "You're a monster.", "Why not kill me?" ],
+        "strings": [ "You're a monster.", "Why aren't you attacking me?'" ],
         "ids": [ 79, 84 ]
       },
       "conditional": { "obj_to_check_a": "" }
