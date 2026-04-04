@@ -9,7 +9,7 @@ public class CharacterMovementScript : MonoBehaviour
     private Animator animator;
     private bool isFacingRight = true;
 
-    public bool textAllowMove,battleAllowMove;
+    public bool textAllowMove,battleAllowMove,specialAllowMove;
 
     public SpriteRenderer spriteRenderer = null;
 
@@ -56,7 +56,7 @@ public class CharacterMovementScript : MonoBehaviour
             animator.runtimeAnimatorController = rController;
         }
 
-        if (textAllowMove && battleAllowMove)
+        if (textAllowMove && battleAllowMove && specialAllowMove)
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.z = Input.GetAxisRaw("Vertical");

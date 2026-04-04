@@ -15,6 +15,7 @@ public class SpecialEventManager : MonoBehaviour
     public bool jeraldAlive = true;
     public bool hasJeraldFlowers = false;
     public bool knowJeraldName = false;
+    public bool jeraldLetterOpen = false;
 
     public Sprite jeraldBag, jeraldNoBag;
 
@@ -33,8 +34,9 @@ public class SpecialEventManager : MonoBehaviour
     public int afterBattleIndex = -1;
     public bool mrRatFight = false;
 
-    private void Start()
+    private void Update()
     {
+        battleManager.textMan.charMove.specialAllowMove = !jeraldLetterOpen;
     }
     public void playJeraldNoise()
     {
@@ -62,9 +64,11 @@ public class SpecialEventManager : MonoBehaviour
         Debug.Log("Jerald Letter Opened");
         inventory.closeMenu();
         jeraldLetter.SetActive(true);
+        jeraldLetterOpen = true;
     }
     public void closeJeraldLetter()
     {
+        jeraldLetterOpen = false;
         jeraldLetter.SetActive(false);
         if (!knowJeraldName)
         {
