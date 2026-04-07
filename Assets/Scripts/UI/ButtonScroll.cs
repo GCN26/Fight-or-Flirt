@@ -25,9 +25,16 @@ public class ButtonScroll : MonoBehaviour
 
     public void hoverDebug()
     {
-        text.color = targetColor;
-        //text.transform.localPosition = initPos - new Vector3(0, 15, 0);
-        text.transform.localScale = new Vector3(initSize.x*1.5f, initSize.y * 1.5f, initSize.z * 1.5f);
+        if (selfButton.enabled)
+        {
+            text.color = targetColor;
+            //text.transform.localPosition = initPos - new Vector3(0, 15, 0);
+            text.transform.localScale = new Vector3(initSize.x * 1.5f, initSize.y * 1.5f, initSize.z * 1.5f);
+        }
+        else
+        {
+            leaveHover();
+        }
     }
     public void leaveHover()
     {

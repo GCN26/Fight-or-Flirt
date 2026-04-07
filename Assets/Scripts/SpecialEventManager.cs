@@ -33,6 +33,11 @@ public class SpecialEventManager : MonoBehaviour
     public GameObject jeraldLetter;
     public int afterBattleIndex = -1;
     public bool mrRatFight = false;
+    public bool willowFight = false;
+
+    public int willowBattleState;
+    public int firstWillowChoice;
+    public int secondWillowChoice;
 
     private void Update()
     {
@@ -104,6 +109,15 @@ public class SpecialEventManager : MonoBehaviour
         battleManager.startBattle();
         mrRatFight = true;
         Debug.Log("Mr Rat Fight");
+        sendMrRatToTheVoid();
+    }
+    public void startWillowFight()
+    {
+        mrRatFight = false;
+        battleManager.enemyTableIndex = 11;
+        battleManager.startBattle();
+        willowFight = true;
+        Debug.Log("Willow Fight");
         sendMrRatToTheVoid();
     }
     public void summonMrRat()

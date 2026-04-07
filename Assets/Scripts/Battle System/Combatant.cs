@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.Audio.ProcessorInstance;
 
 [Serializable]
 public class Combatant
@@ -84,6 +85,7 @@ public class Combatant
         dot
     }
     public bossTypeChar characterType;
+    public string specialString;
 
     public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, int flirtTypeA = 0, bool isBoss = false)
     {
@@ -162,6 +164,7 @@ public class Combatant
 
     public int attackEnemy()
     {
+        specialString = "";
         selectedAttack = attackList[attackListIndex];
 
         movePower = selectedAttack.power;
@@ -182,6 +185,7 @@ public class Combatant
         if (random == 0) crit = 1.5f;
         int damage = (int)((movePower * attack) * crit / (target.defense))/2;
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
+        if (movePower == 0) damage = 0;
         if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
 
         if (!target.isProtect)
@@ -208,6 +212,7 @@ public class Combatant
     }
     public string rizzEnemy()
     {
+        specialString = "";
         selectedAttack = rizzAttackList[attackListIndex];
 
         movePower = selectedAttack.power;
@@ -217,6 +222,8 @@ public class Combatant
         bool matchType = ((int)target.type == (int)selectedAttack.type);
         if (matchType) bonus = 8;
         int rizz = (int)((float)(movePower * charisma * bonus)/(float)target.perception);
+        if (movePower == 0) rizz = 0;
+
         target.infatuation -= rizz;
         Debug.Log(charName + " hits on " + target.charName + " with " + selectedAttack.name);
         Debug.Log(rizz);
@@ -230,7 +237,11 @@ public class Combatant
         string response = "They seem flattered.";
         if (matchType) response = "They seem really flustered!";
 
-        if (rizz == 0) response = "a";
+
+        if (rizz == 0)
+        {
+            response = specialString;
+        }
         return response;
     }
     public void equipStatChange()
@@ -280,14 +291,21 @@ public static class Attacks
         new Attack("Distract","",-1,0,barkListIndexes: 4), //19
         new Attack("Evade","",-1,0,barkListIndexes: 7), //20
         new Attack("Protection","",-1,0,barkListIndexes: 10), //21
+        new Attack("Bite","willow attack", 0,0, "willowBite"), //22
+        new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0,"willowAttacked"), //23 - Willow Fight Copy
+        new Attack("Cast","",10,0), //24 - Willow Fight Copy
+        new Attack("Smack","",10,0), //25 - Willow Fight Copy
+        new Attack("Stab","",10,0), //26 - Willow Fight Copy
     };
     public static Attack[] rizzList =
     {
-        new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1),
-        new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3),
-        new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1),
-        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1),
-        new Attack("Talk","",0,0,"callMrRatText",flirtType:0)
+        new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1), //0
+        new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3), //1
+        new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1), //2
+        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1), //3
+        new Attack("Talk","",0,0,"callMrRatText",flirtType:0), //4
+        new Attack("Talk Logically", "Willow Fight Attack",0,0,"willowLogic",flirtType:0), //5
+        new Attack("Speak from the Heart", "Willow Fight Attack",0,0,"willowHeart",flirtType:0), //6
     };
     public static string[] warriorBarks0 =
     {
@@ -467,9 +485,73 @@ public class Attack
     public void callMrRatText(Combatant target, int index)
     {
         BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.battleList[0].specialString = "a";
         battleMan.battleUI.SetActive(false);
         battleMan.holdForText = true;
         battleMan.specialIndex = 86;
+    }
+    public void willowBite(Combatant target, int index)
+    {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.battleList[0].specialString = "b";
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
+        battleMan.specialIndex = 117;
+        target.hp -= target.maxHp / 2;
+    }
+    public void willowAttacked(Combatant target, int index)
+    {
+        SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        specMan.willowBattleState += 1;
+        if (specMan.willowBattleState == 1) specMan.firstWillowChoice = -1;
+        else if (specMan.willowBattleState == 2) specMan.secondWillowChoice = -1;
+    }
+    public void willowLogic(Combatant target, int index)
+    {
+        SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.battleList[0].specialString = "b";
+        specMan.willowBattleState += 1;
+        if (specMan.willowBattleState == 1)
+        {
+            battleMan.specialIndex = 86; //Logic
+            specMan.firstWillowChoice = 1;
+        }
+        else if (specMan.willowBattleState == 2)
+        {
+            specMan.secondWillowChoice = 1;
+            if (specMan.firstWillowChoice == specMan.secondWillowChoice)
+            {
+                battleMan.specialIndex = 86; // Logic -> Logic -> Death
+            }
+            else if(specMan.firstWillowChoice == 2) battleMan.specialIndex = 128; //Heart -> Logic -> Win
+        }
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
+    }
+    public void willowHeart(Combatant target, int index)
+    {
+        SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.battleList[0].specialString = "b";
+        specMan.willowBattleState += 1;
+        if (specMan.willowBattleState == 1)
+        {
+            battleMan.specialIndex = 121; //Heart
+            specMan.firstWillowChoice = 2;
+        }
+        else if (specMan.willowBattleState == 2)
+        {
+            specMan.secondWillowChoice = 2;
+            if (specMan.firstWillowChoice == specMan.secondWillowChoice)
+            {
+                battleMan.specialIndex = 126; // Heart -> Heart -> Death
+            }
+            else if (specMan.firstWillowChoice == 1) battleMan.specialIndex = 128; //Logic -> Heart -> Win
+            //Add battle end condition
+        }
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
     }
 }
 
@@ -491,7 +573,7 @@ public static class enemyList
         new Combatant("Ugly Mushroom", 75, 100, 3, 1, 3, 1, 1, 17, spriteIndex: 24,flirtTypeA:3),
         new Combatant("Kal", 85, 150, 4, 2, 2, 2, 1, 17, spriteIndex: 25,flirtTypeA:4),
         new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
-        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
+        new Combatant("Willow", 30, 100, 1, 1, 1, 1, 1, 22, spriteIndex: 26,flirtTypeA:1),
     };
     public static Combatant[] bossRecruitedTable =
     {
@@ -514,7 +596,7 @@ public static class encounterTables
         new int[] {12},
         new int[] {4},
         new int[] {4},
-        new int[] {4},
+        new int[] {14},
     };
     public static string[] battleStartMessages = new string[] {
         "A pair of rock golems block your path!",

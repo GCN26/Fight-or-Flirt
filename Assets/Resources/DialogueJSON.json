@@ -637,6 +637,12 @@
           "script_name": "BattleManager",
           "func_name": "endBattleText",
           "args": []
+        },
+        {
+          "obj_name": "TextEventManager",
+          "script_name": "TextEventManager",
+          "func_name": "advanceText",
+          "args": []
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -1410,7 +1416,7 @@
       "next_id": -1,
       "choices": {
         "strings": [ "Lower Weapon", "Keep Weapon Raised" ],
-        "ids": [ 88,99 ]
+        "ids": [ 88, 99 ]
       },
       "conditional": { "obj_to_check_a": "" }
     },
@@ -1618,6 +1624,12 @@
           "script_name": "SpecialEventManager",
           "func_name": "endBattleText",
           "args": []
+        },
+        {
+          "obj_name": "TextEventManager",
+          "script_name": "TextEventManager",
+          "func_name": "advanceText",
+          "args": []
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -1625,7 +1637,7 @@
     {
       "id": 104,
       "dialogue": "Woah, woah. Who's there? I just got comfortable.",
-      "speaker_name": "Rcoky",
+      "speaker_name": "Rocky",
       "next_id": 105,
       "choices": {
         "strings": [],
@@ -1772,12 +1784,191 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 117,
+      "dialogue": "Willow bites {N}, dealing critical damage.",
+      "speaker_name": "",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 118,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "startWillowFight",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 119,
+      "dialogue": "I don't know why I'm supposed to kill you, but Charlotte is really smart, so I should listen to her.",
+      "speaker_name": "Willow",
+      "next_id": 120,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 120,
+      "dialogue": "<i>I didn't expect her to suddenly attack. What should I do?</i>",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 121,
+      "dialogue": "Wait! Willow, we don't need to fight!",
+      "speaker_name": "{N}",
+      "next_id": 122,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 122,
+      "dialogue": "<i>It feels strange to say that to a monster, but she really didn't seem like she wanted to hurt me until she remembered she was told to.</i>",
+      "speaker_name": "{N}",
+      "next_id": 123,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 123,
+      "dialogue": "That's true...",
+      "speaker_name": "Willow",
+      "next_id": 124,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 124,
+      "dialogue": "But I'm supposed to kill humans. That's what Charlotte said, and she's usually right about things.",
+      "speaker_name": "Willow",
+      "next_id": 125,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 125,
+      "dialogue": "<i>If Willow gets one more hit in, I think I'm going to die.</i>",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 126,
+      "dialogue": "Please Willow! I really don't want to hurt you. You don't have to do something just because Charlotte tells you to.",
+      "speaker_name": "{N}",
+      "next_id": 127,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 127,
+      "dialogue": "Don't say that! You don't even know her! If she says I'm supposed to kill humans, then I will!",
+      "speaker_name": "Willow",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 128,
+      "dialogue": "From the way you talk about her, Charlotte seems really nice and smart, so it makes sense that she would say to kill humans, but that's because humans <i>usually</i> try to kill spiders.",
+      "speaker_name": "{N}",
+      "next_id": 129,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 129,
+      "dialogue": "Huh, but you didn't try to kill me?",
+      "speaker_name": "Willow",
+      "next_id": 130,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 130,
+      "dialogue": "Exactly. I bet what Charlotte told you was that <i>if</i> a human attacks you, you have to make sure that you kill them first, otherwise you won't survive.",
+      "speaker_name": "{N}",
+      "next_id": 131,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 131,
+      "dialogue": "But, if we don't fight each other at all, then we both get to survive, and isn't that way better?",
+      "speaker_name": "{N}",
+      "next_id": 132,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 132,
+      "dialogue": "Oh yeah, that makes sense! And then we get to be friends!",
+      "speaker_name": "Willow",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
-
-
-
-
-
 
 
 

@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         if (battleMan.battleOpen && menuObj.activeSelf) closeMenu();
+        if (battleMan.textMan.textOpen && menuObj.activeSelf) closeMenu();
     }
     private void OnEnable()
     {

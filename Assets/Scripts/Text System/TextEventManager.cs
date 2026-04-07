@@ -331,21 +331,22 @@ public class TextEventManager : MonoBehaviour
     }
     public void enableTextbox()
     {
-        StartCoroutine(enableTextCo());
+        textboxPanel.SetActive(true);
+        //StartCoroutine(enableTextCo());
     }
     IEnumerator enableTextCo()
     {
-        textboxPanel.SetActive(true);
         yield return 1;
     }
 
     public void disableTextbox()
     {
-        StartCoroutine(disableTextCo());
+        textboxPanel.SetActive(false);
+        //StartCoroutine(disableTextCo());
     }
     IEnumerator disableTextCo()
     {
         textboxPanel.SetActive(false);
-        yield return new WaitForSeconds(1);
+        yield break;
     }
 }

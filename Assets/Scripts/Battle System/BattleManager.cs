@@ -230,7 +230,6 @@ public class BattleManager : MonoBehaviour
         if (holdForText)
         {
             battleUI.SetActive(false);
-            Debug.Log(enemies[0].isBoss);
             if(enemies[0].isBoss) textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
             else
             {
@@ -376,10 +375,13 @@ public class BattleManager : MonoBehaviour
                             barkBubbleEnemy[battleList[0].partyIndex].setStringAndAppearForABit(Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes][UnityEngine.Random.Range(0, Attacks.barkListList[battleList[0].selectedAttack.barkListIndexes].Length - 1)]);
                         }
                     }
-                        if (damage != -1 && damage != -2)
+                    if (damage != -1 && damage != -2)
                     {
                         sfxSource.PlayOneShot(hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)]);
-                        textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name + "." + additionalString;
+                        if (damage > 0) textMan.battleTextString = battleList[0].charName + " hits " + battleList[0].target.charName + " for " + damage.ToString() + " with " + battleList[0].selectedAttack.name + "." + additionalString;
+                        else { 
+                            textMan.battleTextString = "";
+                        }
                     }
                     else if(damage == -2)
                     {
@@ -394,6 +396,7 @@ public class BattleManager : MonoBehaviour
                     additionalString = battleList[0].rizzEnemy();
                     textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " with " + battleList[0].selectedAttack.name + ". " + additionalString;
                     if (additionalString == "a") textMan.battleTextString = battleList[0].charName + " tries talking to " + battleList[0].target.charName + ".";
+                    if (additionalString == "b") textMan.battleTextString = "";
                     break;
             }
         }
@@ -401,9 +404,9 @@ public class BattleManager : MonoBehaviour
         additionalString = "";
         updateHealthBars();
         textMan.startBattleText();
-        yield return new WaitForSeconds(.5f);
-        while (!textMan.progressable) yield return null;
-        while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+        if(textMan.battleTextString != "")yield return new WaitForSeconds(.5f);
+        while (!textMan.progressable && textMan.battleTextString != "") yield return null;
+        while (!Input.GetKeyDown(KeyCode.Space) && textMan.battleTextString != "") yield return null;
         textMan.progressable = false;
 
         textMan.endBattleText();
@@ -456,6 +459,7 @@ public class BattleManager : MonoBehaviour
             bub.closeCoroutine();
         }
 
+        Debug.Log("End of Turn");
         battleCo = StartCoroutine(battleProcess());
         yield break;
     }
@@ -765,6 +769,25 @@ public class BattleManager : MonoBehaviour
         {
             comb.rizzAttackListIndexes[0] = 4;
             comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = -1;
+        }
+        else if (specialEventManager.willowFight)
+        {
+            int willowBasicAttackIndex = 0;
+            switch (gameMan.pcClass)
+            {
+                case GameManager.playerClass.Warrior: willowBasicAttackIndex = 23; break;
+                case GameManager.playerClass.Bard: willowBasicAttackIndex = 25; break;
+                case GameManager.playerClass.Rogue: willowBasicAttackIndex = 26; break;
+                case GameManager.playerClass.Mage: willowBasicAttackIndex = 24; break;
+            }
+            comb.attackListIndexes[0] = willowBasicAttackIndex;
+            comb.attackListIndexes[1] = -1;
+            comb.attackListIndexes[2] = -1;
+            comb.attackListIndexes[3] = -1;
+            comb.rizzAttackListIndexes[0] = 5;
+            comb.rizzAttackListIndexes[1] = 6;
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
         }
