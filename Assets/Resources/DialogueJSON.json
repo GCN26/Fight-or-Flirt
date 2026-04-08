@@ -976,7 +976,15 @@
         "strings": [],
         "ids": []
       },
-      "conditional": { "obj_to_check_a": "" }
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "addToMonsterKillCount",
+          "args": []
+        }
+      ],
+      "conditional":{ "obj_to_check_a": "" }
     },
     {
       "id": 52,
@@ -1789,7 +1797,7 @@
       "id": 117,
       "dialogue": "Willow bites {N}, dealing critical damage.",
       "speaker_name": "",
-      "next_id": 103,
+      "next_id": 125,
       "choices": {
         "strings": [],
         "ids": []
@@ -1874,7 +1882,7 @@
       "id": 124,
       "dialogue": "But I'm supposed to kill humans. That's what Charlotte said, and she's usually right about things.",
       "speaker_name": "Willow",
-      "next_id": 125,
+      "next_id": 103,
       "choices": {
         "strings": [],
         "ids": []
@@ -1962,13 +1970,564 @@
       "id": 132,
       "dialogue": "Oh yeah, that makes sense! And then we get to be friends!",
       "speaker_name": "Willow",
+      "next_id": 179,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 133,
+      "dialogue": "<size=180>AHHHHHHHH!!!</size>",
+      "speaker_name": "{N}",
+      "next_id": 134,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 134,
+      "dialogue": "<size=180>AAAAHHHHHHHH!!!</size>",
+      "speaker_name": "???",
+      "next_id": 135,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 135,
+      "dialogue": "Oh wait. Why am I screaming?",
+      "speaker_name": "???",
+      "next_id": 136,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 136,
+      "dialogue": "Why are <i>you</i> screaming?",
+      "speaker_name": "???",
+      "next_id": 137,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 137,
+      "dialogue": "Oh Lord, did I scare you? I didn't mean to. Charlotte keeps telling me I'm not scary, but maybe she's just lying.",
+      "speaker_name": "???",
+      "next_id": 138,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 138,
+      "dialogue": "I deeply apologize for dropping down in front of you. It was not my intention to scare you nor make you feel in danger.",
+      "speaker_name": "???",
+      "next_id": 139,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 139,
+      "dialogue": "That's how Charlotte says I'm supposed to apologize, right? I think so.",
+      "speaker_name": "???",
+      "next_id": 140,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 140,
+      "dialogue": "But I am sorry. I can make it up to you! I mean, I don't really have much.",
+      "speaker_name": "???",
+      "next_id": 141,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 141,
+      "dialogue": "Oh! I know. I have friendship! Yeah, that makes up for scaring you, right?",
+      "speaker_name": "???",
+      "next_id": 142,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 142,
+      "dialogue": "Ok, let's start over. My name is Willow. What's your name?",
+      "speaker_name": "Willow",
+      "next_id": 143,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 143,
+      "dialogue": "<i>Wow, this spider loves to talk. Which is especially weird because up until right now, I didn't even know spiders could talk.</i>",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "Hi, I'm {N}", "I didn't ask." ],
+        "ids": [ 144, 176 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 144,
+      "dialogue": "Hi, I'm {N}.",
+      "speaker_name": "{N}",
+      "next_id": 145,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 145,
+      "dialogue": "Nice ta meetcha!",
+      "speaker_name": "Willow",
+      "next_id": 146,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 146,
+      "dialogue": "Wait, are you human? Charlotte talked a lot about these things called humans. She said they're like skellies, but if they were wearing colorful meat suits.",
+      "speaker_name": "Willow",
+      "next_id": 147,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 147,
+      "dialogue": "I thought that was kinda weird, but you're not weird.",
+      "speaker_name": "Willow",
+      "next_id": 148,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 148,
+      "dialogue": "Ok, you're a little weird, but a lot of people say I'm weird, so it's not weird to be weird. I think.",
+      "speaker_name": "Willow",
+      "next_id": 149,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 149,
+      "dialogue": "<i>I'm not going to be able to do anything or go anywhere if this spider keeps talking.</i>",
+      "speaker_name": "{N}",
+      "next_id": 150,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 150,
+      "dialogue": "Hey, Willow?",
+      "speaker_name": "{N}",
+      "next_id": 151,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 151,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "monstersKilled",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "Two",
+        "compare_type": "greaterEqual",
+        "true_id": -1,
+        "false_id": 152
+      }
+    },
+    {
+      "id": 152,
+      "dialogue": "<i>What should I even say? I'm talking to a monster...but it, er, she, seems nice, if not a little annoying.</i>",
+      "speaker_name": "{N}",
+      "next_id": 153,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 153,
+      "dialogue": "<i>I kind of want to ask who this Charlotte is, but that would probably just spur on Willow to talk even more. Maybe I should just see if I can get information.</i>",
+      "speaker_name": "{N}",
+      "next_id": 154,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 154,
+      "dialogue": "Could I ask--",
+      "speaker_name": "{N}",
+      "next_id": 155,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 155,
+      "dialogue": "Oh! I just remembered something! There was something else Charlotte told me about humans.",
+      "speaker_name": "Willow",
+      "next_id": 156,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 156,
+      "dialogue": "Ummmmm, what was it?",
+      "speaker_name": "Willow",
+      "next_id": 157,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 157,
+      "dialogue": "Right! We're supposed to kill them!",
+      "speaker_name": "Willow",
+      "next_id": 158,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 158,
+      "dialogue": "Wait, what?",
+      "speaker_name": "{N}",
+      "next_id": 118,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 159,
+      "dialogue": "Wouldn't it make more sense that Charlotte told you to kill humans when <i>they attack you</i>?",
+      "speaker_name": "{N}",
+      "next_id": 160,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 160,
+      "dialogue": "<i>Whoever this Charlotte is, she probably understands that most humans would kill a spider the moment they see one.</i>?",
+      "speaker_name": "{N}",
+      "next_id": 161,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 161,
+      "dialogue": "<i>But if Charlotte knew that a human wasn't trying to hurt Willow, would she still tell Willow to kill them?</i>?",
+      "speaker_name": "{N}",
+      "next_id": 162,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 162,
+      "dialogue": "Not all humans want to kill you, so you don't have to kill all humans.",
+      "speaker_name": "{N}",
+      "next_id": 163,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 163,
+      "dialogue": "But Charlotte didn't say that! You're probably making it up. And I bet you're lying too, and you do want to kill me.",
+      "speaker_name": "Willow",
+      "next_id": 164,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 164,
+      "dialogue": "Well, I won't let you!",
+      "speaker_name": "Willow",
       "next_id": 103,
       "choices": {
         "strings": [],
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 165,
+      "dialogue": "Willow, if you really want to kill me, then go ahead. I don't want to hurt you.",
+      "speaker_name": "{N}",
+      "next_id": 166,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 166,
+      "dialogue": "Since we just met, I don't know you very well, but I can tell you, I'd love to take you up on the offer of being your friend.",
+      "speaker_name": "{N}",
+      "next_id": 167,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 167,
+      "dialogue": "But we can't really make that work if I'm dead, can we?",
+      "speaker_name": "{N}",
+      "next_id": 168,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 168,
+      "dialogue": "Oh Lord, you're right. I'm sorry, I can't believe I attacked my friend!",
+      "speaker_name": "Willow",
+      "next_id": 169,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 169,
+      "dialogue": "I only did it because Charlotte said to, I promise. She probably didn't know that I could be friends with a human.",
+      "speaker_name": "Willow",
+      "next_id": 170,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 170,
+      "dialogue": "I don't want to kill my friend.",
+      "speaker_name": "Willow",
+      "next_id": 179,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 171,
+      "dialogue": "Willow, listen. Please. If you don't hurt me, I won't hurt you. It can be like a trade.",
+      "speaker_name": "{N}",
+      "next_id": 172,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 172,
+      "dialogue": "And then, I could talk to Charlotte. Tell her that you didn't need to kill me because I didn't attack you.",
+      "speaker_name": "{N}",
+      "next_id": 173,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 173,
+      "dialogue": "No! I can't bring you to see Charlotte. Because then she'll see I didn't listen to her.",
+      "speaker_name": "Willow",
+      "next_id": 174,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 174,
+      "dialogue": "And what if that makes her think I don't trust her. I do trust her!",
+      "speaker_name": "Willow",
+      "next_id": 175,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 175,
+      "dialogue": "And because I trust her, if she says I'm supposed to kill humans, then I am going to kill <i>you</i>.",
+      "speaker_name": "Willow",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 176,
+      "dialogue": "I didn't ask.",
+      "speaker_name": "{N}",
+      "next_id": 177,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 177,
+      "dialogue": "Wow, that's um, kinda rude. Charlotte says I'm not supposed to talk to rude people.",
+      "speaker_name": "Willow",
+      "next_id": 146,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "loseRep",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 178,
+      "dialogue": "Well ok then new friend! How about we start over. My name is Willow.",
+      "speaker_name": "Willow",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 179,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "setWillowInfatToZero",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
+
+
+
+
+
+
+
+
 
 
 

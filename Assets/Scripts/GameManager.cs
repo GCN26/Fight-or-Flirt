@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public int money;
     public bool BossRecruit;
 
+    public int monstersKilled;
+    public int reputation;
 
     private void Start()
     {
@@ -115,5 +117,18 @@ public class GameManager : MonoBehaviour
         textEventManager.characterName = playerName;
         battleManager.party[0].charName = playerName;
         return playerName;
+    }
+
+    public void addToMonsterKillCount()
+    {
+        monstersKilled++;
+    }
+    public void gainRep()
+    {
+        reputation++;
+    }
+    public void loseRep()
+    {
+        reputation--;
     }
 }

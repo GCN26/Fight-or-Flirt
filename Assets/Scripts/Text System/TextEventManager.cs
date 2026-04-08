@@ -217,7 +217,7 @@ public class TextEventManager : MonoBehaviour
             {
                 for (int i = 0; i < currentTextObject.choices.strings.Count; i++)
                 {
-                    buttonTextArr[i].text = currentTextObject.choices.strings[i];
+                    buttonTextArr[i].text = currentTextObject.choices.strings[i].Replace("{N}", characterName);
                     buttonArr[i].enabled = true;
                     buttonArr[i].interactable = true;
                     buttonArr[i].gameObject.SetActive(true);

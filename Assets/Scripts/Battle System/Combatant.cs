@@ -514,7 +514,7 @@ public class Attack
         specMan.willowBattleState += 1;
         if (specMan.willowBattleState == 1)
         {
-            battleMan.specialIndex = 86; //Logic
+            battleMan.specialIndex = 159; //Logic
             specMan.firstWillowChoice = 1;
         }
         else if (specMan.willowBattleState == 2)
@@ -522,7 +522,7 @@ public class Attack
             specMan.secondWillowChoice = 1;
             if (specMan.firstWillowChoice == specMan.secondWillowChoice)
             {
-                battleMan.specialIndex = 86; // Logic -> Logic -> Death
+                battleMan.specialIndex = 171; // Logic -> Logic -> Death
             }
             else if(specMan.firstWillowChoice == 2) battleMan.specialIndex = 128; //Heart -> Logic -> Win
         }
@@ -547,7 +547,7 @@ public class Attack
             {
                 battleMan.specialIndex = 126; // Heart -> Heart -> Death
             }
-            else if (specMan.firstWillowChoice == 1) battleMan.specialIndex = 128; //Logic -> Heart -> Win
+            else if (specMan.firstWillowChoice == 1) battleMan.specialIndex = 165; //Logic -> Heart -> Win
             //Add battle end condition
         }
         battleMan.battleUI.SetActive(false);

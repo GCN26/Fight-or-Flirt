@@ -304,6 +304,7 @@ public class BattleManager : MonoBehaviour
                 p.experience += (int)((float)20 / (float)party.Length);
                 p.getLevel();
             }
+            gameMan.monstersKilled++;
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
             while (!textMan.progressable) yield return null;

@@ -80370,7 +80370,7 @@ MonoBehaviour:
   charMove: {fileID: 20045517}
   battleText: 0
   battleTextString: 
-  characterName: Y/N
+  characterName: Wren
   audioSource: {fileID: 1406899000}
   textBlip: {fileID: 8300000, guid: 239eff36b000a9f40bb890fe178421be, type: 3}
   gameMan: {fileID: 1681241735}
@@ -82096,7 +82096,7 @@ GameObject:
   - component: {fileID: 1449075126}
   - component: {fileID: 1449075130}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: TextCubeWillow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82208,7 +82208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextTriggerObj
   textMan: {fileID: 1406899001}
-  index: 118
+  index: 133
 --- !u!1 &1452536544
 GameObject:
   m_ObjectHideFlags: 0
@@ -95061,6 +95061,7 @@ MonoBehaviour:
   willowBattleState: 0
   firstWillowChoice: 0
   secondWillowChoice: 0
+  isWillowDead: 0
 --- !u!82 &1681241733
 AudioSource:
   m_ObjectHideFlags: 0
@@ -95214,6 +95215,8 @@ MonoBehaviour:
   inventoryman: {fileID: 1484338410}
   money: 250
   BossRecruit: 0
+  monstersKilled: 0
+  reputation: 0
 --- !u!4 &1681241736
 Transform:
   m_ObjectHideFlags: 0

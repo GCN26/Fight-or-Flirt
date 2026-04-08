@@ -39,6 +39,8 @@ public class SpecialEventManager : MonoBehaviour
     public int firstWillowChoice;
     public int secondWillowChoice;
 
+    public bool isWillowDead;
+
     private void Update()
     {
         battleManager.textMan.charMove.specialAllowMove = !jeraldLetterOpen;
@@ -156,5 +158,13 @@ public class SpecialEventManager : MonoBehaviour
     public void endMrRat()
     {
         mrRatFight = false;
+    }
+    public void setWillowInfatToZero()
+    {
+        battleManager.enemies[0].infatuation = 0;
+        afterBattleIndex = 178;
+        battleManager.showBattleUI();
+        willowFight = false;
+        battleManager.holdForText = false;
     }
 }
