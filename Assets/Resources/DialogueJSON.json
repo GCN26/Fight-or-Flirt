@@ -963,7 +963,7 @@
       "next_id": -1,
       "choices": {
         "strings": [ "Apologize", "Attack Again" ],
-        "ids": [ -1, 51 ]
+        "ids": [ 48, 51 ]
       },
       "conditional": { "obj_to_check_a": "" }
     },

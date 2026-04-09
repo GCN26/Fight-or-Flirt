@@ -147,6 +147,7 @@ public class BattleManager : MonoBehaviour
                 BattleSpritesParty[pL].SetNativeSize();
 
                 battleList.Add(partyMember);
+                if(gameMan.pcClass == GameManager.playerClass.Rogue && specialEventManager.willowFight == false && specialEventManager.mrRatFight == false) battleList.Add(partyMember);
                 pL++;
             }
             int eL = 0;

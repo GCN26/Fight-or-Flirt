@@ -217,7 +217,7 @@ public class Combatant
 
         movePower = selectedAttack.power;
 
-        int bonus = 3;
+        int bonus = 1;
         //Chnage match type to a chart of some sort
         bool matchType = ((int)target.type == (int)selectedAttack.type);
         if (matchType) bonus = 8;
@@ -278,7 +278,7 @@ public static class Attacks
         new Attack("Smack","",5,0, barkListIndexes: 3), //6
         new Attack("Electric Lyre","",25,0), //7
         new Attack("Chord Strike","",10,0, barkListIndexes: 5), //8
-        new Attack("Stab","",5,0,barkListIndexes:6), //9
+        new Attack("Stab","",15,0,barkListIndexes:6), //9
         new Attack("Phantom Thief","",10,0,barkListIndexes:8), //10
         new Attack("Fleetfoot","",0,0), //11
         new Attack("Rock Slide","",15,0), //12
@@ -293,9 +293,9 @@ public static class Attacks
         new Attack("Protection","",-1,0,barkListIndexes: 10), //21
         new Attack("Bite","willow attack", 0,0, "willowBite"), //22
         new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0,"willowAttacked"), //23 - Willow Fight Copy
-        new Attack("Cast","",10,0), //24 - Willow Fight Copy
-        new Attack("Smack","",10,0), //25 - Willow Fight Copy
-        new Attack("Stab","",10,0), //26 - Willow Fight Copy
+        new Attack("Cast","",10,0,"willowAttacked"), //24 - Willow Fight Copy
+        new Attack("Smack","",15,0,"willowAttacked"), //25 - Willow Fight Copy
+        new Attack("Stab","",15,0,"willowAttacked"), //26 - Willow Fight Copy
     };
     public static Attack[] rizzList =
     {
