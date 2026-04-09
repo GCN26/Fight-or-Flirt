@@ -43,10 +43,16 @@ public class GameManager : MonoBehaviour
     public int monstersKilled;
     public int reputation;
 
+    public AudioSource audioSource;
+    public AudioClip overworldMusic;
+
     private void Start()
     {
         changePlayerName(SceneIndependentClass.charName);
         changeClass(SceneIndependentClass.classInt);
+        audioSource.clip = overworldMusic;
+        audioSource.loop = true;
+        audioSource.Play();
     }
     private void Update()
     {

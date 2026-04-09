@@ -40,6 +40,10 @@ public class SpecialEventManager : MonoBehaviour
     public int secondWillowChoice;
 
     public bool isWillowDead;
+    public bool attackedWillow;
+    public bool willowAttacksPlayer;
+
+    public bool TrueA = true;
 
     private void Update()
     {
@@ -107,18 +111,18 @@ public class SpecialEventManager : MonoBehaviour
     }
     public void startMrRatFight()
     {
+        mrRatFight = true;
         battleManager.enemyTableIndex = 3;
         battleManager.startBattle();
-        mrRatFight = true;
         Debug.Log("Mr Rat Fight");
         sendMrRatToTheVoid();
     }
     public void startWillowFight()
     {
         mrRatFight = false;
+        willowFight = true;
         battleManager.enemyTableIndex = 11;
         battleManager.startBattle();
-        willowFight = true;
         Debug.Log("Willow Fight");
         sendMrRatToTheVoid();
     }
@@ -166,5 +170,18 @@ public class SpecialEventManager : MonoBehaviour
         battleManager.showBattleUI();
         willowFight = false;
         battleManager.holdForText = false;
+    }
+    public void attackWillow()
+    {
+        attackedWillow = true;
+    }
+    public void willowAttacksYou()
+    {
+        willowAttacksPlayer = true;
+    }
+    public void killowWillow()
+    {
+        afterBattleIndex = 188;
+        Debug.Log("Shes dead");
     }
 }

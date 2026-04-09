@@ -497,14 +497,26 @@ public class Attack
         battleMan.battleUI.SetActive(false);
         battleMan.holdForText = true;
         battleMan.specialIndex = 117;
-        target.hp -= target.maxHp / 2;
+        target.hp -= (target.maxHp / 2)+1;
     }
     public void willowAttacked(Combatant target, int index)
     {
         SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         specMan.willowBattleState += 1;
-        if (specMan.willowBattleState == 1) specMan.firstWillowChoice = -1;
-        else if (specMan.willowBattleState == 2) specMan.secondWillowChoice = -1;
+        if (specMan.willowBattleState == 1 || (specMan.willowBattleState == 2 && specMan.firstWillowChoice != -1))
+        {
+            battleMan.specialIndex = 181;
+            specMan.firstWillowChoice = -1;
+        }
+        else if (specMan.willowBattleState == 2)
+        {
+            specMan.afterBattleIndex = 188;
+            battleMan.specialIndex = 187;
+            specMan.secondWillowChoice = -1;
+        }
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
     }
     public void willowLogic(Combatant target, int index)
     {
@@ -525,6 +537,7 @@ public class Attack
                 battleMan.specialIndex = 171; // Logic -> Logic -> Death
             }
             else if(specMan.firstWillowChoice == 2) battleMan.specialIndex = 128; //Heart -> Logic -> Win
+            else if (specMan.firstWillowChoice == -1) battleMan.specialIndex = 171;
         }
         battleMan.battleUI.SetActive(false);
         battleMan.holdForText = true;
@@ -548,6 +561,7 @@ public class Attack
                 battleMan.specialIndex = 126; // Heart -> Heart -> Death
             }
             else if (specMan.firstWillowChoice == 1) battleMan.specialIndex = 165; //Logic -> Heart -> Win
+            else if (specMan.firstWillowChoice == -1) battleMan.specialIndex = 126;
             //Add battle end condition
         }
         battleMan.battleUI.SetActive(false);

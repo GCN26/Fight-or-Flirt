@@ -984,7 +984,7 @@
           "args": []
         }
       ],
-      "conditional":{ "obj_to_check_a": "" }
+      "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 52,
@@ -1797,7 +1797,7 @@
       "id": 117,
       "dialogue": "Willow bites {N}, dealing critical damage.",
       "speaker_name": "",
-      "next_id": 125,
+      "next_id": 103,
       "choices": {
         "strings": [],
         "ids": []
@@ -2192,7 +2192,7 @@
         "script_name_b": "GameManager",
         "var_name_b": "Two",
         "compare_type": "greaterEqual",
-        "true_id": -1,
+        "true_id": 198,
         "false_id": 152
       }
     },
@@ -2494,7 +2494,7 @@
       "id": 178,
       "dialogue": "Well ok then new friend! How about we start over. My name is Willow.",
       "speaker_name": "Willow",
-      "next_id": -1,
+      "next_id": 190,
       "choices": {
         "strings": [],
         "ids": []
@@ -2519,20 +2519,260 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 180,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "SpecialEventManager",
+        "var_name_a": "attackedWillow",
+        "obj_name_b": "GameManager",
+        "script_name_b": "SpecialEventManager",
+        "var_name_b": "True",
+        "compare_type": "equal",
+        "true_id": 103,
+        "false_id": 181
+      }
+    },
+    {
+      "id": 181,
+      "dialogue": "A monster attacking me. Finally, something that makes sense.",
+      "speaker_name": "{N}",
+      "next_id": 182,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 182,
+      "dialogue": "Owwwwwww. That hurts.",
+      "speaker_name": "Willow",
+      "next_id": 183,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "attackWillow",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 183,
+      "dialogue": "Charlotte said I'm supposed to kill you, not you kill me.",
+      "speaker_name": "Willow",
+      "next_id": 184,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 184,
+      "dialogue": "If you attack me, I will do the same in return. I don't plan on letting you kill me without fighting back.",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 185,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "SpecialEventManager",
+        "var_name_a": "willowAttacksPlayer",
+        "obj_name_b": "GameManager",
+        "script_name_b": "SpecialEventManager",
+        "var_name_b": "TrueA",
+        "compare_type": "equal",
+        "true_id": 103,
+        "false_id": 125
+      }
+    },
+    {
+      "id": 186,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "willowAttacksYou",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 187,
+      "dialogue": "I hope...my big sister doesn't miss me too much. I'm sorry, Charlotte...",
+      "speaker_name": "Willow",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "killowWillow",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 188,
+      "dialogue": "I can't help but feel a little bit bad about that...",
+      "speaker_name": "{N}",
+      "next_id": 189,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 189,
+      "dialogue": "Let's hope I never run into this Charlotte. I'd really rather not deal with that.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 190,
+      "dialogue": "<i>Wow, she got over that quick.</i>",
+      "speaker_name": "{N}",
+      "next_id": 191,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 191,
+      "dialogue": "My name is {N}.",
+      "speaker_name": "{N}",
+      "next_id": 192,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 192,
+      "dialogue": "Well then {N}, it has been really nice to meetcha! But I really should get going now. I gotta go find Charlotte before she starts worrying about me.",
+      "speaker_name": "Willow",
+      "next_id": 193,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 193,
+      "dialogue": "Hopefully we'll see each other again soon!",
+      "speaker_name": "Willow",
+      "next_id": 194,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 194,
+      "dialogue": "Yeah, see you later, Willow.",
+      "speaker_name": "{N}",
+      "next_id": 195,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 195,
+      "dialogue": "<i>Well, Willow definitely has a bit of a complex about whoever this Charlotte is, but overall, she wasn't that bad to talk to.</i>",
+      "speaker_name": "{N}",
+      "next_id": 196,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 196,
+      "dialogue": "<i>She's kinda cute actually. In a younger sister kind of way.</i>",
+      "speaker_name": "{N}",
+      "next_id": 197,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 197,
+      "dialogue": "<i>But...now she's gone, and I'm right back to having no idea where I am or what I'm doing. How far is the surface? I need to get back.</i>",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 198,
+      "dialogue": "<i>What should I even say? I'm talking to a monster...I should probably just kill it...or, 'her' I guess.</i>",
+      "speaker_name": "{N}",
+      "next_id": 153,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   ]

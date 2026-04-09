@@ -112,87 +112,89 @@ public class BattleManager : MonoBehaviour
     {
         if (!battleOpen)
         {
+            holdForText = false;
             party[0].hp = party[0].maxHp;
             battleOpen = true;
             progressTransition = false;
-            battleTransition();
+            textMan.callText(31);
+            musicSource.enabled = true;
+            musicSource.Play();
+            battleBG.SetActive(true);
+            gameMan.audioSource.Pause();
+
+            foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
+            {
+                enemies.Add(new(enemyList.enemyTable[index]));
+            }
+
+            //Add way to customize encounters
+            //Add encounter table for enemies
+            int pL = 0;
+            foreach (Combatant partyMember in party)
+            {
+                partyMember.party = true;
+                partyMember.attackList.Clear();
+                partyMember.rizzAttackList.Clear();
+                getPartyAttackIndexes(partyMember);
+                partyMember.getAttacksInList();
+                partyMember.partyIndex = pL;
+                partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
+
+                partyMember.hp = partyMember.maxHp;
+
+                BattleSpritesParty[pL].gameObject.SetActive(true);
+                BattleSpritesParty[pL].sprite = partyMember.battleSprite;
+                BattleSpritesParty[pL].SetNativeSize();
+
+                battleList.Add(partyMember);
+                pL++;
+            }
+            int eL = 0;
+            foreach (Combatant enemy in enemies)
+            {
+                enemy.attackList.Clear();
+                enemy.rizzAttackList.Clear();
+                enemy.getAttacksInList();
+                enemy.battleSprite = spriteTable[enemy.battleSpriteIndex];
+                enemy.partyIndex = eL;
+
+                BattleSpritesEnemy[eL].gameObject.SetActive(true);
+                BattleSpritesEnemy[eL].sprite = enemy.battleSprite;
+                BattleSpritesEnemy[eL].SetNativeSize();
+
+                battleList.Add(enemy);
+                eL++;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                attackTargetButtons[i].GetComponent<Button>().interactable = true;
+                rizzTargetButtons[i].GetComponent<Button>().interactable = true;
+            }
+
+            battleList = battleList.OrderBy(x => x.speed).ToList();
+            battleList.Reverse();
+
+            //testImg.sprite = party[1].battleSprite;
+
+            battleOrder = "<b>Turn Order</b>\n> ";
+            foreach (Combatant comb in battleList)
+            {
+                battleOrder += comb.charName + "\n";
+            }
+            battleOrderDisplay.text = battleOrder;
+
+            Debug.Log(enemyTableIndex);
+            if (enemyTableIndex == 1)
+            {
+                startBattleBoss("Rocky");
+            }
+            battleCo = StartCoroutine(battleProcess());
         }
     }
     public void startBattle2()
     {
         StartCoroutine(startBattleTransitionCoroutine2());
-        textMan.callText(31);
-        musicSource.enabled = true;
-        musicSource.Play();
-        battleBG.SetActive(true);
-
-        foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
-        {
-            enemies.Add(new(enemyList.enemyTable[index]));
-        }
-
-        //Add way to customize encounters
-        //Add encounter table for enemies
-        int pL = 0;
-        foreach (Combatant partyMember in party)
-        {
-            partyMember.party = true;
-            partyMember.attackList.Clear();
-            partyMember.rizzAttackList.Clear();
-            getPartyAttackIndexes(partyMember);
-            partyMember.getAttacksInList();
-            partyMember.partyIndex = pL;
-            partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
-
-            partyMember.hp = partyMember.maxHp;
-
-            BattleSpritesParty[pL].gameObject.SetActive(true);
-            BattleSpritesParty[pL].sprite = partyMember.battleSprite;
-            BattleSpritesParty[pL].SetNativeSize();
-
-            battleList.Add(partyMember);
-            pL++;
-        }
-        int eL = 0;
-        foreach (Combatant enemy in enemies)
-        {
-            enemy.attackList.Clear();
-            enemy.rizzAttackList.Clear();
-            enemy.getAttacksInList();
-            enemy.battleSprite = spriteTable[enemy.battleSpriteIndex];
-            enemy.partyIndex = eL;
-
-            BattleSpritesEnemy[eL].gameObject.SetActive(true);
-            BattleSpritesEnemy[eL].sprite = enemy.battleSprite;
-            BattleSpritesEnemy[eL].SetNativeSize();
-
-            battleList.Add(enemy);
-            eL++;
-        }
-        for (int i = 0; i < 4; i++)
-        {
-            attackTargetButtons[i].GetComponent<Button>().interactable = true;
-            rizzTargetButtons[i].GetComponent<Button>().interactable = true;
-        }
-
-        battleList = battleList.OrderBy(x => x.speed).ToList();
-        battleList.Reverse();
-
-        //testImg.sprite = party[1].battleSprite;
-
-        battleOrder = "<b>Turn Order</b>\n> ";
-        foreach (Combatant comb in battleList)
-        {
-            battleOrder += comb.charName + "\n";
-        }
-        battleOrderDisplay.text = battleOrder;
-
-        Debug.Log(enemyTableIndex);
-        if (enemyTableIndex == 1)
-        {
-            startBattleBoss("Rocky");
-        }
-        battleCo = StartCoroutine(battleProcess());
+        
     }
 
     public void endBattle()
@@ -219,6 +221,7 @@ public class BattleManager : MonoBehaviour
         battleUI.SetActive(false);
         musicSource.enabled = false;
         battleBG.SetActive(false);
+        gameMan.audioSource.UnPause();
     }
     
     IEnumerator battleProcess()
@@ -295,6 +298,7 @@ public class BattleManager : MonoBehaviour
         }
         if (enemies.Count == enemyDeadInt)
         {
+            Debug.Log(specialEventManager.afterBattleIndex);
             battleUI.SetActive(false);
             textMan.battleText = true;
             if(party.Length > 1) textMan.battleTextString = "Your team won the battle! Your team gained experience!";
@@ -318,6 +322,7 @@ public class BattleManager : MonoBehaviour
                 specialEventManager.afterBattleIndex = -1;
             }
             specialEventManager.mrRatFight = false;
+            specialEventManager.willowFight = false;
             holdForText = false;
             //End in win
             //StopCoroutine(battleCo);
