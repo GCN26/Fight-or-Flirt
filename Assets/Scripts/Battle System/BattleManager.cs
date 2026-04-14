@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class BattleManager : MonoBehaviour
 {
@@ -79,7 +80,7 @@ public class BattleManager : MonoBehaviour
     public BarkBubble[] barkBubbleParty, barkBubbleEnemy;
     public int specialIndex;
     public SpecialEventManager specialEventManager;
-
+    public Reactions[] enemyFlirtReacts;
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
@@ -125,10 +126,10 @@ public class BattleManager : MonoBehaviour
             foreach (int index in encounterTables.combatantIndexes[enemyTableIndex])
             {
                 enemies.Add(new(enemyList.enemyTable[index]));
+                enemies[enemies.Count - 1].type = enemyList.enemyTable[index].type;
+                Debug.Log(enemies[enemies.Count-1].type);
             }
 
-            //Add way to customize encounters
-            //Add encounter table for enemies
             int pL = 0;
             foreach (Combatant partyMember in party)
             {
@@ -401,7 +402,7 @@ public class BattleManager : MonoBehaviour
                         break;
                 case Combatant.type_of_attack.flirt:
                     additionalString = battleList[0].rizzEnemy();
-                    textMan.battleTextString = battleList[0].charName + " hits on " + battleList[0].target.charName + " with " + battleList[0].selectedAttack.name + ". " + additionalString;
+                    textMan.battleTextString = battleList[0].charName + " uses " + battleList[0].selectedAttack.name + " on " + battleList[0].target.charName + ". " + additionalString;
                     if (additionalString == "a") textMan.battleTextString = battleList[0].charName + " tries talking to " + battleList[0].target.charName + ".";
                     if (additionalString == "b") textMan.battleTextString = "";
                     break;
@@ -440,6 +441,12 @@ public class BattleManager : MonoBehaviour
             {
                 if (comb.party) BattleSpritesParty[comb.partyIndex].gameObject.SetActive(false);
                 else BattleSpritesEnemy[comb.partyIndex].gameObject.SetActive(false);
+                if (specialEventManager.mrRatFight && !comb.party && comb.hp <= 0)
+                {
+                    specialIndex = 200;
+                    battleUI.SetActive(false);
+                    holdForText = true;
+                }
             }
         }
 
@@ -701,75 +708,51 @@ public class BattleManager : MonoBehaviour
         int newAtk2 = 0;
         int newAtk3 = 0;
 
-        //Flirt 0, 1, and 2 based on class
-        int newFlrt0 = 0;
-        int newFlrt1 = 0;
+        int newFlrt0 = 1;
+        int newFlrt1 = 2;
         int newFlrt2 = 0;
-        int newFlrt3 = -1;
+        int newFlrt3 = 7;
 
 
         if (comb.partyIndex == 0)
         {
             switch (gameMan.pcClass)
             {
-                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 18; newAtk3 = 1; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 19; newAtk3 = 8; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 20; newAtk3 = 10; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 21; newAtk3 = 4; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case GameManager.playerClass.Warrior: newAtk0 = 0; newAtk2 = 18; newAtk3 = 1; break;
+                case GameManager.playerClass.Bard: newAtk0 = 6; newAtk2 = 19; newAtk3 = 8; break;
+                case GameManager.playerClass.Rogue: newAtk0 = 9; newAtk2 = 20; newAtk3 = 10; break;
+                case GameManager.playerClass.Mage: newAtk0 = 3; newAtk2 = 21; newAtk3 = 4; break;
             }
         }
         else
         {
             switch (comb.characterType)
             {
-                case Combatant.bossTypeChar.rocky: newAtk0 = 12; newAtk2 = 13; newAtk3 = 14; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case Combatant.bossTypeChar.mandi: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case Combatant.bossTypeChar.slimon: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
-                case Combatant.bossTypeChar.dot: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; newFlrt0 = 0; newFlrt1 = 1; newFlrt2 = 2; break;
+                case Combatant.bossTypeChar.rocky: newAtk0 = 12; newAtk2 = 13; newAtk3 = 14; break;
+                case Combatant.bossTypeChar.mandi: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; break;
+                case Combatant.bossTypeChar.slimon: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; break;
+                case Combatant.bossTypeChar.dot: newAtk0 = 0; newAtk2 = 0; newAtk3 = 0; break;
             }
         }
-
-        //Atk 0 = 8
-        //Atk 2 = 8
-        //Atk 3 = 4
-        //Flrt 0 = 4
-        //Flrt 1 = 4 (Different distro)
-        //Flrt 2 = 4 (Different distro)
-        //32 different attacks (not counting weapons or relationships)
 
         //Move 1 Based on Weapon
         newAtk1 = comb.weapon.itemType.moveIndex;
 
-        //Move 3 Based on Relationship or Best Stat
-        //Flirt 3 Based on Relationship
-        //switch (comb.relationshipPoints)
-        //{
-        //    case -2: newFlrt3 = -1; break;
-        //    case -1: newFlrt3 = -1; break;
-        //    case 0: newFlrt3 = -1; break;
-        //    case 1: newAtk3 = 0; newFlrt3 = 0; break;
-        //    case 2: newAtk3 = 0; newFlrt3 = 0; break;
-        //}
-
-
         comb.attackListIndexes[0] = newAtk0;
-        comb.rizzAttackListIndexes[0] = newFlrt0;
         comb.attackListIndexes[1] = newAtk1;
+        comb.rizzAttackListIndexes[0] = newFlrt0;
+        comb.rizzAttackListIndexes[1] = newFlrt1;
         comb.rizzAttackListIndexes[2] = newFlrt2;
         comb.rizzAttackListIndexes[3] = newFlrt3;
-        if (comb.level >= 2)
+        if (comb.level >= 3)
         {
             comb.attackListIndexes[2] = newAtk2;
             comb.attackListIndexes[3] = newAtk3;
-            comb.rizzAttackListIndexes[1] = newFlrt1;
-            comb.rizzAttackListIndexes[3] = newFlrt3;
         }
         else
         {
             comb.attackListIndexes[2] = -1;
             comb.attackListIndexes[3] = -1;
-            comb.rizzAttackListIndexes[1] = -1;
-            comb.rizzAttackListIndexes[2] = -1;
         }
 
         if (specialEventManager.mrRatFight)

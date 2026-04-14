@@ -9,7 +9,7 @@ public class RandomEncounter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogWarning("COllision");
+        Debug.Log("Encounter at " + this.gameObject.name);
         if (other.gameObject.GetComponent<CharacterMovementScript>() != null)
         {
             if (!bossEncounter)

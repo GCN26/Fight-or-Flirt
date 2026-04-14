@@ -22,6 +22,7 @@ public class TextEventManager : MonoBehaviour
     public TextMeshProUGUI textBox;
     public Image[] portraits;
     public TextMeshProUGUI speakerName;
+    public RectTransform speakerNameBG;
 
     //Test Value
     public int bar;
@@ -142,6 +143,20 @@ public class TextEventManager : MonoBehaviour
             //Set variables for text
             textBox.text = currentTextObject.dialogue.Replace("{N}", characterName);
             speakerName.text = currentTextObject.speaker_name.Replace("{N}",characterName);
+            if(currentTextObject.speaker_name != "{N}")
+            {
+                speakerNameBG.gameObject.SetActive(true);
+                speakerNameBG.position = new Vector2(2610, speakerNameBG.position.y);
+            }
+            else if(speakerName.text == "" || speakerName.text == null || speakerName.text == " " || speakerName.text == string.Empty)
+            {
+                speakerNameBG.gameObject.SetActive(false);
+            }
+            else
+            {
+                speakerNameBG.gameObject.SetActive(true);
+                speakerNameBG.position = new Vector2(910, speakerNameBG.position.y);
+            }
 
             if (eventMan.knowJeraldName)
             {
@@ -175,6 +190,7 @@ public class TextEventManager : MonoBehaviour
         }
         else
         {
+            if(speakerName.text == string.Empty) speakerNameBG.gameObject.SetActive(false);
             textBox.text = battleTextString;
             enableTextbox();
         }

@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip overworldMusic;
 
+    public bool flirtButtonLabelSaysFlirt = false;
+
     private void Start()
     {
         changePlayerName(SceneIndependentClass.charName);

@@ -43,6 +43,8 @@ public class SpecialEventManager : MonoBehaviour
     public bool attackedWillow;
     public bool willowAttacksPlayer;
 
+    public GameObject willow;
+
     public bool TrueA = true;
 
     private void Update()
@@ -181,7 +183,21 @@ public class SpecialEventManager : MonoBehaviour
     }
     public void killowWillow()
     {
+        battleManager.enemies[0].hp = 0;
         afterBattleIndex = 188;
+        battleManager.showBattleUI();
+        willowFight = false;
+        battleManager.holdForText = false;
+        hideWillow();
         Debug.Log("Shes dead");
+    }
+    public void showWillow()
+    {
+        willow.transform.position = new Vector3(willow.transform.position.x, 9, player.transform.position.z);
+        willow.SetActive(true);
+    }
+    public void hideWillow()
+    {
+        willow.SetActive(false);
     }
 }

@@ -1986,6 +1986,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "showWillow",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -2637,7 +2645,7 @@
       "id": 187,
       "dialogue": "I hope...my big sister doesn't miss me too much. I'm sorry, Charlotte...",
       "speaker_name": "Willow",
-      "next_id": 103,
+      "next_id": 199,
       "choices": {
         "strings": [],
         "ids": []
@@ -2646,7 +2654,7 @@
         {
           "obj_name": "GameManager",
           "script_name": "SpecialEventManager",
-          "func_name": "killowWillow",
+          "func_name": "hideWillow",
           "args": []
         }
       ],
@@ -2738,6 +2746,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "hideWillow",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -2772,7 +2788,79 @@
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 199,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "killowWillow",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 200,
+      "dialogue": "Well, I guess my friends were right. It's bein' nice that killed me in the end.",
+      "speaker_name": "Mr. Rat",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 201,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": 133,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "transforms": [
+        {
+          "obj_name": "Willow",
+          "move_vec": {
+            "x": 0,
+            "y": -11,
+            "z": 0
+          },
+          "move_speed": 0.1,
+          "move_interp_type": 1,
+          "move_target_type": 0,
+          "rotation_vec": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation_speed": 1,
+          "rot_interp_type": 2,
+          "rot_target_type": 0
+        }
+      ],
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "showWillow",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
+
+
 
 
   ]

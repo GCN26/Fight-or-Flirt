@@ -40,13 +40,15 @@ public class Combatant
     public enum flirtType
     {
         none,
-        Kind,
+        Rude,
+        Cheerful,
+        Serious,
         Shy,
-        Asshole,
         Flirty,
-        Masochist
     }
+
     public flirtType type;
+    public int typeInt;
 
     public ItemInstance armor,weapon;
 
@@ -87,20 +89,24 @@ public class Combatant
     public bossTypeChar characterType;
     public string specialString;
 
-    public Combatant(string charName, int hp, int infat, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, int flirtTypeA = 0, bool isBoss = false)
+    public Combatant(string charName, int hp, int infat, int flirtTypeA, int atk, int def, int speed, int charis, int level, int atkIndex0 = -1, int atkIndex1 = -1, int atkIndex2 = -1, int atkIndex3 = -1, int rizzIndex0 = -1, int rizzIndex1 = -1, int rizzIndex2 = -1, int rizzIndex3 = -1, int spriteIndex = 0, bool isBoss = false)
     {
         this.charName = charName;
         this.hp = hp;
-        this.maxHp = hp;
-        this.infatuation = infat;
-        this.maxInfatuation = infat;
-        this.attack = atk;
-        this.defense = def;
+        maxHp = hp;
+        infatuation = infat;
+        maxInfatuation = infat;
+        attack = atk;
+        defense = def;
         this.speed = speed;
-        this.charisma = charis;
-        this.perception = charis;
-        this.battleSpriteIndex = spriteIndex;
-        this.type = (flirtType)flirtTypeA;
+        charisma = charis;
+        perception = charis;
+        battleSpriteIndex = spriteIndex;
+        typeInt = flirtTypeA;
+        type = (flirtType)flirtTypeA;
+
+        Debug.Log(type);
+        Debug.Log(typeInt);
 
         this.isBoss = isBoss;
 
@@ -217,10 +223,70 @@ public class Combatant
 
         movePower = selectedAttack.power;
 
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+
         int bonus = 1;
-        //Chnage match type to a chart of some sort
-        bool matchType = ((int)target.type == (int)selectedAttack.type);
-        if (matchType) bonus = 8;
+
+        if (target.type != flirtType.none)
+        {
+            switch (target.type)
+            {
+                case flirtType.Rude:
+                    //Add repsonse barks here
+                    if (selectedAttack.fType == Attack.FlirtType.Flattery)
+                    {
+                        bonus = 2;
+                    }
+                    else if (selectedAttack.fType == Attack.FlirtType.Heartfelt)
+                    {
+                        bonus = 0;
+                    }
+                    else bonus = 1;
+                    break;
+                case flirtType.Cheerful:
+                    if (selectedAttack.fType == Attack.FlirtType.Heartfelt)
+                    {
+                        bonus = 2;
+                    }
+                    else if (selectedAttack.fType == Attack.FlirtType.Logic)
+                    {
+                        bonus = 0;
+                    }
+                    else bonus = 1;
+                    break;
+                case flirtType.Serious:
+                    if (selectedAttack.fType == Attack.FlirtType.Logic)
+                    {
+                        bonus = 2;
+                    }
+                    else if (selectedAttack.fType == Attack.FlirtType.Care)
+                    {
+                        bonus = 0;
+                    }
+                    else bonus = 1;
+                    break;
+                case flirtType.Shy:
+                    if (selectedAttack.fType == Attack.FlirtType.Care)
+                    {
+                        bonus = 2;
+                    }
+                    else if (selectedAttack.fType == Attack.FlirtType.Flattery)
+                    {
+                        bonus = 0;
+                    }
+                    else bonus = 1;
+                    break;
+                case flirtType.Flirty:
+                    if (selectedAttack.fType == Attack.FlirtType.Flattery) bonus = 2;
+                    else if (selectedAttack.fType == Attack.FlirtType.Logic || selectedAttack.fType == Attack.FlirtType.Care) bonus = 0;
+                    else bonus = 1;
+                    break;
+                default: break;
+            }
+        }
+
+        Debug.Log(target.type);
+
         int rizz = (int)((float)(movePower * charisma * bonus)/(float)target.perception);
         if (movePower == 0) rizz = 0;
 
@@ -234,10 +300,21 @@ public class Combatant
         Debug.Log(selectedAttack.secondaryEffect2);
         if (selectedAttack.secondaryEffect != "") selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect).Invoke(selectedAttack, objArr);
         if (selectedAttack.secondaryEffect2 != "" && party) selectedAttack.GetType().GetMethod(selectedAttack.secondaryEffect2).Invoke(selectedAttack, objArr);
-        string response = "They seem flattered.";
-        if (matchType) response = "They seem really flustered!";
+        string response = "";
 
-
+        if (bonus == 2)
+        {
+            response = "They seem really flustered!";
+            battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = true;
+            battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
+        }
+        else if (bonus == 0)
+        {
+            response = "They did not appreciate that.";
+            battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = false;
+            battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
+        }
+        
         if (rizz == 0)
         {
             response = specialString;
@@ -299,13 +376,14 @@ public static class Attacks
     };
     public static Attack[] rizzList =
     {
-        new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:1), //0
-        new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:3), //1
-        new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:1), //2
-        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:1), //3
-        new Attack("Talk","",0,0,"callMrRatText",flirtType:0), //4
-        new Attack("Talk Logically", "Willow Fight Attack",0,0,"willowLogic",flirtType:0), //5
-        new Attack("Speak from the Heart", "Willow Fight Attack",0,0,"willowHeart",flirtType:0), //6
+        new Attack("Smooch","The user gives the enemy a kiss.",15,0,flirtType:Attack.FlirtType.Flattery), //0
+        new Attack("Talk Logically", "The user talks with thoughts to back up their words.",10,0,flirtType:Attack.FlirtType.Logic), //1
+        new Attack("Speak from the Heart", "The user talks with emotions to back up their words.",10,0,flirtType:Attack.FlirtType.Heartfelt), //2
+        new Attack("Text Test","",10,0,"callTextFlirt",flirtType:Attack.FlirtType.Logic), //3
+        new Attack("Talk","",0,0,"callMrRatText",flirtType:Attack.FlirtType.none), //4
+        new Attack("Talk Logically", "Willow Fight Attack",0,0,"willowLogic",flirtType:Attack.FlirtType.Logic), //5
+        new Attack("Speak from the Heart", "Willow Fight Attack",0,0,"willowHeart",flirtType:Attack.FlirtType.Heartfelt), //6
+        new Attack("Hug", "The user shows they care with a hug.",10,0,flirtType:Attack.FlirtType.Care), //7
     };
     public static string[] warriorBarks0 =
     {
@@ -437,23 +515,24 @@ public class Attack
     public enum FlirtType
     {
         none,
-        Kind,
-        Shy,
-        Asshole,
-        Flirty,
-        Masochist
+        Flattery,
+        Heartfelt,
+        Logic,
+        Care
     }
+    public FlirtType fType;
     public string secondaryEffect;
     public string secondaryEffect2;// Used mainly for text purposes
 
     public int barkListIndexes = -1;
 
-    public Attack(string name, string desc, int power, int type, string secondaryEffect = "", string secondaryEffect2 = "", int flirtType = 0, int barkListIndexes = -1)
+    public Attack(string name, string desc, int power, int type, string secondaryEffect = "", string secondaryEffect2 = "", FlirtType flirtType = FlirtType.none, int barkListIndexes = -1)
     {
         this.name = name;
         this.desc = desc;
         this.power = power;
         this.type = (AttackType)type;
+        this.fType = flirtType;
         this.secondaryEffect = secondaryEffect;
         this.secondaryEffect2 = secondaryEffect2;
 
@@ -573,25 +652,25 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 45, 100, 1, 2, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rock Golem 2", 40, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 13,flirtTypeA:1),
-        new Combatant("Rocky", 75, 100, 4, 2, 2, 2, 1, 17, spriteIndex: 4,flirtTypeA:1,isBoss: true),
-        new Combatant("QR", 75, 100, 1, 1, 2, 2, 1, 17, spriteIndex: 6,flirtTypeA:1),
-        new Combatant("Big Slime", 50, 100, 2, 2, 2, 2, 1, 17, spriteIndex: 11,flirtTypeA:2),
-        new Combatant("Slime", 35, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 12,flirtTypeA:3),
-        new Combatant("Mr. Rat", 60, 120, 2, 1, 1, 1, 1, 17, spriteIndex: 19,flirtTypeA:1),
-        new Combatant("Skeleton", 20, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
-        new Combatant("Swordeton", 21, 100, 2, 1, 1, 1, 1, 17, spriteIndex: 21,flirtTypeA:4),
-        new Combatant("Skeleton", 20, 120, 1, 1, 1, 1, 1, 17, spriteIndex: 22,flirtTypeA:3),
-        new Combatant("Spider", 45, 120, 1, 1, 1, 1, 1, 17, spriteIndex: 23,flirtTypeA:2),
-        new Combatant("Ugly Mushroom", 75, 100, 3, 1, 3, 1, 1, 17, spriteIndex: 24,flirtTypeA:3),
-        new Combatant("Kal", 85, 150, 4, 2, 2, 2, 1, 17, spriteIndex: 25,flirtTypeA:4),
-        new Combatant("Skeleton", 50, 100, 1, 1, 1, 1, 1, 17, spriteIndex: 20,flirtTypeA:1),
-        new Combatant("Willow", 30, 100, 1, 1, 1, 1, 1, 22, spriteIndex: 26,flirtTypeA:1),
+        new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 17, spriteIndex: 13),
+        new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 17, spriteIndex: 13),
+        new Combatant("Rocky", 75, 100,2, 4, 2, 2, 2, 1, 17, spriteIndex: 4,isBoss: true),
+        new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
+        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 17, spriteIndex: 11),
+        new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 17, spriteIndex: 12),
+        new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 17, spriteIndex: 19),
+        new Combatant("Skeleton", 20, 100,1, 1, 1, 1, 1, 1, 17, spriteIndex: 20),
+        new Combatant("Swordeton", 21, 100,1, 2, 1, 1, 1, 1, 17, spriteIndex: 21),
+        new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 17, spriteIndex: 22),
+        new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),
+        new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 17, spriteIndex: 24),
+        new Combatant("Kal", 85, 150,5, 4, 2, 2, 2, 1, 17, spriteIndex: 25),
+        new Combatant("Skeleton", 50, 100,1, 1, 1, 1, 1, 1, 17, spriteIndex: 20),
+        new Combatant("Willow", 30, 100, 2, 1, 1, 1, 1, 1, 22, spriteIndex: 26),
     };
     public static Combatant[] bossRecruitedTable =
     {
-        new Combatant("Rocky", 100, 1, 5,10,3,3,1, spriteIndex:4,atkIndex0:0,atkIndex1:0,atkIndex2:0,atkIndex3:0,rizzIndex0:0,rizzIndex1:0,rizzIndex2:0,rizzIndex3:0),
+        new Combatant("Rocky", 100, 1,2, 5,10,3,3,1, spriteIndex:4,atkIndex0:0,atkIndex1:0,atkIndex2:0,atkIndex3:0,rizzIndex0:0,rizzIndex1:0,rizzIndex2:0,rizzIndex3:0),
     };
 }
 
