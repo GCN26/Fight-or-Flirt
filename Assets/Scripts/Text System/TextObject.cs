@@ -331,7 +331,7 @@ public class Conditions
 
         switch (compare_type)
         {
-            case "equal": Debug.Log("AAA"); return obj_a == obj_b;
+            case "equal": return obj_a == obj_b;
             case "less": return obj_a < obj_b;
             case "lessEqual": return obj_a <= obj_b;
             case "greater": return obj_a > obj_b;

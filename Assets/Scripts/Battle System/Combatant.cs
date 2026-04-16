@@ -61,6 +61,7 @@ public class Combatant
     public int partyIndex = -1;
 
     public bool isBoss;
+    public bool isPlayer;
     public bool isProtect;
     public enum type_of_attack
     {

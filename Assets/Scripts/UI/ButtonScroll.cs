@@ -22,14 +22,26 @@ public class ButtonScroll : MonoBehaviour
         initPos = text.transform.localPosition;
         buttonInitSize = selfButton.transform.localScale;
      }
+    private void OnEnable()
+    {
+        if (!selfButton.interactable)
+        {
+            text.color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            text.color = startColor;
+
+        }
+    }
 
     public void hoverDebug()
     {
-        if (selfButton.enabled)
+        if (selfButton.interactable)
         {
             text.color = targetColor;
             //text.transform.localPosition = initPos - new Vector3(0, 15, 0);
-            text.transform.localScale = new Vector3(initSize.x * 1.5f, initSize.y * 1.5f, initSize.z * 1.5f);
+            //text.transform.localScale = new Vector3(initSize.x * 1.5f, initSize.y * 1.5f, initSize.z * 1.5f);
         }
         else
         {
@@ -38,9 +50,12 @@ public class ButtonScroll : MonoBehaviour
     }
     public void leaveHover()
     {
-        text.color = startColor;
-        //text.transform.localPosition = initPos;
+        if (selfButton.interactable)
+        {
+            text.color = startColor;
+            //text.transform.localPosition = initPos;
+            //selfButton.transform.localScale = buttonInitSize;
+        }
         text.transform.localScale = initSize;
-        //selfButton.transform.localScale = buttonInitSize;
     }
 }

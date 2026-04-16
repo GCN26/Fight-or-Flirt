@@ -1679,7 +1679,7 @@
       "id": 107,
       "dialogue": "Walked into you?...wait.",
       "speaker_name": "{N}",
-      "next_id": 108,
+      "next_id": 202,
       "choices": {
         "strings": [],
         "ids": []
@@ -1688,7 +1688,7 @@
     },
     {
       "id": 108,
-      "dialogue": "Oh... Hi there.",
+      "dialogue": "Oh... Hi there, sir.",
       "speaker_name": "{N}",
       "next_id": 109,
       "choices": {
@@ -1745,7 +1745,7 @@
       "id": 113,
       "dialogue": "But you're all the way down there, so I am looking down on you.",
       "speaker_name": "Rocky",
-      "next_id": 114,
+      "next_id": 208,
       "choices": {
         "strings": [],
         "ids": []
@@ -2858,8 +2858,210 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 202,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classW",
+        "compare_type": "equal",
+        "true_id": 108,
+        "false_id": 203
+      }
+    },
+    {
+      "id": 203,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classB",
+        "compare_type": "equal",
+        "true_id": 204,
+        "false_id": 205
+      }
+    },
+    {
+      "id": 204,
+      "dialogue": "Woah! You're HUGE!",
+      "speaker_name": "{N}",
+      "next_id": 109,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 205,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classR",
+        "compare_type": "equal",
+        "true_id": 206,
+        "false_id": 207
+      }
+    },
+    {
+      "id": 206,
+      "dialogue": "I didn't see you there.",
+      "speaker_name": "{N}",
+      "next_id": 109,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 207,
+      "dialogue": "A golem?! Woah.",
+      "speaker_name": "{N}",
+      "next_id": 109,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 208,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classW",
+        "compare_type": "equal",
+        "true_id": 114,
+        "false_id": 209
+      }
+    },
+    {
+      "id": 209,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classB",
+        "compare_type": "equal",
+        "true_id": 210,
+        "false_id": 211
+      }
+    },
+    {
+      "id": 210,
+      "dialogue": "Ha! You're funny.",
+      "speaker_name": "{N}",
+      "next_id": 115,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 211,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classR",
+        "compare_type": "equal",
+        "true_id": 212,
+        "false_id": 213
+      }
+    },
+    {
+      "id": 212,
+      "dialogue": "I didn't mean that literally.",
+      "speaker_name": "{N}",
+      "next_id": 115,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 213,
+      "dialogue": "I don't think you... ugh. Whatever.",
+      "speaker_name": "{N}",
+      "next_id": 115,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 214,
+      "dialogue": "I've been traveling alone since then. If you wanted to come along... If you want to spend more time with me... Then, you should join my party.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
     }
-
 
 
 

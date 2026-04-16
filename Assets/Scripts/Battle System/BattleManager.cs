@@ -81,6 +81,7 @@ public class BattleManager : MonoBehaviour
     public int specialIndex;
     public SpecialEventManager specialEventManager;
     public Reactions[] enemyFlirtReacts;
+    public PartyMenuTest partyMenu;
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];
@@ -181,6 +182,16 @@ public class BattleManager : MonoBehaviour
             battleOrder = "<b>Turn Order</b>\n> ";
             foreach (Combatant comb in battleList)
             {
+                if (comb.isPlayer)
+                {
+                    switch (gameMan.pcClass)
+                    {
+                        case GameManager.playerClass.Warrior: battleOrder += "<sprite=0>"; break;
+                        case GameManager.playerClass.Bard: battleOrder += "<sprite=1>"; break;
+                        case GameManager.playerClass.Rogue: battleOrder += "<sprite=2>"; break;
+                        case GameManager.playerClass.Mage: battleOrder += "<sprite=3>"; break;
+                    }
+                }
                 battleOrder += comb.charName + "\n";
             }
             battleOrderDisplay.text = battleOrder;
@@ -457,9 +468,19 @@ public class BattleManager : MonoBehaviour
         battleList.RemoveAll(x => x.hp == 0);
         battleList.RemoveAll(x => x.infatuation == 0);
 
-        battleOrder = "<b>Turn Order</b>\n> ";
+        battleOrder = "<b>Turn Order</b>\n";
         foreach (Combatant comb in battleList)
         {
+            if (comb.isPlayer)
+            {
+                switch (gameMan.pcClass)
+                {
+                    case GameManager.playerClass.Warrior: battleOrder += "<sprite=0>"; break;
+                    case GameManager.playerClass.Bard: battleOrder += "<sprite=1>"; break;
+                    case GameManager.playerClass.Rogue: battleOrder += "<sprite=2>"; break;
+                    case GameManager.playerClass.Mage: battleOrder += "<sprite=3>"; break;
+                }
+            }
             battleOrder += comb.charName + "\n";
         }
         battleOrderDisplay.text = battleOrder;
@@ -691,6 +712,8 @@ public class BattleManager : MonoBehaviour
             newParty[newParty.Count - 1].armor = BossArmor[index];
             newParty[newParty.Count - 1].characterType = (Combatant.bossTypeChar)(index + 1);
             party = newParty.ToArray();
+            partyMenu.childArray[newParty.Count - 1].gameObject.SetActive(true);
+            partyMenu.updateOrder();
         }
     }
     public void dontRecruitBoss()

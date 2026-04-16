@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -175,6 +176,7 @@ public class TextEventManager : MonoBehaviour
             else
             {
                 currentTextObject.next_id = condIndex;
+                advanceText();
             }
 
             //Reset events and start calling them
