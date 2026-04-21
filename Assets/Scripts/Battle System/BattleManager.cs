@@ -243,14 +243,22 @@ public class BattleManager : MonoBehaviour
         enableHealthBars();
         updateHealthBars();
 
+        if (specialEventManager.rockyFight && specialEventManager.needToHPCheck && checkRockyHP())
+        {
+            specialEventManager.rockySecondHalf = true;
+            specialEventManager.needToHPCheck = false;
+            party[0].attackList.Clear();
+            party[0].rizzAttackList.Clear();
+            getPartyAttackIndexes(party[0]);
+            party[0].getAttacksInList();
+            holdForText = true;
+            specialIndex = 226;
+        }
+
         if (holdForText)
         {
             battleUI.SetActive(false);
-            if(enemies[0].isBoss) textMan.callText(characterBattleTexts[0].addAttackHistory(attackType));
-            else
-            {
-                textMan.callText(specialIndex);
-            }
+            textMan.callText(specialIndex);
         }
         while (holdForText) yield return null;
         specialIndex = -1;
@@ -275,7 +283,7 @@ public class BattleManager : MonoBehaviour
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
             while (!textMan.progressable) yield return null;
-            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0)) yield return null;
             textMan.progressable = false;
             textMan.endBattleText();
             endBattle();
@@ -325,7 +333,7 @@ public class BattleManager : MonoBehaviour
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
             while (!textMan.progressable) yield return null;
-            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0)) yield return null;
             textMan.progressable = false;
             textMan.endBattleText();
             endBattle();
@@ -425,7 +433,7 @@ public class BattleManager : MonoBehaviour
         textMan.startBattleText();
         if(textMan.battleTextString != "")yield return new WaitForSeconds(.5f);
         while (!textMan.progressable && textMan.battleTextString != "") yield return null;
-        while (!Input.GetKeyDown(KeyCode.Space) && textMan.battleTextString != "") yield return null;
+        while ((!Input.GetKeyDown(KeyCode.Space)&& !Input.GetMouseButtonDown(0)) && textMan.battleTextString != "") yield return null;
         textMan.progressable = false;
 
         textMan.endBattleText();
@@ -440,7 +448,7 @@ public class BattleManager : MonoBehaviour
             textMan.startBattleText();
             yield return new WaitForSeconds(.5f);
             while (!textMan.progressable) yield return null;
-            while (!Input.GetKeyDown(KeyCode.Space)) yield return null;
+            while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0)) yield return null;
             textMan.progressable = false;
             textMan.endBattleText();
             
@@ -686,11 +694,11 @@ public class BattleManager : MonoBehaviour
                 {
                     foreach(Attack atk in comb.attackList)
                     {
-                        atk.secondaryEffect2 = "bossRockyAttackText";
+                        //atk.secondaryEffect2 = "bossRockyAttackText";
                     }
                     foreach(Attack flrt in comb.rizzAttackList)
                     {
-                        flrt.secondaryEffect2 = "bossRockyFlirtText";
+                        //flrt.secondaryEffect2 = "bossRockyFlirtText";
                     }
                 }
                 enemies[0].isBoss = true;
@@ -804,6 +812,20 @@ public class BattleManager : MonoBehaviour
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
         }
+        else if (specialEventManager.rockyFight && !specialEventManager.rockySecondHalf)
+        {
+            comb.rizzAttackListIndexes[0] = 8;
+            comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = -1;
+        }
+        else if(specialEventManager.rockyFight && specialEventManager.rockySecondHalf)
+        {
+            comb.rizzAttackListIndexes[0] = 9;
+            comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = -1;
+        }
     }
 
     public void battleTransition()
@@ -827,6 +849,11 @@ public class BattleManager : MonoBehaviour
             yield return null;
         }
         transitionPanel.transform.position = new Vector3(-5000, 0, 0);
+    }
+
+    public bool checkRockyHP()
+    {
+        return(enemies[0].hp <= enemies[0].maxHp / 2);
     }
 }
 

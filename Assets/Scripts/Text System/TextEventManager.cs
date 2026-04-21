@@ -24,6 +24,7 @@ public class TextEventManager : MonoBehaviour
     public Image[] portraits;
     public TextMeshProUGUI speakerName;
     public RectTransform speakerNameBG;
+    public GameObject progressArrow;
 
     //Test Value
     public int bar;
@@ -55,6 +56,8 @@ public class TextEventManager : MonoBehaviour
 
     public GameManager gameMan;
     public SpecialEventManager eventMan;
+
+    public bool altBlip;
 
     void Start()
     {
@@ -88,7 +91,7 @@ public class TextEventManager : MonoBehaviour
             //nextIndex = 33;
             //textCo = StartCoroutine(typewriterFunc());
         }
-        if (Input.GetKeyDown(KeyCode.Space) && textOpen)
+        if ((Input.GetKeyDown(KeyCode.Space) && textOpen) || (Input.GetMouseButtonDown(0) && textOpen))
         {
             //Code to run depending on state
 
@@ -126,6 +129,8 @@ public class TextEventManager : MonoBehaviour
 
     IEnumerator typewriterFunc()
     {
+        progressArrow.SetActive(false);
+        altBlip = false;
         if (!battleText)
         {
             //Clear vars for next object to come in
@@ -216,7 +221,11 @@ public class TextEventManager : MonoBehaviour
             char curChar = textBox.GetParsedText()[textBox.maxVisibleCharacters-1];
             if (currentTextObject.dialogue != "" || battleText)
             {
-                if (curChar != ' ') audioSource.PlayOneShot(textBlip);
+                if (curChar != ' ')
+                {
+                    altBlip = !altBlip;
+                    if(altBlip) audioSource.PlayOneShot(textBlip);
+                }
             }
             if (!fastText && (curChar == '.' || curChar == '!' || curChar == '?' || curChar == ',' || curChar == ':' || curChar == ';')) yield return new WaitForSeconds(.25f / textSpeed);
             else yield return new WaitForSeconds(.1125f/textSpeed);
@@ -257,6 +266,7 @@ public class TextEventManager : MonoBehaviour
         {
             progressable = true;
         }
+        progressArrow.SetActive(progressable);
     }
 
     public void aa(int i)

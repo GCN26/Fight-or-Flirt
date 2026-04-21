@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -47,6 +48,9 @@ public class GameManager : MonoBehaviour
     public AudioClip overworldMusic;
 
     public bool flirtButtonLabelSaysFlirt = false;
+    public TextMeshProUGUI flirtButtonLabel;
+
+    public bool knowsRockyName = false;
 
     private void Start()
     {
@@ -138,5 +142,16 @@ public class GameManager : MonoBehaviour
     public void loseRep()
     {
         reputation--;
+    }
+    public void updateLabel()
+    {
+        if (flirtButtonLabelSaysFlirt)
+        {
+            flirtButtonLabel.text = "Flirt";
+        }
+        else
+        {
+            flirtButtonLabel.text = "Talk";
+        }
     }
 }

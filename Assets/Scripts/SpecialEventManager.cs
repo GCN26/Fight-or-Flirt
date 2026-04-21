@@ -47,6 +47,11 @@ public class SpecialEventManager : MonoBehaviour
 
     public bool TrueA = true;
 
+    public bool rockyFight = false;
+    public bool hasRockyAttackedYet = false;
+    public bool needToHPCheck = true;
+    public bool rockySecondHalf = false;
+
     private void Update()
     {
         battleManager.textMan.charMove.specialAllowMove = !jeraldLetterOpen;
@@ -158,6 +163,7 @@ public class SpecialEventManager : MonoBehaviour
     }
     public void startRocky()
     {
+        rockyFight = true;
         battleManager.enemyTableIndex = 1;
         battleManager.startBattle();
     }
@@ -199,5 +205,9 @@ public class SpecialEventManager : MonoBehaviour
     public void hideWillow()
     {
         willow.SetActive(false);
+    }
+    public void endRocky()
+    {
+        rockyFight = false;
     }
 }

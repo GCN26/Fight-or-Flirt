@@ -374,6 +374,8 @@ public static class Attacks
         new Attack("Cast","",10,0,"willowAttacked"), //24 - Willow Fight Copy
         new Attack("Smack","",15,0,"willowAttacked"), //25 - Willow Fight Copy
         new Attack("Stab","",15,0,"willowAttacked"), //26 - Willow Fight Copy
+        new Attack("Slam","",15,0,"rockyFirstAttack"), //27 - Rocky Fight Copy
+        new Attack("Earthquake","",25,0,"rockyFirstAttack"), //28 - Rocky Fight Copy
     };
     public static Attack[] rizzList =
     {
@@ -385,6 +387,8 @@ public static class Attacks
         new Attack("Talk Logically", "Willow Fight Attack",0,0,"willowLogic",flirtType:Attack.FlirtType.Logic), //5
         new Attack("Speak from the Heart", "Willow Fight Attack",0,0,"willowHeart",flirtType:Attack.FlirtType.Heartfelt), //6
         new Attack("Hug", "The user shows they care with a hug.",10,0,flirtType:Attack.FlirtType.Care), //7
+        new Attack("Talk","",0,0,"failRockyTalk",flirtType:Attack.FlirtType.none), //8 - Rocky Fight Copy - First Half of Battle
+        new Attack("Apologize","",0,0,"succeedRockyTalk",flirtType:Attack.FlirtType.none), //9 - Rocky Fight Copy - Second Half of Battle
     };
     public static string[] warriorBarks0 =
     {
@@ -647,6 +651,35 @@ public class Attack
         battleMan.battleUI.SetActive(false);
         battleMan.holdForText = true;
     }
+
+    public void rockyFirstAttack(Combatant target, int index)
+    {
+        SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        if (!specMan.hasRockyAttackedYet)
+        {
+            specMan.hasRockyAttackedYet = true;
+            battleMan.specialIndex = 215;
+            battleMan.battleUI.SetActive(false);
+            battleMan.holdForText = true;
+        }
+    }
+    public void failRockyTalk(Combatant target, int index) {
+
+            SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+            BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+            battleMan.specialIndex = 223;
+            battleMan.battleUI.SetActive(false);
+            battleMan.holdForText = true;
+        }
+    public void succeedRockyTalk(Combatant target, int index)
+    {
+        SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.specialIndex = 227;
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
+    }
 }
 
 public static class enemyList
@@ -655,7 +688,7 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 17, spriteIndex: 13),
         new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 17, spriteIndex: 13),
-        new Combatant("Rocky", 75, 100,2, 4, 2, 2, 2, 1, 17, spriteIndex: 4,isBoss: true),
+        new Combatant("Rocky", 75, 100,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
         new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 17, spriteIndex: 11),
         new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 17, spriteIndex: 12),
@@ -691,10 +724,5 @@ public static class encounterTables
         new int[] {4},
         new int[] {4},
         new int[] {14},
-    };
-    public static string[] battleStartMessages = new string[] {
-        "A pair of rock golems block your path!",
-        "Rocky blocks your path!",
-        "A group of slimes blocks your path!"
     };
 }
