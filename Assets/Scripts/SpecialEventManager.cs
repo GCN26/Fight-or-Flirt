@@ -49,8 +49,16 @@ public class SpecialEventManager : MonoBehaviour
 
     public bool rockyFight = false;
     public bool hasRockyAttackedYet = false;
-    public bool needToHPCheck = true;
-    public bool rockySecondHalf = false;
+    public bool flirtedWithRockyYet = false;
+    public bool betrayAttack = false;
+    public enum rockyBattleState
+    {
+        needToHPCheck,
+        calmedDown,
+        postApology,
+        postApologyNoFlirt
+    }
+    public rockyBattleState rockyState;
 
     private void Update()
     {
@@ -154,7 +162,7 @@ public class SpecialEventManager : MonoBehaviour
     }
     public void endBattleText()
     {
-        afterBattleIndex = -1;
+        //afterBattleIndex = -1;
         battleManager.showBattleUI();
     }
     public void hideJerald()
@@ -209,5 +217,23 @@ public class SpecialEventManager : MonoBehaviour
     public void endRocky()
     {
         rockyFight = false;
+    }
+    public void replaceRockyMoves()
+    {
+        battleManager.gameMan.flirtButtonLabelSaysFlirt = true;
+        battleManager.gameMan.updateLabel();
+        battleManager.enemies[0].attackList.Clear();
+        battleManager.enemies[0].attackList.Add(Attacks.attackList[29]);
+    }
+    public void fightRockyAgain()
+    {
+        battleManager.enemies[0].attackList.Clear();
+        battleManager.enemies[0].attackList.Add(Attacks.attackList[27]);
+        battleManager.enemies[0].attackList.Add(Attacks.attackList[28]);
+    }
+
+    public void apology()
+    {
+        rockyState = rockyBattleState.postApology;
     }
 }

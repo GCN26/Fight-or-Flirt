@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public int One = 1;
     public int Two = 2;
     public int Three = 3;
+    public int Five = 5;
 
     public BattleManager battleManager;
     public TextEventManager textEventManager;
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
         audioSource.clip = overworldMusic;
         audioSource.loop = true;
         audioSource.Play();
+        updateLabel();
     }
     private void Update()
     {
@@ -153,5 +155,9 @@ public class GameManager : MonoBehaviour
         {
             flirtButtonLabel.text = "Talk";
         }
+    }
+    public void learnRockyName()
+    {
+        knowsRockyName = true;
     }
 }

@@ -35610,7 +35610,7 @@ MonoBehaviour:
   - {fileID: 112754876}
   - {fileID: 1830990851}
   - {fileID: 750924797}
-  partyMenu: {fileID: 0}
+  partyMenu: {fileID: 1180412775}
 --- !u!4 &541077448
 Transform:
   m_ObjectHideFlags: 0
@@ -81460,7 +81460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flirt
+  m_text: Talk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48cdf1011f0f2c24ca4168e25177bfe8, type: 2}
   m_sharedMaterial: {fileID: -4687890486251053589, guid: 48cdf1011f0f2c24ca4168e25177bfe8, type: 2}
@@ -102456,7 +102456,9 @@ MonoBehaviour:
   TrueA: 1
   rockyFight: 0
   hasRockyAttackedYet: 0
-  needToHPCheck: 1
+  flirtedWithRockyYet: 0
+  betrayAttack: 0
+  rockyState: 0
 --- !u!82 &1681241733
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102615,7 +102617,7 @@ MonoBehaviour:
   audioSource: {fileID: 1681241733}
   overworldMusic: {fileID: 8300000, guid: 27a9e52e7962ed44da5c1c5185104077, type: 3}
   flirtButtonLabelSaysFlirt: 0
-  flirtButtonLabel: {fileID: 0}
+  flirtButtonLabel: {fileID: 1323260545}
   knowsRockyName: 0
 --- !u!4 &1681241736
 Transform:

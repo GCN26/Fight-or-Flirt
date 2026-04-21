@@ -243,16 +243,22 @@ public class BattleManager : MonoBehaviour
         enableHealthBars();
         updateHealthBars();
 
-        if (specialEventManager.rockyFight && specialEventManager.needToHPCheck && checkRockyHP())
+        if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.needToHPCheck && checkRockyHP())
         {
-            specialEventManager.rockySecondHalf = true;
-            specialEventManager.needToHPCheck = false;
+            specialEventManager.rockyState = SpecialEventManager.rockyBattleState.calmedDown;
             party[0].attackList.Clear();
             party[0].rizzAttackList.Clear();
             getPartyAttackIndexes(party[0]);
             party[0].getAttacksInList();
             holdForText = true;
             specialIndex = 226;
+        }
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApology)
+        {
+            party[0].attackList.Clear();
+            party[0].rizzAttackList.Clear();
+            getPartyAttackIndexes(party[0]);
+            party[0].getAttacksInList();
         }
 
         if (holdForText)
@@ -305,11 +311,7 @@ public class BattleManager : MonoBehaviour
             {
                 //Check stat requirements
                 //Prompt Recruit
-                bossRecruitPanel.SetActive(true);
-                while (waitForPlayerToRecruit)
-                {
-                    yield return null;
-                }
+                recruitBoss();
                 enemyDeadInt = enemies.Count;
             }
             else
@@ -465,6 +467,13 @@ public class BattleManager : MonoBehaviour
                     specialIndex = 200;
                     battleUI.SetActive(false);
                     holdForText = true;
+                }
+                if(specialEventManager.rockyFight && !comb.party && comb.hp <= 0)
+                {
+                    specialIndex = 272;
+                    battleUI.SetActive(false);
+                    holdForText = true;
+
                 }
             }
         }
@@ -695,6 +704,7 @@ public class BattleManager : MonoBehaviour
                     foreach(Attack atk in comb.attackList)
                     {
                         //atk.secondaryEffect2 = "bossRockyAttackText";
+                        atk.secondaryEffect2 = "rockyFightAfterCalm";
                     }
                     foreach(Attack flrt in comb.rizzAttackList)
                     {
@@ -812,16 +822,30 @@ public class BattleManager : MonoBehaviour
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
         }
-        else if (specialEventManager.rockyFight && !specialEventManager.rockySecondHalf)
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.needToHPCheck)
         {
             comb.rizzAttackListIndexes[0] = 8;
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
         }
-        else if(specialEventManager.rockyFight && specialEventManager.rockySecondHalf)
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.calmedDown)
         {
             comb.rizzAttackListIndexes[0] = 9;
+            comb.rizzAttackListIndexes[1] = -1;
+            comb.rizzAttackListIndexes[2] = -1;
+            comb.rizzAttackListIndexes[3] = -1;
+        }
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApology)
+        {
+            comb.rizzAttackListIndexes[0] = 10;
+            comb.rizzAttackListIndexes[1] = 11;
+            comb.rizzAttackListIndexes[2] = 12;
+            comb.rizzAttackListIndexes[3] = 13;
+        }
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApologyNoFlirt)
+        {
+            comb.rizzAttackListIndexes[0] = 14;
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;

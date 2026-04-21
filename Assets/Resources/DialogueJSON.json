@@ -3055,7 +3055,7 @@
       "id": 214,
       "dialogue": "I've been traveling alone since then. If you wanted to come along... If you want to spend more time with me... Then, you should join my party.",
       "speaker_name": "{N}",
-      "next_id": -1,
+      "next_id": 268,
       "choices": {
         "strings": [],
         "ids": []
@@ -3360,18 +3360,657 @@
       "next_id": -1,
       "choices": {
         "strings": [ "Wow, he's actually cute", "Aggressive AND Soft?", "Glad he isn't angry anymore" ],
-        "ids": [ -1, -1, -1 ]
+        "ids": [ 239, 239, -1 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 239,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classW",
+        "compare_type": "equal",
+        "true_id": 242,
+        "false_id": 240
+      }
+    },
+    {
+      "id": 240,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classB",
+        "compare_type": "equal",
+        "true_id": 243,
+        "false_id": 241
+      }
+    },
+    {
+      "id": 241,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "pcClass",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "classR",
+        "compare_type": "equal",
+        "true_id": 244,
+        "false_id": 245
+      }
+    },
+    {
+      "id": 242,
+      "dialogue": "You're actually really cute when you're not attacking me, Mr. Rock Golem.",
+      "speaker_name": "{N}",
+      "next_id": 246,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 243,
+      "dialogue": "Oh my, I never would've guessed someone as strong as yourself could also be so adorable.",
+      "speaker_name": "{N}",
+      "next_id": 246,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 244,
+      "dialogue": "You're actually quite cute like this.",
+      "speaker_name": "{N}",
+      "next_id": 246,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 245,
+      "dialogue": "That was quite the switch up, you know? You've got quite a cute side for someone so powerful.",
+      "speaker_name": "{N}",
+      "next_id": 246,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 246,
+      "dialogue": "Oh, um... Do you really think that? I mean, I think you're pretty cute too.",
+      "speaker_name": "Rock Golem",
+      "next_id": 247,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 247,
+      "dialogue": "No one's ever said something like that to me.",
+      "speaker_name": "Rock Golem",
+      "next_id": 248,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 248,
+      "dialogue": "I'm sorry, I should probably, um.. go. I don't want to take up any more of your time. I'm sorry for attacking you.",
+      "speaker_name": "Rock Golem",
+      "next_id": 249,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 249,
+      "dialogue": "Wait!",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "replaceRockyMoves",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "apology",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 250,
+      "dialogue": "<i>I don't want him to leave! I actually might be kind of... attracted to him???</i>",
+      "speaker_name": "{N}",
+      "next_id": 251,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 251,
+      "dialogue": "<i>Maybe if I flirt with him, I could get him to stay and see if he's interested.</i>",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 252,
+      "dialogue": "You're being too nice to me. I really don't deserve it... Especially from you.",
+      "speaker_name": "Rock Golem",
+      "next_id": 253,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 253,
+      "dialogue": "Hey, if you're still beating yourself up about attacking me, you gotta stop it. I forgive you.",
+      "speaker_name": "{N}",
+      "next_id": 254,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 254,
+      "dialogue": "And what do you mean 'especially from you?'",
+      "speaker_name": "{N}",
+      "next_id": 255,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 255,
+      "dialogue": "I mean, well, I know we just met, and it wasn't under the best circumstances, but I can already tell how amazing you are.",
+      "speaker_name": "Rock Golem",
+      "next_id": 256,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 256,
+      "dialogue": "You're strong, kind, <i>attractive</i>, and you really seem to care about me even though we barely know each other.",
+      "speaker_name": "Rock Golem",
+      "next_id": 257,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 257,
+      "dialogue": "I don't even know your name and you're already making me blush like crazy.",
+      "speaker_name": "Rock Golem",
+      "next_id": 258,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 258,
+      "dialogue": "Well, I could say the same about you. So, maybe we should change that. I'm {N}.",
+      "speaker_name": "{N}",
+      "next_id": 259,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "learnRockyName",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 259,
+      "dialogue": "It's nice to officially meet you, {N}. I'm Rocky.",
+      "speaker_name": "Rocky",
+      "next_id": 260,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 260,
+      "dialogue": "Hehe. 'Rocky.' That's a little on the nose, isn't it?",
+      "speaker_name": "{N}",
+      "next_id": 261,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 261,
+      "dialogue": "Hey! Don't make fun of me.",
+      "speaker_name": "Rocky",
+      "next_id": 262,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 262,
+      "dialogue": "I'm not, I'm not. It's cute. You're cute.",
+      "speaker_name": "{N}",
+      "next_id": 263,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 263,
+      "dialogue": "Stop saying that. I think I'm gonna explode.",
+      "speaker_name": "Rocky",
+      "next_id": 264,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 264,
+      "dialogue": "Maybe I should make that my goal then.",
+      "speaker_name": "{N}",
+      "next_id": 265,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 265,
+      "dialogue": "Want to come with me?",
+      "speaker_name": "{N}",
+      "next_id": 266,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 266,
+      "dialogue": "What?",
+      "speaker_name": "Rocky",
+      "next_id": 267,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 267,
+      "dialogue": "I've been traveling through the dungeon. I was separated from my party and sent down to this level somehow.",
+      "speaker_name": "{N}",
+      "next_id": 214,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 268,
+      "dialogue": "Really? Oh lord, I would love that! Of course, I'll join your party!",
+      "speaker_name": "Rocky",
+      "next_id": 269,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 269,
+      "dialogue": "Hey, {N}? Could I kiss you?",
+      "speaker_name": "Rocky",
+      "next_id": 270,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 270,
+      "dialogue": "What? I mean, yes! Yes, please do.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 271,
+      "dialogue": "<i>I suddenly feel like I want to fight the golem for some reason. I guess it will get his attention back on me at least.</i>",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "fightRockyAgain",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 272,
+      "dialogue": "I don't want to... die yet...",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 273,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": {
+        "obj_name_a": "GameManager",
+        "script_name_a": "GameManager",
+        "var_name_a": "monstersKilled",
+        "obj_name_b": "GameManager",
+        "script_name_b": "GameManager",
+        "var_name_b": "Five",
+        "compare_type": "greaterEqual",
+        "true_id": 274,
+        "false_id": 275
+      }
+    },
+    {
+      "id": 274,
+      "dialogue": "That was FUN! Finally, a <i>real</i> challenge. I should get going, there's a whole dungeon of monsters for me to slaughter.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 275,
+      "dialogue": "I'm glad that's over with. Now I have to keep going. I have an exit to find.",
+      "speaker_name": "{N}",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 276,
+      "dialogue": "I should probably... um, go now. Again, I'm so sorry about attacking you.",
+      "speaker_name": "Rock Golem",
+      "next_id": 277,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 277,
+      "dialogue": "Wait! Don't just leave! At least tell me your name before you go. I'm {N}. Maybe we'll see each other again.",
+      "speaker_name": "{N}",
+      "next_id": 278,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 278,
+      "dialogue": "Oh ok. I guess. I'm Rocky.",
+      "speaker_name": "Rocky",
+      "next_id": 279,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "learnRockyName",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 279,
+      "dialogue": "Well then, Rocky. This was... quite an interesting way to meet. See you later.",
+      "speaker_name": "{N}",
+      "next_id": 280,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 280,
+      "dialogue": "Yeah, see you, {N}.",
+      "speaker_name": "Rocky",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 281,
+      "dialogue": "You're quite the strong opponent. Especially compared to all of the other monsters I've come across since I ended up on this floor of the dungeon.",
+      "speaker_name": "{N}",
+      "next_id": 282,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 282,
+      "dialogue": "That's not something I should take for granted when it comes to surviving and killing enemies.",
+      "speaker_name": "{N}",
+      "next_id": 283,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 283,
+      "dialogue": "Wait, wait... Kill? Oh-oh no, I really hurt you, didn't I.",
+      "speaker_name": "Rock Golem",
+      "next_id": 284,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 284,
+      "dialogue": "Well, yeah. Obviously. You're a massive golem made out of rock and you <i>attacked</i> me. What did you think was going to happen?",
+      "speaker_name": "{N}",
+      "next_id": 285,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 285,
+      "dialogue": "Oh, Lord. People always tell me I'm not myself when I wake up, but I- I didn't mean to. I'm so sorry.",
+      "speaker_name": "Rock Golem",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "That's not an excuse", "Save your apologies" ],
+        "ids": [ 286, 288 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 286,
+      "dialogue": "Attacking someone isn't just something you do because you're groggy in the mornings.",
+      "speaker_name": "{N}",
+      "next_id": 287,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 287,
+      "dialogue": "I know, I know. I don't know what came over me. And I don't know what else I can do other than apologize.",
+      "speaker_name": "Rock Golem",
+      "next_id": -1,
+      "choices": {
+        "strings": [ "I should hear him out", "It doesn't matter, he attacked me" ],
+        "ids": [ 236, 289 ]
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 288,
+      "dialogue": "Save your apologies for someone who cares. You're a monster and this is a dungeon. If I want to survive, I'll do what I must.",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "loseRep",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 289,
+      "dialogue": "<i>It doesn't matter what this golem says. He is a monster, and this is a dungeon. I need to kill it.</i>",
+      "speaker_name": "{N}",
+      "next_id": 103,
+      "choices": {
+        "strings": [],
+        "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
     }
-
-
-
-
-
-
-
-
 
 
 
