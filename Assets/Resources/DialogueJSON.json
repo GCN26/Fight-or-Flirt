@@ -788,6 +788,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "showJerald",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -814,11 +822,11 @@
         {
           "obj_name": "Jerald",
           "move_vec": {
-            "x": -10,
+            "x": -25,
             "y": 0,
             "z": 0
           },
-          "move_speed": 1,
+          "move_speed": 0.65,
           "move_interp_type": 0,
           "move_target_type": 0,
           "rotation_vec": {
@@ -1673,6 +1681,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "bumpRocky",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3360,7 +3376,7 @@
       "next_id": -1,
       "choices": {
         "strings": [ "Wow, he's actually cute", "Aggressive AND Soft?", "Glad he isn't angry anymore" ],
-        "ids": [ 239, 239, -1 ]
+        "ids": [ 239, 239, 276 ]
       },
       "conditional": { "obj_to_check_a": "" }
     },
@@ -3744,6 +3760,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "hideRocky",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3796,6 +3820,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "hideRocky",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3897,11 +3929,19 @@
       "id": 280,
       "dialogue": "Yeah, see you, {N}.",
       "speaker_name": "Rocky",
-      "next_id": -1,
+      "next_id": 290,
       "choices": {
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "hideRocky",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4010,7 +4050,58 @@
         "ids": []
       },
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 290,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "setRockyInfatToZero",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 291,
+      "dialogue": "You fled the battle!",
+      "speaker_name": "",
+      "next_id": 292,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 292,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "BattleManager",
+          "script_name": "BattleManager",
+          "func_name": "endBattle",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
+
+
 
 
 

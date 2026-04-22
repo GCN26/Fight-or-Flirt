@@ -51,6 +51,8 @@ public class SpecialEventManager : MonoBehaviour
     public bool hasRockyAttackedYet = false;
     public bool flirtedWithRockyYet = false;
     public bool betrayAttack = false;
+
+    public GameObject rockySprite, rockyModel;
     public enum rockyBattleState
     {
         needToHPCheck,
@@ -144,7 +146,7 @@ public class SpecialEventManager : MonoBehaviour
     public void summonMrRat()
     {
         afterBattleIndex = -1;
-        mrRat.transform.position = new Vector3(mrRat.transform.position.x, mrRat.transform.position.y, player.transform.position.z);
+        mrRat.transform.position = new Vector3(player.transform.position.x+3, mrRat.transform.position.y, player.transform.position.z+3);
         mrRat.SetActive(true);
     }
     public void sendMrRatToTheVoid()
@@ -168,6 +170,10 @@ public class SpecialEventManager : MonoBehaviour
     public void hideJerald()
     {
         jerald.SetActive(false);
+    }
+    public void showJerald()
+    {
+        jerald.SetActive(true);
     }
     public void startRocky()
     {
@@ -207,7 +213,7 @@ public class SpecialEventManager : MonoBehaviour
     }
     public void showWillow()
     {
-        willow.transform.position = new Vector3(willow.transform.position.x, 9, player.transform.position.z);
+        willow.transform.position = new Vector3(willow.transform.position.x, willow.transform.position.y, player.transform.position.z);
         willow.SetActive(true);
     }
     public void hideWillow()
@@ -231,9 +237,34 @@ public class SpecialEventManager : MonoBehaviour
         battleManager.enemies[0].attackList.Add(Attacks.attackList[27]);
         battleManager.enemies[0].attackList.Add(Attacks.attackList[28]);
     }
-
     public void apology()
     {
         rockyState = rockyBattleState.postApology;
+    }
+    public void hideRockyModel()
+    {
+        rockyModel.SetActive(false);
+    }
+    public void showRocky()
+    {
+        rockySprite.SetActive(true);
+    }
+    public void hideRocky()
+    {
+        rockySprite.SetActive(false);
+    }
+    public void bumpRocky()
+    {
+        hideRockyModel();
+        showRocky();
+    }
+    public void setRockyInfatToZero()
+    {
+        battleManager.waitForPlayerToRecruit = false;
+        battleManager.enemies[0].infatuation = 0;
+        afterBattleIndex = -1;
+        battleManager.showBattleUI();
+        rockyFight = false;
+        battleManager.holdForText = false;
     }
 }

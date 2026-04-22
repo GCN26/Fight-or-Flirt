@@ -346,6 +346,7 @@ public class BattleManager : MonoBehaviour
             }
             specialEventManager.mrRatFight = false;
             specialEventManager.willowFight = false;
+            specialEventManager.rockyFight = false;
             holdForText = false;
             //End in win
             //StopCoroutine(battleCo);
@@ -798,6 +799,9 @@ public class BattleManager : MonoBehaviour
 
         if (specialEventManager.mrRatFight)
         {
+            comb.attackListIndexes[1] = -1;
+            comb.attackListIndexes[2] = -1;
+            comb.attackListIndexes[3] = -1;
             comb.rizzAttackListIndexes[0] = 4;
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;

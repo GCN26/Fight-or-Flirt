@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deafed9f13a9bf244b535f86e857bb0b, type: 3}
   m_Name: StarterWeapon
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Starter Weapon
+  itemName: Broken
   icon: {fileID: 0}
   model: {fileID: 0}
   myType: 2
@@ -21,7 +21,7 @@ MonoBehaviour:
   defense: 0
   speed: 0
   charisma: 0
-  moveIndex: 0
+  moveIndex: 30
   objName: 
   scriptName: 
   funcName: 

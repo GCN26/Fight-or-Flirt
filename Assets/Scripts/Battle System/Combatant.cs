@@ -357,7 +357,7 @@ public static class Attacks
         new Attack("Electric Lyre","",25,0), //7
         new Attack("Chord Strike","",10,0, barkListIndexes: 5), //8
         new Attack("Stab","",15,0,barkListIndexes:6), //9
-        new Attack("Phantom Thief","",10,0,barkListIndexes:8), //10
+        new Attack("Phantom Thief","",10,0,"stealMoney",barkListIndexes:8), //10
         new Attack("Fleetfoot","",0,0), //11
         new Attack("Rock Slide","",15,0), //12
         new Attack("Earthquake","",25,0), //13
@@ -377,6 +377,7 @@ public static class Attacks
         new Attack("Slam","",15,0,"rockyFirstAttack"), //27 - Rocky Fight Copy
         new Attack("Earthquake","",25,0,"rockyFirstAttack"), //28 - Rocky Fight Copy
         new Attack("rockySecondHalfAttack","",0,0), //29 - Rocky Fiht Move - Exclusive to Rocky so he doesn't attack
+        new Attack("Flee","",0,0,"flee", barkListIndexes: 0), //30
     };
     public static Attack[] rizzList =
     {
@@ -727,6 +728,18 @@ public class Attack
         SpecialEventManager specMan = GameObject.Find("GameManager").GetComponent<SpecialEventManager>();
         BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         battleMan.specialIndex = 276;
+        battleMan.battleUI.SetActive(false);
+        battleMan.holdForText = true;
+    }
+    public void stealMoney(Combatant target, int index)
+    {
+        GameManager gameMan = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameMan.money += UnityEngine.Random.Range(5, 50);
+    }
+    public void flee(Combatant target, int index)
+    {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+        battleMan.specialIndex = 291;
         battleMan.battleUI.SetActive(false);
         battleMan.holdForText = true;
     }
