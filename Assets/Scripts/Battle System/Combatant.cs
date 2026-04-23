@@ -761,7 +761,7 @@ public static class enemyList
         new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 17, spriteIndex: 22),
         new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),
         new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 17, spriteIndex: 24),
-        new Combatant("Kal", 85, 150,5, 4, 2, 2, 2, 1, 17, spriteIndex: 25),
+        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 17, spriteIndex: 11),
         new Combatant("Skeleton", 50, 100,1, 1, 1, 1, 1, 1, 17, spriteIndex: 20),
         new Combatant("Willow", 30, 100, 2, 1, 1, 1, 1, 1, 22, spriteIndex: 26),
     };

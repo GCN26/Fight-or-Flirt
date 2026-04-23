@@ -1407,7 +1407,7 @@
       "id": 85,
       "dialogue": "Letter and Flowers added to inventory.",
       "speaker_name": "",
-      "next_id": -1,
+      "next_id": 293,
       "choices": {
         "strings": [],
         "ids": []
@@ -4095,6 +4095,25 @@
           "obj_name": "BattleManager",
           "script_name": "BattleManager",
           "func_name": "endBattle",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 293,
+      "dialogue": "",
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "openJeraldLetter",
           "args": []
         }
       ],

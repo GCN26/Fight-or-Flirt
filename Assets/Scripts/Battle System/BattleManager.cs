@@ -328,7 +328,7 @@ public class BattleManager : MonoBehaviour
             else textMan.battleTextString = "You won the battle! You gained experience!";
             foreach (Combatant p in party)
             {
-                p.experience += (int)((float)20 / (float)party.Length);
+                p.experience += (int)((float)30 / (float)party.Length);
                 p.getLevel();
             }
             gameMan.monstersKilled++;

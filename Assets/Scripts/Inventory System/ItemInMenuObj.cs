@@ -23,6 +23,8 @@ public class ItemInMenuObj : MonoBehaviour
 
     public Color normalColor, highlightColor;
 
+    public Image iconimg;
+
     public int index;
 
     private void OnEnable()

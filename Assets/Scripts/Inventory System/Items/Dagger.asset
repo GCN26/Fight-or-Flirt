@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deafed9f13a9bf244b535f86e857bb0b, type: 3}
-  m_Name: Rock
+  m_Name: Dagger
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Rock
-  icon: {fileID: 21300000, guid: 98972b9a0f50f4242ae59d464eb3195c, type: 3}
+  itemName: Dagger
+  icon: {fileID: 21300000, guid: 06ee6d2052bdd184ebde9cf8d74b4d2e, type: 3}
   model: {fileID: 0}
   myType: 2
-  description: 
-  attack: 2
+  description: A test weapon.
+  attack: 5
   defense: 0
   speed: 0
   charisma: 0
-  moveIndex: 16
+  moveIndex: 15
   objName: 
   scriptName: 
   funcName: 

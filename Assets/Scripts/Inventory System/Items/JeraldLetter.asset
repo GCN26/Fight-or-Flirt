@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JeraldLetter
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Letter
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: afb7ab6ea38564c40b1187e0fe2e43f5, type: 3}
   model: {fileID: 0}
   myType: 4
   description: 

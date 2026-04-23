@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     public ShopManager shopMan;
 
     public int selectedPartyMember;
+    public Sprite fallbackIcon;
 
     private void Start()
     {
@@ -33,6 +34,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             itemsInMenu[i].myType = (ItemInMenuObj.itemType)items[i].itemType.myType;
+
+            itemsInMenu[i].icon = items[i].itemType.icon;
+            if (itemsInMenu[i].icon != null) itemsInMenu[i].iconimg.sprite = itemsInMenu[i].icon;
+            else itemsInMenu[i].iconimg.sprite = fallbackIcon;
             if (itemsInMenu[i].myType == ItemInMenuObj.itemType.item)
             {
                 itemsInMenu[i].equipButton.onClick.RemoveAllListeners();

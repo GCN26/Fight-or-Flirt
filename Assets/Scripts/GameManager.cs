@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
                 power = 1; speed = 3; charisma = 4; defense = 2;
                 break;
             case 2: //Rogue
-                power = 2; speed = 12; charisma = 1; defense = 1;
+                power = 1; speed = 12; charisma = 1; defense = 1;
                 break;
             case 3: //Mage
                 power = 4; speed = 3; charisma = 2; defense = 1;

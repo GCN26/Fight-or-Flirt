@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StarterWeapon
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Broken
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 98972b9a0f50f4242ae59d464eb3195c, type: 3}
   model: {fileID: 0}
   myType: 2
   description: A test weapon.

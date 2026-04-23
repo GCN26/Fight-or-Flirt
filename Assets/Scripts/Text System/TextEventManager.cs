@@ -58,7 +58,7 @@ public class TextEventManager : MonoBehaviour
     public SpecialEventManager eventMan;
 
     public bool altBlip;
-
+    public RectTransform loc1, loc2;
     void Start()
     {
         //Get JSON data
@@ -152,7 +152,7 @@ public class TextEventManager : MonoBehaviour
             if(currentTextObject.speaker_name != "{N}")
             {
                 speakerNameBG.gameObject.SetActive(true);
-                speakerNameBG.position = new Vector2(2610, speakerNameBG.position.y);
+                speakerNameBG.position = loc2.position;
             }
             else if(speakerName.text == "" || speakerName.text == null || speakerName.text == " " || speakerName.text == string.Empty)
             {
@@ -161,7 +161,7 @@ public class TextEventManager : MonoBehaviour
             else
             {
                 speakerNameBG.gameObject.SetActive(true);
-                speakerNameBG.position = new Vector2(910, speakerNameBG.position.y);
+                speakerNameBG.position = loc1.position;
             }
 
             if (eventMan.knowJeraldName)
