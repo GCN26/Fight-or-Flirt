@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class GameManager : MonoBehaviour
 {
     public enum playerClass
@@ -53,6 +54,13 @@ public class GameManager : MonoBehaviour
 
     public bool knowsRockyName = false;
 
+    public string currentScene;
+    public GameObject[] triggerBoxes;
+    public bool[] triggerBoxesActiveStates;
+
+    public bool pauseMenuOpen;
+    public MainMenuClass menu;
+
     private void Start()
     {
         changePlayerName(SceneIndependentClass.charName);
@@ -64,7 +72,21 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-
+        audioSource.volume = SoundSliders.musicVol * SoundSliders.masterVol * .75f;
+    }
+    public void updateTriggerBoxes()
+    {
+        for (int i = 0; i < triggerBoxes.Length; i++)
+        {
+            triggerBoxesActiveStates[i] = triggerBoxes[i].activeSelf;
+        }
+    }
+    public void loadTriggerBoxes()
+    {
+        for (int i = 0; i < triggerBoxes.Length; i++)
+        {
+            triggerBoxes[i].SetActive(triggerBoxesActiveStates[i]);
+        }
     }
 
     public void changeClass(int index)
@@ -159,5 +181,21 @@ public class GameManager : MonoBehaviour
     public void learnRockyName()
     {
         knowsRockyName = true;
+    }
+
+    public void openPauseMenu()
+    {
+        if (!battleManager.battleOpen && !textEventManager.textOpen)
+        {
+            pauseMenuOpen = true;
+            menu.buttonsObj.SetActive(true);
+            menu.optionsPanel.SetActive(false);
+        }
+    }
+    public void closePauseMenu()
+    {
+        pauseMenuOpen = false;
+        menu.buttonsObj.SetActive(false);
+        menu.optionsPanel.SetActive(false);
     }
 }

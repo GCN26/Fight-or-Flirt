@@ -195,6 +195,23 @@ public class Combatant
         if (movePower == 0) damage = 0;
         if (currentStatus == status.Burned) damage = (int)((float)damage * .75f);
 
+        if (!party)
+        {
+            if (getBarkAttack(this) != -1)
+            {
+                BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkAttack(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkAttack(this)].Length - 1)]);
+            }
+        }
+        else
+        {
+            if (!target.isBoss && getBarkHit(target) != -1)
+            {
+                BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkHit(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkHit(target)].Length - 1)]);
+            }
+        }
+
         if (!target.isProtect)
         {
             if (isProtect) damage = -1;
@@ -308,12 +325,15 @@ public class Combatant
             response = "They seem really flustered!";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = true;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
+            if (getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length - 1)]);
+
         }
         else if (bonus == 0)
         {
             response = "They did not appreciate that.";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = false;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
+            if(getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length - 1)]);
         }
         
         if (rizz == 0)
@@ -341,6 +361,85 @@ public class Combatant
         else if (experience >= 350 && experience < 700) level = 4;
         else if(experience >= 700) level = 5;
     }
+
+    public int getBarkAttack(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 12;
+            case flirtType.Cheerful: return 18;
+            case flirtType.Serious: return 24;
+            case flirtType.Shy: return 30;
+            case flirtType.Flirty: return 36;
+            default: return -1;
+        }
+    }
+    public int getBarkHit(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 13;
+            case flirtType.Cheerful: return 19;
+            case flirtType.Serious: return 25;
+            case flirtType.Shy: return 31;
+            case flirtType.Flirty: return 37;
+            default: return -1;
+        }
+    }
+    public int getBarkFlirtEffective(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 14;
+            case flirtType.Cheerful: return 20;
+            case flirtType.Serious: return 26;
+            case flirtType.Shy: return 32;
+            case flirtType.Flirty: return 38;
+            default: return -1;
+        }
+    }
+    public int getBarkFlirtResist(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 15;
+            case flirtType.Cheerful: return 21;
+            case flirtType.Serious: return 27;
+            case flirtType.Shy: return 33;
+            case flirtType.Flirty: return 39;
+            default: return -1;
+        }
+    }
+    public int getBarkDeath(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 16;
+            case flirtType.Cheerful: return 22;
+            case flirtType.Serious: return 28;
+            case flirtType.Shy: return 34;
+            case flirtType.Flirty: return 40;
+            default: return -1;
+        }
+    }
+    public int getBarkKill(Combatant target)
+    {
+        switch (target.type)
+        {
+            case flirtType.none: return -1;
+            case flirtType.Rude: return 17;
+            case flirtType.Cheerful: return 23;
+            case flirtType.Serious: return 29;
+            case flirtType.Shy: return 35;
+            case flirtType.Flirty: return 41;
+            default: return -1;
+        }
+    }
 }
 
 public static class Attacks
@@ -364,7 +463,7 @@ public static class Attacks
         new Attack("Sedimentary Slam","",25,0), //14
         new Attack("Spin Attack","",12,0), //15
         new Attack("Bludgeon","",10,0), //16
-        new Attack("Slash","enemy variant of slash", 10,0), //17
+        new Attack("Slash","enemy variant of slash", 10,0), //17 - Enemy Attack
         new Attack("Shield Up","",-1,0,barkListIndexes: 1), //18
         new Attack("Distract","",-1,0,barkListIndexes: 4), //19
         new Attack("Evade","",-1,0,barkListIndexes: 7), //20
@@ -378,6 +477,9 @@ public static class Attacks
         new Attack("Earthquake","",25,0,"rockyFirstAttack"), //28 - Rocky Fight Copy
         new Attack("rockySecondHalfAttack","",0,0), //29 - Rocky Fiht Move - Exclusive to Rocky so he doesn't attack
         new Attack("Flee","",0,0,"flee", barkListIndexes: 0), //30
+        new Attack("Slam","", 10,0), //31 - Enemy Attack
+        new Attack("Bone Club","", 10,0), //32 - Enemy Attack
+        new Attack("an actual gun","", 15,0), //33 - Enemy Attack
     };
     public static Attack[] rizzList =
     {
@@ -496,20 +598,116 @@ public static class Attacks
         "Incinerate!",
         "Burn! Hahah! BURN!"
     };
+
+    public static string[] rudeBarkAttack =
+    {
+        "You're too weak.",
+        "You're asking for it!",
+        "Too much for you to take?"
+    };
+    public static string[] rudeBarkHit =
+    {
+        "Don't get cocky.",
+        "I barely felt that.",
+        "Are you even trying?"
+    };
+    public static string[] rudeBarkFlirtEffective =
+    {
+        "I mean, you're not wrong...",
+        "I guess, if you're saying that, you're not completely incompetent."
+    };
+    public static string[] rudeBarkFlirtResist =
+    {
+        "Does it look like I care?",
+        "Come on, really?"
+    };
+    public static string[] rudeBarkDeath =
+    {
+        "Out of anyone to kill me, it really had to be you?",
+        "You'll get what's coming to you..."
+    };
+    public static string[] rudeBarkKill =
+    {
+        "That's what you get for taking me on!",
+        "Did you really think it would end differently?"
+    };
+
+    public static string[] cheerfulBarkAttack = {
+        " "
+    };
+    public static string[] cheerfulBarkHit = {
+        " "
+    };
+    public static string[] cheerfulBarkFlirtEffective = { " "};
+    public static string[] cheerfulBarkFlirtResist = { " "};
+    public static string[] cheerfulBarkDeath = { " "};
+    public static string[] cheerfulBarkKill = { " "};
+
+    public static string[] seriousBarkAttack = { " "};
+    public static string[] seriousBarkHit = { " "};
+    public static string[] seriousBarkFlirtEffective = { " "};
+    public static string[] seriousBarkFlirtResist = { " "};
+    public static string[] seriousBarkDeath = { " "};
+    public static string[] seriousBarkKill = { " "};
+
+    public static string[] shyBarkAttack = { " "};
+    public static string[] shyBarkHit = { " "};
+    public static string[] shyBarkFlirtEffective = { " "};
+    public static string[] shyBarkFlirtResist = { " "};
+    public static string[] shyBarkDeath = { " "};
+    public static string[] shyBarkKill = { " "};
+
+    public static string[] flirtyBarkAttack = { " "};
+    public static string[] flirtyBarkHit = { " "};
+    public static string[] flirtyBarkFlirtEffective = { " "};
+    public static string[] flirtyBarkFlirtResist = { " "};
+    public static string[] flirtyBarkDeath = { " "};
+    public static string[] flirtyBarkKill = { " "};
+
     public static string[][] barkListList =
     {
-        warriorBarks0,
-        warriorBarks1,
-        warriorBarks2,
-        bardBarks0,
-        bardBarks1,
-        bardBarks2,
-        rogueBarks0,
-        rogueBarks1,
-        rogueBarks2,
-        mageBarks0,
-        mageBarks1,
-        mageBarks2
+        warriorBarks0, //0
+        warriorBarks1, //1
+        warriorBarks2, //2
+        bardBarks0, //3
+        bardBarks1, //4
+        bardBarks2, //5
+        rogueBarks0, //6
+        rogueBarks1, //7
+        rogueBarks2, //8
+        mageBarks0, //9
+        mageBarks1, //10
+        mageBarks2, //11
+        rudeBarkAttack, //12
+        rudeBarkHit, //13
+        rudeBarkFlirtEffective, //14
+        rudeBarkFlirtResist, //15
+        rudeBarkDeath, //16
+        rudeBarkKill, //17
+        cheerfulBarkAttack, //18
+        cheerfulBarkHit, //19
+        cheerfulBarkFlirtEffective, //20
+        cheerfulBarkFlirtResist, //21
+        cheerfulBarkDeath, //22
+        cheerfulBarkKill, //23
+        seriousBarkAttack, //24
+        seriousBarkHit, //25
+        seriousBarkFlirtEffective, //26
+        seriousBarkFlirtResist, //27
+        seriousBarkDeath, //28
+        seriousBarkKill, //29
+        shyBarkAttack, //30
+        shyBarkHit, //31
+        shyBarkFlirtEffective, //32
+        shyBarkFlirtResist, //33
+        shyBarkDeath, //34
+        shyBarkKill, //35
+        flirtyBarkAttack, //36
+        flirtyBarkHit, //37
+        flirtyBarkFlirtEffective, //38
+        flirtyBarkFlirtResist, //39
+        flirtyBarkDeath, //40
+        flirtyBarkKill, //41
     };
 }
 
@@ -749,20 +947,20 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 17, spriteIndex: 13),
-        new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 17, spriteIndex: 13),
+        new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 31, spriteIndex: 13),
+        new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 31, spriteIndex: 13),
         new Combatant("Rock Golem", 75, 20,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
         new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
-        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 17, spriteIndex: 11),
-        new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 17, spriteIndex: 12),
-        new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 17, spriteIndex: 19),
-        new Combatant("Skeleton", 20, 100,1, 1, 1, 1, 1, 1, 17, spriteIndex: 20),
+        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
+        new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 31, spriteIndex: 12),
+        new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 31, spriteIndex: 19),
+        new Combatant("Skeleton", 20, 100,1, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
         new Combatant("Swordeton", 21, 100,1, 2, 1, 1, 1, 1, 17, spriteIndex: 21),
-        new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 17, spriteIndex: 22),
+        new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 32, spriteIndex: 22),
         new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),
-        new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 17, spriteIndex: 24),
-        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 17, spriteIndex: 11),
-        new Combatant("Skeleton", 50, 100,1, 1, 1, 1, 1, 1, 17, spriteIndex: 20),
+        new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 33, spriteIndex: 24),
+        new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
+        new Combatant("Skeleton", 50, 100,1, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
         new Combatant("Willow", 30, 100, 2, 1, 1, 1, 1, 1, 22, spriteIndex: 26),
     };
     public static Combatant[] bossRecruitedTable =

@@ -16,14 +16,14 @@ public class RandomEncounter : MonoBehaviour
             {
                 battleManager.enemyTableIndex = indexes[UnityEngine.Random.Range(0, indexes.Length-1)];
                 battleManager.startBattle();
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
             }
             else
             {
                 battleManager.enemyTableIndex = 1;
                 battleManager.startBattle();
                 battleManager.startBattleBoss("Rocky");
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
             }
         }
     }

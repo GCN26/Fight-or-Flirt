@@ -11,7 +11,7 @@ public class TextTriggerObj : MonoBehaviour
         if (other.gameObject.GetComponent<CharacterMovementScript>() != null)
         {
             textMan.callText(index);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

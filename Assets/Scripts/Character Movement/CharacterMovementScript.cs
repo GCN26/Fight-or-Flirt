@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CharacterMovementScript : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class CharacterMovementScript : MonoBehaviour
 
     void Update()
     {
-
+        AudioSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
         if (gameManager.pcClass == GameManager.playerClass.Warrior)
         {
             animator.runtimeAnimatorController = wController;
@@ -56,7 +57,7 @@ public class CharacterMovementScript : MonoBehaviour
             animator.runtimeAnimatorController = rController;
         }
 
-        if (textAllowMove && battleAllowMove && specialAllowMove)
+        if (textAllowMove && battleAllowMove && specialAllowMove && !gameManager.pauseMenuOpen)
         {
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.z = Input.GetAxisRaw("Vertical");

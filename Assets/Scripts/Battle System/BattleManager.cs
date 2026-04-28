@@ -96,6 +96,8 @@ public class BattleManager : MonoBehaviour
     }
     void Update()
     {
+        musicSource.volume = SoundSliders.musicVol * SoundSliders.masterVol * .75f;
+        sfxSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
         textMan.charMove.battleAllowMove = !battleOpen;
     }
 
@@ -242,6 +244,11 @@ public class BattleManager : MonoBehaviour
         disableHealthBars();
         enableHealthBars();
         updateHealthBars();
+
+        foreach(Reactions react in enemyFlirtReacts)
+        {
+            react.gameObject.SetActive(false);
+        }
 
         if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.needToHPCheck && checkRockyHP())
         {
