@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Tome
   icon: {fileID: 21300000, guid: 53e96954514eeb74dac804a78bbf1f0c, type: 3}
   model: {fileID: 0}
+  id: 7
   myType: 2
   description: A test weapon.
   attack: 5

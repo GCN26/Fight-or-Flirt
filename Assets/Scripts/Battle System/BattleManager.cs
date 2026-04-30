@@ -82,6 +82,8 @@ public class BattleManager : MonoBehaviour
     public SpecialEventManager specialEventManager;
     public Reactions[] enemyFlirtReacts;
     public PartyMenuTest partyMenu;
+
+    public ItemInstance[] items;
     void Start()
     {
         //party[0].armor = itemTables.armorTable[2];

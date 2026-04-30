@@ -35,6 +35,7 @@ public class ShopManager : MonoBehaviour
             itemObj.shopMan = this;
             itemObj.nameTMP.text = item.name;
             itemObj.costTMP.text = item.cost.ToString();
+            itemObj.transform.localScale = Vector3.one;
 
             itemObj.buyButton.onClick.AddListener(() => buyItem(a));
             itemObj.transform.SetParent(panel.transform);

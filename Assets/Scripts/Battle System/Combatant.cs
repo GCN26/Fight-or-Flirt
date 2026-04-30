@@ -171,6 +171,7 @@ public class Combatant
 
     public int attackEnemy()
     {
+        BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
         specialString = "";
         selectedAttack = attackList[attackListIndex];
 
@@ -189,7 +190,7 @@ public class Combatant
 
         float crit = 1;
         int random = UnityEngine.Random.Range(0, 16);
-        if (random == 0) crit = 1.5f;
+        if (random == 0 && !battleMan.specialEventManager.willowFight) crit = 1.5f;
         int damage = (int)((movePower * attack) * crit / (target.defense))/2;
         damage = (int)((float)damage * ((float)infatuation / (float)maxInfatuation));
         if (movePower == 0) damage = 0;
@@ -197,18 +198,24 @@ public class Combatant
 
         if (!party)
         {
-            if (!target.isBoss && getBarkAttack(this) != -1)
+            if (target.hp-damage<= 0 && !isBoss && getBarkKill(this) != -1)
             {
-                BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
-                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkAttack(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkAttack(this)].Length - 1)]);
+                battleMan.barkBubbleEnemy[partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkKill(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkKill(this)].Length)]);
+            }
+            else if (!isBoss && getBarkAttack(this) != -1)
+            {
+                battleMan.barkBubbleEnemy[partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkAttack(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkAttack(this)].Length)]);
             }
         }
         else
         {
-            if (!target.isBoss && getBarkHit(target) != -1)
+            if (target.hp - damage <= 0 && !target.isBoss && getBarkDeath(target) != -1)
             {
-                BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
-                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkHit(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkHit(target)].Length - 1)]);
+                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkDeath(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkDeath(target)].Length)]);
+            }
+            else if (!target.isBoss && getBarkHit(target) != -1)
+            {
+                battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkHit(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkHit(target)].Length)]);
             }
         }
 
@@ -305,7 +312,7 @@ public class Combatant
 
         Debug.Log(target.type);
 
-        int rizz = (int)((float)(movePower * charisma * bonus)/(float)target.perception);
+        int rizz = (int)((float)(movePower * charisma * bonus*2)/(float)target.perception);
         if (movePower == 0) rizz = 0;
 
         target.infatuation -= rizz;
@@ -325,7 +332,7 @@ public class Combatant
             response = "They seem really flustered!";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = true;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if (!target.isBoss && getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length - 1)]);
+            if (!target.isBoss && getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length)]);
 
         }
         else if (bonus == 0)
@@ -333,7 +340,7 @@ public class Combatant
             response = "They did not appreciate that.";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = false;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if(!target.isBoss && getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length - 1)]);
+            if(!target.isBoss && getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length)]);
         }
         
         if (rizz == 0)
@@ -463,23 +470,23 @@ public static class Attacks
         new Attack("Sedimentary Slam","",25,0), //14
         new Attack("Spin Attack","",12,0), //15
         new Attack("Bludgeon","",10,0), //16
-        new Attack("Slash","enemy variant of slash", 10,0), //17 - Enemy Attack
+        new Attack("Slash","enemy variant of slash", 25,0), //17 - Enemy Attack
         new Attack("Shield Up","",-1,0,barkListIndexes: 1), //18
         new Attack("Distract","",-1,0,barkListIndexes: 4), //19
         new Attack("Evade","",-1,0,barkListIndexes: 7), //20
         new Attack("Protection","",-1,0,barkListIndexes: 10), //21
         new Attack("Bite","willow attack", 0,0, "willowBite"), //22
         new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0,"willowAttacked"), //23 - Willow Fight Copy
-        new Attack("Cast","",10,0,"willowAttacked"), //24 - Willow Fight Copy
-        new Attack("Smack","",15,0,"willowAttacked"), //25 - Willow Fight Copy
-        new Attack("Stab","",15,0,"willowAttacked"), //26 - Willow Fight Copy
+        new Attack("Cast","",6,0,"willowAttacked"), //24 - Willow Fight Copy
+        new Attack("Smack","",12,0,"willowAttacked"), //25 - Willow Fight Copy
+        new Attack("Stab","",12,0,"willowAttacked"), //26 - Willow Fight Copy
         new Attack("Slam","",15,0,"rockyFirstAttack"), //27 - Rocky Fight Copy
         new Attack("Earthquake","",25,0,"rockyFirstAttack"), //28 - Rocky Fight Copy
         new Attack("rockySecondHalfAttack","",0,0), //29 - Rocky Fiht Move - Exclusive to Rocky so he doesn't attack
         new Attack("Flee","",0,0,"flee", barkListIndexes: 0), //30
-        new Attack("Slam","", 10,0), //31 - Enemy Attack
-        new Attack("Bone Club","", 10,0), //32 - Enemy Attack
-        new Attack("an actual gun","", 15,0), //33 - Enemy Attack
+        new Attack("Slam","", 30,0), //31 - Enemy Attack
+        new Attack("Bone Club","", 35,0), //32 - Enemy Attack
+        new Attack("an actual gun","", 40,0), //33 - Enemy Attack
         new Attack("Punch","",5,0), //34
     };
     public static Attack[] rizzList =
@@ -957,15 +964,15 @@ public static class enemyList
         new Combatant("Rock Golem", 75, 20,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
         new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
-        new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 31, spriteIndex: 12),
+        new Combatant("Slime", 35, 100,2, 1, 2, 1, 1, 1, 31, spriteIndex: 12),
         new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 31, spriteIndex: 19),
-        new Combatant("Skeleton", 20, 100,5, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
-        new Combatant("Swordeton", 21, 100,1, 2, 1, 1, 1, 1, 17, spriteIndex: 21),
+        new Combatant("Skeleton", 20, 100,5, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
+        new Combatant("Swordeton", 21, 100,1, 3, 1, 1, 1, 1, 17, spriteIndex: 21),
         new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 32, spriteIndex: 22),
         new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),
         new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 33, spriteIndex: 24),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
-        new Combatant("Skeleton", 50, 100,1, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
+        new Combatant("Skeleton", 50, 100,1, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
         new Combatant("Willow", 30, 100, 2, 1, 1, 1, 1, 1, 22, spriteIndex: 26),
     };
     public static Combatant[] bossRecruitedTable =

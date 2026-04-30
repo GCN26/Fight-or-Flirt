@@ -6,6 +6,7 @@ public class ItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public GameObject model;
+    public int id;
     public enum itemType
     {
         none,

@@ -79,6 +79,7 @@ public class TextEventManager : MonoBehaviour
 
     void Update()
     {
+       audioSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
         //Set allowMove to the opposite of textOpen
         charMove.textAllowMove = !textOpen;
         if (Input.GetKeyDown(KeyCode.T) && !textOpen)

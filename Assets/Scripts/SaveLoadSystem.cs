@@ -36,8 +36,16 @@ public class SaveLoadSystem : MonoBehaviour
         gameManager.updateTriggerBoxes();
 
         objectSave.party = battleManager.party;
+        for (int i = 0; i < battleManager.party.Length; i++) {
+            objectSave.partyArmors[i] = battleManager.party[i].armor.itemType.id;
+            objectSave.partyWeapons[i] = battleManager.party[i].weapon.itemType.id;
+        }
 
-        objectSave.inventoryItems = inventoryManager.items.ToArray();
+        for(int i = 0; i < inventoryManager.items.Count; i++)
+        {
+            if (inventoryManager.items[i].itemType != null) objectSave.inventoryItemID[i] = inventoryManager.items[i].itemType.id;
+            else objectSave.inventoryItemID[i] = -1;
+        }
 
         objectSave.playerClassInt = (int)gameManager.pcClass;
         objectSave.money = gameManager.money;
@@ -68,6 +76,10 @@ public class SaveLoadSystem : MonoBehaviour
     }
     public void loadGame()
     {
+        StartCoroutine(loadenum());
+    }
+    IEnumerator loadenum()
+    {
         string loadString;
         string path = Path.Combine(Application.persistentDataPath, "save.dat");
         using (StreamReader saveFile = new StreamReader(path))
@@ -77,8 +89,19 @@ public class SaveLoadSystem : MonoBehaviour
         }
         JsonUtility.FromJsonOverwrite(loadString, objectLoad);
         battleManager.party = objectLoad.party;
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < battleManager.party.Length; i++)
+        {
+            battleManager.party[i].weapon = battleManager.items[objectLoad.partyWeapons[i]];
+            battleManager.party[i].armor = battleManager.items[objectLoad.partyArmors[i]];
+            battleManager.party[i].battleSprite = battleManager.spriteTable[battleManager.party[i].battleSpriteIndex];
+        }
 
-        inventoryManager.items = objectLoad.inventoryItems.ToList();
+        for (int i = 0; i < inventoryManager.items.Count; i++)
+        {
+            if (objectLoad.inventoryItemID[i] != -1) inventoryManager.items[i] = battleManager.items[objectLoad.inventoryItemID[i]];
+        }
+
 
         gameManager.pcClass = (GameManager.playerClass)objectLoad.playerClassInt;
         gameManager.money = objectLoad.money;
@@ -102,6 +125,7 @@ public class SaveLoadSystem : MonoBehaviour
 
         textEventManager.characterName = objectLoad.playerName;
 
+        yield break;
     }
 }
 [Serializable]
@@ -109,9 +133,11 @@ public class saveData
 {
     //Battle Manager
     public Combatant[] party;
+    public int[] partyArmors = new int[4];
+    public int[] partyWeapons = new int[4];
 
     //Inventory Manager
-    public ItemInstance[] inventoryItems;
+    public int[] inventoryItemID = new int[16];
 
     //Game Manager
     public int playerClassInt;

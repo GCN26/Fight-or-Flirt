@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Knight Armor
   icon: {fileID: 0}
   model: {fileID: 0}
+  id: 1
   myType: 1
   description: 
   attack: 0

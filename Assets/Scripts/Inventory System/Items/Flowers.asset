@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Flowers
   icon: {fileID: 21300000, guid: ad12d8f5a14fc3347a3768a850cda689, type: 3}
   model: {fileID: 0}
+  id: 8
   myType: 0
   description: 
   attack: 0
