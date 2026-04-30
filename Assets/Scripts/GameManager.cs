@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using Unity.VectorGraphics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,9 +22,6 @@ public class GameManager : MonoBehaviour
     public playerClass classB = playerClass.Bard;
     public playerClass classR = playerClass.Rogue;
     public playerClass classM = playerClass.Mage;
-
-    public Image playerCharImg;
-    public Sprite[] playerCharImgs = new Sprite[4];
 
     public int rockyRP = 0;
     public int b2RP,b3RP,b4RP,b5RP;
@@ -61,6 +60,40 @@ public class GameManager : MonoBehaviour
     public bool pauseMenuOpen;
     public MainMenuClass menu;
 
+
+    public Sprite[] wrenWSprites, wrenBSprites, wrenRSprites, wrenMSprites, rockySprites;
+    //All
+    //0 - Happy
+    //1 - Sad
+    //2 - Flustered/Blushy
+    //Warrior
+    //3 - Suprised
+    //4 - Confused
+    //5 - Serious
+    //Bard
+    //3 - Suprised
+    //4 - Confused
+    //5 - Flirty
+    //Rogue
+    //3 - Suprised
+    //4 - Shy
+    //5 - Serious
+    //Mage
+    //3 - Annoyed
+    //4 - Distain
+    //5 - Smug
+    //Rocky
+    //3 - Angry
+    //4 - Shining
+    //5 - Shy
+    public Image wrenImage, rockyImage;
+    public RectTransform wrenLocHidden, wrenLocShown, rockyLocHidden, rockyLocShown;
+    float timerWren,timerRocky;
+    bool wrenTimerLock = true;
+    bool rockyTimerLock = true;
+    bool wrenTimerDir, rockyTimerDir;
+    //True = Show, False = Hide;
+
     private void Start()
     {
         changePlayerName(SceneIndependentClass.charName);
@@ -72,6 +105,42 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (!wrenTimerLock)
+        {
+            if (wrenTimerDir && timerWren < 1) timerWren += Time.deltaTime*2;
+            else if (!wrenTimerDir && timerWren > 0) timerWren -= Time.deltaTime*2;
+
+            if (timerWren > 1)
+            {
+                timerWren = 1;
+                wrenTimerLock = true;
+            }
+            if (timerWren < 0)
+            {
+                timerWren = 0;
+                wrenTimerLock = true;
+            }
+            wrenImage.rectTransform.position = Vector3.Lerp(wrenLocHidden.position, wrenLocShown.position, timerWren);
+
+        }
+        if (!rockyTimerLock)
+        {
+            if (rockyTimerDir && timerRocky < 1) timerRocky += Time.deltaTime * 2;
+            else if (!rockyTimerDir && timerRocky > 0) timerRocky -= Time.deltaTime * 2;
+
+            if (timerRocky > 1)
+            {
+                timerRocky = 1;
+                rockyTimerLock = true;
+            }
+            if (timerRocky < 0)
+            {
+                timerRocky = 0;
+                rockyTimerLock = true;
+            }
+            rockyImage.rectTransform.position = Vector3.Lerp(rockyLocHidden.position, rockyLocShown.position, timerRocky);
+
+        }
         audioSource.volume = SoundSliders.musicVol * SoundSliders.masterVol * .75f;
     }
     public void updateTriggerBoxes()
@@ -120,8 +189,6 @@ public class GameManager : MonoBehaviour
         battleManager.party[0].baseCharisma = charisma;
         battleManager.party[0].speed = speed;
         battleManager.party[0].baseSpeed = speed;
-
-        playerCharImg.sprite = playerCharImgs[index];
     }
 
     public void addPoints(int index)
@@ -197,5 +264,40 @@ public class GameManager : MonoBehaviour
         pauseMenuOpen = false;
         menu.buttonsObj.SetActive(false);
         menu.optionsPanel.SetActive(false);
+    }
+
+    public void changeWrenExpression(int index)
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[index];break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[index]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[index]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[index]; break;
+        }
+    }
+    public void changeRockyExpression(int index)
+    {
+        rockyImage.sprite = rockySprites[index];
+    }
+    public void showWrenImage()
+    {
+        wrenTimerLock = false;
+        wrenTimerDir = true;
+    }
+    public void hideWrenImage()
+    {
+        wrenTimerLock = false;
+        wrenTimerDir = false;
+    }
+    public void showRockyImage()
+    {
+        rockyTimerLock = false;
+        rockyTimerDir = true;
+    }
+    public void hideRockyImage()
+    {
+        rockyTimerLock = false;
+        rockyTimerDir = false;
     }
 }
