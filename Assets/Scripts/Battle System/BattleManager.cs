@@ -833,6 +833,13 @@ public class BattleManager : MonoBehaviour
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
         }
+        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApology)
+        {
+            comb.rizzAttackListIndexes[0] = 10;
+            comb.rizzAttackListIndexes[1] = 11;
+            comb.rizzAttackListIndexes[2] = 12;
+            comb.rizzAttackListIndexes[3] = 13;
+        }
         else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.needToHPCheck)
         {
             comb.rizzAttackListIndexes[0] = 8;
@@ -846,13 +853,6 @@ public class BattleManager : MonoBehaviour
             comb.rizzAttackListIndexes[1] = -1;
             comb.rizzAttackListIndexes[2] = -1;
             comb.rizzAttackListIndexes[3] = -1;
-        }
-        else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApology)
-        {
-            comb.rizzAttackListIndexes[0] = 10;
-            comb.rizzAttackListIndexes[1] = 11;
-            comb.rizzAttackListIndexes[2] = 12;
-            comb.rizzAttackListIndexes[3] = 13;
         }
         else if (specialEventManager.rockyFight && specialEventManager.rockyState == SpecialEventManager.rockyBattleState.postApologyNoFlirt)
         {

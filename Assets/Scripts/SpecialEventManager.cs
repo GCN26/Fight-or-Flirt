@@ -240,6 +240,10 @@ public class SpecialEventManager : MonoBehaviour
     public void apology()
     {
         rockyState = rockyBattleState.postApology;
+        battleManager.party[0].attackList.Clear();
+        battleManager.party[0].rizzAttackList.Clear();
+        battleManager.getPartyAttackIndexes(battleManager.party[0]);
+        battleManager.party[0].getAttacksInList();
     }
     public void hideRockyModel()
     {

@@ -197,7 +197,7 @@ public class Combatant
 
         if (!party)
         {
-            if (getBarkAttack(this) != -1)
+            if (!target.isBoss && getBarkAttack(this) != -1)
             {
                 BattleManager battleMan = GameObject.Find("BattleManager").GetComponent<BattleManager>();
                 battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkAttack(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkAttack(this)].Length - 1)]);
@@ -325,7 +325,7 @@ public class Combatant
             response = "They seem really flustered!";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = true;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if (getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length - 1)]);
+            if (!target.isBoss && getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length - 1)]);
 
         }
         else if (bonus == 0)
@@ -333,7 +333,7 @@ public class Combatant
             response = "They did not appreciate that.";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = false;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if(getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length - 1)]);
+            if(!target.isBoss && getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length - 1)]);
         }
         
         if (rizz == 0)
@@ -480,6 +480,7 @@ public static class Attacks
         new Attack("Slam","", 10,0), //31 - Enemy Attack
         new Attack("Bone Club","", 10,0), //32 - Enemy Attack
         new Attack("an actual gun","", 15,0), //33 - Enemy Attack
+        new Attack("Punch","",5,0), //34
     };
     public static Attack[] rizzList =
     {
@@ -633,36 +634,40 @@ public static class Attacks
     };
 
     public static string[] cheerfulBarkAttack = {
-        " "
+        "Take this!",
+        "Let me show you how it's done!",
+        "I got you now!"
     };
     public static string[] cheerfulBarkHit = {
-        " "
+        "That won't stop me!",
+        "Ouch!",
+        "Don't stop giving it your all!"
     };
-    public static string[] cheerfulBarkFlirtEffective = { " "};
-    public static string[] cheerfulBarkFlirtResist = { " "};
-    public static string[] cheerfulBarkDeath = { " "};
-    public static string[] cheerfulBarkKill = { " "};
+    public static string[] cheerfulBarkFlirtEffective = { "I could say the same!","You're fun, I like you!"};
+    public static string[] cheerfulBarkFlirtResist = { "Why are you taking this so seriously?","Stop thinking so much."};
+    public static string[] cheerfulBarkDeath = { "Is this really... the end?","At least it was fun while it lasted..."};
+    public static string[] cheerfulBarkKill = { "Aww, dead already?","That was fun! I wish there were more humans around to kill..."};
 
-    public static string[] seriousBarkAttack = { " "};
-    public static string[] seriousBarkHit = { " "};
-    public static string[] seriousBarkFlirtEffective = { " "};
-    public static string[] seriousBarkFlirtResist = { " "};
-    public static string[] seriousBarkDeath = { " "};
-    public static string[] seriousBarkKill = { " "};
+    public static string[] seriousBarkAttack = { "I'll make this quick.","Let's not draw this out.","Die, human."};
+    public static string[] seriousBarkHit = { "Ugh.","That was strong.","At least you're taking this seriously."};
+    public static string[] seriousBarkFlirtEffective = { "I suppose that makes sense.","I guess I can hear you out."};
+    public static string[] seriousBarkFlirtResist = { "I don't have time for this.","Are you looking down on me?"};
+    public static string[] seriousBarkDeath = { "This is too soon...","I wasn't ready yet..."};
+    public static string[] seriousBarkKill = { "At least that didn't take too long.","This outcome was inevitable."};
 
-    public static string[] shyBarkAttack = { " "};
-    public static string[] shyBarkHit = { " "};
-    public static string[] shyBarkFlirtEffective = { " "};
-    public static string[] shyBarkFlirtResist = { " "};
-    public static string[] shyBarkDeath = { " "};
-    public static string[] shyBarkKill = { " "};
+    public static string[] shyBarkAttack = { "I've got this.","Please don't scream.","I just want to get this over with."};
+    public static string[] shyBarkHit = { "Ouch, ouch, ouch.","I can take this... yeah, I can,","I've gotta keep it together."};
+    public static string[] shyBarkFlirtEffective = { "You... really care?","That means a lot to me."};
+    public static string[] shyBarkFlirtResist = { "I know you don't mean that.","I don't wanna hear it..."};
+    public static string[] shyBarkDeath = { "I don't... want to die...","I didn't stand a chance, did I?"};
+    public static string[] shyBarkKill = { "Phew, that's finally over.","I don't want to deal with that again any time soon."};
 
-    public static string[] flirtyBarkAttack = { " "};
-    public static string[] flirtyBarkHit = { " "};
-    public static string[] flirtyBarkFlirtEffective = { " "};
-    public static string[] flirtyBarkFlirtResist = { " "};
-    public static string[] flirtyBarkDeath = { " "};
-    public static string[] flirtyBarkKill = { " "};
+    public static string[] flirtyBarkAttack = { "This is my power!","Don't take this personally~","Too hard?"};
+    public static string[] flirtyBarkHit = { "Oh, I really felt that!","Nghhhh.","Come on, harder next time!"};
+    public static string[] flirtyBarkFlirtEffective = { "Oh my, tell me more?","I could say the same about you~"};
+    public static string[] flirtyBarkFlirtResist = { "Come on, that's so boring...","You need to loosen up."};
+    public static string[] flirtyBarkDeath = { "At least it was by your hands~","This isn't how I wanted to go."};
+    public static string[] flirtyBarkKill = { "You look good in death.","The stronger one always comes out on top~"};
 
     public static string[][] barkListList =
     {
@@ -954,7 +959,7 @@ public static class enemyList
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
         new Combatant("Slime", 35, 100,2, 1, 1, 1, 1, 1, 31, spriteIndex: 12),
         new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 31, spriteIndex: 19),
-        new Combatant("Skeleton", 20, 100,1, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
+        new Combatant("Skeleton", 20, 100,5, 1, 1, 1, 1, 1, 31, spriteIndex: 20),
         new Combatant("Swordeton", 21, 100,1, 2, 1, 1, 1, 1, 17, spriteIndex: 21),
         new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 32, spriteIndex: 22),
         new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),

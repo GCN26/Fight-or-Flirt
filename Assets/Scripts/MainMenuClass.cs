@@ -38,9 +38,7 @@ public class MainMenuClass : MonoBehaviour
     public void openNamePanel()
     {
         namePanel.SetActive(true);
-        newGameButton.gameObject.SetActive(false);
-        loadGameButton.gameObject.SetActive(false);
-        optionsButton.gameObject.SetActive(false);
+        buttonsObj.gameObject.SetActive(false);
     }
 
     public void openClassPanel()

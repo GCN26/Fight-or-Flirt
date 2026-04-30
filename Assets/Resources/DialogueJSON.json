@@ -3507,6 +3507,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "apology",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3534,12 +3542,6 @@
           "obj_name": "GameManager",
           "script_name": "SpecialEventManager",
           "func_name": "replaceRockyMoves",
-          "args": []
-        },
-        {
-          "obj_name": "GameManager",
-          "script_name": "SpecialEventManager",
-          "func_name": "apology",
           "args": []
         }
       ],
