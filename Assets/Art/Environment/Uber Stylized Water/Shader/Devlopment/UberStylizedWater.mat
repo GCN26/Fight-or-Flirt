@@ -26,7 +26,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ENABLENORMAL
-  - _ENABLEPLANERREFLECTION
   m_InvalidKeywords:
   - _ENABLEUNDERWATERLAYER
   - _SURFACE_TYPE_TRANSPARENT
@@ -118,13 +117,13 @@ Material:
     - _Caustics_Strength: 0.71
     - _ConformToGeometry: 1
     - _Cull: 2
-    - _DistanceMask_Fade: 17.05
+    - _DistanceMask_Fade: 16.07
     - _DistanceMask_Start: 5
     - _DstBlend: 10
     - _ENABLECAUSTICS: 0
     - _ENABLEINTERSECTION: 0
     - _ENABLENORMAL: 1
-    - _ENABLEPLANERREFLECTION: 1
+    - _ENABLEPLANERREFLECTION: 0
     - _ENABLEREFRACTION: 0
     - _ENABLESHORELINE: 0
     - _ENABLESURFACEFOAM: 0
@@ -132,7 +131,7 @@ Material:
     - _ENABLE_UNDERWATERLAYER: 0
     - _Enable_Intersection: 1
     - _Enable_SurfaceFoam: 1
-    - _InterSec_Dissolve: 2.46
+    - _InterSec_Dissolve: 5.58
     - _InterSec_Edge_Dissolve: 1
     - _InterSec_Edge_Fade: 0.694
     - _InterSec_Foam_Distortion: 1.29
@@ -140,7 +139,7 @@ Material:
     - _InterSec_Foam_Scale: 0.8
     - _InterSec_Foam_Smooth: 0.754
     - _InterSec_GradientDissolve: 1
-    - _InterSec_Width: 0.93
+    - _InterSec_Width: 0.95
     - _Invert_SurfFoam: 0
     - _Normal_DistanceStrength: 0.72
     - _Normal_Pan: 0.83
@@ -176,23 +175,23 @@ Material:
     - _SL_WaveDirection: 1
     - _ShoreFade: 1
     - _ShoreFade_Smoothness: 0.103
-    - _Specular_Hardness: 1
+    - _Specular_Hardness: 0.218
     - _Specular_Size: 0.733
     - _Specular_Spread: 0
     - _Specular_Strength: 6.62
     - _SrcBlend: 5
     - _SurfFoam_AlphaBlend: 1
-    - _SurfFoam_Edge: 0.581
-    - _SurfFoam_EdgeSmooth: 0.286
-    - _SurfFoam_Scale: 1.55
+    - _SurfFoam_Edge: 0.271
+    - _SurfFoam_EdgeSmooth: 0.871
+    - _SurfFoam_Scale: 0.15
     - _Surface: 1
     - _SurfaceDistortion_Scale: 1.95
-    - _SurfaceDistortion_Strength: 0.3
+    - _SurfaceDistortion_Strength: 0.37
     - _UnderWater_Depth: -4
     - _UnderWater_ScaleModifier: 0
     - _UnderWater_Start: 5
     - _Underwater_Fade: 15
-    - _Water_Depth: 0.92
+    - _Water_Depth: 0.95
     - _WorldSpaceDepth: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -200,17 +199,17 @@ Material:
     m_Colors:
     - _1st_Wave_Direction: {r: 1, g: 0, b: 1, a: 0}
     - _2nd_Wave_Direction: {r: 0, g: 0, b: 1, a: 0}
-    - _Color_Deep: {r: 0.017221425, g: 0.13172686, b: 0.4056604, a: 1}
-    - _Color_Shallow: {r: 0.111739054, g: 0.4362399, b: 0.764151, a: 1}
-    - _InterSec_Color: {r: 0.4999555, g: 0.8065871, b: 0.990566, a: 1}
+    - _Color_Deep: {r: 0, g: 0.04905659, b: 0.0042058825, a: 1}
+    - _Color_Shallow: {r: 0.029338943, g: 0.06415099, b: 0.02602351, a: 1}
+    - _InterSec_Color: {r: 0.22246827, g: 0.3509434, b: 0.21917406, a: 1}
     - _InterSec_Foam_Pan: {r: 0, g: 4.04, b: 0, a: 0}
     - _InterSec_Foam_Tile: {r: 1.01, g: -6.68, b: 0, a: 0}
-    - _SL_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _SL_Color: {r: 0.028891657, g: 0.2603773, b: 0.01719469, a: 1}
     - _SL_MaskPan: {r: 0.01, g: 0, b: 0, a: 0}
     - _SL_MaskTile: {r: 1, g: 1, b: 0, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0.5019608}
-    - _Specular_Color: {r: 0.0007314641, g: 0.0007314641, b: 0.0007314641, a: 1}
-    - _SurfFoam_Color: {r: 0.36862746, g: 0.6901961, b: 0.8862746, a: 0.2901961}
+    - _Specular_Color: {r: 0.00008182505, g: 0.00034931637, b: 0, a: 1}
+    - _SurfFoam_Color: {r: 0.14384475, g: 0.335849, b: 0.16177964, a: 0.2901961}
     - _SurfFoam_Pan: {r: 0, g: 0, b: 0, a: 0}
     - _SurfFoam_Tile: {r: 1, g: 1, b: 0, a: 0}
     - _SurfaceDistortion_Pan: {r: 2, g: 2, b: 0, a: 0}

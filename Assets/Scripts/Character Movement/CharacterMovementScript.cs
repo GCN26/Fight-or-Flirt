@@ -36,10 +36,8 @@ public class CharacterMovementScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-
-    void Update()
+    private void OnEnable()
     {
-        AudioSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
         if (gameManager.pcClass == GameManager.playerClass.Warrior)
         {
             animator.runtimeAnimatorController = wController;
@@ -56,6 +54,12 @@ public class CharacterMovementScript : MonoBehaviour
         {
             animator.runtimeAnimatorController = rController;
         }
+    }
+
+    void Update()
+    {
+        AudioSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
+        
 
         if (textAllowMove && battleAllowMove && specialAllowMove && !gameManager.pauseMenuOpen)
         {
@@ -96,6 +100,8 @@ public class CharacterMovementScript : MonoBehaviour
             moving = false;
         }
         moveInput.Normalize();
+        animator.SetFloat("MoveX", moveInput.x);
+        animator.SetFloat("MoveZ", moveInput.z);
         if (moving && !AudioSource.isPlaying) AudioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
     }
 
