@@ -38,28 +38,29 @@ public class CharacterMovementScript : MonoBehaviour
 
     private void OnEnable()
     {
-        if (gameManager.pcClass == GameManager.playerClass.Warrior)
-        {
-            animator.runtimeAnimatorController = wController;
-        }
-        if (gameManager.pcClass == GameManager.playerClass.Mage)
-        {
-            animator.runtimeAnimatorController = mController;
-        }
-        if (gameManager.pcClass == GameManager.playerClass.Bard)
-        {
-            animator.runtimeAnimatorController = bController;
-        }
-        if (gameManager.pcClass == GameManager.playerClass.Rogue)
-        {
-            animator.runtimeAnimatorController = rController;
-        }
+        
     }
 
     void Update()
     {
         AudioSource.volume = SoundSliders.sfxVol * SoundSliders.masterVol * .75f;
-        
+
+        if (gameManager.pcClass == GameManager.playerClass.Warrior)
+        {
+            animator.runtimeAnimatorController = wController;
+        }
+        else if (gameManager.pcClass == GameManager.playerClass.Mage)
+        {
+            animator.runtimeAnimatorController = mController;
+        }
+        else if (gameManager.pcClass == GameManager.playerClass.Bard)
+        {
+            animator.runtimeAnimatorController = bController;
+        }
+        else if (gameManager.pcClass == GameManager.playerClass.Rogue)
+        {
+            animator.runtimeAnimatorController = rController;
+        }
 
         if (textAllowMove && battleAllowMove && specialAllowMove && !gameManager.pauseMenuOpen)
         {

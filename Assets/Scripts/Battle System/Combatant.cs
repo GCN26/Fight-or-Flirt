@@ -961,7 +961,7 @@ public static class enemyList
     {
         new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 31, spriteIndex: 13),
         new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 31, spriteIndex: 13),
-        new Combatant("Rock Golem", 75, 20,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
+        new Combatant("Rock Golem", 75, 20,2, 4, 1, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
         new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
         new Combatant("Slime", 35, 100,2, 1, 2, 1, 1, 1, 31, spriteIndex: 12),
