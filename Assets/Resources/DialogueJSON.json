@@ -3156,7 +3156,7 @@
           "args": [ 5 ]
         }
       ],
-        "conditional": { "obj_to_check_a": "" }
+      "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 211,
@@ -3196,7 +3196,7 @@
           "args": [ 3 ]
         }
       ],
-        "conditional":{ "obj_to_check_a": "" }
+      "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 213,
@@ -3218,6 +3218,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3325,6 +3333,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionD",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3336,6 +3358,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 3 ]
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3347,6 +3383,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideWrenImage",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3432,6 +3482,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionE",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3443,6 +3507,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionE",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3454,6 +3532,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionE",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3465,6 +3557,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionE",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3476,6 +3582,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 4 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3487,6 +3607,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3498,6 +3626,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 5 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3594,6 +3730,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3605,6 +3749,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 5 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3616,6 +3768,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3627,6 +3787,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 5 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3638,6 +3806,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3668,13 +3844,21 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 249,
       "dialogue": "Wait!",
       "speaker_name": "{N}",
-      "next_id": 103,
+      "next_id": 304,
       "choices": {
         "strings": [],
         "ids": []
@@ -3685,6 +3869,12 @@
           "script_name": "SpecialEventManager",
           "func_name": "replaceRockyMoves",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -3720,6 +3910,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 2 ]
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3731,6 +3935,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 0 ]
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3742,6 +3960,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionA",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3753,6 +3979,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 5 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3764,6 +3998,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 4 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3775,6 +4017,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3792,6 +4042,12 @@
           "script_name": "GameManager",
           "func_name": "learnRockyName",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -3805,6 +4061,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 0 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3816,6 +4080,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 0 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3827,6 +4099,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3838,6 +4118,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3849,6 +4137,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3860,6 +4156,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionB",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3871,6 +4175,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3882,6 +4194,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3893,6 +4213,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeWrenExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3910,6 +4238,12 @@
           "script_name": "SpecialEventManager",
           "func_name": "hideRocky",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 4 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -3923,17 +4257,33 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 2 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
       "id": 270,
       "dialogue": "What? I mean, yes! Yes, please do.",
       "speaker_name": "{N}",
-      "next_id": -1,
+      "next_id": 303,
       "choices": {
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionC",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -3959,7 +4309,7 @@
       "id": 272,
       "dialogue": "I don't want to... die yet...",
       "speaker_name": "{N}",
-      "next_id": 103,
+      "next_id": 304,
       "choices": {
         "strings": [],
         "ids": []
@@ -3970,6 +4320,18 @@
           "script_name": "SpecialEventManager",
           "func_name": "hideRocky",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -4026,6 +4388,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4037,6 +4413,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionH",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4054,6 +4444,12 @@
           "script_name": "GameManager",
           "func_name": "learnRockyName",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 5 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -4067,6 +4463,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionI",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4084,6 +4488,12 @@
           "script_name": "SpecialEventManager",
           "func_name": "hideRocky",
           "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [ 1 ]
         }
       ],
       "conditional": { "obj_to_check_a": "" }
@@ -4097,6 +4507,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionF",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4119,6 +4543,20 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "showRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changeRockyExpression",
+          "args": [1]
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4130,6 +4568,14 @@
         "strings": [],
         "ids": []
       },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "changePCExpressionG",
+          "args": []
+        }
+      ],
       "conditional": { "obj_to_check_a": "" }
     },
     {
@@ -4169,7 +4615,7 @@
       "id": 288,
       "dialogue": "Save your apologies for someone who cares. You're a monster and this is a dungeon. If I want to survive, I'll do what I must.",
       "speaker_name": "{N}",
-      "next_id": 103,
+      "next_id": 304,
       "choices": {
         "strings": [],
         "ids": []
@@ -4188,7 +4634,7 @@
       "id": 289,
       "dialogue": "<i>It doesn't matter what this golem says. He is a monster, and this is a dungeon. I need to kill it.</i>",
       "speaker_name": "{N}",
-      "next_id": 103,
+      "next_id": 304,
       "choices": {
         "strings": [],
         "ids": []
@@ -4209,6 +4655,18 @@
           "obj_name": "GameManager",
           "script_name": "SpecialEventManager",
           "func_name": "setRockyInfatToZero",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideWrenImage",
           "args": []
         }
       ],
@@ -4447,24 +4905,68 @@
         }
       ],
       "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 303,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideWrenImage",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
+    },
+    {
+      "id": 304,
+      "dialogue": null,
+      "speaker_name": "",
+      "next_id": -1,
+      "choices": {
+        "strings": [],
+        "ids": []
+      },
+      "functions": [
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideRockyImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "GameManager",
+          "func_name": "hideWrenImage",
+          "args": []
+        },
+        {
+          "obj_name": "GameManager",
+          "script_name": "SpecialEventManager",
+          "func_name": "endBattleText",
+          "args": []
+        },
+        {
+          "obj_name": "TextEventManager",
+          "script_name": "TextEventManager",
+          "func_name": "advanceText",
+          "args": []
+        }
+      ],
+      "conditional": { "obj_to_check_a": "" }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ]
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VectorGraphics;
@@ -299,5 +300,96 @@ public class GameManager : MonoBehaviour
     {
         rockyTimerLock = false;
         rockyTimerDir = false;
+    }
+    //These functions are here because I ran out of time. If I had the time, theyd be properly implemented into the text system.
+    public void changePCExpressionA()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[4]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[4]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[0]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[5]; break;
+        }
+    }
+    public void changePCExpressionB()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[0]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[5]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[2]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[5]; break;
+        }
+    }
+    public void changePCExpressionC()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[3]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[3]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[3]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[5]; break;
+        }
+    }
+    public void changePCExpressionD()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[5]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[0]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[2]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[3]; break;
+        }
+    }
+    public void changePCExpressionE()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[1]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[5]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[4]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[1]; break;
+        }
+    }
+    public void changePCExpressionF()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[5]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[0]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[5]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[5]; break;
+        }
+    }
+    public void changePCExpressionG()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[4]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[4]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[5]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[4]; break;
+        }
+    }
+    public void changePCExpressionH()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[3]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[3]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[3]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[4]; break;
+        }
+    }
+    public void changePCExpressionI()
+    {
+        switch (pcClass)
+        {
+            case playerClass.Warrior: wrenImage.sprite = wrenWSprites[4]; break;
+            case playerClass.Bard: wrenImage.sprite = wrenBSprites[4]; break;
+            case playerClass.Rogue: wrenImage.sprite = wrenRSprites[0]; break;
+            case playerClass.Mage: wrenImage.sprite = wrenMSprites[0]; break;
+        }
     }
 }
