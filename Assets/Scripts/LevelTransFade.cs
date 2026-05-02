@@ -11,6 +11,7 @@ public class LevelTransFade : MonoBehaviour
     public float timer;
     public bool loadAfter;
     public SaveLoadSystem save;
+    public bool goToEndOfDemo;
 
     private void Start()
     {
@@ -36,6 +37,11 @@ public class LevelTransFade : MonoBehaviour
 
             if (timer> 1)
             {
+                if (goToEndOfDemo)
+                {
+                    SceneManager.LoadScene("EndOfDemo");
+                    goToEndOfDemo = false;
+                }
                 if (loadAfter)
                 {
                     SceneManager.LoadScene("Level2");

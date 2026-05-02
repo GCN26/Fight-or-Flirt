@@ -15909,6 +15909,7 @@ MonoBehaviour:
   timer: 0
   loadAfter: 0
   save: {fileID: 1572419216}
+  goToEndOfDemo: 0
 --- !u!114 &363923651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24780,7 +24781,7 @@ GameObject:
   - component: {fileID: 522749335}
   - component: {fileID: 522749334}
   - component: {fileID: 522749333}
-  - component: {fileID: 522749332}
+  - component: {fileID: 522749337}
   m_Layer: 0
   m_Name: TextCube (1)
   m_TagString: Untagged
@@ -24788,20 +24789,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &522749332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522749331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368c9a271c1ede5478712a67b7d4228e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TextTriggerObj
-  textMan: {fileID: 0}
-  index: 37
 --- !u!65 &522749333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24889,12 +24876,26 @@ Transform:
   m_GameObject: {fileID: 522749331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -488.30002, y: 8.009999, z: 416.99}
-  m_LocalScale: {x: 1, y: 1, z: 16.993}
+  m_LocalPosition: {x: -331.1, y: -1.75, z: 1817.3}
+  m_LocalScale: {x: 81.6448, y: 1, z: 16.993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522749337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522749331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10aaeb95f9e213a4b904c91ca69e5149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndOfDemoTrigger
+  gameManager: {fileID: 1806507663}
+  fade: {fileID: 363923650}
 --- !u!1 &524798885
 GameObject:
   m_ObjectHideFlags: 0
@@ -84458,7 +84459,7 @@ MonoBehaviour:
   monstersKilled: 0
   reputation: 0
   audioSource: {fileID: 1806507660}
-  overworldMusic: {fileID: 8300000, guid: 27a9e52e7962ed44da5c1c5185104077, type: 3}
+  overworldMusic: {fileID: 8300000, guid: 12076a5ed0f384144ad5f5076f3fcda3, type: 3}
   flirtButtonLabelSaysFlirt: 0
   flirtButtonLabel: {fileID: 292554595}
   knowsRockyName: 0

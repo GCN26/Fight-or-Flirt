@@ -86,6 +86,10 @@ public class SaveLoadSystem : MonoBehaviour
             saveFile.Close();
         }
         JsonUtility.FromJsonOverwrite(loadString, objectLoad);
+        Debug.Log(objectLoad.playerClassInt);
+        Debug.Log((GameManager.playerClass)objectLoad.playerClassInt);
+        SceneIndependentClass.classInt = objectLoad.playerClassInt;
+        gameManager.pcClass = (GameManager.playerClass)objectLoad.playerClassInt;
         battleManager.party = objectLoad.party;
         for (int i = 0; i < battleManager.party.Length; i++)
         {
@@ -99,7 +103,6 @@ public class SaveLoadSystem : MonoBehaviour
         }
 
 
-        gameManager.pcClass = (GameManager.playerClass)objectLoad.playerClassInt;
         gameManager.money = objectLoad.money;
         gameManager.reputation = objectLoad.reputation;
         gameManager.monstersKilled = objectLoad.monstersKilled;

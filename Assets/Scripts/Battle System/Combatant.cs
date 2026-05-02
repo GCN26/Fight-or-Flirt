@@ -198,22 +198,22 @@ public class Combatant
 
         if (!party)
         {
-            if (target.hp-damage<= 0 && !isBoss && getBarkKill(this) != -1)
+            if (target.hp-damage<= 0 && !isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkKill(this) != -1)
             {
                 battleMan.barkBubbleEnemy[partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkKill(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkKill(this)].Length)]);
             }
-            else if (!isBoss && getBarkAttack(this) != -1)
+            else if (!isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkAttack(this) != -1)
             {
                 battleMan.barkBubbleEnemy[partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkAttack(this)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkAttack(this)].Length)]);
             }
         }
         else
         {
-            if (target.hp - damage <= 0 && !target.isBoss && getBarkDeath(target) != -1)
+            if (target.hp - damage <= 0 && !target.isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkDeath(target) != -1)
             {
                 battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkDeath(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkDeath(target)].Length)]);
             }
-            else if (!target.isBoss && getBarkHit(target) != -1)
+            else if (!target.isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkHit(target) != -1)
             {
                 battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkHit(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkHit(target)].Length)]);
             }
@@ -332,7 +332,7 @@ public class Combatant
             response = "They seem really flustered!";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = true;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if (!target.isBoss && getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length)]);
+            if (!target.isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkFlirtEffective(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtEffective(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtEffective(target)].Length)]);
 
         }
         else if (bonus == 0)
@@ -340,7 +340,7 @@ public class Combatant
             response = "They did not appreciate that.";
             battleMan.enemyFlirtReacts[target.partyIndex].ifGoodTrue = false;
             battleMan.enemyFlirtReacts[target.partyIndex].gameObject.SetActive(true);
-            if(!target.isBoss && getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length)]);
+            if(!target.isBoss && !battleMan.specialEventManager.willowFight && !battleMan.specialEventManager.mrRatFight && getBarkFlirtResist(target) != -1) battleMan.barkBubbleEnemy[target.partyIndex].setStringAndAppearForABit(Attacks.barkListList[getBarkFlirtResist(target)][UnityEngine.Random.Range(0, Attacks.barkListList[getBarkFlirtResist(target)].Length)]);
         }
         
         if (rizz == 0)
@@ -959,20 +959,20 @@ public static class enemyList
 {
     public static Combatant[] enemyTable =
     {
-        new Combatant("Rock Golem 1", 45, 100,2, 1, 2, 2, 2, 1, 31, spriteIndex: 13),
-        new Combatant("Rock Golem 2", 40, 100,4, 1, 1, 2, 2, 1, 31, spriteIndex: 13),
-        new Combatant("Rock Golem", 75, 20,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
+        new Combatant("Rock Golem 1", 45, 70,2, 1, 2, 2, 2, 1, 31, spriteIndex: 13),
+        new Combatant("Rock Golem 2", 40, 70,4, 1, 1, 2, 2, 1, 31, spriteIndex: 13),
+        new Combatant("Rock Golem", 75, 50,2, 4, 2, 2, 2, 1, 27,28, spriteIndex: 4,isBoss: true),
         new Combatant("QR", 75, 100,5, 1, 1, 2, 2, 1, 17, spriteIndex: 6),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
         new Combatant("Slime", 35, 100,2, 1, 2, 1, 1, 1, 31, spriteIndex: 12),
         new Combatant("Mr. Rat", 60, 120,3, 2, 1, 1, 1, 1, 31, spriteIndex: 19),
-        new Combatant("Skeleton", 20, 100,5, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
-        new Combatant("Swordeton", 21, 100,1, 3, 1, 1, 1, 1, 17, spriteIndex: 21),
+        new Combatant("Skeleton", 20, 30,5, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
+        new Combatant("Swordeton", 21, 50,1, 3, 1, 1, 1, 1, 17, spriteIndex: 21),
         new Combatant("Skeleton", 20, 120,4, 1, 1, 1, 1, 1, 32, spriteIndex: 22),
         new Combatant("Spider", 45, 120,3, 1, 1, 1, 1, 1, 17, spriteIndex: 23),
         new Combatant("Ugly Mushroom", 75, 100,1, 3, 1, 3, 1, 1, 33, spriteIndex: 24),
         new Combatant("Big Slime", 50, 100,5, 2, 2, 2, 2, 1, 31, spriteIndex: 11),
-        new Combatant("Skeleton", 50, 100,1, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
+        new Combatant("Skeleton", 50, 70,1, 2, 1, 1, 1, 1, 31, spriteIndex: 20),
         new Combatant("Willow", 30, 100, 2, 1, 1, 1, 1, 1, 22, spriteIndex: 26),
     };
     public static Combatant[] bossRecruitedTable =
