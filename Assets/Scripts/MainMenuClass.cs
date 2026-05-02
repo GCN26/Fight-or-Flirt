@@ -30,17 +30,9 @@ public class MainMenuClass : MonoBehaviour
 
     public void selectClass(int inputInt)
     {
-        string loadString;
-        string path = Path.Combine(Application.persistentDataPath, "save.dat");
-        using (StreamReader saveFile = new StreamReader(path))
-        {
-            loadString = saveFile.ReadToEnd();
-            saveFile.Close();
-        }
-        JsonUtility.FromJsonOverwrite(loadString, objectLoad);
         SceneIndependentClass.charName = input.text;
         SceneIndependentClass.classInt = inputInt;
-        SceneManager.LoadScene(objectLoad.currentScene);
+        SceneManager.LoadScene("Level1");
     }
 
     public void openNamePanel()

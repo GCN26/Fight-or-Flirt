@@ -6,6 +6,10 @@ public class PartyMenuTest : MonoBehaviour
     public PartyListObj[] childArray;
     public BattleManager battleManager;
 
+    private void OnEnable()
+    {
+        updateOrder();
+    }
     public void updateOrder()
     {
         for (int i = 0; i < childArray.Length; i++)

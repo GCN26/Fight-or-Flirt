@@ -78,10 +78,6 @@ public class SaveLoadSystem : MonoBehaviour
     }
     public void loadGame()
     {
-        StartCoroutine(loadenum());
-    }
-    IEnumerator loadenum()
-    {
         string loadString;
         string path = Path.Combine(Application.persistentDataPath, "save.dat");
         using (StreamReader saveFile = new StreamReader(path))
@@ -91,12 +87,10 @@ public class SaveLoadSystem : MonoBehaviour
         }
         JsonUtility.FromJsonOverwrite(loadString, objectLoad);
         battleManager.party = objectLoad.party;
-        yield return new WaitForEndOfFrame();
         for (int i = 0; i < battleManager.party.Length; i++)
         {
             battleManager.party[i].weapon = battleManager.items[objectLoad.partyWeapons[i]];
             battleManager.party[i].armor = battleManager.items[objectLoad.partyArmors[i]];
-            battleManager.party[i].battleSprite = battleManager.spriteTable[battleManager.party[i].battleSpriteIndex];
         }
 
         for (int i = 0; i < inventoryManager.items.Count; i++)
@@ -126,8 +120,6 @@ public class SaveLoadSystem : MonoBehaviour
         specManager.isWillowDead = objectLoad.isWillowDead;
 
         textEventManager.characterName = objectLoad.playerName;
-
-        yield break;
     }
 }
 [Serializable]

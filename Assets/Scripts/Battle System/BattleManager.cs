@@ -144,6 +144,19 @@ public class BattleManager : MonoBehaviour
                 getPartyAttackIndexes(partyMember);
                 partyMember.getAttacksInList();
                 partyMember.partyIndex = pL;
+
+                if(partyMember.characterType == Combatant.bossTypeChar.none)
+                {
+                    switch (gameMan.pcClass)
+                    {
+                        default: partyMember.battleSpriteIndex = 0; break;
+                        case GameManager.playerClass.Warrior: partyMember.battleSpriteIndex = 0; break;
+                        case GameManager.playerClass.Bard: partyMember.battleSpriteIndex = 1; break;
+                        case GameManager.playerClass.Rogue: partyMember.battleSpriteIndex = 2; break;
+                        case GameManager.playerClass.Mage: partyMember.battleSpriteIndex = 3; break;
+                    }
+                }
+
                 partyMember.battleSprite = spriteTable[partyMember.battleSpriteIndex];
 
                 partyMember.hp = partyMember.maxHp;
@@ -153,7 +166,7 @@ public class BattleManager : MonoBehaviour
                 BattleSpritesParty[pL].SetNativeSize();
 
                 battleList.Add(partyMember);
-                if(gameMan.pcClass == GameManager.playerClass.Rogue && specialEventManager.willowFight == false && specialEventManager.mrRatFight == false) battleList.Add(partyMember);
+                if(gameMan.pcClass == GameManager.playerClass.Rogue && specialEventManager.willowFight == false && specialEventManager.mrRatFight == false && partyMember.characterType == Combatant.bossTypeChar.none) battleList.Add(partyMember);
                 pL++;
             }
             int eL = 0;
