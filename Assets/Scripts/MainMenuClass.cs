@@ -10,7 +10,7 @@ public class MainMenuClass : MonoBehaviour
     public GameObject namePanel, classPanel, optionsPanel, buttonsObj,creditsPanel;
     public Button newGameButton, loadGameButton, optionsButton, quitButton;
     public Slider masterS, musicS, sfxS;
-
+    saveData objectLoad;
     private void OnEnable()
     {
         SoundSliders.loadVolPrefs();
@@ -30,9 +30,17 @@ public class MainMenuClass : MonoBehaviour
 
     public void selectClass(int inputInt)
     {
+        string loadString;
+        string path = Path.Combine(Application.persistentDataPath, "save.dat");
+        using (StreamReader saveFile = new StreamReader(path))
+        {
+            loadString = saveFile.ReadToEnd();
+            saveFile.Close();
+        }
+        JsonUtility.FromJsonOverwrite(loadString, objectLoad);
         SceneIndependentClass.charName = input.text;
         SceneIndependentClass.classInt = inputInt;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(objectLoad.currentScene);
     }
 
     public void openNamePanel()

@@ -459,7 +459,7 @@ public static class Attacks
         new Attack("Cast","",10,0,barkListIndexes:9), //3
         new Attack("Fireball","",15,0,"SecondEffectTest",barkListIndexes:11), //4
         new Attack("Arcane Art","",35,0), //5
-        new Attack("Smack","",5,0, barkListIndexes: 3), //6
+        new Attack("Smack","",12,0, barkListIndexes: 3), //6
         new Attack("Electric Lyre","",25,0), //7
         new Attack("Chord Strike","",10,0, barkListIndexes: 5), //8
         new Attack("Stab","",15,0,barkListIndexes:6), //9
