@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 20045518}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1010,7 +1010,7 @@ Transform:
   m_GameObject: {fileID: 20045516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -339.6, y: -0.58, z: 1372.6}
+  m_LocalPosition: {x: -231.1, y: -0.58, z: 1376.3}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2022,6 +2022,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -2785,6 +2789,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -4193,6 +4201,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5961,6 +5973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6208,6 +6224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 494.51523
@@ -6286,6 +6306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -6828,6 +6852,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -7989,6 +8017,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -8690,6 +8722,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11680,6 +11716,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11950,7 +11990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.65
+      value: 7.2599993
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12323,6 +12363,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 632.25665
@@ -14268,6 +14312,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -14346,6 +14394,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 460.34357
@@ -16109,6 +16161,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -17346,6 +17402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 534.20856
@@ -18014,6 +18074,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -18226,6 +18290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -21799,6 +21867,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -23249,6 +23321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24097,6 +24173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -24983,6 +25063,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -27405,6 +27489,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -27698,6 +27786,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -29536,16 +29628,28 @@ PrefabInstance:
       value: Hanging Brazier (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.77905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.77905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.77905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -308.28
+      value: -308.29
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.39
+      value: 3.5016
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1818.54
+      value: 1834.6
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30241,6 +30345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -30634,6 +30742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -31002,6 +31114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -31187,6 +31303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -31736,6 +31856,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -33128,6 +33252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33969,6 +34097,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -35694,6 +35826,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -36065,6 +36201,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 529.0475
@@ -37349,6 +37489,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -37893,6 +38037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 527.0941
@@ -38361,6 +38509,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 586.60065
@@ -39024,6 +39176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 617.2631
@@ -40530,6 +40686,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40800,6 +40960,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 512.148
@@ -41527,7 +41691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.92
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41812,6 +41976,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -42235,6 +42403,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -43767,6 +43939,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -43845,6 +44021,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -45072,6 +45252,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -46359,6 +46543,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47190,6 +47378,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47414,6 +47606,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -53012,7 +53208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.29
+      value: 0.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54937,6 +55133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 445.78702
@@ -55015,6 +55215,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 566.27484
@@ -55115,7 +55319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.56
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55605,6 +55809,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 650.4623
@@ -56278,6 +56486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 476.62283
@@ -56489,6 +56701,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -57029,6 +57245,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -57642,6 +57862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -57943,6 +58167,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 646.0562
@@ -58277,6 +58505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -58476,6 +58708,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 528.0488
@@ -59463,6 +59699,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59692,6 +59932,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -59847,6 +60091,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -60698,6 +60946,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -62899,6 +63151,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64161,6 +64417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64627,6 +64887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 3631154126812676235, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3772582734192920934, guid: 7600e612f17e4954fad7ea4374178678, type: 3}
       propertyPath: m_Name
       value: Icosphere.006
@@ -65449,6 +65713,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65467,6 +65735,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 490.375
@@ -67408,6 +67680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 488.66388
@@ -67486,6 +67762,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -67728,6 +68008,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 563.0969
@@ -67816,7 +68100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.71
+      value: 5.3199997
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68670,6 +68954,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 600.18353
@@ -69991,6 +70279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -70507,6 +70799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -72158,6 +72454,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 520.39185
@@ -72907,6 +73207,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 582.82153
@@ -73985,6 +74289,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -74938,6 +75246,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 628.6087
@@ -75250,6 +75562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -75700,6 +76016,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196825934159121584, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -76263,6 +76583,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 614.8743
@@ -77923,6 +78247,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 548.55804
@@ -78581,6 +78909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -78659,6 +78991,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -80132,6 +80468,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5682699109565912028, guid: fd263602ed2ca5b4bbb1df9d1c291481, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80993,6 +81333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1065160722477998644, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1185323024414222626, guid: 4165e80c24f3fee488d36cd176666da5, type: 3}
       propertyPath: m_Name
       value: Plane.006
@@ -83032,6 +83376,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 284758007}
     m_Modifications:
+    - target: {fileID: 1141751036691394176, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635062689289459560, guid: 4e49e8054aa5e0946a25e3f67573ea84, type: 3}
       propertyPath: m_LocalScale.x
       value: 451.45032
@@ -83280,11 +83628,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -317.4
+      value: -312.1
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.2
+      value: 3.8099995
       objectReference: {fileID: 0}
     - target: {fileID: 8008259304359701041, guid: f98b05e524cfa2f408b7ef60a6502204, type: 3}
       propertyPath: m_LocalPosition.z
