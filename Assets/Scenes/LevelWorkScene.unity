@@ -797,7 +797,7 @@ Transform:
   m_GameObject: {fileID: 20045516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.5, y: -0.36600018, z: 1228}
+  m_LocalPosition: {x: 1, y: -0.36600018, z: 910.6}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3326,6 +3326,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &139567599
 MonoBehaviour:
@@ -6574,6 +6575,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &282942196
 MonoBehaviour:
@@ -14495,6 +14497,7 @@ MonoBehaviour:
   specialEventManager: {fileID: 1681241732}
   enemyFlirtReacts: []
   partyMenu: {fileID: 0}
+  items: []
 --- !u!4 &541077448
 Transform:
   m_ObjectHideFlags: 0
@@ -16464,6 +16467,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &587810948
 MonoBehaviour:
@@ -18278,6 +18282,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &676871754
 MonoBehaviour:
@@ -19217,6 +19222,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &711690545
 MonoBehaviour:
@@ -24248,6 +24254,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &962933956
 MonoBehaviour:
@@ -24649,6 +24656,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &983223200
 MonoBehaviour:
@@ -25211,6 +25219,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1024780431
 MonoBehaviour:
@@ -25948,6 +25957,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1046077043
 MonoBehaviour:
@@ -28773,6 +28783,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1176104447
 MonoBehaviour:
@@ -33652,6 +33663,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1369692755
 MonoBehaviour:
@@ -34777,6 +34789,8 @@ MonoBehaviour:
   gameMan: {fileID: 1681241735}
   eventMan: {fileID: 1681241732}
   altBlip: 0
+  loc1: {fileID: 0}
+  loc2: {fileID: 0}
 --- !u!4 &1406899002
 Transform:
   m_ObjectHideFlags: 0
@@ -36292,6 +36306,7 @@ MonoBehaviour:
   partyMenu: {fileID: 1180412775}
   shopMan: {fileID: 1480882397}
   selectedPartyMember: 0
+  fallbackIcon: {fileID: 0}
 --- !u!4 &1484338411
 Transform:
   m_ObjectHideFlags: 0
@@ -37649,6 +37664,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1552054966
 MonoBehaviour:
@@ -40467,12 +40483,6 @@ MonoBehaviour:
   classB: 1
   classR: 2
   classM: 3
-  playerCharImg: {fileID: 130007589}
-  playerCharImgs:
-  - {fileID: 21300000, guid: 35c61f60fcd5a2c47b828c56b70fe5cd, type: 3}
-  - {fileID: 21300000, guid: afa0b2064bde92c41b472dedb9a3235c, type: 3}
-  - {fileID: 21300000, guid: 44b7b38df90fa3e4aa8f5c97504aa3d4, type: 3}
-  - {fileID: 21300000, guid: cc692d07f6f9c4843b82fc873f64544d, type: 3}
   rockyRP: 0
   b2RP: 0
   b3RP: 0
@@ -40497,6 +40507,22 @@ MonoBehaviour:
   flirtButtonLabelSaysFlirt: 0
   flirtButtonLabel: {fileID: 0}
   knowsRockyName: 0
+  currentScene: 
+  triggerBoxes: []
+  triggerBoxesActiveStates: 
+  pauseMenuOpen: 0
+  menu: {fileID: 0}
+  wrenWSprites: []
+  wrenBSprites: []
+  wrenRSprites: []
+  wrenMSprites: []
+  rockySprites: []
+  wrenImage: {fileID: 0}
+  rockyImage: {fileID: 0}
+  wrenLocHidden: {fileID: 0}
+  wrenLocShown: {fileID: 0}
+  rockyLocHidden: {fileID: 0}
+  rockyLocShown: {fileID: 0}
 --- !u!4 &1681241736
 Transform:
   m_ObjectHideFlags: 0
@@ -42034,6 +42060,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1767302612
 MonoBehaviour:
@@ -44438,6 +44465,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1845990549
 MonoBehaviour:
@@ -45590,6 +45618,7 @@ MonoBehaviour:
   iconClicked: {fileID: 21300000, guid: 8096ab3c62fd2fc4b8c80781be56e2a9, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.4867925, g: 0.9526558, b: 1, a: 1}
+  iconimg: {fileID: 0}
   index: 0
 --- !u!114 &1921335792
 MonoBehaviour:
@@ -48555,7 +48584,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
