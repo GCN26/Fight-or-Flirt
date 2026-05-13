@@ -478,8 +478,8 @@ public static class Attacks
         new Attack("Bite","willow attack", 0,0, "willowBite"), //22
         new Attack("Slash","Using a weapon, the user slashes at the enemy.",10,0,"willowAttacked"), //23 - Willow Fight Copy
         new Attack("Cast","",6,0,"willowAttacked"), //24 - Willow Fight Copy
-        new Attack("Smack","",12,0,"willowAttacked"), //25 - Willow Fight Copy
-        new Attack("Stab","",12,0,"willowAttacked"), //26 - Willow Fight Copy
+        new Attack("Smack","",8,0,"willowAttacked"), //25 - Willow Fight Copy
+        new Attack("Stab","",8,0,"willowAttacked"), //26 - Willow Fight Copy
         new Attack("Slam","",15,0,"rockyFirstAttack"), //27 - Rocky Fight Copy
         new Attack("Earthquake","",25,0,"rockyFirstAttack"), //28 - Rocky Fight Copy
         new Attack("rockySecondHalfAttack","",0,0), //29 - Rocky Fiht Move - Exclusive to Rocky so he doesn't attack
